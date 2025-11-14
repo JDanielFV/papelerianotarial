@@ -23,7 +23,7 @@ export const MotionProductImage = styled(motion.div)`
 `;
 
 export const MotionProductName = styled(motion.h3)`
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: white;
 `;
 

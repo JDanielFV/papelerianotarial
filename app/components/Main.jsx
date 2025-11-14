@@ -1,8 +1,10 @@
 "use client";
 
 import styled from "styled-components";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
-const MainContainer = styled.main`
+const MainContainer = styled(motion.main)`
     position: relative;
     height: 100dvh;
     width: 100%;
@@ -27,8 +29,8 @@ const Overlay = styled.div`
     z-index: 0;
 `;
 
-const Logo = styled.img`
-    width: 200px;
+const Logo = styled(motion.img)`
+    width: 10rem;
     z-index: 1;
     margin-top: 4rem;
 `
@@ -38,11 +40,11 @@ const Icono = styled.img`
     margin-left: 5%;
 `
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
     font-size: 3rem;
     z-index: 1;
 `
-const SubTitle = styled.p`
+const SubTitle = styled(motion.p)`
     font-size: 1.5rem;
     z-index: 1;
     align-items: center;
@@ -59,16 +61,59 @@ const FondoVideo = styled.video`
     z-index: -1;
 `
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 function Main() {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, amount: 0.5 }); // Trigger once when 50% in view
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
-        <MainContainer>
+        <MainContainer
+            ref={ref}
+            variants={containerVariants}
+            initial="hidden"
+            animate={mounted && inView ? "visible" : "hidden"}
+        >
             <Overlay/>
             <FondoVideo autoPlay muted loop playsInline src={"/fondo.m4v"}/>
-            <Logo src={"/logo blanco.png"}/>
-            <Title>Somos A&G</Title>
-            <SubTitle>Más que <strong>carpetas</strong>, creamos confianza. Piezas diseñadas para proteger los actos que
-                definen vidas, patrimonios y legados.</SubTitle>
-            <SubTitle>Baja para conocer más <Icono src={"/abajo.svg"}/></SubTitle>
+            <Logo 
+                src={"/logo blanco.png"}
+                variants={itemVariants}
+            />
+            <Title
+                variants={itemVariants}
+            >
+                Somos A&G
+            </Title>
+            <SubTitle
+                variants={itemVariants}
+            >
+                Más que <strong>carpetas</strong>, creamos confianza. Piezas diseñadas para proteger los actos que
+                definen vidas, patrimonios y legados.
+            </SubTitle>
+            <SubTitle
+                variants={itemVariants}
+            >
+                Baja para conocer más <Icono src={"/abajo.svg"}/>
+            </SubTitle>
         </MainContainer>
     );
 }

@@ -2,8 +2,9 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
+import { useRouter } from 'next/navigation';
 import {
     MotionProductCard,
     MotionProductImage,
@@ -43,6 +44,42 @@ const MotionProductGrid = styled(motion.div)`
     max-width: 900px;
 
     z-index: 1;
+`;
+
+const SubTitle = styled(motion.p)`
+    font-size: 1.5rem;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    font-weight: lighter;
+    color: white;
+    margin-top: 2rem;
+`;
+
+const ContactButton = styled(motion.a)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+`;
+
+const WhatsappIcon = styled.img`
+    width: 24px;
+    height: 24px;
 `;
 
 // --- Styles for Expanded View ---
@@ -95,9 +132,32 @@ const ExpandedProductImage = styled(motion.div)`
     border-radius: 10px;
 `;
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 
 function Products() {
     const [selectedProductId, setSelectedProductId] = useState(null);
+    const router = useRouter();
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, amount: 0.5 }); // Trigger once when 50% in view
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const productData = [
         { id: 1, name: "Articulos de Papelería", description: "Elegancia y durabilidad en un diseño atemporal." },
@@ -107,10 +167,21 @@ function Products() {
     ];
 
     return (
-        <MotionProductsContainer>
-            <MotionTitle>Nuestros Productos</MotionTitle>
+        <MotionProductsContainer
+            ref={ref}
+            variants={containerVariants}
+            initial="hidden"
+            animate={mounted && inView ? "visible" : "hidden"}
+        >
+            <MotionTitle
+                variants={itemVariants}
+            >
+                Nuestros Productos
+            </MotionTitle>
             
-            <MotionProductGrid>
+            <MotionProductGrid
+                variants={itemVariants}
+            >
                 {productData.map(product => (
                     <MotionProductCard 
                         key={product.id} 
@@ -123,6 +194,20 @@ function Products() {
                     </MotionProductCard>
                 ))}
             </MotionProductGrid>
+
+            <SubTitle variants={itemVariants}>
+                ¿No encuentras lo que buscas? Contáctanos
+            </SubTitle>
+
+            <ContactButton
+                href="httpsa://wa.me/5215512345678"
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={itemVariants}
+            >
+                <WhatsappIcon src="/whatsapp.svg" alt="WhatsApp" />
+                <span>Chatea con nosotros</span>
+            </ContactButton>
 
             <AnimatePresence>
                 {selectedProductId && (
@@ -137,6 +222,7 @@ function Products() {
                             <MotionProductName layoutId={`name-${selectedProductId}`}>{productData.find(p => p.id === selectedProductId).name}</MotionProductName>
                             <MotionProductDescription layoutId={`description-${selectedProductId}`}>{productData.find(p => p.id === selectedProductId).description}</MotionProductDescription>
                             <VerMasButton
+                                onClick={() => router.push(`/productos/catalogo?categoryId=${selectedProductId}`)}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1, transition: { delay: 0.3 } }}
                                 exit={{ opacity: 0 }}
@@ -152,4 +238,3 @@ function Products() {
 }
 
 export default Products;
-

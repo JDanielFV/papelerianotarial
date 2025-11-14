@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { MotionProductCard, MotionProductImage, MotionProductName, MotionProductDescription } from "./ProductCard";
 
-const AboutContainer = styled.main`
+const AboutContainer = styled(motion.main)`
     position: relative;
     gap: 3rem;
     width: 100%;
@@ -21,7 +21,7 @@ const AboutContainer = styled.main`
     background-color: #0a0a0a;
 `;
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
     font-size: 2rem;
     z-index: 1;
     font-weight: lighter;
@@ -29,7 +29,7 @@ const Title = styled.h1`
     
 `;
 
-const SubTitle = styled.p`
+const SubTitle = styled(motion.p)`
     font-size: 1.5rem;
     z-index: 1;
     align-items: center;
@@ -94,8 +94,30 @@ const ExpandedProductImage = styled(motion.div)`
     border-radius: 10px;
 `;
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 function About() {
     const [selectedProductId, setSelectedProductId] = useState(null);
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, amount: 0.5 }); // Trigger once when 50% in view
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const aboutProductData = [
         { id: 5, name: "Hologramas", description: "Seguridad y distinción para sus documentos." },
@@ -105,10 +127,21 @@ function About() {
     ];
 
     return (
-        <AboutContainer>
-            <Title>Por que la <strong>primera impresion</strong> no solo se ve, <strong>se siente</strong></Title>
+        <AboutContainer
+            ref={ref}
+            variants={containerVariants}
+            initial="hidden"
+            animate={mounted && inView ? "visible" : "hidden"}
+        >
+            <Title
+                variants={itemVariants}
+            >
+                Por que la <strong>primera impresion</strong> no solo se ve, <strong>se siente</strong>
+            </Title>
             
-            <MotionProductGrid>
+            <MotionProductGrid
+                variants={itemVariants}
+            >
                 {aboutProductData.map(product => (
                     <MotionProductCard 
                         key={product.id} 
@@ -122,8 +155,12 @@ function About() {
                 ))}
             </MotionProductGrid>
 
-            <SubTitle>Cuidamos cada costura, cada grabado de su logotipo y cada pliegue para que cuando su cliente
-                sostenga sus documentos, <strong> sostenga también una prueba tangible de su profesionalismo.</strong></SubTitle>
+            <SubTitle
+                variants={itemVariants}
+            >
+                Cuidamos cada costura, cada grabado de su logotipo y cada pliegue para que cuando su cliente
+                sostenga sus documentos, <strong> sostenga también una prueba tangible de su profesionalismo.</strong>
+            </SubTitle>
 
             <AnimatePresence>
                 {selectedProductId && (

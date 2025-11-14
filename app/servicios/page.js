@@ -1,19 +1,7 @@
-"use client";
-import styled from "styled-components";
+import Services from "../components/Services";
 
-const PageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: white;
-  font-size: 3rem;
-`;
-
-export default function ServiciosPage() {
+export default function ServicesPage() {
   return (
-    <PageContainer>
-      <h1>Servicios</h1>
-    </PageContainer>
+    <Services />
   );
 }
