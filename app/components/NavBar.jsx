@@ -5,29 +5,6 @@ import styled, { keyframes, css } from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 
-// Keyframes for animations (not used by MenuLink anymore, but kept for now)
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-`;
-
 // Styled Components
 const MotionNavContainer = styled(motion.nav)`
     position: fixed;
@@ -56,7 +33,7 @@ const Logo = styled.img`
 
 const CenterText = styled.div`
     color: white;
-    font-family: Outfit, sans-serif;
+    font-family: Raleway, sans-serif;
 `;
 
 const MenuIcon = styled.div`
@@ -88,7 +65,7 @@ const CloseButton = styled.button`
     font-size: 4rem;
     cursor: pointer;
     z-index: 13;
-    font-family: Outfit, sans-serif;
+    font-family: Raleway, sans-serif;
 `;
 
 const MenuContainer = styled.div.withConfig({
@@ -120,7 +97,16 @@ const MenuLink = styled.a`
     font-size: 2.5rem;
     text-decoration: none;
     margin: 1rem 0;
-    font-family: Outfit, sans-serif;
+    font-family: Raleway, sans-serif;
+    transition: 0.1s;
+    
+    &:hover{
+        font-weight: bold;
+        color: #0a0a0a;
+        background-color: #ebebeb;
+        padding: .5rem;
+        border-radius: 10px;
+    }
 `;
 
 

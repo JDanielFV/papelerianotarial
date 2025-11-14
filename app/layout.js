@@ -1,20 +1,10 @@
-import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import StyledComponentsRegistry from "./lib/StyledComponentsRegistry";
 import PageTransition from "./components/PageTransition";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const outfit = Outfit({
+const raleway = Raleway({
   subsets: ["latin"],
   display: "swap",
 });
@@ -27,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={outfit.className}>
+      <body className={raleway.className}>
         <StyledComponentsRegistry>
           <NavBar />
           <PageTransition>{children}</PageTransition>

@@ -15,14 +15,14 @@ const CatalogContainer = styled.div`
     padding: 8rem 5% 5%;
     background-color: #0a0a0a;
     color: white;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Raleway', sans-serif;
 `;
 
 const BackButton = styled(motion.button)`
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 0.8rem 1.5rem
+    padding: 0.8rem 1.5rem;
     color: white;
     font-size: 1rem;
     cursor: pointer;
@@ -47,8 +47,8 @@ const CategoryTitle = styled.h1`
 `;
 
 const ProductGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 `;
 
@@ -130,7 +130,7 @@ const ExpandedCard = styled(motion.div)`
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,7 +141,7 @@ const ExpandedCard = styled(motion.div)`
 
 const ExpandedProductImage = styled.div`
     width: 100%;
-    height: 200px;
+    height: 70%;
     object-fit: cover;
     border-radius: 10px;
     background: #383838;
@@ -160,12 +160,11 @@ const MinQuantity = styled.p`
 `;
 
 const WhatsappButton = styled(motion.a)`
-    background-color: none;
     border: solid 1px ;
     color: white;
     border-radius: 50px;
     padding: 10px 25px;
-    font-family: Outfit, sans-serif;
+    font-family: Raleway, sans-serif;
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
@@ -237,17 +236,17 @@ function CatalogPage() {
                     >
                         <ExpandedCard layoutId={`card-${selectedProduct.id}`} onClick={(e) => e.stopPropagation()}>
                             <ExpandedProductImage src={selectedProduct.image}/>
-                            <ProductName>{selectedProduct.name}</ProductName>
                             <SubCategoryTitle style={{
                                 fontSize: '1.2rem', color: '#ccc', marginTop: 0, marginBottom: 0
                             }}>{selectedProduct.subCategoryName}</SubCategoryTitle>
-                            <CatchyDescription>"{selectedProduct.catchyDescription}"</CatchyDescription>
+                            <ProductName>{selectedProduct.name}</ProductName>
+                            <CatchyDescription>{selectedProduct.catchyDescription}</CatchyDescription>
                             <MinQuantity>Cantidad mínima de compra: {selectedProduct.minPurchaseQuantity}</MinQuantity>
                             <WhatsappButton
                                 href={`https://wa.me/5215512345678?text=${encodeURIComponent(selectedProduct.whatsappInquiry)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            >Preguntar por WhatsApp
+                            >Cotiza la tuya
                             </WhatsappButton>
                         </ExpandedCard>
                     </ExpandedViewContainer>

@@ -15,7 +15,7 @@ const MainContainer = styled(motion.main)`
     gap: 10%;
     padding: 15%;
     text-align: center;
-    font-family: Outfit,serif;
+    font-family: Raleway,serif;
     overflow: hidden;
     scroll-snap-align: start;`;
 

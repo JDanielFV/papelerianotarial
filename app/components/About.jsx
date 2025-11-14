@@ -15,7 +15,7 @@ const AboutContainer = styled(motion.main)`
     align-items: center;
     padding: 5%;
     text-align: center;
-    font-family: Outfit, serif;
+    font-family: Raleway, serif;
     overflow: hidden;
     scroll-snap-align: start;
     background-color: #0a0a0a;
@@ -80,7 +80,7 @@ const VerMasButton = styled(motion.button)`
     border: none;
     border-radius: 50px;
     padding: 10px 25px;
-    font-family: Outfit, sans-serif;
+    font-family: Raleway, sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;

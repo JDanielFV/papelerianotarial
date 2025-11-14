@@ -24,7 +24,7 @@ const MotionProductsContainer = styled(motion.section)`
     padding: 5%;
     margin-top: 12%;
     text-align: center;
-    font-family: Outfit, serif;
+    font-family: Raleway, serif;
     overflow-x: hidden;
     scroll-snap-align: start;
     background-color: #0a0a0a;
@@ -61,8 +61,7 @@ const ContactButton = styled(motion.a)`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
     padding: 1rem 2rem;
     color: white;
@@ -70,16 +69,22 @@ const ContactButton = styled(motion.a)`
     font-size: 1.2rem;
     margin-top: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
 
     &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: #ebebeb;
+        color: #0a0a0a;
     }
 `;
 
 const WhatsappIcon = styled.img`
     width: 24px;
     height: 24px;
+    filter: brightness(0) invert(1);
+    
+    &:hover {
+        filter: brightness(1) invert(0);
+    }
 `;
 
 // --- Styles for Expanded View ---
@@ -118,7 +123,7 @@ const VerMasButton = styled(motion.button)`
     border: none;
     border-radius: 50px;
     padding: 10px 25px;
-    font-family: Outfit, sans-serif;
+    font-family: Raleway, sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
@@ -171,8 +176,7 @@ function Products() {
             ref={ref}
             variants={containerVariants}
             initial="hidden"
-            animate={mounted && inView ? "visible" : "hidden"}
-        >
+            animate={mounted && inView ? "visible" : "hidden"}>
             <MotionTitle
                 variants={itemVariants}
             >

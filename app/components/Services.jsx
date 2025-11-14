@@ -24,7 +24,7 @@ const MotionServicesContainer = styled(motion.section)`
     padding: 5%;
     margin-top: 12%;
     text-align: center;
-    font-family: Outfit, serif;
+    font-family: Raleway, serif;
     overflow-x: hidden;
     scroll-snap-align: start;
     background-color: #0a0a0a;
@@ -51,7 +51,7 @@ const SeeMoreButton = styled(motion.button)`
     border: none;
     border-radius: 50px;
     padding: 10px 25px;
-    font-family: Outfit, sans-serif;
+    font-family: Raleway, sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
@@ -92,6 +92,7 @@ function Services() {
         { id: 3, name: "Qrs", description: "Descripción del servicio 3." },
         { id: 4, name: "Redes Sociales", description: "Descripción del servicio 4." },
         { id: 5, name: "Vcards", description: "Descripción del servicio 5." },
+        { id: 6, name: "Empastado", description: "Servicio de empastado profesional para tus documentos." },
     ];
 
     const handleCardClick = (serviceId) => {

@@ -35,12 +35,29 @@ Other available scripts:
 
 # Recent Changes
 
-- **Framer Motion Animations:**
-    - Added entrance animations to `Main.jsx`, `About.jsx`, and `Products.jsx` using Framer Motion's `useInView` hook for scroll-triggered animations.
-    - Implemented a `mounted` state to prevent hydration mismatches in `Main.jsx`, `About.jsx`, `Products.jsx`, and `Services.jsx`.
-- **Products Page Enhancements:**
-    - Added a "Contact us" subtitle and a WhatsApp button to `Products.jsx`.
-- **Services Page Implementation:**
-    - Created a new `Services.jsx` component and `ServiceCard.jsx` for the services page, with 5 placeholder service cards.
-    - Modified `ServiceCard.jsx` to use `MotionServiceImage` as a background with a gradient overlay and right-aligned text.
-    - Fixed a build error in `Services.jsx` by adding the `"use client";` directive.
+- **Services Page Enhancements:**
+    - Modified `Services.jsx` to change the interaction of service cards: instead of opening a modal, they now expand in height to reveal more details.
+    - Implemented a "Ver más" button that appears when the card is expanded.
+    - Adjusted the positioning of elements within the expanded service card to be top-aligned.
+    - Added a small gap between the description and the "Ver más" button.
+    - Improved animation smoothness by adding `layout` prop and removing explicit `y` animations.
+- **Products Catalog Page Implementation:**
+    - Created `app/data/products-data.json` to store nested product categories and items.
+    - Created a new page `app/productos/catalogo/page.js` to display product categories and their items.
+    - Implemented navigation from the "Ver más" button in `Products.jsx` to the new catalog page, passing the `categoryId` as a query parameter.
+    - Modified `app/productos/catalogo/page.js` to filter displayed categories based on the `categoryId` query parameter.
+    - Added a "Back" button to the catalog page to return to the `Products` page.
+    - Implemented modal-style expandable product cards in the catalog page, showing image, title, subcategory name, catchy description, min purchase quantity, and a WhatsApp contact button, all centered.
+    - Added `image`, `catchyDescription`, `minPurchaseQuantity`, and `whatsappInquiry` fields to `products-data.json`.
+    - Fixed a build error in `products-data.json` (typo `.name` to `"name"`).
+    - Fixed console error "React does not recognize the `layoutId` prop" by removing `layoutId` from `ProductName` and `ProductDescription` in `app/productos/catalogo/page.js`.
+- **Page Transition Improvements:**
+    - Adjusted `PageTransition.jsx` to use `y` offset and `tween` transition for smoother page transitions.
+- **Typography Update:**
+    - Switched the main application font from Geist/Outfit to Raleway in `app/layout.js`.
+- **Services Page Update:**
+    - Added a new service "Empastado" to the `serviceData` array in `app/components/Services.jsx`.
+- **WhatsApp Icon Color Fix:**
+    - Applied a CSS filter to the `WhatsappIcon` styled component in `app/components/Products.jsx` to force its color to white.
+- **Desktop View Adaptation Discussion:**
+    - Discussed and planned the strategy for adapting the mobile-first design to a desktop view using breakpoints and media queries in `styled-components`. Implementation pending user's instruction.
