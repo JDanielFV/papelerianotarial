@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 const AboutUsSection = styled(motion.section)`
   padding: 80px 20px;
   text-align: center;
-  background-color: var(--color-background);
-  color: var(--color-text);
+  background-color: var(--background);
+  color: var(--foreground);
 `;
 
 const Title = styled(motion.h2)`
