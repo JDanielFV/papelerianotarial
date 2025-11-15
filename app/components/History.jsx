@@ -12,8 +12,23 @@ const HistorySection = styled(motion.section)`
 
 const Title = styled(motion.h2)`
   font-size: 3em;
-  margin-bottom: 40px;
+  margin-bottom: 20px; /* Reduced margin to make space for video */
   color: var(--color-primary);
+`;
+
+const VideoContainer = styled(motion.div)`
+  width: 100%;
+  max-width: 700px; /* Adjust as needed */
+  margin: 40px auto; /* Spacing around the video */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 `;
 
 const Content = styled(motion.div)`
@@ -37,10 +52,20 @@ const History = () => {
       >
         Nuestra Historia
       </Title>
+      <VideoContainer
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
+        <video controls autoPlay muted loop>
+          <source src="/fondo.m4v" type="video/mp4" /> {/* Placeholder video */}
+          Tu navegador no soporta la etiqueta de video.
+        </video>
+      </VideoContainer>
       <Content
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        transition={{ duration: 0.6, delay: 0.6 }} /* Adjusted delay */
       >
         <p>
           Desde nuestros humildes comienzos en [Año de Fundación], Papelería Notarial A&G ha estado dedicada a proveer productos de papelería de la más alta calidad para el sector notarial. Fundada por [Nombre del Fundador], nuestra empresa nació de la visión de combinar la tradición artesanal con la eficiencia moderna, entendiendo las necesidades únicas de los profesionales del derecho.
