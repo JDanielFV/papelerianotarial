@@ -24,7 +24,7 @@ const Description = styled(motion.p)`
   line-height: 1.6;
 `;
 
-const ContactButton = styled(motion.a)`
+const ContactButton = styled(motion.button)`
   display: inline-block;
   padding: 15px 30px;
   background-color: var(--color-primary);
@@ -34,6 +34,8 @@ const ContactButton = styled(motion.a)`
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--color-primary-dark);
@@ -62,8 +64,6 @@ const ContactSection = () => {
         Contáctanos hoy mismo para descubrir cómo Papelería Notarial A&G puede satisfacer tus necesidades con productos de la más alta calidad y un servicio excepcional. Estamos aquí para ayudarte.
       </Description>
       <Link href="/contacto">
-        {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
-        }
         <ContactButton
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
