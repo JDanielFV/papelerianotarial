@@ -61,3 +61,5 @@ Other available scripts:
     - Applied a CSS filter to the `WhatsappIcon` styled component in `app/components/Products.jsx` to force its color to white.
 - **Desktop View Adaptation Discussion:**
     - Discussed and planned the strategy for adapting the mobile-first design to a desktop view using breakpoints and media queries in `styled-components`. Implementation pending user's instruction.
+- **Project TODO List Creation:**
+    - Created `TODO.md` to track pending tasks, including desktop responsiveness, code refactoring, data management, content creation (new homepage sections, contact page, catalog completion), style updates, and media integration (photos and videos).

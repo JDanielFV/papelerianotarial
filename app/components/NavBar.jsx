@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import styled, { keyframes, css } from "styled-components";
+import styled, { css } from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 
