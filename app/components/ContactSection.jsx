@@ -61,7 +61,9 @@ const ContactSection = () => {
       >
         Contáctanos hoy mismo para descubrir cómo Papelería Notarial A&G puede satisfacer tus necesidades con productos de la más alta calidad y un servicio excepcional. Estamos aquí para ayudarte.
       </Description>
-      <Link href="/contacto" passHref legacyBehavior>
+      <Link href="/contacto">
+        {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+        }
         <ContactButton
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
