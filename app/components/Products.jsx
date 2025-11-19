@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { motion, useInView } from "framer-motion";
 import { useRouter } from 'next/navigation';
 import ProductGridSection from "./ProductGridSection";
+import { WhatsAppIcon } from "./Icons";
+import productData from '../data/products-data.json';
 
 // --- Styled Components (now with motion) ---
 const MotionProductsContainer = styled(motion.section)`
@@ -74,16 +76,6 @@ const ContactButton = styled(motion.a)`
     }
 `;
 
-const WhatsappIcon = styled.img`
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
-    
-    &:hover {
-        filter: brightness(1) invert(0);
-    }
-`;
-
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -98,9 +90,6 @@ const itemVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
-
-
-import productData from '../data/products-data.json';
 
 function Products() {
     const router = useRouter();
@@ -134,12 +123,12 @@ function Products() {
             </SubTitle>
 
             <ContactButton
-                href="httpsa://wa.me/5215512345678"
+                href="https://wa.me/525576162856"
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
             >
-                <WhatsappIcon src="/whatsapp.svg" alt="WhatsApp" />
+                <WhatsAppIcon size={24} />
                 <span>Chatea con nosotros</span>
             </ContactButton>
         </MotionProductsContainer>

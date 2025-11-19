@@ -3,6 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { WhatsAppIcon, PhoneIcon, MailIcon, FacebookIcon, InstagramIcon } from "../components/Icons";
 
 const PageContainer = styled(motion.div)`
     min-height: 100vh;
@@ -132,10 +133,6 @@ const ContactButton = styled(motion.a)`
     }
 `;
 
-const ButtonIcon = styled.span`
-    font-size: 1.5rem;
-`;
-
 const SocialSection = styled.div`
     display: flex;
     flex-direction: column;
@@ -208,14 +205,14 @@ export default function ContactPage() {
           <InfoItem>
             <InfoLabel>Ubicación</InfoLabel>
             <InfoText>
-              Ciudad de México, México.<br />
+              Izcalli Ecatepec, México.<br />
               Atendemos a toda la república.
             </InfoText>
           </InfoItem>
           <InfoItem>
             <InfoLabel>Contacto Directo</InfoLabel>
             <InfoText>
-              Teléfono: +52 55 1234 5678<br />
+              Teléfono: +52 55 7616 2856<br />
               Email: contacto@papelerianotarial.com
             </InfoText>
           </InfoItem>
@@ -234,21 +231,21 @@ export default function ContactPage() {
               <SectionTitle>Canales de Contacto</SectionTitle>
 
               <ContactButton
-                href="https://wa.me/5215512345678"
+                href="https://wa.me/525576162856"
                 target="_blank"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <ButtonIcon>📱</ButtonIcon>
+                <WhatsAppIcon size={24} />
                 WhatsApp
               </ContactButton>
 
               <ContactButton
-                href="tel:+525512345678"
+                href="tel:+525576162856"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <ButtonIcon>📞</ButtonIcon>
+                <PhoneIcon size={24} />
                 Llamada Telefónica
               </ContactButton>
 
@@ -257,7 +254,7 @@ export default function ContactPage() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <ButtonIcon>✉️</ButtonIcon>
+                <MailIcon size={24} />
                 Correo Electrónico
               </ContactButton>
             </ButtonsSection>
@@ -272,7 +269,7 @@ export default function ContactPage() {
                   whileTap={{ scale: 0.95 }}
                   title="Facebook"
                 >
-                  📘
+                  <FacebookIcon size={24} />
                 </SocialIcon>
                 <SocialIcon
                   href="https://instagram.com"
@@ -281,17 +278,9 @@ export default function ContactPage() {
                   whileTap={{ scale: 0.95 }}
                   title="Instagram"
                 >
-                  📷
+                  <InstagramIcon size={24} />
                 </SocialIcon>
-                <SocialIcon
-                  href="https://papelerianotarial.com"
-                  target="_blank"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  title="Sitio Web"
-                >
-                  🌐
-                </SocialIcon>
+
               </SocialIcons>
             </SocialSection>
           </ContentContainer>

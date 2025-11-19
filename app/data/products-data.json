@@ -3,80 +3,249 @@
     "id": 1,
     "name": "Articulos de Papelería",
     "description": "Elegancia y durabilidad en un diseño atemporal.",
+    "image": "/placeholder-image.jpg",
     "subcategories": [
       {
         "id": 101,
         "name": "Hojas",
         "products": [
-          { "id": 10101, "name": "Testimonio", "description": "Hojas para testimonios notariales.", "catchyDescription": "La base de todo documento legal.", "minPurchaseQuantity": 100, "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.", "image": "/placeholder.png" },
-          { "id": 10102, "name": "Membreteada", "description": "Hojas con membrete personalizado.", "catchyDescription": "Proyecta profesionalismo en cada comunicación.", "minPurchaseQuantity": 100, "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas membretadas.", "image": "/placeholder.png" },
-          { "id": 10103, "name": "Folio", "description": "Hojas foliadas para documentos oficiales.", "catchyDescription": "Organización y seguridad para tus archivos.", "minPurchaseQuantity": 100, "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas foliadas.", "image": "/placeholder.png" },
-          { "id": 10104, "name": "Póliza", "description": "Hojas para pólizas.", "catchyDescription": "Formalidad y confianza en cada póliza.", "minPurchaseQuantity": 100, "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para póliza.", "image": "/placeholder.png" },
-          { "id": 10105, "name": "Certificados", "description": "Hojas para certificados.", "catchyDescription": "Validez y elegancia en cada certificado.", "minPurchaseQuantity": 50, "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificados.", "image": "/placeholder.png" },
-          { "id": 10106, "name": "Reconocimientos", "description": "Hojas para reconocimientos.", "catchyDescription": "Honra y distingue con la mejor calidad.", "minPurchaseQuantity": 50, "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para reconocimientos.", "image": "/placeholder.png" },
-          { "id": 10107, "name": "Certificaciones", "description": "Hojas para certificaciones.", "catchyDescription": "La firma de la autenticidad.", "minPurchaseQuantity": 50, "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificaciones.", "image": "/placeholder.png" }
+          {
+            "id": 10101,
+            "name": "Testimonio",
+            "description": "Hojas para testimonios notariales.",
+            "catchyDescription": "La base de todo documento legal.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10102,
+            "name": "Membreteada",
+            "description": "Hojas con membrete personalizado.",
+            "catchyDescription": "Proyecta profesionalismo en cada comunicación.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas membretadas.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10103,
+            "name": "Folio",
+            "description": "Hojas foliadas para documentos oficiales.",
+            "catchyDescription": "Organización y seguridad para tus archivos.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas foliadas.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10104,
+            "name": "Póliza",
+            "description": "Hojas para pólizas.",
+            "catchyDescription": "Formalidad y confianza en cada póliza.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para póliza.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10105,
+            "name": "Certificados",
+            "description": "Hojas para certificados.",
+            "catchyDescription": "Validez y elegancia en cada certificado.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificados.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10106,
+            "name": "Reconocimientos",
+            "description": "Hojas para reconocimientos.",
+            "catchyDescription": "Honra y distingue con la mejor calidad.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para reconocimientos.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10107,
+            "name": "Certificaciones",
+            "description": "Hojas para certificaciones.",
+            "catchyDescription": "La firma de la autenticidad.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificaciones.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 102,
         "name": "Folders",
         "products": [
-          { "id": 10201, "name": "Para entrega de testimonio", "description": "Folders para la entrega de testimonios.", "catchyDescription": "La presentación perfecta para tus documentos.", "minPurchaseQuantity": 50, "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.", "image": "/placeholder.png" },
-          { "id": 10202, "name": "Para copia certificada", "description": "Folders para copias certificadas.", "catchyDescription": "Protección y estilo para tus copias.", "minPurchaseQuantity": 50, "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para copia certificada.", "image": "/placeholder.png" }
+          {
+            "id": 10201,
+            "name": "Para entrega de testimonio",
+            "description": "Folders para la entrega de testimonios.",
+            "catchyDescription": "La presentación perfecta para tus documentos.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10202,
+            "name": "Para copia certificada",
+            "description": "Folders para copias certificadas.",
+            "catchyDescription": "Protección y estilo para tus copias.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para copia certificada.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 103,
         "name": "Tarjetas",
         "products": [
-          { "id": 10301, "name": "De presentación", "description": "Tarjetas de presentación personalizadas.", "catchyDescription": "Tu primera impresión, impecable.", "minPurchaseQuantity": 100, "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.", "image": "/placeholder.png" },
-          { "id": 10302, "name": "De agradecimiento", "description": "Tarjetas de agradecimiento.", "catchyDescription": "Un detalle que marca la diferencia.", "minPurchaseQuantity": 100, "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de agradecimiento.", "image": "/placeholder.png" },
-          { "id": 10303, "name": "NFC desglosado", "description": "Tarjetas con tecnología NFC.", "catchyDescription": "Conecta con tus clientes al instante.", "minPurchaseQuantity": 50, "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas NFC.", "image": "/placeholder.png" }
+          {
+            "id": 10301,
+            "name": "De presentación",
+            "description": "Tarjetas de presentación personalizadas.",
+            "catchyDescription": "Tu primera impresión, impecable.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10302,
+            "name": "De agradecimiento",
+            "description": "Tarjetas de agradecimiento.",
+            "catchyDescription": "Un detalle que marca la diferencia.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de agradecimiento.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10303,
+            "name": "Near Field Comunications (NFC)",
+            "description": "Tarjetas con tecnología NFC.",
+            "catchyDescription": "Conecta con tus clientes al instante.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas NFC.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 104,
         "name": "Sobres",
         "products": [
-          { "id": 10401, "name": "Para entrega", "description": "Sobres para entrega de documentos.", "catchyDescription": "Seguridad y elegancia en cada envío.", "minPurchaseQuantity": 200, "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.", "image": "/placeholder.png" },
-          { "id": 10402, "name": "Administrativo / UIF", "description": "Sobres para uso administrativo y UIF.", "catchyDescription": "Confidencialidad y cumplimiento normativo.", "minPurchaseQuantity": 200, "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres administrativos.", "image": "/placeholder.png" }
+          {
+            "id": 10401,
+            "name": "Para entrega",
+            "description": "Sobres para entrega de documentos.",
+            "catchyDescription": "Seguridad y elegancia en cada envío.",
+            "minPurchaseQuantity": 200,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10402,
+            "name": "Administrativo / UIF",
+            "description": "Sobres para uso administrativo y UIF.",
+            "catchyDescription": "Confidencialidad y cumplimiento normativo.",
+            "minPurchaseQuantity": 200,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres administrativos.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 105,
         "name": "Recibos",
         "products": [
-          { "id": 10501, "name": "Ingreso / Egreso", "description": "Recibos de ingreso y egreso.", "catchyDescription": "Control y claridad en tus finanzas.", "minPurchaseQuantity": 100, "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.", "image": "/placeholder.png" }
+          {
+            "id": 10501,
+            "name": "Ingreso / Egreso",
+            "description": "Recibos de ingreso y egreso.",
+            "catchyDescription": "Control y claridad en tus finanzas.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 106,
         "name": "Blocks",
         "products": [
-          { "id": 10601, "name": "Notas", "description": "Blocks de notas personalizados.", "catchyDescription": "Tus ideas, siempre a la mano.", "minPurchaseQuantity": 50, "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.", "image": "/placeholder.png" }
+          {
+            "id": 10601,
+            "name": "Notas",
+            "description": "Blocks de notas personalizados.",
+            "catchyDescription": "Tus ideas, siempre a la mano.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 107,
         "name": "Etiquetas",
         "products": [
-          { "id": 10701, "name": "Tipo holográficas", "description": "Etiquetas holográficas de seguridad.", "catchyDescription": "La marca de la autenticidad.", "minPurchaseQuantity": 1000, "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.", "image": "/placeholder.png" },
-          { "id": 10702, "name": "Personalizadas", "description": "Etiquetas personalizadas.", "catchyDescription": "Identifica y organiza con estilo.", "minPurchaseQuantity": 200, "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas personalizadas.", "image": "/placeholder.png" }
+          {
+            "id": 10701,
+            "name": "Tipo holográficas",
+            "description": "Etiquetas holográficas de seguridad.",
+            "catchyDescription": "La marca de la autenticidad.",
+            "minPurchaseQuantity": 1000,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10702,
+            "name": "Personalizadas",
+            "description": "Etiquetas personalizadas.",
+            "catchyDescription": "Identifica y organiza con estilo.",
+            "minPurchaseQuantity": 200,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas personalizadas.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 108,
         "name": "Flyers",
         "products": [
-          { "id": 10801, "name": "Tríptico / Díptico", "description": "Flyers informativos (trípticos o dípticos).", "catchyDescription": "Comunica tus servicios de forma efectiva.", "minPurchaseQuantity": 300, "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.", "image": "/placeholder.png" }
+          {
+            "id": 10801,
+            "name": "Tríptico / Díptico",
+            "description": "Flyers informativos (trípticos o dípticos).",
+            "catchyDescription": "Comunica tus servicios de forma efectiva.",
+            "minPurchaseQuantity": 300,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       },
       {
         "id": 109,
         "name": "Sellos",
         "products": [
-          { "id": 10901, "name": "Sellos oficiales", "description": "Sellos notariales oficiales.", "catchyDescription": "La firma de la legalidad.", "minPurchaseQuantity": 1, "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.", "image": "/placeholder.png" },
-          { "id": 10902, "name": "Sellos corporativos", "description": "Sellos con logo corporativo.", "catchyDescription": "Tu marca en cada documento.", "minPurchaseQuantity": 1, "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos corporativos.", "image": "/placeholder.png" }
+          {
+            "id": 10901,
+            "name": "Sellos oficiales",
+            "description": "Sellos notariales oficiales.",
+            "catchyDescription": "La firma de la legalidad.",
+            "minPurchaseQuantity": 1,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 10902,
+            "name": "Sellos corporativos",
+            "description": "Sellos con logo corporativo.",
+            "catchyDescription": "Tu marca en cada documento.",
+            "minPurchaseQuantity": 1,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos corporativos.",
+            "image": "/placeholder-image.jpg"
+          }
         ]
       }
     ]
@@ -84,44 +253,84 @@
   {
     "id": 2,
     "name": "Carpetas",
-    "description": "Máxima seguridad para documentos vitales.",
+    "description": "Máxima seguridad y presentación para tus documentos.",
+    "image": "/placeholder-image.jpg",
     "subcategories": [
       {
         "id": 201,
-        "name": "Carpetas de Testamentos",
+        "name": "Organización y Resguardo",
         "products": [
           {
             "id": 20101,
-            "name": "Carpeta de Testamento Clásica",
-            "description": "Cubierta de curpiel con grabado dorado.",
-            "catchyDescription": "Un legado de elegancia y protección.",
+            "name": "Carpeta de firma",
+            "description": "Carpeta elegante para recolección de firmas.",
+            "catchyDescription": "Elegancia para el momento más importante.",
             "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre la Carpeta de Testamento Clásica.",
-            "image": "/placeholder.png"
+            "whatsappInquiry": "Hola, me gustaría saber más sobre la Carpeta de firma.",
+            "image": "/placeholder-image.jpg"
           },
           {
             "id": 20102,
-            "name": "Carpeta de Testamento Moderna",
-            "description": "Diseño minimalista en colores sólidos.",
-            "catchyDescription": "Simplicidad y seguridad para el futuro.",
+            "name": "Protocolo",
+            "description": "Carpetas para protocolo notarial.",
+            "catchyDescription": "Seguridad y formalidad para tus protocolos.",
             "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre la Carpeta de Testamento Moderna.",
-            "image": "/placeholder.png"
-          }
-        ]
-      },
-      {
-        "id": 202,
-        "name": "Carpetas de Actas Constitutivas",
-        "products": [
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Protocolo.",
+            "image": "/placeholder-image.jpg"
+          },
           {
-            "id": 20201,
-            "name": "Carpeta de Acta Estándar",
-            "description": "Protección y presentación profesional para actas.",
-            "catchyDescription": "El inicio de un gran proyecto, bien resguardado.",
+            "id": 20103,
+            "name": "Apendice",
+            "description": "Carpetas para apéndices y anexos.",
+            "catchyDescription": "Organización perfecta para anexos.",
+            "minPurchaseQuantity": 10,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Apendice.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 20104,
+            "name": "Libro de registro",
+            "description": "Libros de registro encuadernados.",
+            "catchyDescription": "Control detallado y duradero.",
+            "minPurchaseQuantity": 5,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de registro.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 20105,
+            "name": "Libro de índice / Guía",
+            "description": "Libros de índice para fácil referencia.",
+            "catchyDescription": "Acceso rápido y ordenado a tu información.",
+            "minPurchaseQuantity": 5,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de índice.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 20106,
+            "name": "Libro corporativo",
+            "description": "Libros corporativos de alta calidad.",
+            "catchyDescription": "La historia de tu empresa, bien resguardada.",
+            "minPurchaseQuantity": 5,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro corporativo.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 20107,
+            "name": "Cajas para resguardo",
+            "description": "Cajas resistentes para archivo.",
+            "catchyDescription": "Protección robusta para archivos físicos.",
             "minPurchaseQuantity": 20,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre la Carpeta de Acta Estándar.",
-            "image": "/placeholder.png"
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las Cajas para resguardo.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 20108,
+            "name": "Sobre VIP",
+            "description": "Sobres de alta gama para entregas especiales.",
+            "catchyDescription": "Distinción en cada entrega importante.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre el Sobre VIP.",
+            "image": "/placeholder-image.jpg"
           }
         ]
       }
@@ -130,35 +339,75 @@
   {
     "id": 3,
     "name": "Articulos Promocionales",
-    "description": "Protección superior con un acabado profesional.",
+    "description": "Impulsa tu marca con productos de calidad.",
+    "image": "/placeholder-image.jpg",
     "subcategories": [
       {
         "id": 301,
-        "name": "Plumas",
+        "name": "Promocionales",
         "products": [
           {
             "id": 30101,
-            "name": "Pluma de Tinta Negra con Logo",
-            "description": "Pluma de alta calidad con el logo de la notaría.",
-            "catchyDescription": "Tu firma, siempre presente.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre la Pluma de Tinta Negra con Logo.",
-            "image": "/placeholder.png"
-          }
-        ]
-      },
-      {
-        "id": 302,
-        "name": "Llaveros",
-        "products": [
+            "name": "Termos",
+            "description": "Termos personalizados con tu logo.",
+            "catchyDescription": "Mantén tu marca presente en cada sorbo.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Termos promocionales.",
+            "image": "/placeholder-image.jpg"
+          },
           {
-            "id": 30201,
-            "name": "Llavero de Metal con Logo",
-            "description": "Llavero resistente y elegante.",
-            "catchyDescription": "Tus llaves, con un toque de distinción.",
+            "id": 30102,
+            "name": "Servilletas",
+            "description": "Servilletas impresas para eventos.",
+            "catchyDescription": "Detalles que marcan la diferencia en tus eventos.",
+            "minPurchaseQuantity": 500,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas promocionales.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 30103,
+            "name": "Boligrafos",
+            "description": "Bolígrafos promocionales.",
+            "catchyDescription": "Escritura fluida con tu identidad corporativa.",
             "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre el Llavero de Metal con Logo.",
-            "image": "/placeholder.png"
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Boligrafos promocionales.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 30104,
+            "name": "Portavasos",
+            "description": "Portavasos personalizados.",
+            "catchyDescription": "Protección y branding en tu mesa de reuniones.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos promocionales.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 30105,
+            "name": "Collarines",
+            "description": "Collarines para gafetes.",
+            "catchyDescription": "Identificación profesional para tu equipo.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Collarines promocionales.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 30106,
+            "name": "Calendarios",
+            "description": "Calendarios de pared o escritorio.",
+            "catchyDescription": "Tu marca, presente los 365 días del año.",
+            "minPurchaseQuantity": 50,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Calendarios promocionales.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 30107,
+            "name": "Agendas",
+            "description": "Agendas corporativas.",
+            "catchyDescription": "Organización diaria con el sello de tu notaría.",
+            "minPurchaseQuantity": 20,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas promocionales.",
+            "image": "/placeholder-image.jpg"
           }
         ]
       }
@@ -167,35 +416,75 @@
   {
     "id": 4,
     "name": "Articulos Personalizados",
-    "description": "Diseño exclusivo para el notario moderno.",
+    "description": "Diseño exclusivo y personalización a medida.",
+    "image": "/placeholder-image.jpg",
     "subcategories": [
       {
         "id": 401,
-        "name": "Agendas",
+        "name": "Personalizados",
         "products": [
           {
             "id": 40101,
-            "name": "Agenda 2026 Personalizada",
-            "description": "Agenda con cubierta de curpiel y nombre grabado.",
-            "catchyDescription": "Organiza tu año con estilo propio.",
-            "minPurchaseQuantity": 20,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre la Agenda 2026 Personalizada.",
-            "image": "/placeholder.png"
-          }
-        ]
-      },
-      {
-        "id": 402,
-        "name": "Sellos",
-        "products": [
+            "name": "Termos",
+            "description": "Termos con grabado láser personalizado.",
+            "catchyDescription": "Un regalo único y funcional.",
+            "minPurchaseQuantity": 10,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Termos personalizados.",
+            "image": "/placeholder-image.jpg"
+          },
           {
-            "id": 40201,
-            "name": "Sello de Goma Automático",
-            "description": "Sello personalizado con la información de la notaría.",
-            "catchyDescription": "Eficiencia y formalidad en un solo gesto.",
-            "minPurchaseQuantity": 1,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre el Sello de Goma Automático.",
-            "image": "/placeholder.png"
+            "id": 40102,
+            "name": "Servilletas",
+            "description": "Servilletas de tela bordadas o impresas.",
+            "catchyDescription": "Elegancia en cada detalle.",
+            "minPurchaseQuantity": 100,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas personalizadas.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 40103,
+            "name": "Boligrafos",
+            "description": "Bolígrafos de alta gama grabados.",
+            "catchyDescription": "La distinción en tu escritura.",
+            "minPurchaseQuantity": 10,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Boligrafos personalizados.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 40104,
+            "name": "Portavasos",
+            "description": "Portavasos de materiales premium.",
+            "catchyDescription": "Estilo y protección para tu escritorio.",
+            "minPurchaseQuantity": 20,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos personalizados.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 40105,
+            "name": "Collarines",
+            "description": "Collarines con diseño exclusivo.",
+            "catchyDescription": "Imagen corporativa unificada.",
+            "minPurchaseQuantity": 20,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Collarines personalizados.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 40106,
+            "name": "Calendarios",
+            "description": "Calendarios personalizados con fotos o arte.",
+            "catchyDescription": "Inspiración para cada mes.",
+            "minPurchaseQuantity": 20,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre los Calendarios personalizados.",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": 40107,
+            "name": "Agendas",
+            "description": "Agendas con nombre grabado y acabados de lujo.",
+            "catchyDescription": "Planifica tu éxito con exclusividad.",
+            "minPurchaseQuantity": 10,
+            "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas personalizadas.",
+            "image": "/placeholder-image.jpg"
           }
         ]
       }

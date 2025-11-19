@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { FacebookIcon, InstagramIcon, GlobeIcon } from "./Icons";
 
 const FooterContainer = styled.footer`
     background-color: #000000;
@@ -133,7 +134,7 @@ export default function Footer() {
                             whileHover={{ scale: 1.1 }}
                             title="Facebook"
                         >
-                            📘
+                            <FacebookIcon size={20} />
                         </SocialIcon>
                         <SocialIcon
                             href="https://instagram.com"
@@ -141,15 +142,15 @@ export default function Footer() {
                             whileHover={{ scale: 1.1 }}
                             title="Instagram"
                         >
-                            📷
+                            <InstagramIcon size={20} />
                         </SocialIcon>
                         <SocialIcon
-                            href="https://papelerianotarial.com"
+                            href="https://papelerianotarial.net"
                             target="_blank"
                             whileHover={{ scale: 1.1 }}
                             title="Sitio Web"
                         >
-                            🌐
+                            <GlobeIcon size={20} />
                         </SocialIcon>
                     </SocialLinks>
                 </FooterSection>
@@ -168,10 +169,10 @@ export default function Footer() {
                         Ciudad de México, México
                     </FooterText>
                     <FooterText>
-                        Tel: +52 55 1234 5678
+                        Tel: +52 55 7616 2856
                     </FooterText>
                     <FooterText>
-                        contacto@papelerianotarial.com
+                        contacto@papelerianotarial.net
                     </FooterText>
                 </FooterSection>
 

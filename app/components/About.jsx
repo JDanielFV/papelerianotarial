@@ -65,11 +65,17 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-import aboutProductData from '../data/about-products-data.json';
+import productData from '../data/products-data.json';
+import { useRouter } from 'next/navigation';
 
 function About() {
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.5 }); // Trigger once when 50% in view
+    const router = useRouter();
+
+    const handleSeeMore = (id) => {
+        router.push(`/productos/catalogo?categoryId=${id}`);
+    };
 
     return (
         <AboutContainer
@@ -85,9 +91,9 @@ function About() {
             </Title>
 
             <ProductGridSection
-                products={aboutProductData}
+                products={productData}
                 variants={itemVariants}
-            // No onSeeMore passed, button will do nothing as per original behavior
+                onSeeMore={handleSeeMore}
             />
 
             <SubTitle

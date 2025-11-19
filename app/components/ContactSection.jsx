@@ -77,7 +77,7 @@ const ContactSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        ¿Listo para Elevar tu Papelería Notarial?
+        ¿Listo para Elevar tu Notaría?
       </Title>
       <Description
         initial={{ y: 30, opacity: 0 }}
