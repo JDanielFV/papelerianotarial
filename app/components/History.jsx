@@ -4,25 +4,31 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const HistorySection = styled(motion.section)`
-  padding: 80px 20px;
+  padding: 100px 5%;
   text-align: center;
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: Raleway, serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled(motion.h2)`
-  font-size: 3em;
-  margin-bottom: 20px; /* Reduced margin to make space for video */
-  color: var(--color-primary);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  font-weight: lighter;
 `;
 
 const VideoContainer = styled(motion.div)`
   width: 100%;
-  max-width: 700px; /* Adjust as needed */
-  margin: 40px auto; /* Spacing around the video */
-  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   video {
     width: 100%;
@@ -32,49 +38,59 @@ const VideoContainer = styled(motion.div)`
 `;
 
 const Content = styled(motion.div)`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  font-size: 1.2em;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #cccccc;
+  font-weight: 300;
+  
+  p {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const History = () => {
   return (
     <HistorySection
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
       <Title
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         Nuestra Historia
       </Title>
       <VideoContainer
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        initial={{ scale: 0.9, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        <video controls autoPlay muted loop>
-          <source src="/fondo.m4v" type="video/mp4" /> {/* Placeholder video */}
+        <video controls autoPlay muted loop playsInline>
+          <source src="/fondo.m4v" type="video/mp4" />
           Tu navegador no soporta la etiqueta de video.
         </video>
       </VideoContainer>
       <Content
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.6 }} /* Adjusted delay */
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.6 }}
       >
         <p>
-          Desde nuestros humildes comienzos en [Año de Fundación], Papelería Notarial A&G ha estado dedicada a proveer productos de papelería de la más alta calidad para el sector notarial. Fundada por [Nombre del Fundador], nuestra empresa nació de la visión de combinar la tradición artesanal con la eficiencia moderna, entendiendo las necesidades únicas de los profesionales del derecho.
+          Desde nuestros humildes comienzos, Papelería Notarial A&G ha estado dedicada a proveer productos de papelería de la más alta calidad para el sector notarial. Nacimos de la visión de combinar la tradición artesanal con la eficiencia moderna, entendiendo las necesidades únicas de los profesionales del derecho.
         </p>
         <p>
-          A lo largo de los años, hemos crecido y evolucionado, pero nuestro compromiso con la excelencia y la satisfacción del cliente ha permanecido inalterable. Cada producto que ofrecemos es el resultado de una cuidadosa selección de materiales y un meticuloso proceso de fabricación, asegurando durabilidad y una presentación impecable.
+          A lo largo de los años, hemos crecido y evolucionado, pero nuestro compromiso con la excelencia y la satisfacción del cliente ha permanecido inalterable. Cada producto que ofrecemos es el resultado de una cuidadosa selección de materiales y un meticuloso proceso de fabricación.
         </p>
         <p>
-          Hoy, Papelería Notarial A&G es sinónimo de confianza y calidad en el mercado, sirviendo a notarios en todo [Región/País] y adaptándonos continuamente a las nuevas tecnologías y demandas del mercado, sin perder la esencia que nos define.
+          Hoy, somos sinónimo de confianza y calidad, sirviendo a notarios y adaptándonos continuamente a las nuevas tecnologías y demandas del mercado, sin perder la esencia que nos define.
         </p>
       </Content>
     </HistorySection>
