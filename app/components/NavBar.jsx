@@ -29,6 +29,12 @@ const MotionNavContainer = styled(motion.nav)`
 const Logo = styled.img`
     height: 30px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+    }
 `;
 
 const CenterText = styled.div`
@@ -44,6 +50,11 @@ const MenuIcon = styled.div`
     justify-content: space-between;
     cursor: pointer;
     z-index: 12;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 
     span {
         display: block;
@@ -52,6 +63,11 @@ const MenuIcon = styled.div`
         background: white;
         border-radius: 9px;
         transition: all 0.3s ease-in-out;
+    }
+    
+    &:hover span {
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
     }
 `;
 
@@ -98,14 +114,16 @@ const MenuLink = styled.a`
     text-decoration: none;
     margin: 1rem 0;
     font-family: Raleway, sans-serif;
-    transition: 0.1s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: .5rem 1rem;
+    border-radius: 10px;
     
     &:hover{
         font-weight: bold;
         color: #0a0a0a;
-        background-color: #ebebeb;
-        padding: .5rem;
-        border-radius: 10px;
+        background-color: #ffffff;
+        transform: translateX(10px) scale(1.05);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
     }
 `;
 

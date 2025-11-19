@@ -27,14 +27,23 @@ const MotionServicesContainer = styled(motion.section)`
     font-family: Raleway, serif;
     overflow-x: hidden;
     scroll-snap-align: start;
-    background-color: #0a0a0a;
+    background-color: var(--background);
+
+    @media (min-width: 1024px) {
+        margin-top: 5%;
+        padding: 2%;
+    }
 `;
 
 const MotionServiceTitle = styled(motion.h1)`
     font-size: 2rem;
-    color: white;
+    color: var(--foreground);
     z-index: 1;
     padding: 2rem 0 2rem 0;
+
+    @media (min-width: 1024px) {
+        font-size: 3rem;
+    }
 `;
 
 const MotionServiceGrid = styled(motion.div)`
@@ -43,6 +52,13 @@ const MotionServiceGrid = styled(motion.div)`
     gap: 1rem;
     width: 100%;
     z-index: 1;
+
+    @media (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+    }
 `;
 
 const SeeMoreButton = styled(motion.button)`
@@ -61,39 +77,27 @@ const SeeMoreButton = styled(motion.button)`
 `;
 
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+        },
     },
-  },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+
+import serviceData from '../data/services-data.json';
 
 function Services() {
     const [expandedServiceId, setExpandedServiceId] = useState(null);
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.1 }); // Trigger once when 10% in view
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    const serviceData = [
-        { id: 1, name: "NFC", description: "Descripción del servicio 1." },
-        { id: 2, name: "Web", description: "Descripción del servicio 2." },
-        { id: 3, name: "Qrs", description: "Descripción del servicio 3." },
-        { id: 4, name: "Redes Sociales", description: "Descripción del servicio 4." },
-        { id: 5, name: "Vcards", description: "Descripción del servicio 5." },
-        { id: 6, name: "Empastado", description: "Servicio de empastado profesional para tus documentos." },
-    ];
 
     const handleCardClick = (serviceId) => {
         setExpandedServiceId(expandedServiceId === serviceId ? null : serviceId);
@@ -104,20 +108,20 @@ function Services() {
             ref={ref}
             variants={containerVariants}
             initial="hidden"
-            animate={mounted && inView ? "visible" : "hidden"}
+            animate={inView ? "visible" : "hidden"}
         >
             <MotionServiceTitle
                 variants={itemVariants}
             >
                 Nuestros Servicios
             </MotionServiceTitle>
-            
+
             <MotionServiceGrid
                 variants={itemVariants}
             >
                 {serviceData.map(service => (
-                    <MotionServiceCard 
-                        key={service.id} 
+                    <MotionServiceCard
+                        key={service.id}
                         onClick={() => handleCardClick(service.id)}
                         animate={{ height: expandedServiceId === service.id ? '350px' : '200px' }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -137,15 +141,15 @@ function Services() {
                                 {service.description}
                             </MotionServiceDescription>
                             <AnimatePresence>
-                            {expandedServiceId === service.id && (
-                                <SeeMoreButton
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.3 } }}
-                                    exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
-                                >
-                                    Cotiza aquí
-                                </SeeMoreButton>
-                            )}
+                                {expandedServiceId === service.id && (
+                                    <SeeMoreButton
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.3 } }}
+                                        exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
+                                    >
+                                        Cotiza aquí
+                                    </SeeMoreButton>
+                                )}
                             </AnimatePresence>
                         </div>
                     </MotionServiceCard>

@@ -1,16 +1,10 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-
+import { motion, useInView } from "framer-motion";
 import { useRouter } from 'next/navigation';
-import {
-    MotionProductCard,
-    MotionProductImage,
-    MotionProductName,
-    MotionProductDescription
-} from "./ProductCard";
+import ProductGridSection from "./ProductGridSection";
 
 // --- Styled Components (now with motion) ---
 const MotionProductsContainer = styled(motion.section)`
@@ -27,23 +21,23 @@ const MotionProductsContainer = styled(motion.section)`
     font-family: Raleway, serif;
     overflow-x: hidden;
     scroll-snap-align: start;
-    background-color: #0a0a0a;
+    background-color: var(--background);
+
+    @media (min-width: 1024px) {
+        margin-top: 5%;
+        padding: 2%;
+    }
 `;
 
 const MotionTitle = styled(motion.h1)`
     font-size: 2rem;
-    color: white;
+    color: var(--foreground);
     z-index: 1;
     padding: 2rem 0 2rem 0;
-`;
 
-const MotionProductGrid = styled(motion.div)`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 900px;
-
-    z-index: 1;
+    @media (min-width: 1024px) {
+        font-size: 4rem;
+    }
 `;
 
 const SubTitle = styled(motion.p)`
@@ -52,7 +46,7 @@ const SubTitle = styled(motion.p)`
     align-items: center;
     justify-content: center;
     font-weight: lighter;
-    color: white;
+    color: var(--foreground);
     margin-top: 2rem;
 `;
 
@@ -69,11 +63,14 @@ const ContactButton = styled(motion.a)`
     font-size: 1.2rem;
     margin-top: 1rem;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        background-color: #ebebeb;
+        background-color: #ffffff;
         color: #0a0a0a;
+        border-color: #ffffff;
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
     }
 `;
 
@@ -87,117 +84,50 @@ const WhatsappIcon = styled.img`
     }
 `;
 
-// --- Styles for Expanded View ---
-
-const ExpandedViewContainer = styled(motion.div)`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.3);
-`;
-
-const ExpandedCard = styled(motion.div)`
-    width: 80%;
-    height: 75%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: .5rem .5rem 1.2rem .5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 2.5rem;
-`;
-
-const VerMasButton = styled(motion.button)`
-    background-color: #ffffff;
-    color: #171717;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 25px;
-    font-family: Raleway, sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer;
-    align-self: center;
-`;
-
-const ExpandedProductImage = styled(motion.div)`
-    width: 100%;
-    height: 25rem;
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 10px;
-`;
-
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+        },
     },
-  },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 
+import productData from '../data/products-data.json';
+
 function Products() {
-    const [selectedProductId, setSelectedProductId] = useState(null);
     const router = useRouter();
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.5 }); // Trigger once when 50% in view
-    const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    const productData = [
-        { id: 1, name: "Articulos de Papelería", description: "Elegancia y durabilidad en un diseño atemporal." },
-        { id: 2, name: "Carpetas", description: "Máxima seguridad para documentos vitales." },
-        { id: 3, name: "Articulos Promocionales", description: "Protección superior con un acabado profesional." },
-        { id: 4, name: "Articulos Personalizados", description: "Diseño exclusivo para el notario moderno." },
-    ];
+    const handleSeeMore = (id) => {
+        router.push(`/productos/catalogo?categoryId=${id}`);
+    };
 
     return (
         <MotionProductsContainer
             ref={ref}
             variants={containerVariants}
             initial="hidden"
-            animate={mounted && inView ? "visible" : "hidden"}>
+            animate={inView ? "visible" : "hidden"}>
             <MotionTitle
                 variants={itemVariants}
             >
                 Nuestros Productos
             </MotionTitle>
-            
-            <MotionProductGrid
+
+            <ProductGridSection
+                products={productData}
+                onSeeMore={handleSeeMore}
                 variants={itemVariants}
-            >
-                {productData.map(product => (
-                    <MotionProductCard 
-                        key={product.id} 
-                        layoutId={`card-${product.id}`}
-                        onClick={() => setSelectedProductId(product.id)}
-                    >
-                        <MotionProductImage layoutId={`image-${product.id}`} />
-                        <MotionProductName layoutId={`name-${product.id}`}>{product.name}</MotionProductName>
-                        <MotionProductDescription layoutId={`description-${product.id}`}>{product.description}</MotionProductDescription>
-                    </MotionProductCard>
-                ))}
-            </MotionProductGrid>
+            />
 
             <SubTitle variants={itemVariants}>
                 ¿No encuentras lo que buscas? Contáctanos
@@ -212,31 +142,6 @@ function Products() {
                 <WhatsappIcon src="/whatsapp.svg" alt="WhatsApp" />
                 <span>Chatea con nosotros</span>
             </ContactButton>
-
-            <AnimatePresence>
-                {selectedProductId && (
-                    <ExpandedViewContainer 
-                        onClick={() => setSelectedProductId(null)}
-                        initial={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
-                        animate={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
-                        exit={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
-                    >
-                        <ExpandedCard layoutId={`card-${selectedProductId}`} onClick={(e) => e.stopPropagation()}>
-                            <ExpandedProductImage layoutId={`image-${selectedProductId}`} />
-                            <MotionProductName layoutId={`name-${selectedProductId}`}>{productData.find(p => p.id === selectedProductId).name}</MotionProductName>
-                            <MotionProductDescription layoutId={`description-${selectedProductId}`}>{productData.find(p => p.id === selectedProductId).description}</MotionProductDescription>
-                            <VerMasButton
-                                onClick={() => router.push(`/productos/catalogo?categoryId=${selectedProductId}`)}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1, transition: { delay: 0.3 } }}
-                                exit={{ opacity: 0 }}
-                            >
-                                Ver más
-                            </VerMasButton>
-                        </ExpandedCard>
-                    </ExpandedViewContainer>
-                )}
-            </AnimatePresence>
         </MotionProductsContainer>
     );
 }

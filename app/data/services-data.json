@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "NFC",
+        "description": "Descripción del servicio 1."
+    },
+    {
+        "id": 2,
+        "name": "Web",
+        "description": "Descripción del servicio 2."
+    },
+    {
+        "id": 3,
+        "name": "Qrs",
+        "description": "Descripción del servicio 3."
+    },
+    {
+        "id": 4,
+        "name": "Redes Sociales",
+        "description": "Descripción del servicio 4."
+    },
+    {
+        "id": 5,
+        "name": "Vcards",
+        "description": "Descripción del servicio 5."
+    },
+    {
+        "id": 6,
+        "name": "Empastado",
+        "description": "Servicio de empastado profesional para tus documentos."
+    }
+]

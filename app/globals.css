@@ -1,26 +1,14 @@
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+    --background: #0a0a0a;
+    --foreground: #ededed;
     --color-primary: #FFFFFF;
-    --color-primary-dark: #FFFFFF;
-    --color-secondary: #f8f8f8;
+    --color-primary-dark: #e0e0e0;
+    --color-secondary: #1a1a1a;
     --color-text-light: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-        --color-primary: #FFFFFFF;
-        --color-primary-dark: #FFFFFF;
-        --color-secondary: #1a1a1a;
-        --color-text-light: #ffffff;
-    }
 }
 
 html {
     overflow-y: auto;
-    width: 100dvw;
 }
 
 html,
@@ -31,7 +19,7 @@ body {
 body {
     color: var(--foreground);
     background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Raleway, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

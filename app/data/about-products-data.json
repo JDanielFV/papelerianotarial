@@ -1,0 +1,22 @@
+[
+    {
+        "id": 5,
+        "name": "Hologramas",
+        "description": "Seguridad y distinción para sus documentos."
+    },
+    {
+        "id": 6,
+        "name": "Folio y Grabado Láser",
+        "description": "Personalización precisa y elegante."
+    },
+    {
+        "id": 7,
+        "name": "Impresión Offset",
+        "description": "Calidad y volumen para sus necesidades."
+    },
+    {
+        "id": 8,
+        "name": "Acabados Finos",
+        "description": "Detalles que marcan la diferencia."
+    }
+]

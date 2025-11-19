@@ -6,19 +6,27 @@ import { motion } from "framer-motion";
 const HistorySection = styled(motion.section)`
   padding: 100px 5%;
   text-align: center;
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: Raleway, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 1024px) {
+    padding: 150px 10%;
+  }
 `;
 
 const Title = styled(motion.h2)`
   font-size: 3rem;
   margin-bottom: 3rem;
-  color: #ffffff;
+  color: var(--foreground);
   font-weight: lighter;
+
+  @media (min-width: 1024px) {
+    font-size: 4rem;
+  }
 `;
 
 const VideoContainer = styled(motion.div)`
@@ -34,6 +42,10 @@ const VideoContainer = styled(motion.div)`
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1000px;
   }
 `;
 

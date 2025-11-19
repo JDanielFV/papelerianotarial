@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { MotionProductCard, MotionProductImage, MotionProductName, MotionProductDescription } from "./ProductCard";
+import { motion, useInView } from "framer-motion";
+import ProductGridSection from "./ProductGridSection";
 
 const AboutContainer = styled(motion.main)`
     position: relative;
@@ -18,7 +18,12 @@ const AboutContainer = styled(motion.main)`
     font-family: Raleway, serif;
     overflow: hidden;
     scroll-snap-align: start;
-    background-color: #0a0a0a;
+    background-color: var(--background);
+
+    @media (min-width: 1024px) {
+        padding: 2%;
+        gap: 2rem;
+    }
 `;
 
 const Title = styled(motion.h1)`
@@ -26,7 +31,10 @@ const Title = styled(motion.h1)`
     z-index: 1;
     font-weight: lighter;
     
-    
+    @media (min-width: 1024px) {
+        font-size: 3rem;
+        max-width: 70%;
+    }
 `;
 
 const SubTitle = styled(motion.p)`
@@ -35,125 +43,52 @@ const SubTitle = styled(motion.p)`
     align-items: center;
     justify-content: center;
     font-weight: lighter;
-`;
 
-const MotionProductGrid = styled(motion.div)`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 900px;
-    z-index: 1;
-`;
-
-// Re-using expanded view styles from Products.jsx logic
-const ExpandedViewContainer = styled(motion.div)`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.3);
-`;
-
-const ExpandedCard = styled(motion.div)`
-    width: 80%;
-    height: 75%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: .5rem .5rem 1.2rem .5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 2.5rem;
-`;
-
-const VerMasButton = styled(motion.button)`
-    background-color: #ffffff;
-    color: #171717;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 25px;
-    font-family: Raleway, sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer;
-    align-self: center;
-`;
-
-const ExpandedProductImage = styled(motion.div)`
-    width: 100%;
-    height: 25rem;
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 10px;
+    @media (min-width: 1024px) {
+        font-size: 1.8rem;
+        max-width: 60%;
+    }
 `;
 
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+        },
     },
-  },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+import aboutProductData from '../data/about-products-data.json';
+
 function About() {
-    const [selectedProductId, setSelectedProductId] = useState(null);
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.5 }); // Trigger once when 50% in view
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    const aboutProductData = [
-        { id: 5, name: "Hologramas", description: "Seguridad y distinción para sus documentos." },
-        { id: 6, name: "Folio y Grabado Láser", description: "Personalización precisa y elegante." },
-        { id: 7, name: "Impresión Offset", description: "Calidad y volumen para sus necesidades." },
-        { id: 8, name: "Acabados Finos", description: "Detalles que marcan la diferencia." },
-    ];
 
     return (
         <AboutContainer
             ref={ref}
             variants={containerVariants}
             initial="hidden"
-            animate={mounted && inView ? "visible" : "hidden"}
+            animate={inView ? "visible" : "hidden"}
         >
             <Title
                 variants={itemVariants}
             >
                 Por que la <strong>primera impresion</strong> no solo se ve, <strong>se siente</strong>
             </Title>
-            
-            <MotionProductGrid
+
+            <ProductGridSection
+                products={aboutProductData}
                 variants={itemVariants}
-            >
-                {aboutProductData.map(product => (
-                    <MotionProductCard 
-                        key={product.id} 
-                        layoutId={`card-${product.id}`}
-                        onClick={() => setSelectedProductId(product.id)}
-                    >
-                        <MotionProductImage layoutId={`image-${product.id}`} />
-                        <MotionProductName layoutId={`name-${product.id}`}>{product.name}</MotionProductName>
-                        <MotionProductDescription layoutId={`description-${product.id}`}>{product.description}</MotionProductDescription>
-                    </MotionProductCard>
-                ))}
-            </MotionProductGrid>
+            // No onSeeMore passed, button will do nothing as per original behavior
+            />
 
             <SubTitle
                 variants={itemVariants}
@@ -161,30 +96,6 @@ function About() {
                 Cuidamos cada costura, cada grabado de su logotipo y cada pliegue para que cuando su cliente
                 sostenga sus documentos, <strong> sostenga también una prueba tangible de su profesionalismo.</strong>
             </SubTitle>
-
-            <AnimatePresence>
-                {selectedProductId && (
-                    <ExpandedViewContainer 
-                        onClick={() => setSelectedProductId(null)}
-                        initial={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
-                        animate={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
-                        exit={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
-                    >
-                        <ExpandedCard layoutId={`card-${selectedProductId}`} onClick={(e) => e.stopPropagation()}>
-                            <ExpandedProductImage layoutId={`image-${selectedProductId}`} />
-                            <MotionProductName layoutId={`name-${selectedProductId}`}>{aboutProductData.find(p => p.id === selectedProductId).name}</MotionProductName>
-                            <MotionProductDescription layoutId={`description-${selectedProductId}`}>{aboutProductData.find(p => p.id === selectedProductId).description}</MotionProductDescription>
-                            <VerMasButton
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1, transition: { delay: 0.3 } }}
-                                exit={{ opacity: 0 }}
-                            >
-                                Ver más
-                            </VerMasButton>
-                        </ExpandedCard>
-                    </ExpandedViewContainer>
-                )}
-            </AnimatePresence>
         </AboutContainer>
     );
 }

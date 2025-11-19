@@ -7,20 +7,28 @@ import Link from "next/link";
 const ContactSectionWrapper = styled(motion.section)`
   padding: 100px 5%;
   text-align: center;
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: Raleway, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (min-width: 1024px) {
+    padding: 150px 10%;
+  }
 `;
 
 const Title = styled(motion.h2)`
   font-size: 3rem;
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: var(--foreground);
   font-weight: lighter;
+
+  @media (min-width: 1024px) {
+    font-size: 4rem;
+  }
 `;
 
 const Description = styled(motion.p)`
@@ -50,6 +58,8 @@ const ContactButton = styled(motion.button)`
     background-color: #ffffff;
     color: #0a0a0a;
     border-color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
   }
 `;
 
