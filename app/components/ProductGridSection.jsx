@@ -14,13 +14,47 @@ const MotionProductGrid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    max-width: 900px;
     z-index: 1;
-
+    width: 100%;
+    
     @media (min-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1200px;
-        gap: 3rem;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 1rem;
+        justify-content: center;
+        
+        /* Scrollbar styles */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        
+        &::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.5);
+            }
+        }
+        
+        /* Make cards vertical on desktop */
+        ${MotionProductCard} {
+            min-width: 300px;
+            max-width: 300px;
+            height: 420px;
+            flex-shrink: 0;
+        }
     }
 `;
 

@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import phrases from '../data/navbar-phrases.json';
 
 // Styled Components
 const MotionNavContainer = styled(motion.nav)`
@@ -37,9 +38,31 @@ const Logo = styled.img`
     }
 `;
 
-const CenterText = styled.div`
+const CenterTextContainer = styled.div`
+    position: relative;
     color: white;
     font-family: Raleway, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    flex: 1;
+    text-align: center;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    
+    @media (min-width: 768px) {
+        font-size: 0.95rem;
+        padding: 0 20px;
+    }
+`;
+
+const AnimatedText = styled(motion.span)`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 `;
 
 const MenuIcon = styled.div`
@@ -130,8 +153,18 @@ const MenuLink = styled.a`
 
 function NavBar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
     const controls = useAnimation();
     const lastYPos = useRef(0);
+
+    // Rotate phrases every 6 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+        }, 6000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -173,7 +206,19 @@ function NavBar() {
                 <Link href="/">
                     <Logo src="/logo blanco.png" alt="Logo" />
                 </Link>
-                <CenterText>Texto Cambiante</CenterText>
+                <CenterTextContainer>
+                    <AnimatePresence mode="wait">
+                        <AnimatedText
+                            key={currentPhraseIndex}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            {phrases[currentPhraseIndex]}
+                        </AnimatedText>
+                    </AnimatePresence>
+                </CenterTextContainer>
                 <MenuIcon onClick={toggleMenu}>
                     <span></span>
                     <span></span>

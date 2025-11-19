@@ -131,15 +131,15 @@ const Quality = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {hoveredFeature && (
           <DynamicBackground
-            key="bg"
+            key={hoveredFeature}
             bg={featureBackgrounds[hoveredFeature]}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.15 }} // Keep it subtle
+            animate={{ opacity: 0.15 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           />
         )}
       </AnimatePresence>

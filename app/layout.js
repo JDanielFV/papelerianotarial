@@ -1,6 +1,8 @@
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import StyledComponentsRegistry from "./lib/StyledComponentsRegistry";
 import PageTransition from "./components/PageTransition";
 
@@ -21,6 +23,8 @@ export default function RootLayout({ children }) {
         <StyledComponentsRegistry>
           <NavBar />
           <PageTransition>{children}</PageTransition>
+          <Footer />
+          <ScrollToTop />
         </StyledComponentsRegistry>
       </body>
     </html>

@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-
 import styled from 'styled-components';
-
 import { motion, AnimatePresence } from 'framer-motion';
-
 import { useSearchParams, useRouter } from 'next/navigation';
-
 import productData from '../../data/products-data.json';
+
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
 
 
 const CatalogContainer = styled.div`
@@ -48,12 +47,12 @@ const CategoryTitle = styled.h1`
 
 const ProductGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
     }
 `;
 
@@ -61,17 +60,22 @@ const ProductCard = styled(motion.div)`
     position: relative;
     overflow: hidden;
     border-radius: 15px;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     gap: 0.5rem;
-    height: 20rem;
+    height: 15rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: right;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    @media (min-width: 1024px) {
+        padding: 1.5rem 2rem;
+        height: 20rem;
+    }
     
     &:hover {
         transform: translateY(-5px);
@@ -113,10 +117,14 @@ const Overlay = styled.div`
 `;
 
 const ProductName = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: white;
     z-index: 2;
     transition: all 0.3s ease;
+    
+    @media (min-width: 1024px) {
+        font-size: 1.5rem;
+    }
     
     ${ProductCard}:hover & {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -125,10 +133,14 @@ const ProductName = styled.h3`
 `;
 
 const ProductDescription = styled.p`
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: #ccc;
     z-index: 2;
     transition: all 0.3s ease;
+    
+    @media (min-width: 1024px) {
+        font-size: 1rem;
+    }
     
     ${ProductCard}:hover & {
         color: #fff;
