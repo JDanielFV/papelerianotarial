@@ -1,8 +1,8 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
-    --color-primary: #0070f3;
-    --color-primary-dark: #005bb5;
+    --color-primary: #FFFFFF;
+    --color-primary-dark: #FFFFFF;
     --color-secondary: #f8f8f8;
     --color-text-light: #ffffff;
 }
@@ -11,8 +11,8 @@
     :root {
         --background: #0a0a0a;
         --foreground: #ededed;
-        --color-primary: #0070f3;
-        --color-primary-dark: #005bb5;
+        --color-primary: #FFFFFFF;
+        --color-primary-dark: #FFFFFF;
         --color-secondary: #1a1a1a;
         --color-text-light: #ffffff;
     }
