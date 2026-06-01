@@ -35,6 +35,17 @@ Other available scripts:
 
 # Recent Changes
 
+- **Optimization and Comprehensive Core Fixes (June 1, 2026):**
+    - **React Versions Sync:** Fixed a critical build/dev crash due to React version mismatches by locking `react` and `react-dom` to `19.2.0` and configuring npm package `overrides` in `package.json`.
+    - **Language Routing Unification:** Renamed `/products` route to `/productos` to standardize routes in Spanish. Updated all references across NavBar, Footer, and redirects.
+    - **SPA Navigation Transition:** Replaced standard HTML `<a>` elements in NavBar links with Next.js `Link` components (`styled(Link)`) to enable smooth client-side transitions and fixed mobile menu automatic closing (`setMenuOpen(false)`).
+    - **Contact/Domain Unification:** Standardized the contact email to `.com` and the web reference link to `.net` in the footer.
+    - **Asset Fixes:** Created and copied a premium `placeholder-image.jpg` asset to `public/` to prevent broken image 404 errors. Replaced the generic outlined WhatsApp logo with the official brand icon in `Icons.jsx`.
+    - **Deduplication:** Configured `About.jsx` to display manufacturing processes using `about-products-data.json` instead of replicating the product catalog. Replaced duplicated Styled Components in `catalogo/page.js` by importing `MotionProductCard`, `MotionProductImage`, etc., directly from `ProductCard.jsx`.
+    - **Animation Optimization:** Replaced explicit `height` animations in `Services.jsx` with Framer Motion `layout` dynamics combined with spring transitions to avoid layout thrashing and boost frame rates on mobile. Stopped event bubbling on the "Cotiza aquí" button.
+    - **Resource and Performance Tuning:** Configured the historical video in `History.jsx` to load and loop automatically without controls when it enters the viewport (using Framer Motion `useInView`). Added `preload="auto"`, `muted`, and `loop`, and removed the static poster. Updated `window.pageYOffset` to `window.scrollY` in `ScrollToTop.jsx`. Restructured `globals.css` to only apply horizontal overflow restrictions to `body`.
+    - **SEO Hierarchy:** Downgraded section titles on the Home page from `<h1>` to `<h2>` to preserve a single `<h1>` title. Created `layout.js` files for contact, services, and product directories to define unique server-side titles and descriptions.
+    - **Quality Page Hover Images:** Configured Unsplash thematic background images for the hover effects on the "Nuestra Calidad" component cards, styled with a custom radial-gradient overlay to maintain text legibility.
 - **Services Page Enhancements:**
     - Modified `Services.jsx` to change the interaction of service cards: instead of opening a modal, they now expand in height to reveal more details.
     - Implemented a "Ver más" button that appears when the card is expanded.

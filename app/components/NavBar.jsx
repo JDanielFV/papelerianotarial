@@ -41,7 +41,6 @@ const Logo = styled.img`
 const CenterTextContainer = styled.div`
     position: relative;
     color: white;
-    font-family: Raleway, sans-serif;
     font-size: 0.75rem;
     font-weight: 300;
     flex: 1;
@@ -104,7 +103,6 @@ const CloseButton = styled.button`
     font-size: 4rem;
     cursor: pointer;
     z-index: 13;
-    font-family: Raleway, sans-serif;
 `;
 
 const MenuContainer = styled.div.withConfig({
@@ -131,12 +129,11 @@ const MenuContainer = styled.div.withConfig({
         `}
 `;
 
-const MenuLink = styled.a`
+const MenuLink = styled(Link)`
     color: white;
     font-size: 2.5rem;
     text-decoration: none;
     margin: 1rem 0;
-    font-family: Raleway, sans-serif;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: .5rem 1rem;
     border-radius: 10px;
@@ -227,10 +224,10 @@ function NavBar() {
             </MotionNavContainer>
             <MenuContainer isOpen={isMenuOpen} onClick={toggleMenu}>
                 <CloseButton onClick={toggleMenu}>&times;</CloseButton>
-                <MenuLink href="/" onClick={(e) => e.stopPropagation()}>Inicio</MenuLink>
-                <MenuLink href="/products" onClick={(e) => e.stopPropagation()}>Productos</MenuLink>
-                <MenuLink href="/servicios" onClick={(e) => e.stopPropagation()}>Servicios</MenuLink>
-                <MenuLink href="/contacto" onClick={(e) => e.stopPropagation()}>Contacto</MenuLink>
+                <MenuLink href="/" onClick={() => setMenuOpen(false)}>Inicio</MenuLink>
+                <MenuLink href="/productos" onClick={() => setMenuOpen(false)}>Productos</MenuLink>
+                <MenuLink href="/servicios" onClick={() => setMenuOpen(false)}>Servicios</MenuLink>
+                <MenuLink href="/contacto" onClick={() => setMenuOpen(false)}>Contacto</MenuLink>
             </MenuContainer>
         </>
     );

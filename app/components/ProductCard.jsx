@@ -65,9 +65,11 @@ export const MotionProductName = styled(motion.h3)`
     margin-bottom: 0.5rem;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    min-height: 2.2rem;
 
     @media (min-width: 768px) {
         font-size: 1.5rem;
+        min-height: 3.6rem;
     }
 `;
 
@@ -77,4 +79,9 @@ export const MotionProductDescription = styled(motion.p)`
     z-index: 2;
     line-height: 1.4;
     text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    min-height: 2.8rem;
+
+    @media (min-width: 768px) {
+        min-height: 3.2rem;
+    }
 `;

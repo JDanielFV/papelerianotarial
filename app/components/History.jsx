@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const HistorySection = styled(motion.section)`
   padding: 100px 5%;
@@ -63,6 +64,17 @@ const Content = styled(motion.div)`
 `;
 
 const History = () => {
+  const videoRef = useRef(null);
+  const isInView = useInView(videoRef, { once: true, amount: 0.3 });
+
+  useEffect(() => {
+    if (isInView && videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.log("Autoplay blocked or failed:", err);
+      });
+    }
+  }, [isInView]);
+
   return (
     <HistorySection
       initial={{ opacity: 0 }}
@@ -84,7 +96,13 @@ const History = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        <video controls autoPlay muted loop playsInline>
+        <video
+          preload="auto"
+          muted
+          loop
+          playsInline
+          ref={videoRef}
+        >
           <source src="/fondo.m4v" type="video/mp4" />
           Tu navegador no soporta la etiqueta de video.
         </video>

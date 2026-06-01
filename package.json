@@ -18,5 +18,9 @@
   "devDependencies": {
     "eslint": "^9",
     "eslint-config-next": "16.0.1"
+  },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
   }
 }

@@ -29,8 +29,20 @@ const DynamicBackground = styled(motion.div)`
   width: 100%;
   height: 100%;
   z-index: 0;
-  opacity: 0.2; // Subtle effect
-  background: ${({ bg }) => bg || 'transparent'};
+  opacity: 0.35; // Subtle effect but visible
+  background-image: ${({ bg }) => bg ? `url(${bg})` : 'none'};
+  background-size: cover;
+  background-position: center;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.95) 85%);
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -111,14 +123,14 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-// Define background colors/gradients for each feature
+// Define background images for each feature from Unsplash
 const featureBackgrounds = {
-  "Materiales Premium": "linear-gradient(45deg, #8B7355, #6B5345)", // Bronze/Brown - elegant alternative to gold
-  "Tecnología de Punta": "linear-gradient(45deg, #00BFFF, #1E90FF)", // Blue
-  "Atención Personalizada": "linear-gradient(45deg, #FF69B4, #FF1493)", // Pink/Red
-  "Seguridad Garantizada": "linear-gradient(45deg, #32CD32, #008000)", // Green
-  "Envíos Seguros": "linear-gradient(45deg, #8A2BE2, #4B0082)", // Purple
-  "Sostenibilidad": "linear-gradient(45deg, #20B2AA, #008B8B)" // Teal
+  "Materiales Premium": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1200&auto=format&fit=crop",
+  "Tecnología de Punta": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
+  "Atención Personalizada": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+  "Seguridad Garantizada": "https://images.unsplash.com/photo-1508962914676-134849a727f0?q=80&w=1200&auto=format&fit=crop",
+  "Envíos Seguros": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop",
+  "Sostenibilidad": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop"
 };
 
 const Quality = () => {

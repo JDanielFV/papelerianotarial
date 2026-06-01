@@ -10,7 +10,6 @@ const FooterContainer = styled.footer`
     background-color: #000000;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 3rem 5% 2rem;
-    font-family: Raleway, serif;
     color: white;
 `;
 
@@ -96,6 +95,25 @@ const FooterBottom = styled.div`
     text-align: center;
 `;
 
+const LegalLinksContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    align-items: center;
+`;
+
+const LegalLink = styled(Link)`
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: white;
+    }
+`;
+
 const Copyright = styled.p`
     font-size: 0.9rem;
     color: #999999;
@@ -158,7 +176,7 @@ export default function Footer() {
                 <FooterSection>
                     <FooterTitle>Navegación</FooterTitle>
                     <FooterLink href="/">Inicio</FooterLink>
-                    <FooterLink href="/products">Productos</FooterLink>
+                    <FooterLink href="/productos">Productos</FooterLink>
                     <FooterLink href="/servicios">Servicios</FooterLink>
                     <FooterLink href="/contacto">Contacto</FooterLink>
                 </FooterSection>
@@ -166,13 +184,13 @@ export default function Footer() {
                 <FooterSection>
                     <FooterTitle>Contacto</FooterTitle>
                     <FooterText>
-                        Ciudad de México, México
+                        Tulipanes 29, Izcalli Ecatepec, 55030 Ecatepec de Morelos, Méx.
                     </FooterText>
                     <FooterText>
                         Tel: +52 55 7616 2856
                     </FooterText>
                     <FooterText>
-                        contacto@papelerianotarial.net
+                        contacto@papelerianotarial.com
                     </FooterText>
                 </FooterSection>
 
@@ -190,6 +208,11 @@ export default function Footer() {
             </FooterContent>
 
             <FooterBottom>
+                <LegalLinksContainer>
+                    <LegalLink href="/aviso-de-privacidad">Aviso de Privacidad</LegalLink>
+                    <span style={{ color: "rgba(255, 255, 255, 0.2)" }}>|</span>
+                    <LegalLink href="/terminos-y-condiciones">Términos y Condiciones</LegalLink>
+                </LegalLinksContainer>
                 <Copyright>
                     © {new Date().getFullYear()} Papelería Notarial A&G. Todos los derechos reservados.
                 </Copyright>

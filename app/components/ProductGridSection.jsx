@@ -31,6 +31,7 @@ const MotionProductGrid = styled(motion.div)`
         gap: 2rem;
         overflow-x: auto;
         overflow-y: hidden;
+        padding-top: 15px;
         padding-bottom: 1rem;
         justify-content: center;
         

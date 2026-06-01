@@ -20,7 +20,6 @@ const MotionProductsContainer = styled(motion.section)`
     padding: 5%;
     margin-top: 12%;
     text-align: center;
-    font-family: Raleway, serif;
     overflow-x: hidden;
     scroll-snap-align: start;
     background-color: var(--background);
@@ -31,7 +30,7 @@ const MotionProductsContainer = styled(motion.section)`
     }
 `;
 
-const MotionTitle = styled(motion.h1)`
+const MotionTitle = styled(motion.h2)`
     font-size: 2rem;
     color: var(--foreground);
     z-index: 1;

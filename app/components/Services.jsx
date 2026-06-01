@@ -35,7 +35,7 @@ const MotionServicesContainer = styled(motion.section)`
     }
 `;
 
-const MotionServiceTitle = styled(motion.h1)`
+const MotionServiceTitle = styled(motion.h2)`
     font-size: 2rem;
     color: var(--foreground);
     z-index: 1;
@@ -74,6 +74,7 @@ const SeeMoreButton = styled(motion.button)`
     z-index: 10;
     align-self: flex-end; /* Changed from center to flex-end */
     margin-top: 2.5rem; /* Added margin-top for spacing */
+    text-decoration: none;
 `;
 
 const containerVariants = {
@@ -123,26 +124,33 @@ function Services() {
                     <MotionServiceCard
                         key={service.id}
                         onClick={() => handleCardClick(service.id)}
-                        animate={{ height: expandedServiceId === service.id ? '350px' : '200px' }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        style={{ height: expandedServiceId === service.id ? '350px' : '200px' }}
                         layout
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     >
                         <MotionServiceImage />
                         <Overlay />
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1rem' }}>
-                            <MotionServiceName
-                                layout="position"
-                            >
-                                {service.name}
-                            </MotionServiceName>
-                            <MotionServiceDescription
-                                layout="position"
-                            >
-                                {service.description}
-                            </MotionServiceDescription>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1rem', width: '100%', height: '100%', justifyContent: 'space-between', boxSizing: 'border-box' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1rem', width: '100%' }}>
+                                <MotionServiceName
+                                    layout="position"
+                                >
+                                    {service.name}
+                                </MotionServiceName>
+                                <MotionServiceDescription
+                                    layout="position"
+                                >
+                                    {service.description}
+                                </MotionServiceDescription>
+                            </div>
                             <AnimatePresence>
                                 {expandedServiceId === service.id && (
                                     <SeeMoreButton
+                                        as="a"
+                                        href={`https://wa.me/525576162856?text=Hola,%20me%20interesa%20más%20información%20sobre%20el%20servicio%20de%20${encodeURIComponent(service.name)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.3 } }}
                                         exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}

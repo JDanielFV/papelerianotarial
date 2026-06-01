@@ -26,7 +26,7 @@ const AboutContainer = styled(motion.main)`
     }
 `;
 
-const Title = styled(motion.h1)`
+const Title = styled(motion.h2)`
     font-size: 2rem;
     z-index: 1;
     font-weight: lighter;
