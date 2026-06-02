@@ -169,7 +169,7 @@ const itemVariants = {
 
 export default function Beliefs({
   title = "En Qué Creemos",
-  imageSrc = "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=800&auto=format&fit=crop",
+  imageSrc = "https://images.unsplash.com/photo-1562240020-ce31ccb0fa7d?q=80&w=800&auto=format&fit=crop",
   paragraphs = [
     "Creemos firmemente que en el ámbito legal, la <strong>primera impresión no es solo estética: es el cimiento de la confianza</strong>. Un documento impecable, presentado en carpetas y folios de calidad excepcional, comunica de forma inmediata el rigor, la seriedad y el respeto con el que trata cada caso.",
     "El prestigio notarial se construye en los detalles. Cuando sus clientes sostienen una escritura con grabados perfectos y papel de alto gramaje, sienten la seguridad y el respaldo institucional de su Notaría. Diseñamos soluciones que proyectan autoridad y garantizan el resguardo de su legado."

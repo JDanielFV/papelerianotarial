@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -58,7 +58,7 @@ const FloatingCard = styled(motion.div)`
     }
 `;
 
-const Logo = styled(Image)`
+const MotionLogo = styled(motion(Image))`
     width: 14rem;
     height: auto;
     margin-bottom: 0.5rem;
@@ -100,25 +100,7 @@ const Title = styled(motion.h1)`
     }
 `;
 
-const TitleText = styled.span`
-    display: inline-block;
-    white-space: pre-wrap;
-`;
 
-const Cursor = styled.span`
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background-color: var(--accent-color);
-    margin-left: 2px;
-    animation: blink 0.8s infinite;
-    vertical-align: middle;
-
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-`;
 
 const SubTitle = styled(motion.p)`
     font-size: 0.95rem;
@@ -210,10 +192,10 @@ const DownArrow = styled.span`
 `;
 
 const PHRASES = [
-    { base: "Marcando ", highlight: "La Diferencia" },
-    { base: "Innovación ", highlight: "Continua" },
-    { base: "Radicalmente ", highlight: "Sorprendentes" },
-    { base: "Garantía ", highlight: "Total" }
+    { base: "Marcando", highlight: "La Diferencia" },
+    { base: "Innovación", highlight: "Continua" },
+    { base: "Radicalmente", highlight: "Sorprendentes" },
+    { base: "Garantía", highlight: "Total" }
 ];
 
 export default function Main({
@@ -229,52 +211,16 @@ export default function Main({
     scrollText = "Deslizar para explorar"
 }) {
     const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-    const [typedText, setTypedText] = useState("");
-    const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
-        const current = PHRASES[currentPhraseIndex];
-        const fullText = current.base + current.highlight;
-        
-        let timer;
-        
-        if (isDeleting) {
-            if (typedText === "") {
-                timer = setTimeout(() => {
-                    setIsDeleting(false);
-                    setCurrentPhraseIndex((prev) => (prev + 1) % PHRASES.length);
-                }, 500); // Delay before typing next phrase
-            } else {
-                timer = setTimeout(() => {
-                    setTypedText(prev => prev.slice(0, -1));
-                }, 30); // Erasing speed
-            }
-        } else {
-            if (typedText === fullText) {
-                timer = setTimeout(() => {
-                    setIsDeleting(true);
-                }, 2500); // Hold time
-            } else {
-                timer = setTimeout(() => {
-                    setTypedText(fullText.slice(0, typedText.length + 1));
-                }, 75); // Typing speed
-            }
-        }
+        const interval = setInterval(() => {
+            setCurrentPhraseIndex((prev) => (prev + 1) % PHRASES.length);
+        }, 4000);
 
-        return () => clearTimeout(timer);
-    }, [typedText, isDeleting, currentPhraseIndex]);
+        return () => clearInterval(interval);
+    }, []);
 
     const currentPhrase = PHRASES[currentPhraseIndex];
-    const baseLength = currentPhrase.base.length;
-    let basePart = "";
-    let highlightPart = "";
-
-    if (typedText.length <= baseLength) {
-        basePart = typedText;
-    } else {
-        basePart = currentPhrase.base;
-        highlightPart = typedText.substring(baseLength);
-    }
 
     return (
         <MainContainer>
@@ -286,22 +232,74 @@ export default function Main({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
             >
-                <Logo
+                <MotionLogo
                     src={logoSrc}
                     alt="Logo A&G"
                     width={120}
                     height={108}
                     priority
+                    initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ 
+                        duration: 1.2, 
+                        ease: [0.16, 1, 0.3, 1], // Custom elegant easeOutExpo-like feel
+                        delay: 0.15 
+                    }}
                 />
                 
                 {goldLabel && <GoldLabel>{goldLabel}</GoldLabel>}
                 
                 <Title>
-                    <TitleText>
-                        {basePart}
-                        {highlightPart && <strong>{highlightPart}</strong>}
-                        <Cursor />
-                    </TitleText>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentPhraseIndex}
+                            style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", gap: "0.6rem" }}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: { 
+                                    opacity: 1, 
+                                    transition: { staggerChildren: 0.12 } 
+                                },
+                                exit: { 
+                                    opacity: 0, 
+                                    y: -10, 
+                                    transition: { duration: 0.25, ease: "easeInOut" } 
+                                }
+                            }}
+                        >
+                            <motion.span
+                                style={{ display: "inline-block" }}
+                                variants={{
+                                    hidden: { opacity: 0, y: 15, scale: 0.95 },
+                                    visible: { 
+                                        opacity: 1, 
+                                        y: 0, 
+                                        scale: 1, 
+                                        transition: { type: "spring", stiffness: 120, damping: 14 } 
+                                    }
+                                }}
+                            >
+                                {currentPhrase.base}
+                            </motion.span>
+                            <motion.strong
+                                style={{ display: "inline-block", color: "var(--accent-color)", fontWeight: 500 }}
+                                variants={{
+                                    hidden: { opacity: 0, y: 15, scale: 0.9 },
+                                    visible: { 
+                                        opacity: 1, 
+                                        y: 0, 
+                                        scale: 1, 
+                                        transition: { type: "spring", stiffness: 140, damping: 12 } 
+                                    }
+                                }}
+                            >
+                                {currentPhrase.highlight}
+                            </motion.strong>
+                        </motion.div>
+                    </AnimatePresence>
                 </Title>
                 
                 {subTitle && <SubTitle dangerouslySetInnerHTML={{ __html: subTitle }} />}

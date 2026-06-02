@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
@@ -233,6 +233,16 @@ export default function About({
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.2 });
     const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        if (!processes || processes.length === 0) return;
+        
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % processes.length);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, [processes, activeIndex]);
 
     const activeImage = processes[activeIndex]?.image || (processes[0]?.image || "");
 
