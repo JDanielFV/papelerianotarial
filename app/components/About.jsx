@@ -35,23 +35,46 @@ const SplitLayout = styled.div`
     }
 `;
 
-const ImageContainer = styled(motion.div)`
-    position: relative;
+const MobileBackground = styled(motion.div)`
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 350px;
-    border-radius: 28px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-    order: 2; /* Mobile first: Image below content */
-    
-    @media (min-width: 768px) {
-        height: 450px;
-    }
+    height: 100%;
+    z-index: 0;
+    background-image: ${({ $bg }) => $bg ? `url(${$bg})` : 'none'};
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
 
     @media (min-width: 1024px) {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--overlay-gradient);
+    }
+`;
+
+const ImageContainer = styled(motion.div)`
+    display: none;
+    
+    @media (min-width: 1024px) {
+        display: block;
+        position: relative;
+        width: 100%;
         height: 100%;
         min-height: 400px;
+        border-radius: 28px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
         order: 1; /* Desktop: Image on left */
     }
 `;
@@ -220,6 +243,17 @@ export default function About({
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
         >
+            <AnimatePresence mode="wait">
+                <MobileBackground
+                    key={activeIndex}
+                    $bg={activeImage}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.35 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                />
+            </AnimatePresence>
+
             <SplitLayout>
                 <ImageContainer variants={itemVariants}>
                     <AnimatePresence mode="wait">

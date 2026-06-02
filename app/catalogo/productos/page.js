@@ -47,10 +47,15 @@ const CategorySection = styled.section`
 `;
 
 const CategoryTitle = styled.h1`
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: lighter;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--card-border);
     padding-bottom: 1rem;
+
+    @media (min-width: 1024px) {
+        font-size: 4rem;
+    }
 `;
 
 const ProductGrid = styled.div`

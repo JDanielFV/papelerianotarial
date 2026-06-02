@@ -4,6 +4,7 @@ import Products from "./components/Products";
 import AboutUs from "./components/AboutUs";
 import Quality from "./components/Quality";
 import ContactSection from "./components/ContactSection";
+import Beliefs from "./components/Beliefs";
 
 // Import unified static data
 import homeData from "./data/home-data.json";
@@ -16,6 +17,7 @@ export default function Home() {
       <About {...homeData.about} />
       <Products {...homeData.products} products={productData} />
       <Quality {...homeData.quality} />
+      <Beliefs />
       <AboutUs {...homeData.aboutUs} />
       <ContactSection {...homeData.contactSection} />
     </>

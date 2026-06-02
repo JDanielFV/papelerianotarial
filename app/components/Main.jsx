@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -83,6 +84,10 @@ const Title = styled(motion.h1)`
     line-height: 1.25;
     color: var(--text-light);
     margin: 0;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     strong {
         color: var(--accent-color);
@@ -91,6 +96,27 @@ const Title = styled(motion.h1)`
 
     @media (min-width: 768px) {
         font-size: 3.2rem;
+        height: 10rem;
+    }
+`;
+
+const TitleText = styled.span`
+    display: inline-block;
+    white-space: pre-wrap;
+`;
+
+const Cursor = styled.span`
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: var(--accent-color);
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+    vertical-align: middle;
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
     }
 `;
 
@@ -183,6 +209,13 @@ const DownArrow = styled.span`
     }
 `;
 
+const PHRASES = [
+    { base: "Marcando ", highlight: "La Diferencia" },
+    { base: "Innovación ", highlight: "Continua" },
+    { base: "Radicalmente ", highlight: "Sorprendentes" },
+    { base: "Garantía ", highlight: "Total" }
+];
+
 export default function Main({
     videoSrc = "/fondo.m4v",
     logoSrc = "/logo blanco.svg",
@@ -195,6 +228,54 @@ export default function Main({
     ],
     scrollText = "Deslizar para explorar"
 }) {
+    const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+    const [typedText, setTypedText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const current = PHRASES[currentPhraseIndex];
+        const fullText = current.base + current.highlight;
+        
+        let timer;
+        
+        if (isDeleting) {
+            if (typedText === "") {
+                timer = setTimeout(() => {
+                    setIsDeleting(false);
+                    setCurrentPhraseIndex((prev) => (prev + 1) % PHRASES.length);
+                }, 500); // Delay before typing next phrase
+            } else {
+                timer = setTimeout(() => {
+                    setTypedText(prev => prev.slice(0, -1));
+                }, 30); // Erasing speed
+            }
+        } else {
+            if (typedText === fullText) {
+                timer = setTimeout(() => {
+                    setIsDeleting(true);
+                }, 2500); // Hold time
+            } else {
+                timer = setTimeout(() => {
+                    setTypedText(fullText.slice(0, typedText.length + 1));
+                }, 75); // Typing speed
+            }
+        }
+
+        return () => clearTimeout(timer);
+    }, [typedText, isDeleting, currentPhraseIndex]);
+
+    const currentPhrase = PHRASES[currentPhraseIndex];
+    const baseLength = currentPhrase.base.length;
+    let basePart = "";
+    let highlightPart = "";
+
+    if (typedText.length <= baseLength) {
+        basePart = typedText;
+    } else {
+        basePart = currentPhrase.base;
+        highlightPart = typedText.substring(baseLength);
+    }
+
     return (
         <MainContainer>
             <Overlay />
@@ -215,7 +296,13 @@ export default function Main({
                 
                 {goldLabel && <GoldLabel>{goldLabel}</GoldLabel>}
                 
-                {title && <Title dangerouslySetInnerHTML={{ __html: title }} />}
+                <Title>
+                    <TitleText>
+                        {basePart}
+                        {highlightPart && <strong>{highlightPart}</strong>}
+                        <Cursor />
+                    </TitleText>
+                </Title>
                 
                 {subTitle && <SubTitle dangerouslySetInnerHTML={{ __html: subTitle }} />}
                 

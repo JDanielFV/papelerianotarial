@@ -119,7 +119,7 @@ const AboutUs = ({
             src={imageSrc}
             alt={title}
             fill
-            style={{ objectFit: "cover", opacity: 0.5 }}
+            style={{ objectFit: "contain", opacity: 0.5 }}
           />
         </ImageContainer>
       )}

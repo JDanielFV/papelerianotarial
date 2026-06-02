@@ -30,7 +30,8 @@ const MotionProductsContainer = styled(motion.section)`
 `;
 
 const MotionTitle = styled(motion.h2)`
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: lighter;
     color: var(--foreground);
     z-index: 1;
     padding: 2rem 0 2rem 0;

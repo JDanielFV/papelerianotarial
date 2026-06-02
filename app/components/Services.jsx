@@ -36,13 +36,14 @@ const MotionServicesContainer = styled(motion.section)`
 `;
 
 const MotionServiceTitle = styled(motion.h2)`
-    font-size: 2rem;
+    font-size: 3rem;
+    font-weight: lighter;
     color: var(--foreground);
     z-index: 1;
     padding: 2rem 0 2rem 0;
 
     @media (min-width: 1024px) {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 `;
 
