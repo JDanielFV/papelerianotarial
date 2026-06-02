@@ -302,7 +302,7 @@ const ModalPortalWrapper = styled(motion.div)`
 function ModalInner({ selectedProduct, onClose }) {
     const [isPresent, safeToRemove] = usePresence();
     const [nombre, setNombre] = useState("");
-    const [cantidad, setCantidad] = useState(selectedProduct.minPurchaseQuantity || 100);
+    const [cantidad, setCantidad] = useState("");
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -320,9 +320,10 @@ function ModalInner({ selectedProduct, onClose }) {
             return;
         }
 
-        const minQty = selectedProduct.minPurchaseQuantity || 1;
-        if (cantidad < minQty) {
-            setError(`La cantidad mínima de compra es de ${minQty} unidades`);
+        const minQty = selectedProduct.minPurchaseQuantity || 100;
+        const parsedCantidad = parseInt(cantidad);
+        if (cantidad === "" || isNaN(parsedCantidad) || parsedCantidad < minQty) {
+            setError("No se puede realizar la cotización con la cantidad seleccionada");
             return;
         }
 
@@ -332,7 +333,7 @@ function ModalInner({ selectedProduct, onClose }) {
         const message = `Hola, me interesa cotizar el siguiente producto:\n\n` +
             `• Producto: ${selectedProduct.name}\n` +
             `• Categoría: ${selectedProduct.subCategoryName || "Catálogo"}\n` +
-            `• Cantidad: ${cantidad} unidades\n` +
+            `• Cantidad: ${parsedCantidad} unidades\n` +
             `• Solicitado por: ${nombre}`;
 
         const waUrl = getWhatsAppUrl(message);
@@ -423,10 +424,19 @@ function ModalInner({ selectedProduct, onClose }) {
                                 <Input
                                     id="modal-cantidad"
                                     type="number"
+                                    placeholder={selectedProduct.minPurchaseQuantity || 100}
                                     value={cantidad}
                                     onChange={(e) => {
-                                        setCantidad(parseInt(e.target.value) || 0);
-                                        if (error) setError("");
+                                        const valStr = e.target.value;
+                                        setCantidad(valStr);
+                                        
+                                        const parsed = parseInt(valStr);
+                                        const minQty = selectedProduct.minPurchaseQuantity || 100;
+                                        if (valStr !== "" && (isNaN(parsed) || parsed < minQty)) {
+                                            setError("No se puede realizar la cotización con la cantidad seleccionada");
+                                        } else {
+                                            setError("");
+                                        }
                                     }}
                                 />
                             </FormGroup>

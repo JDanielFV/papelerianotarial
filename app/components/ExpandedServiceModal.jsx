@@ -63,6 +63,20 @@ const LeftPanel = styled.div`
     justify-content: flex-start;
     overflow-y: auto;
 
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(212, 163, 23, 0.3);
+    }
+
     @media (min-width: 768px) {
         width: 50%;
         height: 100%;
@@ -79,6 +93,20 @@ const RightPanel = styled.div`
     justify-content: center;
     border-top: 1px solid var(--card-border);
     overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(212, 163, 23, 0.3);
+    }
 
     @media (min-width: 768px) {
         width: 50%;
@@ -242,7 +270,7 @@ const Textarea = styled.textarea`
     color: var(--foreground);
     font-family: inherit;
     font-size: 0.95rem;
-    min-height: 90px;
+    min-height: 180px;
     resize: vertical;
     line-height: 1.4;
     width: 100%;
@@ -338,6 +366,18 @@ function ServiceModalInner({ service, onClose }) {
     const [nombre, setNombre] = useState("");
     const [detalles, setDetalles] = useState("");
     const [error, setError] = useState("");
+
+    const getPlaceholderText = () => {
+        const placeholders = {
+            1: "Detalles sobre las tarjetas o documentos donde deseas integrar chips NFC (ej: cantidad, tipo de papel, si requieren pre-programación, etc.)",
+            2: "Describe qué tipo de portal necesitas (ej: cotizador en línea, sistema de agendado de citas, gestión documental, cantidad de páginas, etc.)",
+            3: "Cuéntanos sobre los documentos que llevarán los códigos QR (ej: actas, escrituras, volumen estimado de generación mensual, etc.)",
+            4: "Platícanos qué redes te interesa manejar (ej: LinkedIn, Facebook, Instagram), objetivos de tu notaría y frecuencia de publicaciones deseada.",
+            5: "Especifica la cantidad de tarjetas de contacto digitales (vCards) requeridas para tu equipo de trabajo y si las deseas físicas con NFC.",
+            6: "Indica el tipo de empastado (ej: piel, tela), grabado (oro o plata), cantidad de libros de protocolo y si es con recolección a domicilio."
+        };
+        return placeholders[service.id] || "Detalles sobre lo que necesitas (cantidades, fechas, personalización, etc.)";
+    };
 
     useEffect(() => {
         if (!isPresent && safeToRemove) {
@@ -437,7 +477,7 @@ function ServiceModalInner({ service, onClose }) {
                                 <Label htmlFor="service-detalles">Especificaciones o Comentarios</Label>
                                 <Textarea
                                     id="service-detalles"
-                                    placeholder="Detalles sobre lo que necesitas (cantidades, fechas, personalización, etc.)"
+                                    placeholder={getPlaceholderText()}
                                     value={detalles}
                                     onChange={(e) => setDetalles(e.target.value)}
                                 />
