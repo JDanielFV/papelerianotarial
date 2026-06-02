@@ -63,7 +63,11 @@ const Content = styled(motion.div)`
   }
 `;
 
-const History = () => {
+const History = ({
+  title = "Nuestra Historia",
+  videoSrc = "/fondo.m4v",
+  paragraphs = []
+}) => {
   const videoRef = useRef(null);
   const isInView = useInView(videoRef, { once: true, amount: 0.3 });
 
@@ -82,47 +86,47 @@ const History = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <Title
-        initial={{ y: -30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        Nuestra Historia
-      </Title>
-      <VideoContainer
-        initial={{ scale: 0.9, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <video
-          preload="auto"
-          muted
-          loop
-          playsInline
-          ref={videoRef}
+      {title && (
+        <Title
+          initial={{ y: -30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <source src="/fondo.m4v" type="video/mp4" />
-          Tu navegador no soporta la etiqueta de video.
-        </video>
-      </VideoContainer>
-      <Content
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-      >
-        <p>
-          Desde nuestros humildes comienzos, Papelería Notarial A&G ha estado dedicada a proveer productos de papelería de la más alta calidad para el sector notarial. Nacimos de la visión de combinar la tradición artesanal con la eficiencia moderna, entendiendo las necesidades únicas de los profesionales del derecho.
-        </p>
-        <p>
-          A lo largo de los años, hemos crecido y evolucionado, pero nuestro compromiso con la excelencia y la satisfacción del cliente ha permanecido inalterable. Cada producto que ofrecemos es el resultado de una cuidadosa selección de materiales y un meticuloso proceso de fabricación.
-        </p>
-        <p>
-          Hoy, somos sinónimo de confianza y calidad, sirviendo a notarios y adaptándonos continuamente a las nuevas tecnologías y demandas del mercado, sin perder la esencia que nos define.
-        </p>
-      </Content>
+          {title}
+        </Title>
+      )}
+      {videoSrc && (
+        <VideoContainer
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <video
+            preload="auto"
+            muted
+            loop
+            playsInline
+            ref={videoRef}
+          >
+            <source src={videoSrc} type="video/mp4" />
+            Tu navegador no soporta la etiqueta de video.
+          </video>
+        </VideoContainer>
+      )}
+      {paragraphs && paragraphs.length > 0 && (
+        <Content
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          {paragraphs.map((p, index) => (
+            <p key={index} dangerouslySetInnerHTML={{ __html: p }} />
+          ))}
+        </Content>
+      )}
     </HistorySection>
   );
 };

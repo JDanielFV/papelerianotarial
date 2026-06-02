@@ -9,7 +9,7 @@ export const MotionProductCard = styled(motion.div)`
     border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--card-border);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -25,8 +25,8 @@ export const MotionProductCard = styled(motion.div)`
 
     &:hover {
         transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: var(--shadow);
+        border-color: var(--card-border-hover);
     }
 `;
 

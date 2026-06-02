@@ -9,12 +9,11 @@ const QualitySection = styled(motion.section)`
   text-align: center;
   background-color: var(--background);
   color: var(--foreground);
-  font-family: Raleway, serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow: hidden; // Contain the background
+  overflow: hidden;
 
   @media (min-width: 1024px) {
     padding: 150px 10%;
@@ -29,7 +28,7 @@ const DynamicBackground = styled(motion.div)`
   width: 100%;
   height: 100%;
   z-index: 0;
-  opacity: 0.35; // Subtle effect but visible
+  opacity: 0.35;
   background-image: ${({ bg }) => bg ? `url(${bg})` : 'none'};
   background-size: cover;
   background-position: center;
@@ -41,7 +40,7 @@ const DynamicBackground = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.95) 85%);
+    background: var(--overlay-gradient);
   }
 `;
 
@@ -59,6 +58,15 @@ const Title = styled(motion.h2)`
   margin-bottom: 4rem;
   color: var(--foreground);
   font-weight: lighter;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #d4a317;
+    margin: 1rem auto 0 auto;
+  }
 
   @media (min-width: 1024px) {
     font-size: 4rem;
@@ -79,32 +87,34 @@ const Grid = styled(motion.div)`
 `;
 
 const Card = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-background);
+  border: 1px solid var(--card-border);
   padding: 2.5rem;
-  border-radius: 15px;
+  border-radius: 20px;
   text-align: left;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+  backdrop-filter: blur(10px);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--card-background-hover);
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--card-border-hover);
+    box-shadow: var(--shadow);
   }
 `;
 
 const CardTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 1rem;
-  color: var(--foreground);
-  font-weight: 600;
+  color: #d4a317;
+  font-weight: 500;
 `;
 
 const CardText = styled.p`
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #cccccc;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
   font-weight: 300;
 `;
 
@@ -123,18 +133,16 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-// Define background images for each feature from Unsplash
-const featureBackgrounds = {
-  "Materiales Premium": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1200&auto=format&fit=crop",
-  "Tecnología de Punta": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
-  "Atención Personalizada": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
-  "Seguridad Garantizada": "https://images.unsplash.com/photo-1508962914676-134849a727f0?q=80&w=1200&auto=format&fit=crop",
-  "Envíos Seguros": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop",
-  "Sostenibilidad": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop"
-};
-
-const Quality = () => {
+const Quality = ({
+  title = "Nuestra Calidad",
+  features = []
+}) => {
   const [hoveredFeature, setHoveredFeature] = useState(null);
+
+  const getFeatureBg = (featureTitle) => {
+    const feat = features.find(f => f.title === featureTitle);
+    return feat ? feat.bg : null;
+  };
 
   return (
     <QualitySection
@@ -147,7 +155,7 @@ const Quality = () => {
         {hoveredFeature && (
           <DynamicBackground
             key={hoveredFeature}
-            bg={featureBackgrounds[hoveredFeature]}
+            bg={getFeatureBg(hoveredFeature)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.15 }}
             exit={{ opacity: 0 }}
@@ -157,27 +165,22 @@ const Quality = () => {
       </AnimatePresence>
 
       <ContentWrapper>
-        <Title variants={itemVariants}>Nuestra Calidad</Title>
-        <Grid>
-          {[
-            { title: "Materiales Premium", desc: "Utilizamos solo los mejores papeles y tintas importadas para asegurar la longevidad de sus documentos." },
-            { title: "Tecnología de Punta", desc: "Impresión de alta resolución y acabados precisos con maquinaria de última generación." },
-            { title: "Atención Personalizada", desc: "Cada cliente es único. Adaptamos nuestros diseños a la identidad específica de su notaría." },
-            { title: "Seguridad Garantizada", desc: "Implementamos medidas de seguridad avanzadas como hologramas y microtextos." },
-            { title: "Envíos Seguros", desc: "Logística especializada para garantizar que su pedido llegue en perfectas condiciones." },
-            { title: "Sostenibilidad", desc: "Comprometidos con el medio ambiente, utilizamos procesos y materiales eco-amigables." }
-          ].map((feature, index) => (
-            <Card
-              key={index}
-              variants={itemVariants}
-              onMouseEnter={() => setHoveredFeature(feature.title)}
-              onMouseLeave={() => setHoveredFeature(null)}
-            >
-              <CardTitle>{feature.title}</CardTitle>
-              <CardText>{feature.desc}</CardText>
-            </Card>
-          ))}
-        </Grid>
+        {title && <Title variants={itemVariants}>{title}</Title>}
+        {features && features.length > 0 && (
+          <Grid>
+            {features.map((feature, index) => (
+              <Card
+                key={index}
+                variants={itemVariants}
+                onMouseEnter={() => setHoveredFeature(feature.title)}
+                onMouseLeave={() => setHoveredFeature(null)}
+              >
+                <CardTitle>{feature.title}</CardTitle>
+                <CardText>{feature.desc}</CardText>
+              </Card>
+            ))}
+          </Grid>
+        )}
       </ContentWrapper>
     </QualitySection>
   );

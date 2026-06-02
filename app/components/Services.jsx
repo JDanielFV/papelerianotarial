@@ -62,8 +62,8 @@ const MotionServiceGrid = styled(motion.div)`
 `;
 
 const SeeMoreButton = styled(motion.button)`
-    background-color: #ffffff;
-    color: #171717;
+    background-color: var(--foreground);
+    color: var(--background);
     border: none;
     border-radius: 50px;
     padding: 10px 25px;
@@ -128,7 +128,7 @@ function Services() {
                         layout
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     >
-                        <MotionServiceImage />
+                        <MotionServiceImage $bg={service.image} />
                         <Overlay />
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1rem', width: '100%', height: '100%', justifyContent: 'space-between', boxSizing: 'border-box' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1rem', width: '100%' }}>

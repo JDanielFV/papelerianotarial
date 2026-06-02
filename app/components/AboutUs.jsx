@@ -96,7 +96,11 @@ const Highlight = styled.span`
   font-weight: 600;
 `;
 
-const AboutUs = () => {
+const AboutUs = ({
+  title = "Sobre Nosotros",
+  imageSrc = "/logo blanco.svg",
+  paragraphs = []
+}) => {
   return (
     <AboutUsSection
       initial={{ opacity: 0 }}
@@ -104,43 +108,45 @@ const AboutUs = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <ImageContainer
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Placeholder Image - Replace with real image later */}
-        <Image
-          src="/logo blanco.png" // Using logo as placeholder since user has no images
-          alt="Sobre Nosotros"
-          fill
-          style={{ objectFit: "cover", opacity: 0.5 }} // Low opacity for background feel
-        />
-      </ImageContainer>
+      {imageSrc && (
+        <ImageContainer
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            style={{ objectFit: "cover", opacity: 0.5 }}
+          />
+        </ImageContainer>
+      )}
 
       <TextContainer>
-        <Title
-          initial={{ y: -30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Sobre Nosotros
-        </Title>
-        <Content
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <p>
-            En <Highlight>Papelería Notarial A&G</Highlight>, nos dedicamos a ofrecer soluciones de alta seguridad y elegancia para notarios en todo México. Con años de experiencia en el sector, entendemos la importancia de la <Highlight>confiabilidad</Highlight> y la <Highlight>presentación impecable</Highlight> en cada documento notarial.
-          </p>
-          <p>
-            Nuestro compromiso es brindar productos que no solo cumplan con los estándares legales, sino que también reflejen la <Highlight>excelencia</Highlight> de su notaría. Desde hologramas de seguridad hasta folios personalizados, cada detalle es cuidado minuciosamente.
-          </p>
-        </Content>
+        {title && (
+          <Title
+            initial={{ y: -30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {title}
+          </Title>
+        )}
+        {paragraphs && paragraphs.length > 0 && (
+          <Content
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {paragraphs.map((p, index) => (
+              <p key={index} dangerouslySetInnerHTML={{ __html: p }} />
+            ))}
+          </Content>
+        )}
       </TextContainer>
     </AboutUsSection>
   );

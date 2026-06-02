@@ -4,6 +4,7 @@
         "name": "NFC",
         "description": "Tecnología NFC para identificación y autenticación segura.",
         "detailDescription": "Implementamos tecnología NFC (Near Field Communication) de última generación para tus documentos notariales, ofreciendo un sistema de autenticación instantánea y segura. Ideal para verificación de documentos y protección contra falsificaciones.",
+        "image": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=1000&auto=format&fit=crop",
         "features": [
             "Chips NFC de alta seguridad",
             "Integración con sistemas de verificación",
@@ -17,6 +18,7 @@
         "name": "Web",
         "description": "Soluciones web personalizadas para notarías.",
         "detailDescription": "Desarrollamos plataformas web a medida para tu notaría, incluyendo sistemas de gestión documental, portales de cliente y herramientas de administración. Diseño profesional y funcionalidad completa para optimizar tus procesos.",
+        "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop",
         "features": [
             "Diseño web responsive",
             "Sistema de gestión documental",
@@ -30,6 +32,7 @@
         "name": "QRs",
         "description": "Códigos QR personalizados para documentos.",
         "detailDescription": "Generamos códigos QR únicos y seguros para tus documentos notariales, permitiendo verificación instantánea y trazabilidad completa. Integración directa con tu sistema de gestión documental.",
+        "image": "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?q=80&w=1000&auto=format&fit=crop",
         "features": [
             "Generación automática de QRs",
             "Códigos únicos e irrepetibles",
@@ -43,6 +46,7 @@
         "name": "Redes Sociales",
         "description": "Gestión profesional de redes sociales.",
         "detailDescription": "Administramos y potenciamos la presencia digital de tu notaría en redes sociales. Creamos contenido profesional, gestionamos tu comunidad y aumentamos tu visibilidad online.",
+        "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1000&auto=format&fit=crop",
         "features": [
             "Gestión de contenido",
             "Diseño gráfico profesional",
@@ -56,6 +60,7 @@
         "name": "Vcards",
         "description": "Tarjetas digitales de contacto profesionales.",
         "detailDescription": "Creamos tarjetas de presentación digitales interactivas para tu notaría y tu equipo. Comparte tu información de contacto de forma instantánea y profesional mediante NFC o códigos QR.",
+        "image": "https://images.unsplash.com/photo-1589758438368-0ad531db3366?q=80&w=1000&auto=format&fit=crop",
         "features": [
             "Diseño personalizado",
             "Integración con calendarios",
@@ -69,6 +74,7 @@
         "name": "Empastado",
         "description": "Servicio de empastado profesional para tus documentos.",
         "detailDescription": "Ofrecemos empastado de alta calidad para protocolos y documentos notariales. Utilizamos materiales premium y técnicas especializadas que garantizan durabilidad y presentación impecable.",
+        "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1000&auto=format&fit=crop",
         "features": [
             "Empastado en piel y tela",
             "Grabado en oro y plata",

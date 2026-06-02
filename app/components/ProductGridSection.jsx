@@ -87,17 +87,17 @@ const ExpandedCard = styled(motion.div)`
     max-width: 500px;
     height: 85vh;
     max-height: 800px;
-    background: linear-gradient(-45deg, #000000, #0a192f, #000000, #051020);
+    background: var(--expanded-gradient);
     background-size: 400% 400%;
     animation: ${gradientAnimation} 15s ease infinite;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     border-radius: 25px;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow);
 `;
 
 const ExpandedBackground = styled(motion.div)`
@@ -154,8 +154,8 @@ const ExpandedDescription = styled(motion.p)`
 
 const VerMasButton = styled(motion.button)`
     margin-top: 1rem;
-    background-color: white;
-    color: black;
+    background-color: #d4a317;
+    color: #050811;
     border: none;
     border-radius: 50px;
     padding: 12px 30px;
@@ -168,8 +168,9 @@ const VerMasButton = styled(motion.button)`
     width: 100%;
     
     &:hover {
+        background-color: #e6b422;
         transform: scale(1.02);
-        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 20px rgba(212, 163, 23, 0.3);
     }
 `;
 
@@ -193,8 +194,9 @@ const WhatsappButton = styled(motion.a)`
     width: 100%;
     
     &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-color: white;
+        background-color: rgba(212, 163, 23, 0.05);
+        border-color: #d4a317;
+        color: #d4a317;
         transform: scale(1.02);
     }
 `;

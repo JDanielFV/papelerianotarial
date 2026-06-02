@@ -7,10 +7,10 @@ import Image from "next/image";
 import { FacebookIcon, InstagramIcon, GlobeIcon } from "./Icons";
 
 const FooterContainer = styled.footer`
-    background-color: #000000;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-secondary);
+    border-top: 1px solid var(--card-border);
     padding: 3rem 5% 2rem;
-    color: white;
+    color: var(--foreground);
 `;
 
 const FooterContent = styled.div`
@@ -39,23 +39,23 @@ const FooterTitle = styled.h4`
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: white;
+    color: var(--text-light);
 `;
 
 const FooterText = styled.p`
     font-size: 0.95rem;
-    color: #cccccc;
+    color: var(--text-muted);
     line-height: 1.6;
 `;
 
 const FooterLink = styled(Link)`
     font-size: 0.95rem;
-    color: #cccccc;
+    color: var(--text-muted);
     text-decoration: none;
     transition: all 0.3s ease;
     
     &:hover {
-        color: white;
+        color: #d4a317;
         transform: translateX(3px);
     }
 `;
@@ -72,17 +72,18 @@ const SocialIcon = styled(motion.a)`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--input-background);
+    border: 1px solid var(--card-border);
     border-radius: 50%;
-    color: white;
+    color: var(--foreground);
     font-size: 1.2rem;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(212, 163, 23, 0.05);
+        border-color: rgba(212, 163, 23, 0.4);
+        color: #d4a317;
         transform: translateY(-3px);
     }
 `;
@@ -91,7 +92,7 @@ const FooterBottom = styled.div`
     max-width: 1400px;
     margin: 2rem auto 0;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--card-border);
     text-align: center;
 `;
 
@@ -122,10 +123,11 @@ const Copyright = styled.p`
 const Logo = styled(Image)`
     cursor: pointer;
     transition: all 0.3s ease;
+    filter: var(--logo-filter);
     
     &:hover {
         transform: scale(1.05);
-        filter: brightness(1.2);
+        filter: var(--logo-filter) brightness(1.2);
     }
 `;
 
@@ -136,7 +138,7 @@ export default function Footer() {
                 <FooterSection>
                     <Link href="/">
                         <Logo
-                            src="/logo blanco.png"
+                            src="/logo blanco.svg"
                             alt="Papelería Notarial A&G"
                             width={50}
                             height={45}
@@ -176,7 +178,7 @@ export default function Footer() {
                 <FooterSection>
                     <FooterTitle>Navegación</FooterTitle>
                     <FooterLink href="/">Inicio</FooterLink>
-                    <FooterLink href="/productos">Productos</FooterLink>
+                    <FooterLink href="/catalogo">Catálogo</FooterLink>
                     <FooterLink href="/servicios">Servicios</FooterLink>
                     <FooterLink href="/contacto">Contacto</FooterLink>
                 </FooterSection>

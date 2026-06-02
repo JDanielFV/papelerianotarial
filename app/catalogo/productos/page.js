@@ -101,7 +101,7 @@ function CatalogContent() {
     return (
         <CatalogContainer>
             <BackButton onClick={() => router.back()}>
-                ← Volver a Productos
+                ← Volver al Catálogo
             </BackButton>
             {filteredCategories.map(category => (
                 <CategorySection key={category.id}>

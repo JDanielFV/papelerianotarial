@@ -6,7 +6,6 @@ import { motion, useInView } from "framer-motion";
 import { useRouter } from 'next/navigation';
 import ProductGridSection from "./ProductGridSection";
 import { WhatsAppIcon } from "./Icons";
-import productData from '../data/products-data.json';
 
 // --- Styled Components (now with motion) ---
 const MotionProductsContainer = styled(motion.section)`
@@ -56,10 +55,10 @@ const ContactButton = styled(motion.a)`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid #d4a317;
     border-radius: 15px;
     padding: 1rem 2rem;
-    color: white;
+    color: #d4a317;
     text-decoration: none;
     font-size: 1.2rem;
     margin-top: 1rem;
@@ -67,11 +66,11 @@ const ContactButton = styled(motion.a)`
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        background-color: #ffffff;
+        background-color: #d4a317;
         color: #0a0a0a;
-        border-color: #ffffff;
+        border-color: #d4a317;
         transform: scale(1.05);
-        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+        box-shadow: 0 10px 30px rgba(212, 163, 23, 0.4);
     }
 `;
 
@@ -90,13 +89,19 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-function Products() {
+function Products({
+    title = "Nuestros Productos",
+    products = [],
+    subTitle = "¿No encuentras lo que buscas? Contáctanos",
+    whatsappLink = "https://wa.me/525576162856",
+    whatsappText = "Chatea con nosotros"
+}) {
     const router = useRouter();
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.5 }); // Trigger once when 50% in view
 
     const handleSeeMore = (id) => {
-        router.push(`/productos/catalogo?categoryId=${id}`);
+        router.push(`/catalogo/productos?categoryId=${id}`);
     };
 
     return (
@@ -105,31 +110,37 @@ function Products() {
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}>
-            <MotionTitle
-                variants={itemVariants}
-            >
-                Nuestros Productos
-            </MotionTitle>
+            {title && (
+                <MotionTitle variants={itemVariants}>
+                    {title}
+                </MotionTitle>
+            )}
 
-            <ProductGridSection
-                products={productData}
-                onSeeMore={handleSeeMore}
-                variants={itemVariants}
-            />
+            {products && products.length > 0 && (
+                <ProductGridSection
+                    products={products}
+                    onSeeMore={handleSeeMore}
+                    variants={itemVariants}
+                />
+            )}
 
-            <SubTitle variants={itemVariants}>
-                ¿No encuentras lo que buscas? Contáctanos
-            </SubTitle>
+            {subTitle && (
+                <SubTitle variants={itemVariants}>
+                    {subTitle}
+                </SubTitle>
+            )}
 
-            <ContactButton
-                href="https://wa.me/525576162856"
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={itemVariants}
-            >
-                <WhatsAppIcon size={24} />
-                <span>Chatea con nosotros</span>
-            </ContactButton>
+            {whatsappLink && (
+                <ContactButton
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={itemVariants}
+                >
+                    <WhatsAppIcon size={24} />
+                    <span>{whatsappText}</span>
+                </ContactButton>
+            )}
         </MotionProductsContainer>
     );
 }

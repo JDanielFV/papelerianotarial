@@ -10,8 +10,8 @@ import ExpandedServiceModal from "../components/ExpandedServiceModal";
 const PageContainer = styled(motion.div)`
     min-height: 100vh;
     padding: 120px 5% 5%;
-    background-color: #0a0a0a;
-    color: white;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: Raleway, serif;
 `;
 
@@ -35,7 +35,7 @@ const Title = styled(motion.h1)`
 
 const SubTitle = styled(motion.p)`
     font-size: 1.2rem;
-    color: #cccccc;
+    color: var(--text-muted);
     line-height: 1.8;
     max-width: 700px;
     margin: 0 auto;
@@ -80,7 +80,7 @@ export default function ServicesPage() {
             whileTap={{ scale: 0.98 }}
             style={{ cursor: 'pointer' }}
           >
-            <MotionServiceImage />
+            <MotionServiceImage $bg={service.image} />
             <Overlay />
             <MotionServiceName layoutId={`title-${service.id}`}>
               {service.name}

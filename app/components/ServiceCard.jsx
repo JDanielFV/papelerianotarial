@@ -15,15 +15,14 @@ export const MotionServiceCard = styled(motion.div)`
     gap: 1rem;
     cursor: pointer;
     height: 200px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--card-border);
     padding-right: 2rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     
     &:hover {
         transform: translateY(-5px);
-        border-color: rgba(255, 255, 255, 0.5);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
-                    0 0 15px rgba(255, 255, 255, 0.1);
+        border-color: var(--card-border-hover);
+        box-shadow: var(--shadow);
     }
 `;
 
@@ -34,12 +33,15 @@ export const MotionServiceImage = styled(motion.div)`
     width: 100%;
     height: 100%;
     z-index: 0;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-image: ${({ $bg }) => $bg ? `url(${$bg})` : 'none'};
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
     transition: all 0.4s ease;
     
     ${MotionServiceCard}:hover & {
         transform: scale(1.05);
-        background-color: rgba(255, 255, 255, 0.15);
+        opacity: 0.35;
     }
 `;
 

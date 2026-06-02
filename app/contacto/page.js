@@ -8,8 +8,8 @@ import { WhatsAppIcon, PhoneIcon, MailIcon, FacebookIcon, InstagramIcon } from "
 const PageContainer = styled(motion.div)`
     min-height: 100vh;
     padding: 120px 5% 5%;
-    background-color: #0a0a0a;
-    color: white;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: Raleway, serif;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@ const Title = styled(motion.h1)`
 
 const SubTitle = styled(motion.p)`
     font-size: 1.2rem;
-    color: #cccccc;
+    color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -70,12 +70,12 @@ const InfoItem = styled.div`
 const InfoLabel = styled.h3`
     font-size: 1.5rem;
     font-weight: 600;
-    color: white;
+    color: var(--text-light);
 `;
 
 const InfoText = styled.p`
     font-size: 1.1rem;
-    color: #cccccc;
+    color: var(--text-muted);
     line-height: 1.6;
 `;
 
@@ -105,7 +105,7 @@ const ButtonsSection = styled.div`
 const SectionTitle = styled.h2`
     font-size: 1.8rem;
     font-weight: 600;
-    color: white;
+    color: var(--text-light);
     margin-bottom: 1rem;
 `;
 
@@ -115,10 +115,10 @@ const ContactButton = styled(motion.a)`
     justify-content: center;
     gap: 1rem;
     padding: 1.2rem 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
     border-radius: 15px;
-    color: white;
+    color: var(--foreground);
     font-size: 1.1rem;
     font-weight: 500;
     text-decoration: none;
@@ -126,10 +126,10 @@ const ContactButton = styled(motion.a)`
     cursor: pointer;
 
     &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(212, 163, 23, 0.03);
+        border-color: rgba(212, 163, 23, 0.4);
         transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(212, 163, 23, 0.15);
     }
 `;
 
@@ -155,19 +155,19 @@ const SocialIcon = styled(motion.a)`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
     border-radius: 50%;
-    color: white;
+    color: var(--foreground);
     font-size: 1.5rem;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(212, 163, 23, 0.03);
+        border-color: rgba(212, 163, 23, 0.4);
         transform: translateY(-5px) scale(1.1);
-        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 30px rgba(212, 163, 23, 0.15);
     }
 `;
 

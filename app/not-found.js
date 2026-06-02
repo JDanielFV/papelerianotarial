@@ -120,7 +120,7 @@ export default function NotFound() {
                 <PrimaryButton href="/">
                     Volver al Inicio
                 </PrimaryButton>
-                <Button href="/productos/catalogo">
+                <Button href="/catalogo">
                     Ver Catálogo
                 </Button>
                 <Button href="/contacto">

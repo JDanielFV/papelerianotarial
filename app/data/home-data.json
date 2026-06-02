@@ -1,0 +1,116 @@
+{
+  "main": {
+    "videoSrc": "/fondo.m4v",
+    "logoSrc": "/logo blanco.svg",
+    "goldLabel": "",
+    "title": "Marcando <strong>La Diferencia</strong>",
+    "subTitle": "",
+    "buttons": [
+      {
+        "text": "Ver Catalogo",
+        "href": "/catalogo",
+        "primary": true
+      },
+      {
+        "text": "Asesoria Directa",
+        "href": "/contacto",
+        "primary": false
+      }
+    ],
+    "scrollText": "BAJA PARA CONOCER MÁS"
+  },
+  "about": {
+    "title": "La primera impresión no solo se ve, <strong>se siente</strong>",
+    "subTitle": "Diseño, resguardo y tecnología avanzada para proyectar y proteger el prestigio de su Notaría Pública en todo México.",
+    "processes": [
+      {
+        "id": 1,
+        "name": "Servicios Digitales",
+        "description": "Integración de tecnología NFC y códigos QR únicos para la autenticación inmediata y digitalización segura de documentos notariales.",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+      },
+      {
+        "id": 2,
+        "name": "Seguridad Garantizada",
+        "description": "Protección absoluta contra falsificaciones mediante hologramas metalizados de alta seguridad y grabado láser de folios oficiales.",
+        "image": "https://images.unsplash.com/photo-1508962914676-134849a727f0?q=80&w=800&auto=format&fit=crop"
+      },
+      {
+        "id": 3,
+        "name": "Calidad de Excelencia",
+        "description": "Selección meticulosa de papeles de importación de alto gramaje, acabados artesanales y costuras reforzadas de larga duración.",
+        "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=800&auto=format&fit=crop"
+      },
+      {
+        "id": 4,
+        "name": "Presencia Nacional",
+        "description": "Logística coordinada y envíos blindados con cobertura y entrega garantizada en cualquier Notaría del territorio mexicano.",
+        "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop"
+      }
+    ]
+  },
+  "products": {
+    "title": "Catálogo de Productos",
+    "subTitle": "¿No encuentras lo que buscas? Contáctanos",
+    "whatsappLink": "https://wa.me/525576162856",
+    "whatsappText": "Chatea con nosotros"
+  },
+  "quality": {
+    "title": "Nuestra Calidad",
+    "features": [
+      {
+        "title": "Materiales Premium",
+        "desc": "Utilizamos solo los mejores papeles y tintas importadas para asegurar la longevidad de sus documentos.",
+        "bg": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1200&auto=format&fit=crop"
+      },
+      {
+        "title": "Tecnología de Punta",
+        "desc": "Impresión de alta resolución y acabados precisos con maquinaria de última generación.",
+        "bg": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop"
+      },
+      {
+        "title": "Atención Personalizada",
+        "desc": "Cada cliente es único. Adaptamos nuestros diseños a la identidad específica de su notaría.",
+        "bg": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop"
+      },
+      {
+        "title": "Seguridad Garantizada",
+        "desc": "Implementamos medidas de seguridad avanzadas como hologramas y microtextos.",
+        "bg": "https://images.unsplash.com/photo-1508962914676-134849a727f0?q=80&w=1200&auto=format&fit=crop"
+      },
+      {
+        "title": "Envíos Seguros",
+        "desc": "Logística especializada para garantizar que su pedido llegue en perfectas condiciones.",
+        "bg": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1200&auto=format&fit=crop"
+      },
+      {
+        "title": "Sostenibilidad",
+        "desc": "Comprometidos con el medio ambiente, utilizamos procesos y materiales eco-amigables.",
+        "bg": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
+  },
+  "history": {
+    "title": "Nuestra Historia",
+    "videoSrc": "/fondo.m4v",
+    "paragraphs": [
+      "Desde nuestros humildes comienzos, Papelería Notarial A&G ha estado dedicada a proveer productos de papelería de la más alta calidad para el sector notarial. Nacimos de la visión de combinar la tradición artesanal con la eficiencia moderna, entendiendo las necesidades únicas de los profesionales del derecho.",
+      "A lo largo de los años, hemos crecido y evolucionado, pero nuestro compromiso con la excelencia y la satisfacción del cliente ha permanecido inalterable. Cada producto que ofrecemos es el resultado de una cuidadosa selección de materiales y un meticuloso proceso de fabricación.",
+      "Hoy, somos sinónimo de confianza y calidad, sirviendo a notarios y adaptándonos continuamente a las nuevas tecnologías y demandas del mercado, sin perder la esencia que nos define."
+    ]
+  },
+  "aboutUs": {
+    "title": "Sobre Nosotros",
+    "imageSrc": "/logo blanco.svg",
+    "paragraphs": [
+      "En <strong>Papelería Notarial A&G</strong>, nos dedicamos a ofrecer soluciones de alta seguridad y elegancia para notarios en todo México. Con años de experiencia en el sector, entendemos la importancia de la <strong>confiabilidad</strong> y la <strong>presentación impecable</strong> en cada documento notarial.",
+      "Nuestro compromiso es brindar productos que no solo cumplan con los estándares legales, sino que también reflejen la <strong>excelencia</strong> de su notaría. Desde hologramas de seguridad hasta folios personalizados, cada detalle es cuidado minuciosamente."
+    ]
+  },
+  "contactSection": {
+    "title": "¿Listo para Elevar tu Notaría?",
+    "description": "Contáctanos hoy mismo para descubrir cómo Papelería Notarial A&G puede satisfacer tus necesidades con productos de la más alta calidad y un servicio excepcional.",
+    "buttonText": "Contáctanos",
+    "buttonHref": "/contacto"
+  }
+}

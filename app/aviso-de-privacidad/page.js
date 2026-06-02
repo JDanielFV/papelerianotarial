@@ -8,8 +8,8 @@ import Link from "next/link";
 const PageContainer = styled(motion.div)`
     min-height: 100vh;
     padding: 120px 5% 5%;
-    background-color: #0a0a0a;
-    color: white;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: Raleway, serif;
     display: flex;
     flex-direction: column;
@@ -28,12 +28,12 @@ const Title = styled.h1`
     font-size: 2.5rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--card-border);
     padding-bottom: 1rem;
 `;
 
 const Subtitle = styled.p`
-    color: #888888;
+    color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 2rem;
 `;
@@ -42,13 +42,13 @@ const SectionTitle = styled.h2`
     font-size: 1.5rem;
     font-weight: 600;
     margin-top: 1.5rem;
-    color: white;
+    color: var(--text-light);
 `;
 
 const Paragraph = styled.p`
     font-size: 1rem;
     line-height: 1.8;
-    color: #cccccc;
+    color: var(--text-muted);
 `;
 
 const UnorderedList = styled.ul`
@@ -61,20 +61,20 @@ const UnorderedList = styled.ul`
 const ListItem = styled.li`
     font-size: 1rem;
     line-height: 1.6;
-    color: #cccccc;
+    color: var(--text-muted);
 `;
 
 const BackButton = styled(Link)`
     display: inline-block;
     align-self: flex-start;
     margin-bottom: 2rem;
-    color: #888888;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s ease;
 
     &:hover {
-        color: white;
+        color: var(--foreground);
     }
 `;
 

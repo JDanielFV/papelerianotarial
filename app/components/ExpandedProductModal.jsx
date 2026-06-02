@@ -26,15 +26,15 @@ const ExpandedCard = styled(motion.div)`
     max-width: 500px;
     height: 85vh;
     max-height: 800px;
-    background-color: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-secondary);
+    border: 1px solid var(--card-border);
     border-radius: 25px;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow);
 `;
 
 const ExpandedBackground = styled(motion.div)`
@@ -55,13 +55,7 @@ const ExpandedBackground = styled(motion.div)`
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-            to bottom, 
-            rgba(0,0,0,0) 0%, 
-            rgba(0,0,0,0) 40%, 
-            rgba(10,10,10,0.9) 60%, 
-            rgba(10,10,10,1) 100%
-        );
+        background: var(--modal-overlay-gradient);
     }
 `;
 
@@ -77,7 +71,7 @@ const ExpandedContent = styled.div`
 
 const SubCategoryText = styled.h3`
     font-size: 0.9rem;
-    color: #aaa;
+    color: var(--text-muted);
     margin-top: 0;
     margin-bottom: 0;
     text-transform: uppercase;
@@ -88,30 +82,30 @@ const SubCategoryText = styled.h3`
 const CatchyDescription = styled.p`
     font-size: 1.1rem;
     font-style: italic;
-    color: #e0e0e0;
+    color: var(--foreground);
     line-height: 1.5;
     margin-bottom: 0.5rem;
 `;
 
 const MinQuantity = styled.p`
     font-size: 0.9rem;
-    color: #aaa;
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     gap: 0.5rem;
     
     &::before {
         content: '•';
-        color: white;
+        color: var(--foreground);
     }
 `;
 
 const LegalDisclaimer = styled.p`
     font-size: 0.8rem;
-    color: #ccaa00;
-    background-color: rgba(204, 170, 0, 0.1);
+    color: #d4a317;
+    background-color: rgba(212, 163, 23, 0.08);
     padding: 0.5rem 1rem;
-    border-left: 2px solid #ccaa00;
+    border-left: 2px solid #d4a317;
     border-radius: 0 4px 4px 0;
     margin-top: 0.5rem;
     line-height: 1.4;
@@ -119,8 +113,8 @@ const LegalDisclaimer = styled.p`
 
 const WhatsappButton = styled(motion.a)`
     margin-top: 1rem;
-    background-color: white;
-    color: black;
+    background-color: #d4a317;
+    color: #050811;
     border: none;
     border-radius: 50px;
     padding: 12px 30px;
@@ -137,8 +131,9 @@ const WhatsappButton = styled(motion.a)`
     width: 100%;
     
     &:hover {
+        background-color: #e6b422;
         transform: scale(1.02);
-        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 20px rgba(212, 163, 23, 0.3);
     }
 `;
 
@@ -166,7 +161,7 @@ export default function ExpandedProductModal({ selectedProduct, onClose }) {
                                 {selectedProduct.subCategoryName}
                             </SubCategoryText>
 
-                            <MotionProductName style={{ fontSize: '2rem', marginBottom: '0.5rem', lineHeight: 1.1 }}>
+                            <MotionProductName style={{ fontSize: '2rem', marginBottom: '0.5rem', lineHeight: 1.1, color: 'var(--foreground)' }}>
                                 {selectedProduct.name}
                             </MotionProductName>
 

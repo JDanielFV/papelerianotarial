@@ -11,9 +11,9 @@ const ScrollButton = styled(motion.button)`
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    color: var(--foreground);
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1000;
@@ -24,10 +24,11 @@ const ScrollButton = styled(motion.button)`
     backdrop-filter: blur(10px);
     
     &:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
+        background: var(--card-background-hover);
+        border-color: var(--card-border-hover);
+        color: var(--foreground);
         transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        box-shadow: var(--shadow);
     }
     
     &:active {

@@ -2,69 +2,111 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
-import phrases from '../data/navbar-phrases.json';
 
 // Styled Components
 const MotionNavContainer = styled(motion.nav)`
     position: fixed;
-    top: 20px;
+    top: 0;
     left: 0;
     right: 0;
-    margin: auto;
-    width: 90%;
-    max-width: 800px;
-    height: 60px;
-    padding: 0 20px;
+    width: 100%;
+    height: 70px;
+    padding: 0 5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
+    background-color: var(--card-background);
+    border-bottom: 1px solid var(--card-border);
+    backdrop-filter: blur(15px);
     z-index: 10;
 `;
 
+const NavContent = styled.div`
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
 const Logo = styled.img`
-    height: 30px;
+    height: 35px;
     cursor: pointer;
     transition: all 0.3s ease;
+    filter: var(--logo-filter);
     
     &:hover {
-        transform: scale(1.1);
-        filter: brightness(1.2);
+        transform: scale(1.05);
+        filter: var(--logo-filter) brightness(1.2);
     }
 `;
 
-const CenterTextContainer = styled.div`
-    position: relative;
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 300;
-    flex: 1;
-    text-align: center;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
+const DesktopLinks = styled.div`
+    display: none;
     
-    @media (min-width: 768px) {
-        font-size: 0.95rem;
-        padding: 0 20px;
+    @media (min-width: 1024px) {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
     }
 `;
 
-const AnimatedText = styled(motion.span)`
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+const NavLink = styled(Link)`
+    color: var(--foreground);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+    
+    &:hover {
+        color: var(--accent-color);
+    }
+    
+    &:hover::after {
+        width: 100%;
+    }
 `;
 
-const MenuIcon = styled.div`
+const CTAButton = styled(Link)`
+    display: none;
+    
+    @media (min-width: 1024px) {
+        display: inline-block;
+        padding: 0.6rem 1.5rem;
+        background-color: var(--accent-color);
+        color: var(--background-dark);
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 163, 23, 0.3);
+        }
+    }
+`;
+
+const MenuIcon = styled.div.withConfig({
+    shouldForwardProp: (prop) => !['isOpen'].includes(prop)
+})`
     width: 30px;
     height: 20px;
     display: flex;
@@ -74,6 +116,10 @@ const MenuIcon = styled.div`
     z-index: 12;
     transition: transform 0.3s ease;
 
+    @media (min-width: 1024px) {
+        display: none;
+    }
+
     &:hover {
         transform: scale(1.1);
     }
@@ -82,27 +128,22 @@ const MenuIcon = styled.div`
         display: block;
         height: 2px;
         width: 100%;
-        background: white;
+        background: var(--foreground);
         border-radius: 9px;
         transition: all 0.3s ease-in-out;
     }
     
-    &:hover span {
-        background: rgba(255, 255, 255, 0.7);
-        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-    }
-`;
-
-const CloseButton = styled.button`
-    position: absolute;
-    top: 30px;
-    right: 50px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 4rem;
-    cursor: pointer;
-    z-index: 13;
+    ${({ isOpen }) => isOpen && css`
+        span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        span:nth-child(2) {
+            opacity: 0;
+        }
+        span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+    `}
 `;
 
 const MenuContainer = styled.div.withConfig({
@@ -113,55 +154,47 @@ const MenuContainer = styled.div.withConfig({
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    clip-path: circle(0% at calc(100% - 50px) 50px);
-    transition: clip-path 0.8s cubic-bezier(0.7, 0, 0.3, 1);
-    z-index: 11;
-
+    z-index: 9;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out;
+    
     ${({ isOpen }) =>
         isOpen &&
         css`
-            clip-path: circle(150% at calc(100% - 50px) 50px);
+            opacity: 1;
+            pointer-events: auto;
         `}
 `;
 
 const MenuLink = styled(Link)`
-    color: white;
+    color: var(--foreground);
     font-size: 2.5rem;
     text-decoration: none;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: .5rem 1rem;
+    padding: 0.5rem 2rem;
     border-radius: 10px;
+    font-weight: 300;
     
     &:hover{
         font-weight: bold;
-        color: #0a0a0a;
-        background-color: #ffffff;
-        transform: translateX(10px) scale(1.05);
-        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        color: var(--background);
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(212, 163, 23, 0.4);
     }
 `;
 
-
 function NavBar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
-    const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
     const controls = useAnimation();
     const lastYPos = useRef(0);
-
-    // Rotate phrases every 6 seconds
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
-        }, 6000);
-
-        return () => clearInterval(interval);
-    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -169,6 +202,7 @@ function NavBar() {
             if (currentYPos > lastYPos.current && currentYPos > 100) {
                 // Scrolling down
                 controls.start("hidden");
+                setMenuOpen(false);
             } else {
                 // Scrolling up
                 controls.start("visible");
@@ -189,7 +223,7 @@ function NavBar() {
 
     const navVariants = {
         visible: { y: 0, opacity: 1 },
-        hidden: { y: "-150%", opacity: 0 },
+        hidden: { y: "-100%", opacity: 0 },
     };
 
     return (
@@ -198,34 +232,35 @@ function NavBar() {
                 variants={navVariants}
                 initial="visible"
                 animate={controls}
-                transition={{ ease: "easeInOut", duration: 0.5 }}
+                transition={{ ease: "easeInOut", duration: 0.4 }}
             >
-                <Link href="/">
-                    <Logo src="/logo blanco.png" alt="Logo" />
-                </Link>
-                <CenterTextContainer>
-                    <AnimatePresence mode="wait">
-                        <AnimatedText
-                            key={currentPhraseIndex}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                        >
-                            {phrases[currentPhraseIndex]}
-                        </AnimatedText>
-                    </AnimatePresence>
-                </CenterTextContainer>
-                <MenuIcon onClick={toggleMenu}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </MenuIcon>
+                <NavContent>
+                    <Link href="/">
+                        <Logo src="/logo blanco.svg" alt="Logo" />
+                    </Link>
+                    
+                    <DesktopLinks>
+                        <NavLink href="/">Inicio</NavLink>
+                        <NavLink href="/catalogo">Catálogo</NavLink>
+                        <NavLink href="/servicios">Servicios</NavLink>
+                        <NavLink href="/contacto">Contacto</NavLink>
+                    </DesktopLinks>
+
+                    <CTAButton href="/contacto">
+                        Cotizar ahora
+                    </CTAButton>
+
+                    <MenuIcon isOpen={isMenuOpen} onClick={toggleMenu}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </MenuIcon>
+                </NavContent>
             </MotionNavContainer>
-            <MenuContainer isOpen={isMenuOpen} onClick={toggleMenu}>
-                <CloseButton onClick={toggleMenu}>&times;</CloseButton>
+            
+            <MenuContainer isOpen={isMenuOpen}>
                 <MenuLink href="/" onClick={() => setMenuOpen(false)}>Inicio</MenuLink>
-                <MenuLink href="/productos" onClick={() => setMenuOpen(false)}>Productos</MenuLink>
+                <MenuLink href="/catalogo" onClick={() => setMenuOpen(false)}>Catálogo</MenuLink>
                 <MenuLink href="/servicios" onClick={() => setMenuOpen(false)}>Servicios</MenuLink>
                 <MenuLink href="/contacto" onClick={() => setMenuOpen(false)}>Contacto</MenuLink>
             </MenuContainer>

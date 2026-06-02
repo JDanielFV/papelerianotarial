@@ -44,26 +44,31 @@ const ContactButton = styled(motion.button)`
   display: inline-block;
   padding: 1rem 3rem;
   background-color: transparent;
-  color: #ffffff;
+  color: #d4a317;
   font-size: 1.2rem;
   font-weight: 600;
   border-radius: 50px;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #d4a317;
   cursor: pointer;
   font-family: Raleway, serif;
 
   &:hover {
-    background-color: #ffffff;
+    background-color: #d4a317;
     color: #0a0a0a;
-    border-color: #ffffff;
+    border-color: #d4a317;
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(212, 163, 23, 0.3);
   }
 `;
 
-const ContactSection = () => {
+const ContactSection = ({
+  title = "¿Listo para Elevar tu Notaría?",
+  description = "Contáctanos hoy mismo para descubrir cómo Papelería Notarial A&G puede satisfacer tus necesidades con productos de la más alta calidad y un servicio excepcional.",
+  buttonText = "Contáctanos",
+  buttonHref = "/contacto"
+}) => {
   return (
     <ContactSectionWrapper
       initial={{ opacity: 0 }}
@@ -71,34 +76,40 @@ const ContactSection = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <Title
-        initial={{ y: -30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        ¿Listo para Elevar tu Notaría?
-      </Title>
-      <Description
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        Contáctanos hoy mismo para descubrir cómo Papelería Notarial A&G puede satisfacer tus necesidades con productos de la más alta calidad y un servicio excepcional.
-      </Description>
-      <Link href="/contacto">
-        <ContactButton
-          initial={{ scale: 0.9, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
+      {title && (
+        <Title
+          initial={{ y: -30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Contáctanos
-        </ContactButton>
-      </Link>
+          {title}
+        </Title>
+      )}
+      {description && (
+        <Description
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          {description}
+        </Description>
+      )}
+      {buttonHref && buttonText && (
+        <Link href={buttonHref}>
+          <ContactButton
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {buttonText}
+          </ContactButton>
+        </Link>
+      )}
     </ContactSectionWrapper>
   );
 };

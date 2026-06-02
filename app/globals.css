@@ -1,10 +1,55 @@
 :root {
-    --background: #0a0a0a;
+    --background: #050811;
+    --background-rgb: 5, 8, 17;
     --foreground: #ededed;
     --color-primary: #FFFFFF;
     --color-primary-dark: #e0e0e0;
-    --color-secondary: #1a1a1a;
+    --color-secondary: #111625;
     --color-text-light: #ffffff;
+    --card-background: rgba(255, 255, 255, 0.02);
+    --card-background-hover: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.06);
+    --card-border-hover: rgba(255, 255, 255, 0.15);
+    --text-muted: #cccccc;
+    --text-light: #ffffff;
+    --shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+    --input-background: rgba(255, 255, 255, 0.05);
+    --logo-filter: none;
+    --image-overlay: linear-gradient(to bottom, rgba(5, 8, 17, 0.1) 0%, rgba(5, 8, 17, 0.75) 100%);
+    --overlay-gradient: radial-gradient(circle at 50% 50%, rgba(5, 8, 17, 0.4) 0%, rgba(5, 8, 17, 0.95) 100%);
+    --modal-overlay-gradient: linear-gradient(to bottom, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0) 40%, rgba(10, 10, 10, 0.9) 60%, rgba(10, 10, 10, 1) 100%);
+    --expanded-gradient: linear-gradient(-45deg, #000000, #0a192f, #000000, #051020);
+    --accent-color: #d4a317;
+    --accent-hover: #e6b422;
+    --background-dark: #050811;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #f5f6f8;
+        --background-rgb: 245, 246, 248;
+        --foreground: #111625;
+        --color-primary: #111625;
+        --color-primary-dark: #050811;
+        --color-secondary: #ffffff;
+        --color-text-light: #111625;
+        --card-background: rgba(255, 255, 255, 0.95);
+        --card-background-hover: rgba(255, 255, 255, 0.8);
+        --card-border: rgba(5, 8, 17, 0.08);
+        --card-border-hover: rgba(5, 8, 17, 0.15);
+        --text-muted: #555c6e;
+        --text-light: #111625;
+        --shadow: 0 40px 100px rgba(5, 8, 17, 0.08);
+        --input-background: rgba(5, 8, 17, 0.04);
+        --logo-filter: invert(1) brightness(0.1);
+        --image-overlay: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.75) 100%);
+        --overlay-gradient: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.95) 100%);
+        --modal-overlay-gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 1) 100%);
+        --expanded-gradient: linear-gradient(-45deg, #ffffff, #f0f4f8, #ffffff, #e1e7f0);
+        --accent-color: #c59211;
+        --accent-hover: #b8860b;
+        --background-dark: #050811;
+    }
 }
 
 html {
@@ -38,4 +83,8 @@ a {
     html {
         color-scheme: dark;
     }
+}
+
+strong {
+    color: #d4a317;
 }

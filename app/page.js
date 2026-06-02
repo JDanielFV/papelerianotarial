@@ -1,19 +1,23 @@
 import Main from "./components/Main";
 import About from "./components/About";
-import History from "./components/History";
+import Products from "./components/Products";
 import AboutUs from "./components/AboutUs";
 import Quality from "./components/Quality";
 import ContactSection from "./components/ContactSection";
 
+// Import unified static data
+import homeData from "./data/home-data.json";
+import productData from "./data/products-data.json";
+
 export default function Home() {
   return (
     <>
-      <Main />
-      <About />
-      <Quality />
-      <History />
-      <AboutUs />
-      <ContactSection />
+      <Main {...homeData.main} />
+      <About {...homeData.about} />
+      <Products {...homeData.products} products={productData} />
+      <Quality {...homeData.quality} />
+      <AboutUs {...homeData.aboutUs} />
+      <ContactSection {...homeData.contactSection} />
     </>
   );
 }
