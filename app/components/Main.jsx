@@ -59,13 +59,13 @@ const FloatingCard = styled(motion.div)`
 `;
 
 const MotionLogo = styled(motion(Image))`
-    width: 14rem;
+    width: 18rem;
     height: auto;
     margin-bottom: 0.5rem;
     filter: var(--logo-filter);
-    
+
     @media (min-width: 768px) {
-        width: 20rem;
+        width: 26rem;
     }
 `;
 
@@ -79,24 +79,24 @@ const GoldLabel = styled(motion.span)`
 `;
 
 const Title = styled(motion.h1)`
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: 300;
     line-height: 1.25;
     color: var(--text-light);
     margin: 0;
-    height: 7rem;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     strong {
         color: var(--accent-color);
         font-weight: 500;
     }
 
     @media (min-width: 768px) {
-        font-size: 3.2rem;
-        height: 10rem;
+        font-size: 2.2rem;
+        height: 7rem;
     }
 `;
 
@@ -253,11 +253,11 @@ export default function Main({
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentPhraseIndex}
-                            style={{ display: "inline-block" }}
-                            initial={{ opacity: 0, filter: "blur(10px)" }}
-                            animate={{ opacity: 1, filter: "blur(0px)" }}
-                            exit={{ opacity: 0, filter: "blur(10px)" }}
-                            transition={{ duration: 0.8, ease: "easeInOut" }}
+                            style={{ display: "inline-block", whiteSpace: "pre-wrap" }}
+                            initial={{ x: 60, opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+                            animate={{ x: 0, opacity: 1, clipPath: "inset(0 0% 0 0)" }}
+                            exit={{ x: -60, opacity: 0, clipPath: "inset(0 0% 0 100%)" }}
+                            transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
                         >
                             <span>{currentPhrase.base} </span>
                             <strong>{currentPhrase.highlight}</strong>
