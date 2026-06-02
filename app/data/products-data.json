@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Articulos de Papelería",
     "description": "Elegancia y durabilidad en un diseño atemporal.",
-    "image": "/placeholder-image.jpg",
+    "image": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=800&auto=format&fit=crop",
     "subcategories": [
       {
         "id": 101,
@@ -254,7 +254,7 @@
     "id": 2,
     "name": "Carpetas",
     "description": "Máxima seguridad y presentación para tus documentos.",
-    "image": "/placeholder-image.jpg",
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop",
     "subcategories": [
       {
         "id": 201,
@@ -340,7 +340,7 @@
     "id": 3,
     "name": "Articulos Promocionales",
     "description": "Impulsa tu marca con productos de calidad.",
-    "image": "/placeholder-image.jpg",
+    "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
     "subcategories": [
       {
         "id": 301,
@@ -417,7 +417,7 @@
     "id": 4,
     "name": "Articulos Personalizados",
     "description": "Diseño exclusivo y personalización a medida.",
-    "image": "/placeholder-image.jpg",
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
     "subcategories": [
       {
         "id": 401,

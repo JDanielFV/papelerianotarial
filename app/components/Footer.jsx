@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { FacebookIcon, InstagramIcon, GlobeIcon } from "./Icons";
+import { CONTACT, getSocialUrl } from "../lib/contact";
 
 const FooterContainer = styled.footer`
     background-color: var(--color-secondary);
@@ -149,7 +150,7 @@ export default function Footer() {
                     </FooterText>
                     <SocialLinks>
                         <SocialIcon
-                            href="https://facebook.com"
+                            href={getSocialUrl('facebook')}
                             target="_blank"
                             whileHover={{ scale: 1.1 }}
                             title="Facebook"
@@ -157,7 +158,7 @@ export default function Footer() {
                             <FacebookIcon size={20} />
                         </SocialIcon>
                         <SocialIcon
-                            href="https://instagram.com"
+                            href={getSocialUrl('instagram')}
                             target="_blank"
                             whileHover={{ scale: 1.1 }}
                             title="Instagram"
@@ -165,7 +166,7 @@ export default function Footer() {
                             <InstagramIcon size={20} />
                         </SocialIcon>
                         <SocialIcon
-                            href="https://papelerianotarial.net"
+                            href={getSocialUrl('website')}
                             target="_blank"
                             whileHover={{ scale: 1.1 }}
                             title="Sitio Web"
@@ -186,13 +187,13 @@ export default function Footer() {
                 <FooterSection>
                     <FooterTitle>Contacto</FooterTitle>
                     <FooterText>
-                        Tulipanes 29, Izcalli Ecatepec, 55030 Ecatepec de Morelos, Méx.
+                        {CONTACT.address.full}
                     </FooterText>
                     <FooterText>
-                        Tel: +52 55 7616 2856
+                        Tel: {CONTACT.phone}
                     </FooterText>
                     <FooterText>
-                        contacto@papelerianotarial.com
+                        {CONTACT.email}
                     </FooterText>
                 </FooterSection>
 

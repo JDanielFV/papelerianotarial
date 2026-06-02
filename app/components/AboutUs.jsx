@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import HighlightText from "./HighlightText";
 
 const AboutUsSection = styled(motion.section)`
   padding: 50px 5%;
@@ -15,12 +16,16 @@ const AboutUsSection = styled(motion.section)`
   overflow: hidden;
   position: relative;
 
-  @media (min-width: 1024px) {
-    padding: 100px 10%;
+  @media (min-width: 768px) {
+    padding: 70px 8%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     text-align: left;
+    gap: 3rem;
+  }
+  @media (min-width: 1024px) {
+    padding: 100px 10%;
     gap: 5rem;
   }
 `;
@@ -38,19 +43,17 @@ const ImageContainer = styled(motion.div)`
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 
+  @media (min-width: 768px) {
+    width: 45%;
+    height: 420px;
+    margin-bottom: 0;
+    order: 1;
+    mask-image: linear-gradient(to left, transparent 0%, black 100%);
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 100%);
+  }
   @media (min-width: 1024px) {
     width: 50%;
     height: 600px;
-    margin-bottom: 0;
-    order: 1; // Image on left
-    
-    // Desktop Fade: Right to Left (Fade out towards the right where text is? Or fade out towards left?)
-    // User asked: "fade de derecha a izquierda a modo de fondo" -> Fade from Right (transparent) to Left (solid)?
-    // Or Image on Left, fading out to the Right into the background?
-    // "imagen a la izquierda... fade de derecha a izquierda" -> 
-    // If image is on left, and fade is right-to-left, it means right side is transparent, left is solid.
-    mask-image: linear-gradient(to left, transparent 0%, black 100%);
-    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 100%);
   }
 `;
 
@@ -59,10 +62,13 @@ const TextContainer = styled(motion.div)`
   text-align: center;
   z-index: 1;
 
+  @media (min-width: 768px) {
+    width: 55%;
+    text-align: left;
+    order: 2;
+  }
   @media (min-width: 1024px) {
     width: 50%;
-    text-align: left;
-    order: 2; // Text on right
   }
 `;
 
@@ -143,7 +149,7 @@ const AboutUs = ({
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             {paragraphs.map((p, index) => (
-              <p key={index} dangerouslySetInnerHTML={{ __html: p }} />
+              <HighlightText key={index} as="p" html={p} />
             ))}
           </Content>
         )}

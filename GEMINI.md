@@ -52,6 +52,8 @@ To maintain visual excellence and code quality, please adhere to the following d
 
 # Recent Changes
 
+- **Major cleanup & features (current session):** Centralized all contact info (`app/data/contact-data.json` + `lib/contact.js` helpers), consolidated routes to `/catalogo` canonical with redirects, implemented full validated contact form (RHF + Zod) that drives rich WhatsApp prefill + email fallback + success UX, upgraded many images to `next/image`, optimized hero video (inView play, poster, preload), dynamic modals, removed duplicates (productos routes, unused History/Services components), added HighlightText helper, a11y focus styles, and updated TODO. Build/lint clean. Follow the new contact helpers everywhere.
+
 - **Symmetric Transitions and Modal Morphing Fixes (June 2, 2026):**
   - **Shared Layout Exit Morphing**: Resolved a critical layout morphing bug in `ExpandedProductModal.jsx` where the card disappeared instantly instead of morphing back to the grid on close. Separated the backdrop overlay and card container into siblings under `AnimatePresence` with unique keys, enabling correct unmount hooks.
   - **Fade & Blur Dynamic Headlines**: Replaced the typewriter typewriter effect in `Main.jsx` with a symmetric and elegant Fade & Blur text transition. Added a fixed height of `7rem` (mobile) / `10rem` (desktop) with flex centering to completely eliminate layout shifting.

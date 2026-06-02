@@ -4,6 +4,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { WhatsAppIcon } from "./Icons";
+import { getWhatsAppUrl, CONTACT } from "../lib/contact";
 
 const gradientAnimation = keyframes`
     0% { background-position: 0% 50%; }
@@ -205,7 +206,7 @@ export default function ExpandedServiceModal({ selectedId, servicesData, onClose
                             )}
 
                             <ContactButton
-                                href={`https://wa.me/525576162856?text=Hola,%20me%20interesa%20más%20información%20sobre%20el%20servicio%20de%20${encodeURIComponent(service.name)}`}
+                                href={getWhatsAppUrl(`${CONTACT.defaultMessages.service}${service.name}`)}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}

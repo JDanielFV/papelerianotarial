@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { useRouter } from 'next/navigation';
 import ProductGridSection from "./ProductGridSection";
 import { WhatsAppIcon } from "./Icons";
+import { CONTACT } from "../lib/contact";
 
 // --- Styled Components (now with motion) ---
 const MotionProductsContainer = styled(motion.section)`
@@ -30,11 +31,16 @@ const MotionProductsContainer = styled(motion.section)`
 `;
 
 const MotionTitle = styled(motion.h2)`
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-weight: lighter;
     color: var(--foreground);
     z-index: 1;
-    padding: 2rem 0 2rem 0;
+    padding: 1.5rem 0 1.5rem 0;
+
+    @media (min-width: 768px) {
+        font-size: 3.2rem;
+        padding: 2rem 0;
+    }
 
     @media (min-width: 1024px) {
         font-size: 4rem;
@@ -94,7 +100,7 @@ function Products({
     title = "Nuestros Productos",
     products = [],
     subTitle = "¿No encuentras lo que buscas? Contáctanos",
-    whatsappLink = "https://wa.me/525576162856",
+    whatsappLink = CONTACT.whatsappBase,
     whatsappText = "Chatea con nosotros"
 }) {
     const router = useRouter();
@@ -133,7 +139,7 @@ function Products({
 
             {whatsappLink && (
                 <ContactButton
-                    href={whatsappLink}
+                    href={whatsappLink.includes('?') ? whatsappLink : `${whatsappLink}?text=${encodeURIComponent(CONTACT.defaultMessages.generalQuote)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={itemVariants}

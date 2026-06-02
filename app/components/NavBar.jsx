@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import { getWhatsAppUrl } from "../lib/contact";
 
 // Styled Components
 const MotionNavContainer = styled(motion.nav)`
@@ -31,8 +33,9 @@ const NavContent = styled.div`
     align-items: center;
 `;
 
-const Logo = styled.img`
+const Logo = styled(Image)`
     height: 35px;
+    width: auto;
     cursor: pointer;
     transition: all 0.3s ease;
     filter: var(--logo-filter);
@@ -46,10 +49,10 @@ const Logo = styled.img`
 const DesktopLinks = styled.div`
     display: none;
     
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: flex;
         align-items: center;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 `;
 
@@ -85,14 +88,14 @@ const NavLink = styled(Link)`
 const CTAButton = styled.a`
     display: none;
     
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: inline-block;
-        padding: 0.6rem 1.5rem;
+        padding: 0.55rem 1.3rem;
         background-color: var(--accent-color);
         color: var(--background-dark);
         border-radius: 50px;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         text-decoration: none;
         transition: all 0.3s ease;
         
@@ -116,7 +119,7 @@ const MenuIcon = styled.div.withConfig({
     z-index: 12;
     transition: transform 0.3s ease;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         display: none;
     }
 
@@ -236,7 +239,13 @@ function NavBar() {
             >
                 <NavContent>
                     <Link href="/">
-                        <Logo src="/logo blanco.svg" alt="Logo" />
+                        <Logo 
+                            src="/logo blanco.svg" 
+                            alt="Papelería Notarial A&G" 
+                            width={140} 
+                            height={35} 
+                            priority 
+                        />
                     </Link>
                     
                     <DesktopLinks>
@@ -247,14 +256,21 @@ function NavBar() {
                     </DesktopLinks>
 
                     <CTAButton 
-                        href="https://wa.me/525576162856?text=Hola,%20me%20interesa%20solicitar%20una%20cotizaci%C3%B3n"
+                        href={getWhatsAppUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         Cotizar ahora
                     </CTAButton>
 
-                    <MenuIcon isOpen={isMenuOpen} onClick={toggleMenu}>
+                    <MenuIcon 
+                        as="button" 
+                        type="button"
+                        aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                        aria-expanded={isMenuOpen}
+                        isOpen={isMenuOpen} 
+                        onClick={toggleMenu}
+                    >
                         <span></span>
                         <span></span>
                         <span></span>

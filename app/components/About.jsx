@@ -3,6 +3,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import HighlightText from "./HighlightText";
 
 const AboutContainer = styled(motion.section)`
     padding: 30px 5%;
@@ -79,13 +81,12 @@ const ImageContainer = styled(motion.div)`
     }
 `;
 
-const StyledImage = styled(motion.img)`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+const StyledImage = styled(motion.div)`
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
 `;
 
 const ImageOverlay = styled.div`
@@ -117,7 +118,7 @@ const HeaderGroup = styled.div`
 `;
 
 const Title = styled(motion.h2)`
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: lighter;
     line-height: 1.3;
     color: var(--text-light);
@@ -126,6 +127,10 @@ const Title = styled(motion.h2)`
     strong {
         color: var(--accent-color);
         font-weight: 500;
+    }
+    
+    @media (min-width: 768px) {
+        font-size: 2.4rem;
     }
     
     @media (min-width: 1024px) {
@@ -269,13 +274,18 @@ export default function About({
                     <AnimatePresence mode="wait">
                         <StyledImage
                             key={activeIndex}
-                            src={activeImage}
-                            alt={processes[activeIndex]?.name || "Ventaja"}
                             initial={{ opacity: 0, scale: 1.05 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.45, ease: "easeInOut" }}
-                        />
+                        >
+                            <Image
+                                src={activeImage}
+                                alt={processes[activeIndex]?.name || "Ventaja"}
+                                fill
+                                style={{ objectFit: 'cover' }}
+                            />
+                        </StyledImage>
                     </AnimatePresence>
                     <ImageOverlay />
                 </ImageContainer>
@@ -283,9 +293,10 @@ export default function About({
                 <InfoContainer>
                     <HeaderGroup>
                         {title && (
-                            <Title 
+                            <HighlightText 
+                                as={Title} 
+                                html={title} 
                                 variants={itemVariants} 
-                                dangerouslySetInnerHTML={{ __html: title }} 
                             />
                         )}
                         {subTitle && (

@@ -1,0 +1,27 @@
+{
+  "company": "Papelería Notarial A&G",
+  "phone": "+52 55 7616 2856",
+  "phoneRaw": "525576162856",
+  "email": "contacto@papelerianotarial.com",
+  "whatsappBase": "https://wa.me/525576162856",
+  "address": {
+    "full": "Tulipanes 29, Izcalli Ecatepec, 55030 Ecatepec de Morelos, Méx.",
+    "city": "Izcalli Ecatepec, México",
+    "note": "Atendemos a toda la república mexicana con envíos blindados."
+  },
+  "hours": {
+    "weekday": "Lunes a Viernes: 9:00 AM - 6:00 PM",
+    "saturday": "Sábados: 9:00 AM - 3:00 PM",
+    "sunday": "Domingos: Cerrado"
+  },
+  "socials": {
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "website": "https://papelerianotarial.net"
+  },
+  "defaultMessages": {
+    "generalQuote": "Hola, me interesa solicitar una cotización",
+    "catalog": "Hola, me interesa información sobre el catálogo",
+    "service": "Hola, me interesa más información sobre el servicio de "
+  }
+}

@@ -3,9 +3,14 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import dynamic from 'next/dynamic';
 import servicesData from "../data/services-data.json";
 import { MotionServiceCard, MotionServiceImage, Overlay, MotionServiceName, MotionServiceDescription } from "../components/ServiceCard";
-import ExpandedServiceModal from "../components/ExpandedServiceModal";
+
+const ExpandedServiceModal = dynamic(
+  () => import("../components/ExpandedServiceModal"),
+  { ssr: false, loading: () => null }
+);
 
 const PageContainer = styled(motion.div)`
     min-height: 100vh;
@@ -48,7 +53,7 @@ const ServicesGrid = styled(motion.div)`
     max-width: 1400px;
     margin: 0 auto;
 
-    @media (min-width: 768px) {
+    @media (min-width: 640px) {
         grid-template-columns: repeat(2, 1fr);
     }
 

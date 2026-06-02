@@ -4,6 +4,8 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import HighlightText from "./HighlightText";
 
 const BeliefsSection = styled(motion.section)`
   padding: 50px 5%;
@@ -16,12 +18,16 @@ const BeliefsSection = styled(motion.section)`
   overflow: hidden;
   position: relative;
 
-  @media (min-width: 1024px) {
-    padding: 100px 10%;
+  @media (min-width: 768px) {
+    padding: 70px 8%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     text-align: left;
+    gap: 3rem;
+  }
+  @media (min-width: 1024px) {
+    padding: 100px 10%;
     gap: 5rem;
   }
 `;
@@ -36,22 +42,23 @@ const ImageContainer = styled(motion.div)`
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
 
-  @media (min-width: 1024px) {
-    width: 50%;
-    height: 500px;
+  @media (min-width: 768px) {
+    width: 45%;
+    height: 380px;
     margin-bottom: 0;
-    order: 2; // Image on the right for alternation
-    
-    // Desktop Fade: Left to Right
+    order: 2;
     mask-image: linear-gradient(to right, transparent 0%, black 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
   }
+  @media (min-width: 1024px) {
+    width: 50%;
+    height: 500px;
+  }
 `;
 
-const StyledImage = styled(motion.img)`
+const StyledImage = styled(motion.div)`
   width: 100%;
   height: 100%;
-  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -63,10 +70,13 @@ const TextContainer = styled(motion.div)`
   text-align: center;
   z-index: 1;
 
+  @media (min-width: 768px) {
+    width: 55%;
+    text-align: left;
+    order: 1;
+  }
   @media (min-width: 1024px) {
     width: 50%;
-    text-align: left;
-    order: 1; // Text on the left
   }
 `;
 
@@ -187,10 +197,14 @@ export default function Beliefs({
       variants={containerVariants}
     >
         <ImageContainer variants={itemVariants}>
-          <StyledImage
-            src={imageSrc}
-            alt={title}
-          />
+          <StyledImage>
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          </StyledImage>
         </ImageContainer>
 
       <TextContainer>
@@ -202,7 +216,7 @@ export default function Beliefs({
         {paragraphs && paragraphs.length > 0 && (
           <Content variants={itemVariants}>
             {paragraphs.map((p, index) => (
-              <p key={index} dangerouslySetInnerHTML={{ __html: p }} />
+              <HighlightText key={index} as="p" html={p} />
             ))}
           </Content>
         )}

@@ -1,6 +1,6 @@
 {
   "main": {
-    "videoSrc": "/fondo.m4v",
+    "videoSrc": "/fondo.mp4",
     "logoSrc": "/logo blanco.svg",
     "goldLabel": "",
     "title": "Marcando <strong>La Diferencia</strong>",
@@ -88,15 +88,6 @@
         "desc": "Comprometidos con el medio ambiente, utilizamos procesos y materiales eco-amigables.",
         "bg": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop"
       }
-    ]
-  },
-  "history": {
-    "title": "Nuestra Historia",
-    "videoSrc": "/fondo.m4v",
-    "paragraphs": [
-      "Desde nuestros humildes comienzos, Papelería Notarial A&G ha estado dedicada a proveer productos de papelería de la más alta calidad para el sector notarial. Nacimos de la visión de combinar la tradición artesanal con la eficiencia moderna, entendiendo las necesidades únicas de los profesionales del derecho.",
-      "A lo largo de los años, hemos crecido y evolucionado, pero nuestro compromiso con la excelencia y la satisfacción del cliente ha permanecido inalterable. Cada producto que ofrecemos es el resultado de una cuidadosa selección de materiales y un meticuloso proceso de fabricación.",
-      "Hoy, somos sinónimo de confianza y calidad, sirviendo a notarios y adaptándonos continuamente a las nuevas tecnologías y demandas del mercado, sin perder la esencia que nos define."
     ]
   },
   "aboutUs": {

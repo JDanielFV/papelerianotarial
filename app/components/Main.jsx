@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import HighlightText from "./HighlightText";
+import { getWhatsAppUrl } from "../lib/contact";
 
 const MainContainer = styled.main`
     position: relative;
@@ -199,18 +201,21 @@ const PHRASES = [
 ];
 
 export default function Main({
-    videoSrc = "/fondo.m4v",
+    videoSrc = "/fondo.mp4",
     logoSrc = "/logo blanco.svg",
     goldLabel = "Papelería Notarial Premium",
     title = "Confianza Escrita en <strong>Oro y Seguridad</strong>",
     subTitle = "Más que <strong>carpetas y folios</strong>, creamos identidad y resguardo institucional. Diseños meticulosos para proteger el prestigio de su Notaría Pública.",
     buttons = [
-        { text: "Ver Colecciones", href: "/productos", primary: true },
-        { text: "Asesoría Directa", href: "/contacto", primary: false }
+        { text: "Ver Colecciones", href: "/catalogo", primary: true },
+        { text: "Contáctanos", href: getWhatsAppUrl(), primary: false }
     ],
     scrollText = "Deslizar para explorar"
 }) {
     const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+    const videoRef = useRef(null);
+    const containerRef = useRef(null);
+    const videoInView = useInView(containerRef, { amount: 0.3 });
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -220,12 +225,39 @@ export default function Main({
         return () => clearInterval(interval);
     }, []);
 
+    // Optimize video: only play when in view (saves bandwidth, helps perf)
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (videoInView) {
+            video.play().catch(() => {
+                // Autoplay may be blocked; user gesture will handle
+            });
+        } else {
+            video.pause();
+        }
+    }, [videoInView]);
+
     const currentPhrase = PHRASES[currentPhraseIndex];
 
     return (
-        <MainContainer>
+        <MainContainer ref={containerRef}>
             <Overlay />
-            <FondoVideo autoPlay muted loop playsInline src={videoSrc} />
+            <FondoVideo 
+                ref={videoRef}
+                muted 
+                loop 
+                playsInline 
+                preload="metadata"
+                poster="/hero-poster.jpg"
+            >
+                {/* Modern optimized sources - much smaller than original 8MB m4v */}
+                <source src="/fondo.webm" type="video/webm" />
+                <source src="/fondo.mp4" type="video/mp4" />
+                {/* Fallback for very old browsers using passed videoSrc if custom */}
+                {videoSrc && !videoSrc.includes('fondo') && <source src={videoSrc} />}
+            </FondoVideo>
             
             <FloatingCard
                 initial={{ opacity: 0, y: 35 }}
@@ -265,19 +297,23 @@ export default function Main({
                     </AnimatePresence>
                 </Title>
                 
-                {subTitle && <SubTitle dangerouslySetInnerHTML={{ __html: subTitle }} />}
+                {subTitle && <HighlightText as={SubTitle} html={subTitle} />}
                 
                 {buttons && buttons.length > 0 && (
                     <ButtonContainer>
-                        {buttons.map((btn, index) => (
-                            <HeroButton 
-                                key={index} 
-                                href={btn.href} 
-                                $primary={btn.primary ? "true" : undefined}
-                            >
-                                {btn.text}
-                            </HeroButton>
-                        ))}
+                        {buttons.map((btn, index) => {
+                            const isExternal = btn.href.startsWith("http");
+                            return (
+                                <HeroButton 
+                                    key={index} 
+                                    href={btn.href} 
+                                    $primary={btn.primary ? "true" : undefined}
+                                    {...(isExternal ? { as: "a", target: "_blank", rel: "noopener noreferrer" } : {})}
+                                >
+                                    {btn.text}
+                                </HeroButton>
+                            );
+                        })}
                     </ButtonContainer>
                 )}
                 

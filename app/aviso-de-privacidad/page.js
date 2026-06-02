@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { CONTACT } from "../lib/contact";
 
 const PageContainer = styled(motion.div)`
     min-height: 100vh;
@@ -126,7 +127,7 @@ export default function PrivacyPolicyPage() {
 
                 <SectionTitle>4. Derechos ARCO</SectionTitle>
                 <Paragraph>
-                    Usted tiene derecho a conocer qué datos personales tenemos de usted (Acceso), solicitar su corrección (Rectificación), cancelarlos cuando considere que no se requieren para las finalidades señaladas (Cancelación) u oponerse al tratamiento de los mismos para fines específicos (Oposición). Para ejercer sus derechos ARCO, puede ponerse en contacto enviando un correo electrónico a: <strong>contacto@papelerianotarial.com</strong>.
+                    Usted tiene derecho a conocer qué datos personales tenemos de usted (Acceso), solicitar su corrección (Rectificación), cancelarlos cuando considere que no se requieren para las finalidades señaladas (Cancelación) u oponerse al tratamiento de los mismos para fines específicos (Oposición). Para ejercer sus derechos ARCO, puede ponerse en contacto enviando un correo electrónico a: <strong>{CONTACT.email}</strong>.
                 </Paragraph>
 
                 <SectionTitle>5. Modificaciones al Aviso de Privacidad</SectionTitle>

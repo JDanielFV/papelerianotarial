@@ -12,8 +12,21 @@ const raleway = Raleway({
 });
 
 export const metadata = {
-  title: "Papelería Notarial A&G | Elegancia y Seguridad",
-  description: "Papelería notarial de alta calidad, hologramas, folios y artículos personalizados para notarios en México.",
+  title: {
+    default: "Papelería Notarial A&G | Elegancia y Seguridad",
+    template: "%s | Papelería Notarial A&G",
+  },
+  description: "Papelería notarial de alta calidad en México. Hologramas de seguridad, folios oficiales, carpetas de protocolo, artículos promocionales y personalizados para Notarías Públicas.",
+  keywords: ["papelería notarial", "folios notariales", "hologramas", "carpetas de protocolo", "notaría", "papelería para notarios", "México", "seguridad documental"],
+  authors: [{ name: "Papelería Notarial A&G" }],
+  openGraph: {
+    title: "Papelería Notarial A&G | Productos de Alta Seguridad para Notarías",
+    description: "Soluciones premium de papelería notarial: folios, hologramas, carpetas, NFC y más. Calidad y confianza para tu Notaría en todo México.",
+    images: [{ url: "/logo blanco.png" }],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -4,8 +4,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useSearchParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import dynamicImport from 'next/dynamic';
 import productData from '../../data/products-data.json';
-import ExpandedProductModal from '../../components/ExpandedProductModal';
 
 import {
     MotionProductCard,
@@ -14,6 +15,11 @@ import {
     MotionProductName,
     MotionProductDescription
 } from '../../components/ProductCard';
+
+const ExpandedProductModal = dynamicImport(
+  () => import('../../components/ExpandedProductModal'),
+  { ssr: false, loading: () => null }
+);
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -25,7 +31,8 @@ const CatalogContainer = styled.div`
     font-family: 'Raleway', sans-serif;
 `;
 
-const BackButton = styled(motion.button)`
+const BackButton = styled(Link)`
+    display: inline-block;
     background-color: var(--card-background);
     border: 1px solid var(--card-border);
     border-radius: 15px;
@@ -35,10 +42,12 @@ const BackButton = styled(motion.button)`
     cursor: pointer;
     margin-bottom: 2rem;
     align-self: flex-start;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-decoration: none;
 
     &:hover {
         background-color: var(--card-background-hover);
+        color: var(--foreground);
     }
 `;
 
@@ -62,6 +71,11 @@ const ProductGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
     
     @media (min-width: 1024px) {
         grid-template-columns: repeat(4, 1fr);
@@ -105,7 +119,7 @@ function CatalogContent() {
 
     return (
         <CatalogContainer>
-            <BackButton onClick={() => router.back()}>
+            <BackButton href="/catalogo">
                 ← Volver al Catálogo
             </BackButton>
             {filteredCategories.map(category => (
