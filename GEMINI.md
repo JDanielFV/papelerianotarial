@@ -25,15 +25,41 @@ Other available scripts:
 - `npm run start`: Starts a production server.
 - `npm run lint`: Lints the code using ESLint.
 
-# Development Conventions
+# Development & Design Conventions
 
-- **Styling:** The project uses `styled-components` for styling. Components are styled in the same file where they are defined.
-- **Animations:** Animations are handled with `framer-motion`. The components make extensive use of this library to create a dynamic and engaging user experience.
-- **Components:** The code is organized into reusable components located in the `app/components` directory.
-- **Routing:** The routing is handled by Next.js's file-system based router. Pages are located in the `app` directory, with each page in its own subdirectory.
-- **Linting:** The project uses ESLint for code quality. The configuration is in the `eslint.config.mjs` file.
+To maintain visual excellence and code quality, please adhere to the following design systems and coding guidelines:
+
+### 1. Typography & Hierarchy
+* **Global Heading Weight & Size**: Section and main page titles must share a uniform typography scale:
+  * **Mobile**: `3rem`
+  * **Desktop (min-width: 1024px)**: `4rem`
+  * **Weight**: `lighter` / `300` (e.g. `font-weight: lighter;` on headings).
+* **Font Family**: Main body and heading typeface is **Raleway** (configured in `app/layout.js`).
+
+### 2. Autoplay & Interaction
+* **Autoplay Timers**: Elements that rotate automatically (like the process grid in `About.jsx`) should run on a 4-second cycle (`4000ms`).
+* **Autoplay Reset**: Always clean up and reset the interval when the active index changes due to manual user interaction (hover or click) so the item stays active for a full 4 seconds post-interaction.
+* **Responsive Backgrounds**: Mobile dynamic backgrounds should be rendered with subdued opacity (e.g. `0.35`) and use `var(--overlay-gradient)` to guarantee automatic readability in both dark and light color schemes.
+
+### 3. Motion & Animation Standards
+* **Symmetric Transitions**: Avoid mechanical typing or asymmetric entries/exits on dynamic headlines. Use a premium **Fade & Blur** transition:
+  * **Entrance**: `opacity: 0, filter: blur(10px)` to `opacity: 1, filter: blur(0px)`.
+  * **Exit**: `opacity: 1, filter: blur(0px)` to `opacity: 0, filter: blur(10px)`.
+* **Stable Bounding Boxes**: Always specify a fixed `height` (not `min-height`) on containers with changing text sizes/lines (like the main banner title) to prevent layout shifts of surrounding elements (such as buttons below).
+* **Flexbox Text Nodes**: Flex containers collapse trailing spaces in text node children. Always wrap inline dynamic text in a span with `white-space: pre-wrap;` to prevent words from sticking together.
+* **Layout Morphing Modals (`layoutId`)**:
+  * To ensure shared layout exits morph back to the grid correctly when unmounted, the backdrop overlay (which fades out via `AnimatePresence` `exit` prop) and the morphing card container **must be rendered as siblings with unique keys** (e.g., `key="overlay"` and `key="card-wrapper"`) rather than nested. This allows direct unmounting of the card node and triggers Framer Motion's layout interpolation.
 
 # Recent Changes
+
+- **Symmetric Transitions and Modal Morphing Fixes (June 2, 2026):**
+  - **Shared Layout Exit Morphing**: Resolved a critical layout morphing bug in `ExpandedProductModal.jsx` where the card disappeared instantly instead of morphing back to the grid on close. Separated the backdrop overlay and card container into siblings under `AnimatePresence` with unique keys, enabling correct unmount hooks.
+  - **Fade & Blur Dynamic Headlines**: Replaced the typewriter typewriter effect in `Main.jsx` with a symmetric and elegant Fade & Blur text transition. Added a fixed height of `7rem` (mobile) / `10rem` (desktop) with flex centering to completely eliminate layout shifting.
+  - **Typewriter Space Collapse Fix**: Added `TitleText` wrapper with `white-space: pre-wrap;` inside the flex title container to prevent flexbox from collapsing spaces between dynamic words.
+  - **Autoplay Carousels**: Configured an autoplay cycle of 4 seconds on `About.jsx` that automatically increments the active process. Connected `activeIndex` to the effect dependencies so manual mouse hovers or touch clicks reset the timer seamlessly.
+  - **Beliefs Section**: Implemented the new "En qué creemos" section (`Beliefs.jsx`) before the "Sobre Nosotros" section, with alternating desktop layout (image on the right) and custom-crafted copy on brand image, trust, and explicit CTAs.
+  - **Responsive Mobile Backgrounds**: Configured the mobile background layer in `About.jsx` to adapt to light/dark themes by transitioning from custom linear colors to `var(--overlay-gradient)`.
+  - **Logo Aspect Ratio**: Fixed cut-off/clipped edges of the A&G monogram logo in `AboutUs.jsx` by changing Next.js Image component `objectFit` from `cover` to `contain`.
 
 - **Optimization and Comprehensive Core Fixes (June 1, 2026):**
     - **React Versions Sync:** Fixed a critical build/dev crash due to React version mismatches by locking `react` and `react-dom` to `19.2.0` and configuring npm package `overrides` in `package.json`.
@@ -46,31 +72,3 @@ Other available scripts:
     - **Resource and Performance Tuning:** Configured the historical video in `History.jsx` to load and loop automatically without controls when it enters the viewport (using Framer Motion `useInView`). Added `preload="auto"`, `muted`, and `loop`, and removed the static poster. Updated `window.pageYOffset` to `window.scrollY` in `ScrollToTop.jsx`. Restructured `globals.css` to only apply horizontal overflow restrictions to `body`.
     - **SEO Hierarchy:** Downgraded section titles on the Home page from `<h1>` to `<h2>` to preserve a single `<h1>` title. Created `layout.js` files for contact, services, and product directories to define unique server-side titles and descriptions.
     - **Quality Page Hover Images:** Configured Unsplash thematic background images for the hover effects on the "Nuestra Calidad" component cards, styled with a custom radial-gradient overlay to maintain text legibility.
-- **Services Page Enhancements:**
-    - Modified `Services.jsx` to change the interaction of service cards: instead of opening a modal, they now expand in height to reveal more details.
-    - Implemented a "Ver más" button that appears when the card is expanded.
-    - Adjusted the positioning of elements within the expanded service card to be top-aligned.
-    - Added a small gap between the description and the "Ver más" button.
-    - Improved animation smoothness by adding `layout` prop and removing explicit `y` animations.
-- **Products Catalog Page Implementation:**
-    - Created `app/data/products-data.json` to store nested product categories and items.
-    - Created a new page `app/productos/catalogo/page.js` to display product categories and their items.
-    - Implemented navigation from the "Ver más" button in `Products.jsx` to the new catalog page, passing the `categoryId` as a query parameter.
-    - Modified `app/productos/catalogo/page.js` to filter displayed categories based on the `categoryId` query parameter.
-    - Added a "Back" button to the catalog page to return to the `Products` page.
-    - Implemented modal-style expandable product cards in the catalog page, showing image, title, subcategory name, catchy description, min purchase quantity, and a WhatsApp contact button, all centered.
-    - Added `image`, `catchyDescription`, `minPurchaseQuantity`, and `whatsappInquiry` fields to `products-data.json`.
-    - Fixed a build error in `products-data.json` (typo `.name` to `"name"`).
-    - Fixed console error "React does not recognize the `layoutId` prop" by removing `layoutId` from `ProductName` and `ProductDescription` in `app/productos/catalogo/page.js`.
-- **Page Transition Improvements:**
-    - Adjusted `PageTransition.jsx` to use `y` offset and `tween` transition for smoother page transitions.
-- **Typography Update:**
-    - Switched the main application font from Geist/Outfit to Raleway in `app/layout.js`.
-- **Services Page Update:**
-    - Added a new service "Empastado" to the `serviceData` array in `app/components/Services.jsx`.
-- **WhatsApp Icon Color Fix:**
-    - Applied a CSS filter to the `WhatsappIcon` styled component in `app/components/Products.jsx` to force its color to white.
-- **Desktop View Adaptation Discussion:**
-    - Discussed and planned the strategy for adapting the mobile-first design to a desktop view using breakpoints and media queries in `styled-components`. Implementation pending user's instruction.
-- **Project TODO List Creation:**
-    - Created `TODO.md` to track pending tasks, including desktop responsiveness, code refactoring, data management, content creation (new homepage sections, contact page, catalog completion), style updates, and media integration (photos and videos).
