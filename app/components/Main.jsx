@@ -253,51 +253,14 @@ export default function Main({
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentPhraseIndex}
-                            style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", gap: "0.6rem" }}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            variants={{
-                                hidden: { opacity: 0 },
-                                visible: { 
-                                    opacity: 1, 
-                                    transition: { staggerChildren: 0.12 } 
-                                },
-                                exit: { 
-                                    opacity: 0, 
-                                    y: -10, 
-                                    transition: { duration: 0.25, ease: "easeInOut" } 
-                                }
-                            }}
+                            style={{ display: "inline-block" }}
+                            initial={{ opacity: 0, filter: "blur(10px)" }}
+                            animate={{ opacity: 1, filter: "blur(0px)" }}
+                            exit={{ opacity: 0, filter: "blur(10px)" }}
+                            transition={{ duration: 0.8, ease: "easeInOut" }}
                         >
-                            <motion.span
-                                style={{ display: "inline-block" }}
-                                variants={{
-                                    hidden: { opacity: 0, y: 15, scale: 0.95 },
-                                    visible: { 
-                                        opacity: 1, 
-                                        y: 0, 
-                                        scale: 1, 
-                                        transition: { type: "spring", stiffness: 120, damping: 14 } 
-                                    }
-                                }}
-                            >
-                                {currentPhrase.base}
-                            </motion.span>
-                            <motion.strong
-                                style={{ display: "inline-block", color: "var(--accent-color)", fontWeight: 500 }}
-                                variants={{
-                                    hidden: { opacity: 0, y: 15, scale: 0.9 },
-                                    visible: { 
-                                        opacity: 1, 
-                                        y: 0, 
-                                        scale: 1, 
-                                        transition: { type: "spring", stiffness: 140, damping: 12 } 
-                                    }
-                                }}
-                            >
-                                {currentPhrase.highlight}
-                            </motion.strong>
+                            <span>{currentPhrase.base} </span>
+                            <strong>{currentPhrase.highlight}</strong>
                         </motion.div>
                     </AnimatePresence>
                 </Title>

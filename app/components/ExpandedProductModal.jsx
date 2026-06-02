@@ -12,12 +12,22 @@ const ExpandedViewContainer = styled(motion.div)`
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 50;
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.7);
+`;
+
+const ExpandedCardWrapper = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 51;
+    pointer-events: none;
     padding: 20px;
 `;
 
@@ -35,6 +45,7 @@ const ExpandedCard = styled(motion.div)`
     flex-direction: column;
     justify-content: flex-end;
     box-shadow: var(--shadow);
+    pointer-events: auto;
 `;
 
 const ExpandedBackground = styled(motion.div)`
@@ -141,58 +152,63 @@ export default function ExpandedProductModal({ selectedProduct, onClose }) {
     return (
         <AnimatePresence>
             {selectedProduct && (
-                <ExpandedViewContainer
-                    onClick={onClose}
-                    initial={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
-                    animate={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
-                    exit={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
-                >
-                    <ExpandedCard
-                        layoutId={`card-${selectedProduct.id}`}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <ExpandedBackground
-                            style={{ backgroundImage: `url(${selectedProduct.image || '/placeholder-image.jpg'})` }}
-                            layoutId={`image-${selectedProduct.id}`}
-                        />
+                <>
+                    <ExpandedViewContainer
+                        key="overlay"
+                        onClick={onClose}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    />
+                    <ExpandedCardWrapper key="card-wrapper">
+                        <ExpandedCard
+                            layoutId={`card-${selectedProduct.id}`}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <ExpandedBackground
+                                style={{ backgroundImage: `url(${selectedProduct.image || '/placeholder-image.jpg'})` }}
+                                layoutId={`image-${selectedProduct.id}`}
+                            />
 
-                        <ExpandedContent>
-                            <SubCategoryText>
-                                {selectedProduct.subCategoryName}
-                            </SubCategoryText>
+                            <ExpandedContent>
+                                <SubCategoryText>
+                                    {selectedProduct.subCategoryName}
+                                </SubCategoryText>
 
-                            <MotionProductName style={{ fontSize: '2rem', marginBottom: '0.5rem', lineHeight: 1.1, color: 'var(--foreground)' }}>
-                                {selectedProduct.name}
-                            </MotionProductName>
+                                <MotionProductName style={{ fontSize: '2rem', marginBottom: '0.5rem', lineHeight: 1.1, color: 'var(--foreground)' }}>
+                                    {selectedProduct.name}
+                                </MotionProductName>
 
-                            <CatchyDescription>
-                                {selectedProduct.catchyDescription}
-                            </CatchyDescription>
+                                <CatchyDescription>
+                                    {selectedProduct.catchyDescription}
+                                </CatchyDescription>
 
-                            <MinQuantity>
-                                Min. compra: {selectedProduct.minPurchaseQuantity}
-                            </MinQuantity>
+                                <MinQuantity>
+                                    Min. compra: {selectedProduct.minPurchaseQuantity}
+                                </MinQuantity>
 
-                            {/* Legal Disclaimer for restricted products */}
-                            {(selectedProduct.name.toLowerCase().includes("folio") ||
-                              selectedProduct.name.toLowerCase().includes("holograma") ||
-                              selectedProduct.name.toLowerCase().includes("sello")) && (
-                                <LegalDisclaimer>
-                                    Venta exclusiva a Notarios Públicos en funciones. Se requerirá acreditación oficial antes de procesar el pedido.
-                                </LegalDisclaimer>
-                            )}
+                                {/* Legal Disclaimer for restricted products */}
+                                {(selectedProduct.name.toLowerCase().includes("folio") ||
+                                  selectedProduct.name.toLowerCase().includes("holograma") ||
+                                  selectedProduct.name.toLowerCase().includes("sello")) && (
+                                    <LegalDisclaimer>
+                                        Venta exclusiva a Notarios Públicos en funciones. Se requerirá acreditación oficial antes de procesar el pedido.
+                                    </LegalDisclaimer>
+                                )}
 
-                            <WhatsappButton
-                                href={`https://wa.me/525576162856?text=${encodeURIComponent(selectedProduct.whatsappInquiry)}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <WhatsAppIcon size={20} />
-                                Cotizar ahora
-                            </WhatsappButton>
-                        </ExpandedContent>
-                    </ExpandedCard>
-                </ExpandedViewContainer>
+                                <WhatsappButton
+                                    href={`https://wa.me/525576162856?text=${encodeURIComponent(selectedProduct.whatsappInquiry)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <WhatsAppIcon size={20} />
+                                    Cotizar ahora
+                                </WhatsappButton>
+                            </ExpandedContent>
+                        </ExpandedCard>
+                    </ExpandedCardWrapper>
+                </>
             )}
         </AnimatePresence>
     );
