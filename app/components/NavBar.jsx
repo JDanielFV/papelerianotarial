@@ -82,7 +82,7 @@ const NavLink = styled(Link)`
     }
 `;
 
-const CTAButton = styled(Link)`
+const CTAButton = styled.a`
     display: none;
     
     @media (min-width: 1024px) {
@@ -246,7 +246,11 @@ function NavBar() {
                         <NavLink href="/contacto">Contacto</NavLink>
                     </DesktopLinks>
 
-                    <CTAButton href="/contacto">
+                    <CTAButton 
+                        href="https://wa.me/525576162856?text=Hola,%20me%20interesa%20solicitar%20una%20cotizaci%C3%B3n"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         Cotizar ahora
                     </CTAButton>
 
