@@ -423,7 +423,7 @@ function ServiceModalInner({ service, onClose }) {
             />
             <ExpandedCardWrapper key="card-wrapper" onClick={onClose}>
                 <ExpandedCard
-                    layoutId={`card-${service.id}`}
+                    layoutId={`service-card-${service.id}`}
                     onClick={(e) => e.stopPropagation()}
                     exit={{ 
                         opacity: 0, 
@@ -434,7 +434,7 @@ function ServiceModalInner({ service, onClose }) {
                 >
                     <LeftPanel>
                         <ExpandedHeader $bg={service.image}>
-                            <ExpandedTitle layoutId={`title-${service.id}`}>
+                            <ExpandedTitle layoutId={`service-title-${service.id}`}>
                                 {service.name}
                             </ExpandedTitle>
                         </ExpandedHeader>

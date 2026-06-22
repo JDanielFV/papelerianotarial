@@ -85,10 +85,41 @@ const Title = styled(motion.h2)`
   margin-bottom: 2rem;
   color: var(--foreground);
   font-weight: lighter;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 
   @media (min-width: 1024px) {
     font-size: 4rem;
     margin-bottom: 3rem;
+  }
+`;
+
+const InlineImage = styled(motion.span)`
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 38px;
+  margin: 0 4px;
+  border-radius: 24px;
+  background-image: url(${props => props.$src});
+  background-size: cover;
+  background-position: center;
+  border: 1px solid var(--card-border);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: 768px) {
+    width: 80px;
+    height: 48px;
+    margin: 0 6px;
   }
 `;
 
@@ -210,7 +241,19 @@ export default function Beliefs({
       <TextContainer>
         {title && (
           <Title variants={itemVariants}>
-            {title}
+            {title === "En Qué Creemos" ? (
+              <>
+                <span>En Qué</span>
+                <InlineImage 
+                  $src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=300"
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                /> 
+                <span>Creemos</span>
+              </>
+            ) : (
+              title
+            )}
           </Title>
         )}
         {paragraphs && paragraphs.length > 0 && (

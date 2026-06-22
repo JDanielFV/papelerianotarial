@@ -1,5 +1,6 @@
 import Main from "./components/Main";
 import About from "./components/About";
+import Processes from "./components/Processes";
 import Products from "./components/Products";
 import AboutUs from "./components/AboutUs";
 import Quality from "./components/Quality";
@@ -40,6 +41,7 @@ export default function Home() {
       />
       <Main {...homeData.main} />
       <About {...homeData.about} />
+      <Processes {...homeData.processes} />
       <Products {...homeData.products} products={productData} />
       <Quality {...homeData.quality} />
       <Beliefs />

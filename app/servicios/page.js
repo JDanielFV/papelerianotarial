@@ -79,7 +79,7 @@ export default function ServicesPage() {
         {servicesData.map((service) => (
           <MotionServiceCard
             key={service.id}
-            layoutId={`card-${service.id}`}
+            layoutId={`service-card-${service.id}`}
             onClick={() => setSelectedId(service.id)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -87,7 +87,7 @@ export default function ServicesPage() {
           >
             <MotionServiceImage $bg={service.image} />
             <Overlay />
-            <MotionServiceName layoutId={`title-${service.id}`}>
+            <MotionServiceName layoutId={`service-title-${service.id}`}>
               {service.name}
             </MotionServiceName>
             <MotionServiceDescription>
