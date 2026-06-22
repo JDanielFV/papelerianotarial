@@ -10,11 +10,6 @@
         "text": "Ver Catalogo",
         "href": "/catalogo",
         "primary": true
-      },
-      {
-        "text": "Asesoria Directa",
-        "href": "/contacto",
-        "primary": false
       }
     ],
     "scrollText": "BAJA PARA CONOCER MÁS"
@@ -22,7 +17,61 @@
   "about": {
     "title": "La primera impresión no solo se ve, <strong>se siente</strong>",
     "subTitle": "Diseño, resguardo y tecnología avanzada para proyectar y proteger el prestigio de su Notaría Pública en todo México.",
-    "processes": [
+    "categories": [
+      {
+        "id": "notarial",
+        "name": "Línea Notarial",
+        "description": "Papelería oficial y sistemas de resguardo diseñados con los más altos estándares de seguridad y legalidad para la fe pública.",
+        "images": [
+          "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1505664194779-8bebcb95c557?q=80&w=1200&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop"
+        ],
+        "points": [
+          {
+            "title": "Papel de Seguridad",
+            "text": "Hojas de testimonio, folios oficiales y pólizas con hologramas y medidas anticopia."
+          },
+          {
+            "title": "Resguardo y Protocolo",
+            "text": "Carpetas de firma, apéndices y libros de registro con encuadernaciones reforzadas."
+          },
+          {
+            "title": "Sellos Oficiales",
+            "text": "Grabado láser de alta precisión y nitidez garantizada para validez institucional."
+          }
+        ]
+      },
+      {
+        "id": "corporativo",
+        "name": "Línea Corporativa",
+        "description": "Soluciones de papelería administrativa y artículos promocionales exclusivos diseñados para proyectar el prestigio de su firma.",
+        "images": [
+          "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1200&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop"
+        ],
+        "points": [
+          {
+            "title": "Identidad Corporativa",
+            "text": "Hojas membretadas, sobres oficiales y tarjetas de presentación físicas o con tecnología NFC."
+          },
+          {
+            "title": "Artículos Promocionales",
+            "text": "Bolígrafos de alta gama, termos grabados láser y agendas ejecutivas personalizadas."
+          },
+          {
+            "title": "Detalles de Firma",
+            "text": "Servilletas premium impresas, portavasos y blocks de notas a la medida de sus eventos."
+          }
+        ]
+      }
+    ]
+  },
+  "processes": {
+    "title": "Proceso de Fabricación",
+    "subTitle": "Tecnología, seguridad y acabados artesanales para un resultado insuperable en cada pieza.",
+    "items": [
       {
         "id": 1,
         "name": "Servicios Digitales",

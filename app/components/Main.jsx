@@ -193,6 +193,47 @@ const DownArrow = styled.span`
     }
 `;
 
+const titleContainerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.08
+        }
+    },
+    exit: {
+        transition: {
+            staggerChildren: 0.04,
+            staggerDirection: -1
+        }
+    }
+};
+
+const titleWordVariants = {
+    hidden: { 
+        opacity: 0, 
+        y: 15, 
+        filter: "blur(8px)" 
+    },
+    visible: { 
+        opacity: 1, 
+        y: 0, 
+        filter: "blur(0px)",
+        transition: {
+            duration: 0.45,
+            ease: [0.16, 1, 0.3, 1]
+        }
+    },
+    exit: { 
+        opacity: 0, 
+        y: -15, 
+        filter: "blur(8px)",
+        transition: {
+            duration: 0.35,
+            ease: "easeIn"
+        }
+    }
+};
+
 const PHRASES = [
     { base: "Marcando", highlight: "La Diferencia" },
     { base: "Innovación", highlight: "Continua" },
@@ -285,14 +326,30 @@ export default function Main({
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentPhraseIndex}
-                            style={{ display: "inline-block", whiteSpace: "pre-wrap" }}
-                            initial={{ x: 60, opacity: 0, clipPath: "inset(0 100% 0 0)" }}
-                            animate={{ x: 0, opacity: 1, clipPath: "inset(0 0% 0 0)" }}
-                            exit={{ x: -60, opacity: 0, clipPath: "inset(0 0% 0 100%)" }}
-                            transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
+                            variants={titleContainerVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", whiteSpace: "pre-wrap" }}
                         >
-                            <span>{currentPhrase.base} </span>
-                            <strong>{currentPhrase.highlight}</strong>
+                            {currentPhrase.base.split(" ").map((word, i) => (
+                                <motion.span
+                                    key={`base-${i}`}
+                                    variants={titleWordVariants}
+                                    style={{ display: "inline-block", marginRight: "0.25em" }}
+                                >
+                                    {word}
+                                </motion.span>
+                            ))}
+                            {currentPhrase.highlight.split(" ").map((word, i) => (
+                                <motion.strong
+                                    key={`highlight-${i}`}
+                                    variants={titleWordVariants}
+                                    style={{ display: "inline-block", marginRight: "0.25em", color: "var(--accent-color)", fontWeight: 500 }}
+                                >
+                                    {word}
+                                </motion.strong>
+                            ))}
                         </motion.div>
                     </AnimatePresence>
                 </Title>
