@@ -6,7 +6,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import { WhatsAppIcon } from "./Icons";
-import { CONTACT } from "../lib/contact";
+import { CONTACT, getWhatsAppUrl } from "../lib/contact";
 import { Overlay } from "./ProductCard";
 
 // --- Styled Components ---
@@ -124,36 +124,47 @@ const BentoCard = styled(motion.div)`
 
     @media (min-width: 1024px) {
         height: 100%;
-        
-        ${({ $isMinimized }) => $isMinimized && css`
-            padding: 1.2rem;
-            justify-content: center;
-        `}
     }
+
+    ${({ $isExpanded }) => $isExpanded && css`
+        cursor: default;
+        padding: 2rem;
+        height: 500px;
+        
+        @media (min-width: 768px) {
+            height: 550px;
+        }
+
+        @media (min-width: 1024px) {
+            height: 100%;
+            padding: 4rem;
+        }
+    `}
 `;
 
 const CloseButton = styled(motion.button)`
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.2);
         border-color: var(--accent-color);
-        transform: scale(1.1);
+        transform: scale(1.1) rotate(90deg);
+        box-shadow: 0 0 15px rgba(212, 163, 23, 0.4);
     }
 `;
 
@@ -169,7 +180,7 @@ const CardBgImage = styled(motion.div)`
     transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 
     ${BentoCard}:hover & {
-        transform: scale(1.06);
+        transform: scale(1.04);
     }
 `;
 
@@ -183,13 +194,34 @@ const BentoOverlay = styled.div`
         to top, 
         rgba(5, 5, 5, 0.95) 0%, 
         rgba(5, 5, 5, 0.65) 50%, 
+        rgba(5, 5, 5, 0.1) 100-percent
+    );
+    background-image: linear-gradient(
+        to top, 
+        rgba(5, 5, 5, 0.95) 0%, 
+        rgba(5, 5, 5, 0.65) 50%, 
         rgba(5, 5, 5, 0.1) 100%
     );
     z-index: 1;
-    transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
 
-    ${({ $isMinimized }) => $isMinimized && css`
-        background: rgba(5, 5, 5, 0.85); /* Darken minimized cards to focus on protagonist */
+    ${({ $isExpanded }) => $isExpanded && css`
+        background-image: linear-gradient(
+            to right, 
+            rgba(5, 5, 5, 0.98) 0%, 
+            rgba(5, 5, 5, 0.9) 35%, 
+            rgba(5, 5, 5, 0.55) 60%, 
+            rgba(5, 5, 5, 0.1) 100%
+        );
+
+        @media (max-width: 1023px) {
+            background-image: linear-gradient(
+                to top, 
+                rgba(5, 5, 5, 0.98) 0%, 
+                rgba(5, 5, 5, 0.85) 60%, 
+                rgba(5, 5, 5, 0.3) 100%
+            );
+        }
     `}
 `;
 
@@ -201,6 +233,15 @@ const CardContent = styled.div`
     display: flex;
     flex-direction: column;
     transition: all 0.5s ease;
+
+    ${({ $isExpanded }) => $isExpanded && css`
+        height: 100%;
+        justify-content: center;
+        
+        @media (min-width: 1024px) {
+            max-width: 55%;
+        }
+    `}
 `;
 
 const CategoryName = styled(motion.h3)`
@@ -214,11 +255,12 @@ const CategoryName = styled(motion.h3)`
         font-size: 1.9rem;
     }
 
-    ${({ $isMinimized }) => $isMinimized && css`
-        font-size: 1.2rem;
-        margin-bottom: 0;
-        @media (min-width: 768px) {
-            font-size: 1.3rem;
+    ${({ $isExpanded }) => $isExpanded && css`
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        
+        @media (min-width: 1024px) {
+            font-size: 2.8rem;
         }
     `}
 `;
@@ -231,13 +273,18 @@ const CategoryDesc = styled(motion.p)`
     font-weight: 300;
     max-height: 200px;
     opacity: 1;
-    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+    transition: all 0.4s ease;
 
-    ${({ $isMinimized }) => $isMinimized && css`
-        opacity: 0;
-        max-height: 0;
-        margin-bottom: 0;
-        overflow: hidden;
+    ${({ $isExpanded }) => $isExpanded && css`
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 1.8rem;
+        color: #e0e0e0;
+        max-height: 400px;
+        
+        @media (min-width: 1024px) {
+            font-size: 1.15rem;
+        }
     `}
 `;
 
@@ -248,12 +295,11 @@ const TagList = styled(motion.div)`
     margin-top: 0.5rem;
     max-height: 100px;
     opacity: 1;
-    transition: opacity 0.4s ease, max-height 0.4s ease;
+    transition: all 0.4s ease;
 
-    ${({ $isMinimized }) => $isMinimized && css`
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
+    ${({ $isExpanded }) => $isExpanded && css`
+        margin-bottom: 2rem;
+        gap: 0.75rem;
     `}
 `;
 
@@ -264,24 +310,67 @@ const Tag = styled.span`
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 0.35rem 0.75rem;
     border-radius: 50px;
+    transition: all 0.3s ease;
+
+    ${({ $isExpanded }) => $isExpanded && css`
+        font-size: 0.8rem;
+        padding: 0.4rem 0.9rem;
+        border-color: rgba(212, 163, 23, 0.3);
+        background: rgba(212, 163, 23, 0.05);
+        color: #e5e5e5;
+    `}
 `;
 
-const ExplorerButton = styled(motion.div)`
+const ButtonGroup = styled.div`
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+`;
+
+const PrimaryButton = styled(motion.button)`
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--accent-color);
-    font-size: 0.9rem;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: var(--accent-color);
+    color: #0a0a0a;
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-top: 1rem;
     cursor: pointer;
-    
-    span {
-        transition: transform 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(212, 163, 23, 0.4);
+        background-color: #e5b427;
+        border-color: #e5b427;
     }
-    
-    &:hover span {
-        transform: translateX(4px);
+`;
+
+const SecondaryButton = styled(motion.a)`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        transform: translateY(-2px);
+        background-color: rgba(212, 163, 23, 0.1);
+        box-shadow: 0 10px 25px rgba(212, 163, 23, 0.1);
     }
 `;
 
@@ -318,10 +407,8 @@ function Products({
         router.push(`/catalogo/productos?categoryId=${id}`);
     };
 
-    const handleCardClick = (idx, productId) => {
-        if (activeIndex === idx) {
-            handleSeeMore(productId);
-        } else {
+    const handleCardClick = (idx) => {
+        if (activeIndex === null) {
             setActiveIndex(idx);
         }
     };
@@ -330,25 +417,12 @@ function Products({
     const getCardLayout = (idx, active) => {
         // Normal state (no active/selected card)
         if (active === null) {
-            if (idx === 0) return { gridColumn: "1 / 3", gridRow: "1 / 4", isMinimized: false };
-            if (idx === 1) return { gridColumn: "3 / 4", gridRow: "1 / 4", isMinimized: false };
-            if (idx === 2) return { gridColumn: "1 / 2", gridRow: "4 / 7", isMinimized: false };
-            if (idx === 3) return { gridColumn: "2 / 4", gridRow: "4 / 7", isMinimized: false };
+            if (idx === 0) return { gridColumn: "1 / 3", gridRow: "1 / 4" };
+            if (idx === 1) return { gridColumn: "3 / 4", gridRow: "1 / 4" };
+            if (idx === 2) return { gridColumn: "1 / 2", gridRow: "4 / 7" };
+            if (idx === 3) return { gridColumn: "2 / 4", gridRow: "4 / 7" };
         }
-
-        // Hero state (current card is active/expanded)
-        if (active === idx) {
-            const gridColumn = idx === 0 || idx === 2 ? "1 / 3" : "2 / 4";
-            return { gridColumn, gridRow: "1 / 7", isMinimized: false };
-        }
-
-        // Minimized state (another card is active, current card shrinks to sidebar)
-        const targetCol = (active === 0 || active === 2) ? "3 / 4" : "1 / 2";
-        const remainingIdxs = [0, 1, 2, 3].filter(i => i !== active);
-        const positionInSidebar = remainingIdxs.indexOf(idx);
-        const gridRow = positionInSidebar === 0 ? "1 / 3" : positionInSidebar === 1 ? "3 / 5" : "5 / 7";
-
-        return { gridColumn: targetCol, gridRow, isMinimized: true };
+        return { gridColumn: "1 / -1", gridRow: "1 / -1" };
     };
 
     return (
@@ -366,18 +440,24 @@ function Products({
 
             {products && products.length > 0 && (
                 <BentoGrid variants={itemVariants}>
-                    <AnimatePresence>
+                    <AnimatePresence mode="popLayout">
                         {products.map((product, idx) => {
-                            const { gridColumn, gridRow, isMinimized } = getCardLayout(idx, activeIndex);
+                            const isActive = activeIndex === idx;
+                            const isAnyActive = activeIndex !== null;
+
+                            // Only render the active card when one is expanded, hide others
+                            if (isAnyActive && !isActive) return null;
+
+                            const { gridColumn, gridRow } = getCardLayout(idx, activeIndex);
                             
                             return (
                                 <BentoCard
                                     key={product.id}
                                     layout
                                     style={{ gridColumn, gridRow }}
-                                    onClick={() => handleCardClick(idx, product.id)}
-                                    $isMinimized={isMinimized}
-                                    whileHover={{ y: isMinimized ? 0 : -4 }}
+                                    onClick={() => handleCardClick(idx)}
+                                    $isExpanded={isActive}
+                                    whileHover={{ y: isActive ? 0 : -4 }}
                                     transition={{ 
                                         type: "spring", 
                                         stiffness: 150, 
@@ -386,9 +466,9 @@ function Products({
                                     }}
                                 >
                                     <CardBgImage style={{ backgroundImage: `url(${product.image || '/placeholder-image.jpg'})` }} />
-                                    <BentoOverlay $isMinimized={isMinimized} />
+                                    <BentoOverlay $isExpanded={isActive} />
                                     
-                                    {idx === activeIndex && (
+                                    {isActive && (
                                         <CloseButton 
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -402,24 +482,38 @@ function Products({
                                         </CloseButton>
                                     )}
 
-                                    <CardContent>
-                                        <CategoryName $isMinimized={isMinimized}>{product.name}</CategoryName>
-                                        <CategoryDesc $isMinimized={isMinimized}>{product.description}</CategoryDesc>
+                                    <CardContent $isExpanded={isActive}>
+                                        <CategoryName $isExpanded={isActive}>{product.name}</CategoryName>
+                                        <CategoryDesc $isExpanded={isActive}>{product.description}</CategoryDesc>
                                         
-                                        <TagList $isMinimized={isMinimized}>
+                                        <TagList $isExpanded={isActive}>
                                             {product.subcategories?.slice(0, 4).map((sub, sIdx) => (
-                                                <Tag key={sIdx}>{sub.name}</Tag>
+                                                <Tag key={sIdx} $isExpanded={isActive}>{sub.name}</Tag>
                                             ))}
                                         </TagList>
 
-                                        {idx === activeIndex && (
-                                            <ExplorerButton
+                                        {isActive ? (
+                                            <ButtonGroup
                                                 initial={{ opacity: 0, y: 10 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: 0.2 }}
                                             >
+                                                <PrimaryButton onClick={() => handleSeeMore(product.id)}>
+                                                    Explorar Colección ➔
+                                                </PrimaryButton>
+                                                <SecondaryButton 
+                                                    href={getWhatsAppUrl(`Hola, me interesa solicitar una cotización sobre la colección de ${product.name}`)}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <WhatsAppIcon size={18} />
+                                                    Cotizar por WhatsApp
+                                                </SecondaryButton>
+                                            </ButtonGroup>
+                                        ) : (
+                                            <div style={{ color: "var(--accent-color)", fontSize: "0.9rem", fontWeight: "600", marginTop: "1rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
                                                 Explorar Colección <span>➔</span>
-                                            </ExplorerButton>
+                                            </div>
                                         )}
                                     </CardContent>
                                 </BentoCard>
