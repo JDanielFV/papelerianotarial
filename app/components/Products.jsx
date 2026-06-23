@@ -84,6 +84,7 @@ const ContactButton = styled(motion.a)`
 
 // --- Bento Box Containers ---
 const BentoGrid = styled(motion.div)`
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -115,7 +116,7 @@ const BentoCard = styled(motion.div)`
     justify-content: flex-end;
     padding: 1.8rem;
     height: 320px;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease;
 
     &:hover {
         border-color: var(--accent-color);
@@ -125,33 +126,52 @@ const BentoCard = styled(motion.div)`
     @media (min-width: 1024px) {
         height: 100%;
     }
+`;
 
-    ${({ $isExpanded }) => $isExpanded && css`
-        cursor: default;
-        padding: 2rem;
-        height: 500px;
-        
-        @media (min-width: 768px) {
-            height: 550px;
-        }
+const ExpandedOverlayContainer = styled(motion.div)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    cursor: pointer;
+`;
 
-        @media (min-width: 1024px) {
-            height: 100%;
-            padding: 4rem;
-        }
-    `}
+const ExpandedCardWrapper = styled(motion.div)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    pointer-events: none;
+`;
 
-    ${({ $isHidden }) => $isHidden && css`
-        position: absolute;
-        width: 0;
-        height: 0;
-        opacity: 0;
-        pointer-events: none;
-        padding: 0;
-        margin: 0;
-        border: none;
-        overflow: hidden;
-    `}
+const ExpandedCard = styled(motion.div)`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    background-color: #0c0c0c;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    pointer-events: auto;
+
+    @media (min-width: 768px) {
+        padding: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 4rem;
+    }
 `;
 
 const CloseButton = styled(motion.button)`
@@ -425,16 +445,13 @@ function Products({
         }
     };
 
-    // Calculate layout parameters dynamically based on which index is active
-    const getCardLayout = (idx, active) => {
-        // Normal state (no active/selected card)
-        if (active === null) {
-            if (idx === 0) return { gridColumn: "1 / 3", gridRow: "1 / 4" };
-            if (idx === 1) return { gridColumn: "3 / 4", gridRow: "1 / 4" };
-            if (idx === 2) return { gridColumn: "1 / 2", gridRow: "4 / 7" };
-            if (idx === 3) return { gridColumn: "2 / 4", gridRow: "4 / 7" };
-        }
-        return { gridColumn: "1 / -1", gridRow: "1 / -1" };
+    // Calculate layout parameters for grid positions
+    const getCardLayout = (idx) => {
+        if (idx === 0) return { gridColumn: "1 / 3", gridRow: "1 / 4" };
+        if (idx === 1) return { gridColumn: "3 / 4", gridRow: "1 / 4" };
+        if (idx === 2) return { gridColumn: "1 / 2", gridRow: "4 / 7" };
+        if (idx === 3) return { gridColumn: "2 / 4", gridRow: "4 / 7" };
+        return {};
     };
 
     return (
@@ -452,36 +469,74 @@ function Products({
 
             {products && products.length > 0 && (
                 <BentoGrid variants={itemVariants}>
-                    <AnimatePresence mode="popLayout">
-                        {products.map((product, idx) => {
-                            const isActive = activeIndex === idx;
-                            const isAnyActive = activeIndex !== null;
-                            const isHidden = isAnyActive && !isActive;
-
-                            const { gridColumn, gridRow } = getCardLayout(idx, activeIndex);
-                            
-                            return (
-                                <BentoCard
-                                    key={product.id}
-                                    layout
-                                    style={{ gridColumn, gridRow }}
-                                    onClick={() => handleCardClick(idx)}
-                                    $isExpanded={isActive}
-                                    $isHidden={isHidden}
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={isActive ? { opacity: 1, scale: 1 } : isHidden ? { opacity: 0, scale: 0.92 } : { opacity: 1, scale: 1 }}
-                                    whileHover={{ y: isActive || isHidden ? 0 : -4 }}
-                                    transition={{ 
-                                        type: "spring", 
-                                        stiffness: 100, 
-                                        damping: 22,
-                                        mass: 0.9
-                                    }}
-                                >
-                                    <CardBgImage style={{ backgroundImage: `url(${product.image || '/placeholder-image.jpg'})` }} />
-                                    <BentoOverlay $isExpanded={isActive} />
+                    {products.map((product, idx) => {
+                        const isAnyActive = activeIndex !== null;
+                        const { gridColumn, gridRow } = getCardLayout(idx);
+                        
+                        return (
+                            <BentoCard
+                                key={product.id}
+                                layoutId={`card-${product.id}`}
+                                style={{ gridColumn, gridRow }}
+                                onClick={() => handleCardClick(idx)}
+                                animate={{ 
+                                    opacity: isAnyActive ? 0 : 1,
+                                    scale: isAnyActive ? 0.95 : 1,
+                                    pointerEvents: isAnyActive ? "none" : "auto"
+                                }}
+                                transition={{ 
+                                    type: "spring", 
+                                    stiffness: 100, 
+                                    damping: 20
+                                }}
+                            >
+                                <CardBgImage style={{ backgroundImage: `url(${product.image || '/placeholder-image.jpg'})` }} />
+                                <BentoOverlay />
+                                
+                                <CardContent>
+                                    <CategoryName>{product.name}</CategoryName>
+                                    <CategoryDesc>{product.description}</CategoryDesc>
                                     
-                                    {isActive && (
+                                    <TagList>
+                                        {product.subcategories?.slice(0, 4).map((sub, sIdx) => (
+                                            <Tag key={sIdx}>{sub.name}</Tag>
+                                        ))}
+                                    </TagList>
+
+                                    <div style={{ color: "var(--accent-color)", fontSize: "0.9rem", fontWeight: "600", marginTop: "1.2rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                                        Explorar Colección <span>➔</span>
+                                    </div>
+                                </CardContent>
+                            </BentoCard>
+                        );
+                    })}
+
+                    <AnimatePresence>
+                        {activeIndex !== null && (
+                            <>
+                                <ExpandedOverlayContainer
+                                    key="overlay"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.35 }}
+                                    onClick={() => setActiveIndex(null)}
+                                />
+                                <ExpandedCardWrapper
+                                    key="card-wrapper"
+                                >
+                                    <ExpandedCard
+                                        layoutId={`card-${products[activeIndex].id}`}
+                                        transition={{ 
+                                            type: "spring", 
+                                            stiffness: 90, 
+                                            damping: 22,
+                                            mass: 0.95
+                                        }}
+                                    >
+                                        <CardBgImage style={{ backgroundImage: `url(${products[activeIndex].image || '/placeholder-image.jpg'})` }} />
+                                        <BentoOverlay $isExpanded={true} />
+                                        
                                         <CloseButton 
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -490,32 +545,31 @@ function Products({
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 0.8 }}
+                                            transition={{ delay: 0.1 }}
                                         >
                                             ✕
                                         </CloseButton>
-                                    )}
 
-                                    <CardContent $isExpanded={isActive}>
-                                        <CategoryName $isExpanded={isActive}>{product.name}</CategoryName>
-                                        <CategoryDesc $isExpanded={isActive}>{product.description}</CategoryDesc>
-                                        
-                                        <TagList $isExpanded={isActive}>
-                                            {product.subcategories?.slice(0, 4).map((sub, sIdx) => (
-                                                <Tag key={sIdx} $isExpanded={isActive}>{sub.name}</Tag>
-                                            ))}
-                                        </TagList>
+                                        <CardContent $isExpanded={true}>
+                                            <CategoryName $isExpanded={true}>{products[activeIndex].name}</CategoryName>
+                                            <CategoryDesc $isExpanded={true}>{products[activeIndex].description}</CategoryDesc>
+                                            
+                                            <TagList $isExpanded={true}>
+                                                {products[activeIndex].subcategories?.slice(0, 4).map((sub, sIdx) => (
+                                                    <Tag key={sIdx} $isExpanded={true}>{sub.name}</Tag>
+                                                ))}
+                                            </TagList>
 
-                                        {isActive ? (
                                             <ButtonGroup
-                                                initial={{ opacity: 0, y: 10 }}
+                                                initial={{ opacity: 0, y: 15 }}
                                                 animate={{ opacity: 1, y: 0 }}
-                                                transition={{ delay: 0.2 }}
+                                                transition={{ delay: 0.15, duration: 0.4 }}
                                             >
-                                                <PrimaryButton onClick={() => handleSeeMore(product.id)}>
+                                                <PrimaryButton onClick={() => handleSeeMore(products[activeIndex].id)}>
                                                     Explorar Colección ➔
                                                 </PrimaryButton>
                                                 <SecondaryButton 
-                                                    href={getWhatsAppUrl(`Hola, me interesa solicitar una cotización sobre la colección de ${product.name}`)}
+                                                    href={getWhatsAppUrl(`Hola, me interesa solicitar una cotización sobre la colección de ${products[activeIndex].name}`)}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
@@ -523,15 +577,11 @@ function Products({
                                                     Cotizar por WhatsApp
                                                 </SecondaryButton>
                                             </ButtonGroup>
-                                        ) : (
-                                            <div style={{ color: "var(--accent-color)", fontSize: "0.9rem", fontWeight: "600", marginTop: "1rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-                                                Explorar Colección <span>➔</span>
-                                            </div>
-                                        )}
-                                    </CardContent>
-                                </BentoCard>
-                            );
-                        })}
+                                        </CardContent>
+                                    </ExpandedCard>
+                                </ExpandedCardWrapper>
+                            </>
+                        )}
                     </AnimatePresence>
                 </BentoGrid>
             )}
