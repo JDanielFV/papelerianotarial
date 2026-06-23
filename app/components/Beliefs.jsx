@@ -233,6 +233,7 @@ export default function Beliefs({
               src={imageSrc}
               alt={title}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}
             />
           </StyledImage>

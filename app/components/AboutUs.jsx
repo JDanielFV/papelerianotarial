@@ -125,6 +125,7 @@ const AboutUs = ({
             src={imageSrc}
             alt={title}
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
             style={{ objectFit: "contain", opacity: 0.5 }}
           />
         </ImageContainer>

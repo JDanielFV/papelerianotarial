@@ -349,6 +349,7 @@ export default function About({
                                 src={activeImage}
                                 alt="Fondo de la sección"
                                 fill
+                                sizes="100vw"
                                 style={{ objectFit: 'cover' }}
                                 priority
                             />

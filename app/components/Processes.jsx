@@ -286,6 +286,7 @@ export default function Processes({
                                 src={activeImage}
                                 alt={items[activeIndex]?.name || "Proceso"}
                                 fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 style={{ objectFit: 'cover' }}
                             />
                         </StyledImage>
