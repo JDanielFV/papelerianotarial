@@ -1,5 +1,4 @@
 import Main from "./components/Main";
-import About from "./components/About";
 import Processes from "./components/Processes";
 import Products from "./components/Products";
 import AboutUs from "./components/AboutUs";
@@ -40,7 +39,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Main {...homeData.main} />
-      <About {...homeData.about} />
       <Processes {...homeData.processes} />
       <Products {...homeData.products} products={productData} />
       <Quality {...homeData.quality} />
