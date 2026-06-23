@@ -140,6 +140,18 @@ const BentoCard = styled(motion.div)`
             padding: 4rem;
         }
     `}
+
+    ${({ $isHidden }) => $isHidden && css`
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+        overflow: hidden;
+    `}
 `;
 
 const CloseButton = styled(motion.button)`
@@ -444,9 +456,7 @@ function Products({
                         {products.map((product, idx) => {
                             const isActive = activeIndex === idx;
                             const isAnyActive = activeIndex !== null;
-
-                            // Only render the active card when one is expanded, hide others
-                            if (isAnyActive && !isActive) return null;
+                            const isHidden = isAnyActive && !isActive;
 
                             const { gridColumn, gridRow } = getCardLayout(idx, activeIndex);
                             
@@ -457,12 +467,15 @@ function Products({
                                     style={{ gridColumn, gridRow }}
                                     onClick={() => handleCardClick(idx)}
                                     $isExpanded={isActive}
-                                    whileHover={{ y: isActive ? 0 : -4 }}
+                                    $isHidden={isHidden}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={isActive ? { opacity: 1, scale: 1 } : isHidden ? { opacity: 0, scale: 0.92 } : { opacity: 1, scale: 1 }}
+                                    whileHover={{ y: isActive || isHidden ? 0 : -4 }}
                                     transition={{ 
                                         type: "spring", 
-                                        stiffness: 150, 
-                                        damping: 25,
-                                        mass: 0.8
+                                        stiffness: 100, 
+                                        damping: 22,
+                                        mass: 0.9
                                     }}
                                 >
                                     <CardBgImage style={{ backgroundImage: `url(${product.image || '/placeholder-image.jpg'})` }} />
