@@ -471,6 +471,8 @@ function Products({
                 <BentoGrid variants={itemVariants}>
                     {products.map((product, idx) => {
                         const isAnyActive = activeIndex !== null;
+                        const isActive = activeIndex === idx;
+                        const isHidden = isAnyActive && !isActive;
                         const { gridColumn, gridRow } = getCardLayout(idx);
                         
                         return (
@@ -480,8 +482,8 @@ function Products({
                                 style={{ gridColumn, gridRow }}
                                 onClick={() => handleCardClick(idx)}
                                 animate={{ 
-                                    opacity: isAnyActive ? 0 : 1,
-                                    scale: isAnyActive ? 0.95 : 1,
+                                    opacity: isHidden ? 0 : 1,
+                                    scale: isHidden ? 0.95 : 1,
                                     pointerEvents: isAnyActive ? "none" : "auto"
                                 }}
                                 transition={{ 
