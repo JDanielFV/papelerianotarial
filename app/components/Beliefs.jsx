@@ -227,17 +227,17 @@ export default function Beliefs({
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-        <ImageContainer variants={itemVariants}>
-          <StyledImage>
-            <Image
-              src={imageSrc}
-              alt={title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              style={{ objectFit: 'cover' }}
-            />
-          </StyledImage>
-        </ImageContainer>
+      <ImageContainer variants={itemVariants}>
+        <StyledImage>
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            style={{ objectFit: 'cover' }}
+          />
+        </StyledImage>
+      </ImageContainer>
 
       <TextContainer>
         {title && (
@@ -245,11 +245,6 @@ export default function Beliefs({
             {title === "En Qué Creemos" ? (
               <>
                 <span>En Qué</span>
-                <InlineImage 
-                  $src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=300"
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                /> 
                 <span>Creemos</span>
               </>
             ) : (
@@ -264,7 +259,7 @@ export default function Beliefs({
             ))}
           </Content>
         )}
-        
+
         <ButtonGroup variants={itemVariants}>
           {primaryButtonText && (
             <CTAButton href={primaryButtonHref} $primary="true">
