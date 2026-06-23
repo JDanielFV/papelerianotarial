@@ -60,7 +60,7 @@ const FloatingCard = styled(motion.div)`
     }
 `;
 
-const MotionLogo = styled(motion(Image))`
+const MotionLogo = styled(motion.create(Image))`
     width: 18rem;
     height: auto;
     margin-bottom: 0.5rem;
@@ -311,6 +311,7 @@ export default function Main({
                     width={120}
                     height={108}
                     priority
+                    style={{ height: 'auto' }}
                     initial={{ opacity: 0, scale: 0.8, y: -20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ 

@@ -245,6 +245,7 @@ function NavBar() {
                             width={140} 
                             height={35} 
                             priority 
+                            style={{ width: 'auto' }}
                         />
                     </Link>
                     
