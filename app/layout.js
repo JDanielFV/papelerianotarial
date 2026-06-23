@@ -12,6 +12,7 @@ const raleway = Raleway({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://papelerianotarial.net"),
   title: {
     default: "Papelería Notarial A&G | Elegancia y Seguridad",
     template: "%s | Papelería Notarial A&G",
