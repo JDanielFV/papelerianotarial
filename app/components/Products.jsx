@@ -116,7 +116,7 @@ const BentoCard = styled(motion.div)`
     justify-content: flex-end;
     padding: 1.8rem;
     height: 320px;
-    transition: border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease, opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
         border-color: var(--accent-color);
@@ -126,6 +126,11 @@ const BentoCard = styled(motion.div)`
     @media (min-width: 1024px) {
         height: 100%;
     }
+
+    ${({ $isDimmed }) => $isDimmed && css`
+        opacity: 0;
+        pointer-events: none;
+    `}
 `;
 
 const ExpandedOverlayContainer = styled(motion.div)`
@@ -481,16 +486,8 @@ function Products({
                                 layoutId={`card-${product.id}`}
                                 style={{ gridColumn, gridRow }}
                                 onClick={() => handleCardClick(idx)}
-                                animate={{ 
-                                    opacity: isHidden ? 0 : 1,
-                                    scale: isHidden ? 0.95 : 1,
-                                    pointerEvents: isAnyActive ? "none" : "auto"
-                                }}
-                                transition={{ 
-                                    type: "spring", 
-                                    stiffness: 100, 
-                                    damping: 20
-                                }}
+                                $isDimmed={isHidden}
+                                whileHover={{ y: isAnyActive ? 0 : -4 }}
                             >
                                 <CardBgImage style={{ backgroundImage: `url(${product.image || '/placeholder-image.jpg'})` }} />
                                 <BentoOverlay />
