@@ -1259,7 +1259,7 @@
             "entity": "localhost"
           },
           {
-            "url": "http://localhost:3000/fondo.m4v",
+            "url": "http://localhost:3000/fondo.mp4",
             "sessionTargetType": "page",
             "protocol": "http/1.1",
             "rendererStartTime": 467.9099999964237,
@@ -1276,7 +1276,7 @@
             "entity": "localhost"
           },
           {
-            "url": "http://localhost:3000/fondo.m4v",
+            "url": "http://localhost:3000/fondo.mp4",
             "sessionTargetType": "page",
             "protocol": "http/1.1",
             "rendererStartTime": 469.61700001358986,
@@ -3643,7 +3643,7 @@
                 "width": 412,
                 "height": 823
               },
-              "snippet": "<video autoplay=\"\" muted=\"\" loop=\"\" playsinline=\"\" src=\"/fondo.m4v\" class=\"Main__FondoVideo-sc-c39884ab-6 SzToS\">",
+              "snippet": "<video autoplay=\"\" muted=\"\" loop=\"\" playsinline=\"\" src=\"/fondo.mp4\" class=\"Main__FondoVideo-sc-c39884ab-6 SzToS\">",
               "nodeLabel": "body.raleway_d407962a-module__mgZ-RG__className > div > main.Main__MainContainer-sc-c39884ab-0 > video.Main__FondoVideo-sc-c39884ab-6",
               "explanation": "Fix all of the following:\n  Check that captions are available for the element"
             }
@@ -3763,11 +3763,11 @@
         ],
         "items": [
           {
-            "url": "http://localhost:3000/fondo.m4v",
+            "url": "http://localhost:3000/fondo.mp4",
             "totalBytes": 8545073
           },
           {
-            "url": "http://localhost:3000/fondo.m4v",
+            "url": "http://localhost:3000/fondo.mp4",
             "totalBytes": 8544828
           },
           {
