@@ -4,15 +4,11 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence, usePresence } from "framer-motion";
 import { WhatsAppIcon } from "./Icons";
-import { MotionProductName } from "./ProductCard";
 import { getWhatsAppUrl } from "../lib/contact";
 
 const ExpandedViewContainer = styled(motion.div)`
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 50;
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.7);
@@ -21,25 +17,26 @@ const ExpandedViewContainer = styled(motion.div)`
 
 const ExpandedCardWrapper = styled.div`
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 51;
-    padding: 20px;
+    padding: 16px;
+
+    @media (min-width: 768px) {
+        padding: 32px;
+    }
 `;
 
 const ExpandedCard = styled(motion.div)`
     width: 100%;
-    max-width: 500px;
-    height: 85vh;
-    max-height: 800px;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
     background-color: var(--color-secondary);
     border: 1px solid var(--card-border);
-    border-radius: 25px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -48,21 +45,23 @@ const ExpandedCard = styled(motion.div)`
     pointer-events: auto;
 
     @media (min-width: 768px) {
-        max-width: 920px;
         flex-direction: row;
-        height: 70vh;
-        max-height: 600px;
+        width: 90vw;
+        max-width: 1280px;
+        height: 80vh;
+        max-height: 720px;
+        border-radius: 24px;
     }
 `;
 
 const CloseButton = styled.button`
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.75rem;
+    right: 0.75rem;
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 1.4rem;
@@ -84,47 +83,48 @@ const CloseButton = styled.button`
     }
 `;
 
+// --- Left panel: name + full-bleed image ---
 const LeftPanel = styled.div`
     position: relative;
     width: 100%;
-    height: 45%;
+    flex: 1 1 auto;
+    min-height: 45%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     overflow: hidden;
+    background-color: #1a1a1a;
 
     @media (min-width: 768px) {
-        width: 50%;
+        width: 65%;
         height: 100%;
+        flex: 0 0 65%;
     }
 `;
 
-const RightPanel = styled.div`
-    width: 100%;
-    height: 55%;
-    background-color: rgba(255, 255, 255, 0.01);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid var(--card-border);
-    overflow-y: auto;
-    gap: 1.5rem;
-
-    @media (min-width: 768px) {
-        width: 50%;
-        height: 100%;
-        border-top: none;
-        border-left: 1px solid var(--card-border);
-        padding: 2.5rem 3rem;
-    }
-`;
-
-const ExpandedBackground = styled(motion.div)`
+const ProductName = styled.h2`
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 1.25rem;
+    left: 1.5rem;
+    right: 4rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    margin: 0;
+    line-height: 1.2;
+    pointer-events: none;
+
+    @media (min-width: 768px) {
+        font-size: 1.8rem;
+        top: 1.75rem;
+        left: 2rem;
+    }
+`;
+
+const HeroImage = styled(motion.div)`
+    position: absolute;
+    inset: 0;
     background-color: #2a2a2a;
     background-size: cover;
     background-position: center;
@@ -133,118 +133,74 @@ const ExpandedBackground = styled(motion.div)`
     &::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         background: var(--modal-overlay-gradient);
     }
 `;
 
-const ExpandedContent = styled.div`
-    position: relative;
-    z-index: 1;
-    padding: 2rem;
+// --- Right panel: finish list + quote button ---
+const RightPanel = styled.div`
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: rgba(255, 255, 255, 0.01);
+    padding: 1.5rem 1.5rem 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    width: 100%;
+    gap: 1.25rem;
+    border-top: 1px solid var(--card-border);
+    overflow-y: auto;
 
     @media (min-width: 768px) {
-        padding: 2.5rem;
+        width: 35%;
+        flex: 0 0 35%;
+        height: 100%;
+        border-top: none;
+        border-left: 1px solid var(--card-border);
+        padding: 2.25rem 2rem;
     }
-`;
-
-const SubCategoryText = styled.h3`
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 0;
-    margin-bottom: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-`;
-
-const CatchyDescription = styled.p`
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--foreground);
-    line-height: 1.4;
-    margin-bottom: 0.3rem;
-`;
-
-const MinQuantity = styled.p`
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    &::before {
-        content: '•';
-        color: var(--foreground);
-    }
-`;
-
-const LegalDisclaimer = styled.p`
-    font-size: 0.75rem;
-    color: #d4a317;
-    background-color: rgba(212, 163, 23, 0.08);
-    padding: 0.4rem 0.8rem;
-    border-left: 2px solid #d4a317;
-    border-radius: 0 4px 4px 0;
-    margin-top: 0.3rem;
-    line-height: 1.3;
-`;
-
-const RightPanelHeader = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
 `;
 
 const SectionTitle = styled.h4`
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: var(--text-muted);
     font-weight: 600;
-    margin: 0 0 0.75rem 0;
+    margin: 0;
 `;
 
-const FinishesGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
-
-    @media (min-width: 480px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+const FinishesList = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1 1 auto;
 `;
 
-const FinishChip = styled(motion.button)`
+const FinishRow = styled(motion.button)`
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.55rem 0.8rem;
+    gap: 0.85rem;
+    padding: 0.75rem 0.9rem;
     background: ${({ $selected }) =>
         $selected
             ? "rgba(212, 163, 23, 0.12)"
-            : "rgba(255, 255, 255, 0.04)"};
+            : "rgba(255, 255, 255, 0.03)"};
     border: 1px solid
         ${({ $selected }) =>
-            $selected ? "var(--accent-color)" : "var(--card-border)"};
-    border-radius: 12px;
+            $selected ? "var(--accent-color)" : "transparent"};
+    border-radius: 10px;
     color: var(--foreground);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-family: inherit;
     text-align: left;
     cursor: pointer;
     transition: background 0.2s ease, border-color 0.2s ease;
+    width: 100%;
 
     &:hover {
-        border-color: var(--accent-color);
         background: rgba(212, 163, 23, 0.08);
+        border-color: ${({ $selected }) =>
+            $selected ? "var(--accent-color)" : "rgba(212, 163, 23, 0.3)"};
     }
 
     &:focus-visible {
@@ -254,15 +210,20 @@ const FinishChip = styled(motion.button)`
     }
 `;
 
-const FinishThumb = styled.span`
+const FinishNumber = styled.span`
     flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    background-size: cover;
-    background-position: center;
-    background-color: #2a2a2a;
-    border: 1px solid var(--card-border);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: ${({ $selected }) =>
+        $selected ? "var(--accent-color)" : "rgba(255, 255, 255, 0.06)"};
+    color: ${({ $selected }) => ($selected ? "#050811" : "var(--text-muted)")};
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
 `;
 
 const FinishName = styled.span`
@@ -270,30 +231,19 @@ const FinishName = styled.span`
     line-height: 1.2;
 `;
 
-const SelectedFinishBadge = styled.span`
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: rgba(212, 163, 23, 0.1);
-    border: 1px solid rgba(212, 163, 23, 0.3);
-    color: var(--accent-color);
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    padding: 0.25rem 0.6rem;
-    border-radius: 50px;
-    margin-top: 0.2rem;
-    align-self: flex-start;
+const EmptyState = styled.p`
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
 `;
 
 const QuoteButton = styled(motion.button)`
-    margin-top: auto;
     background-color: var(--accent-color);
     color: #050811;
     border: none;
     border-radius: 12px;
-    height: 48px;
+    height: 46px;
     font-weight: bold;
     font-size: 0.95rem;
     cursor: pointer;
@@ -301,18 +251,18 @@ const QuoteButton = styled(motion.button)`
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    transition: all 0.25s ease;
+    transition: background 0.2s ease, transform 0.15s ease;
     width: 100%;
     font-family: inherit;
+    margin-top: auto;
 
     &:hover:not(:disabled) {
         background-color: #e6b422;
         transform: translateY(-1px);
-        box-shadow: 0 8px 16px rgba(212, 163, 23, 0.25);
     }
 
     &:disabled {
-        opacity: 0.5;
+        opacity: 0.45;
         cursor: not-allowed;
     }
 `;
@@ -321,8 +271,8 @@ const QuoteButton = styled(motion.button)`
 const SubModalOverlay = styled(motion.div)`
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
     z-index: 40;
     display: flex;
     align-items: center;
@@ -441,10 +391,7 @@ const SubModalBackButton = styled.button`
 
 const ModalPortalWrapper = styled(motion.div)`
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 50;
 `;
 
@@ -468,9 +415,7 @@ function QuoteForm({ product, finish, onBack }) {
         }
         setError("");
 
-        const finishLine = finish
-            ? `• Acabado: ${finish.name}\n`
-            : "";
+        const finishLine = finish ? `• Acabado: ${finish.name}\n` : "";
 
         const message =
             `Hola, me interesa cotizar el siguiente producto:\n\n` +
@@ -560,7 +505,6 @@ function ModalInner({ selectedProduct, onClose }) {
     const [prevProductId, setPrevProductId] = useState(selectedProduct?.id);
 
     // Adjust state during render when the product changes (React 19 idiom).
-    // Avoids the cascading-render anti-pattern flagged by react-hooks/set-state-in-effect.
     if (selectedProduct?.id !== prevProductId) {
         setPrevProductId(selectedProduct?.id);
         setSelectedFinishId(null);
@@ -578,17 +522,12 @@ function ModalInner({ selectedProduct, onClose }) {
         }
     }, [isPresent, safeToRemove]);
 
-    // Image shown in the LeftPanel: finish image if selected, else product image
     const heroImage =
         (selectedFinish && selectedFinish.image) ||
         selectedProduct?.image ||
         "/placeholder-image.jpg";
 
-    const isLegalRestricted =
-        selectedProduct &&
-        (selectedProduct.name.toLowerCase().includes("folio") ||
-            selectedProduct.name.toLowerCase().includes("holograma") ||
-            selectedProduct.name.toLowerCase().includes("sello"));
+    const canQuote = finishes.length === 0 || selectedFinishId !== null;
 
     return (
         <ModalPortalWrapper
@@ -617,9 +556,10 @@ function ModalInner({ selectedProduct, onClose }) {
                     }}
                 >
                     <LeftPanel>
+                        <ProductName>{selectedProduct.name}</ProductName>
                         <AnimatePresence mode="wait">
-                            <ExpandedBackground
-                                key={`bg-${selectedFinishId || "default"}`}
+                            <HeroImage
+                                key={`hero-${selectedFinishId || "default"}`}
                                 style={{ backgroundImage: `url(${heroImage})` }}
                                 layoutId={isPresent ? `image-${selectedProduct.id}` : undefined}
                                 initial={{ opacity: 0 }}
@@ -628,84 +568,44 @@ function ModalInner({ selectedProduct, onClose }) {
                                 transition={{ duration: 0.3 }}
                             />
                         </AnimatePresence>
-
-                        <ExpandedContent>
-                            <SubCategoryText>
-                                {selectedProduct.subCategoryName}
-                            </SubCategoryText>
-
-                            <MotionProductName
-                                style={{
-                                    fontSize: "1.8rem",
-                                    marginBottom: "0.3rem",
-                                    lineHeight: 1.1,
-                                    color: "var(--foreground)",
-                                }}
-                            >
-                                {selectedProduct.name}
-                            </MotionProductName>
-
-                            <CatchyDescription>
-                                {selectedProduct.catchyDescription}
-                            </CatchyDescription>
-
-                            <MinQuantity>
-                                Min. compra: {selectedProduct.minPurchaseQuantity}
-                            </MinQuantity>
-
-                            {isLegalRestricted && (
-                                <LegalDisclaimer>
-                                    Venta exclusiva a Notarios Públicos. Se requiere acreditación.
-                                </LegalDisclaimer>
-                            )}
-                        </ExpandedContent>
                     </LeftPanel>
 
                     <RightPanel>
-                        <RightPanelHeader>
-                            <SectionTitle>Acabados disponibles</SectionTitle>
-                            {selectedFinish && (
-                                <SelectedFinishBadge>
-                                    Seleccionado: {selectedFinish.name}
-                                </SelectedFinishBadge>
-                            )}
-                        </RightPanelHeader>
+                        <SectionTitle>Acabados</SectionTitle>
 
                         {finishes.length > 0 ? (
-                            <FinishesGrid>
-                                {finishes.map((finish) => {
+                            <FinishesList>
+                                {finishes.map((finish, idx) => {
                                     const isActive = finish.id === selectedFinishId;
                                     return (
-                                        <FinishChip
+                                        <FinishRow
                                             key={finish.id}
                                             type="button"
                                             $selected={isActive}
                                             onClick={() => setSelectedFinishId(finish.id)}
-                                            whileTap={{ scale: 0.97 }}
+                                            whileTap={{ scale: 0.98 }}
                                             aria-pressed={isActive}
                                         >
-                                            <FinishThumb
-                                                style={{
-                                                    backgroundImage: `url(${finish.image || "/placeholder-image.jpg"})`,
-                                                }}
-                                            />
+                                            <FinishNumber $selected={isActive}>
+                                                {idx + 1}
+                                            </FinishNumber>
                                             <FinishName>{finish.name}</FinishName>
-                                        </FinishChip>
+                                        </FinishRow>
                                     );
                                 })}
-                            </FinishesGrid>
+                            </FinishesList>
                         ) : (
-                            <SubModalSubtitle style={{ marginTop: "-0.5rem" }}>
+                            <EmptyState>
                                 Este artículo no tiene acabados configurados.
-                            </SubModalSubtitle>
+                            </EmptyState>
                         )}
 
                         <QuoteButton
                             type="button"
                             onClick={() => setShowQuoteForm(true)}
-                            disabled={finishes.length > 0 && !selectedFinishId}
-                            whileHover={finishes.length === 0 || selectedFinishId ? { scale: 1.01 } : {}}
-                            whileTap={finishes.length === 0 || selectedFinishId ? { scale: 0.99 } : {}}
+                            disabled={!canQuote}
+                            whileHover={canQuote ? { scale: 1.01 } : {}}
+                            whileTap={canQuote ? { scale: 0.99 } : {}}
                         >
                             <WhatsAppIcon size={18} />
                             {finishes.length > 0 && !selectedFinishId
