@@ -121,6 +121,11 @@ const ProductName = styled.h2`
         left: 2rem;
     }
 `;
+const HeroStack = styled.div`
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+`;
 
 const HeroImage = styled(motion.div)`
     position: absolute;
@@ -522,11 +527,6 @@ function ModalInner({ selectedProduct, onClose }) {
         }
     }, [isPresent, safeToRemove]);
 
-    const heroImage =
-        (selectedFinish && selectedFinish.image) ||
-        selectedProduct?.image ||
-        "/placeholder-image.jpg";
-
     const canQuote = finishes.length === 0 || selectedFinishId !== null;
 
     return (
@@ -557,17 +557,30 @@ function ModalInner({ selectedProduct, onClose }) {
                 >
                     <LeftPanel>
                         <ProductName>{selectedProduct.name}</ProductName>
-                        <AnimatePresence mode="wait">
+                        <HeroStack>
+                            {/* Base layer: product image. Never unmounts during session
+                                so the panel always has an image underneath the crossfade. */}
                             <HeroImage
-                                key={`hero-${selectedFinishId || "default"}`}
-                                style={{ backgroundImage: `url(${heroImage})` }}
+                                style={{ backgroundImage: `url(${selectedProduct.image || "/placeholder-image.jpg"})` }}
                                 layoutId={isPresent ? `image-${selectedProduct.id}` : undefined}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.3 }}
                             />
-                        </AnimatePresence>
+                            {/* Overlay layer: only renders when a finish is selected.
+                                Crossfades on top of the base for a smooth swap. */}
+                            <AnimatePresence>
+                                {selectedFinish && (
+                                    <HeroImage
+                                        key={`finish-${selectedFinish.id}`}
+                                        style={{
+                                            backgroundImage: `url(${selectedFinish.image || "/placeholder-image.jpg"})`,
+                                        }}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                                    />
+                                )}
+                            </AnimatePresence>
+                        </HeroStack>
                     </LeftPanel>
 
                     <RightPanel>
