@@ -26,13 +26,28 @@
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
+                "id": "F-TROQUEL",
+                "name": "Troquel",
                 "image": "/placeholder-image.jpg"
               },
               {
                 "id": "F-HOT",
-                "name": "Hot stamping",
+                "name": "Hot Stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-SERI",
+                "name": "Serigrafía",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-COMP",
+                "name": "Compaginado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-MEM",
+                "name": "Membrete personalizado",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -57,13 +72,28 @@
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-MAT",
-                "name": "Laminado mate",
+                "id": "F-LAM",
+                "name": "Laminado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BRI",
-                "name": "Laminado brillante",
+                "id": "F-HOT",
+                "name": "Hot Stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-SUAJE",
+                "name": "Suaje",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BARNIZ",
+                "name": "Barniz UV",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-RED",
+                "name": "Esquinas redondeadas",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -83,13 +113,33 @@
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-NFC",
-                "name": "Con NFC integrado",
+                "id": "F-LAM",
+                "name": "Laminado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BRI",
-                "name": "Laminado brillante",
+                "id": "F-HOT",
+                "name": "Hot Stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-SERI",
+                "name": "Serigrafía",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BARNIZ",
+                "name": "Barniz UV",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-RED",
+                "name": "Esquinas redondeadas",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-NFC",
+                "name": "NFC integrado",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -106,6 +156,26 @@
               {
                 "id": "F-STD",
                 "name": "Económico",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BARNIZ",
+                "name": "Barniz UV",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-HOT",
+                "name": "Hot Stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-SUAJE",
+                "name": "Suaje",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAM",
+                "name": "Laminado",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -156,6 +226,11 @@
                 "image": "/placeholder-image.jpg"
               },
               {
+                "id": "F-COMP",
+                "name": "Compaginado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
                 "id": "F-ENC",
                 "name": "Encuadernado",
                 "image": "/placeholder-image.jpg"
@@ -178,7 +253,7 @@
               },
               {
                 "id": "F-HOL",
-                "name": "Holográfica",
+                "name": "Holograma de seguridad",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -259,23 +334,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20101-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20101-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20101-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20101-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -290,23 +365,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20102-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20102-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20102-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20102-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -321,23 +396,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20103-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20103-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20103-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20103-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -352,23 +427,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20104-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20104-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20104-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20104-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -383,23 +458,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20105-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20105-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20105-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20105-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -414,23 +489,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20106-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20106-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20106-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20106-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -445,23 +520,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20107-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20107-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20107-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20107-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -476,23 +551,23 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-20108-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20108-02",
+                "id": "F-CUI",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20108-03",
+                "id": "F-ENC",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-20108-04",
-                "name": "Grabado láser del logo",
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -521,18 +596,28 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-30101-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30101-02",
-                "name": "Grabado láser",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30101-03",
-                "name": "Serigrafía a color",
+                "id": "F-BOR",
+                "name": "Bordado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-REL",
+                "name": "Relieve / hot stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -547,18 +632,28 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-30102-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30102-02",
-                "name": "Grabado láser",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30102-03",
-                "name": "Serigrafía a color",
+                "id": "F-BOR",
+                "name": "Bordado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-REL",
+                "name": "Relieve / hot stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -573,18 +668,28 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-30103-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30103-02",
-                "name": "Grabado láser",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30103-03",
-                "name": "Serigrafía a color",
+                "id": "F-BOR",
+                "name": "Bordado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-REL",
+                "name": "Relieve / hot stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -599,18 +704,28 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-30104-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30104-02",
-                "name": "Grabado láser",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30104-03",
-                "name": "Serigrafía a color",
+                "id": "F-BOR",
+                "name": "Bordado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-REL",
+                "name": "Relieve / hot stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -625,18 +740,28 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-30105-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30105-02",
-                "name": "Grabado láser",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30105-03",
-                "name": "Serigrafía a color",
+                "id": "F-BOR",
+                "name": "Bordado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-REL",
+                "name": "Relieve / hot stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -651,18 +776,28 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-30106-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30106-02",
-                "name": "Grabado láser",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30106-03",
-                "name": "Serigrafía a color",
+                "id": "F-BOR",
+                "name": "Bordado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-REL",
+                "name": "Relieve / hot stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -677,18 +812,28 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-30107-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30107-02",
-                "name": "Grabado láser",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-30107-03",
-                "name": "Serigrafía a color",
+                "id": "F-BOR",
+                "name": "Bordado",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-REL",
+                "name": "Relieve / hot stamping",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-LAS",
+                "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -717,22 +862,27 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-40101-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40101-02",
+                "id": "F-LAS",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40101-03",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BOR",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40101-04",
+                "id": "F-REL",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -748,22 +898,27 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-40102-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40102-02",
+                "id": "F-LAS",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40102-03",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BOR",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40102-04",
+                "id": "F-REL",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -779,22 +934,27 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-40103-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40103-02",
+                "id": "F-LAS",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40103-03",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BOR",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40103-04",
+                "id": "F-REL",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -810,22 +970,27 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-40104-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40104-02",
+                "id": "F-LAS",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40104-03",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BOR",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40104-04",
+                "id": "F-REL",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -841,22 +1006,27 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-40105-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40105-02",
+                "id": "F-LAS",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40105-03",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BOR",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40105-04",
+                "id": "F-REL",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -872,22 +1042,27 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-40106-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40106-02",
+                "id": "F-LAS",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40106-03",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BOR",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40106-04",
+                "id": "F-REL",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -903,22 +1078,27 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-40107-01",
+                "id": "F-STD",
                 "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40107-02",
+                "id": "F-LAS",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40107-03",
+                "id": "F-SER",
+                "name": "Serigrafía a color",
+                "image": "/placeholder-image.jpg"
+              },
+              {
+                "id": "F-BOR",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-40107-04",
+                "id": "F-REL",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
