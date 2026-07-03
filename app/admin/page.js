@@ -231,15 +231,76 @@ const Checkbox = styled.input`
     accent-color: var(--accent-color);
 `;
 
-const MinBadge = styled.span`
+const MinInput = styled.input`
     display: inline-block;
+    width: 70px;
     margin-left: 0.5rem;
-    padding: 0.1rem 0.5rem;
-    background: rgba(212, 163, 23, 0.15);
-    color: #d4a317;
+    padding: 0.2rem 0.4rem;
+    background: var(--input-background);
+    border: 1px solid var(--card-border);
     border-radius: 4px;
-    font-size: 0.75rem;
+    color: #d4a317;
+    font-size: 0.78rem;
     font-weight: 500;
+    font-family: inherit;
+    text-align: center;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+
+    /* Hide spinner arrows */
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    -moz-appearance: textfield;
+`;
+
+const NewFinishWrapper = styled.div`
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+`;
+
+const NewFinishInput = styled.input`
+    width: 200px;
+    background: var(--input-background);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    color: var(--foreground);
+    font-size: 0.95rem;
+    font-family: inherit;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+    }
+`;
+
+const AddFinishButton = styled(motion.button)`
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
 `;
 
 const FinishHeader = styled.th`
@@ -273,6 +334,10 @@ export default function AdminPage() {
     const [categoryFilter, setCategoryFilter] = useState("all");
     const [isLoading, setIsLoading] = useState(true);
     const [isSaving, setIsSaving] = useState(false);
+    const [newFinishName, setNewFinishName] = useState("");
+    // Acabados recién agregados (todavía no confirmados para ningún producto).
+    // Se renderizan como columna pero los checkboxes aparecen desmarcados.
+    const [pendingFinishes, setPendingFinishes] = useState([]);
 
     // Cargar al montar
     useEffect(() => {
@@ -304,14 +369,21 @@ export default function AdminPage() {
                 }
             }
         }
+        // Sumar acabados pendientes (recién agregados, aún sin asignar)
+        for (const f of pendingFinishes) {
+            if (!map.has(f.name)) {
+                map.set(f.name, f);
+            }
+        }
         return Array.from(map.values());
-    }, [draftData]);
+    }, [draftData, pendingFinishes]);
 
     /* ---- Detección de cambios ---- */
     const isDirty = useMemo(() => {
         if (!originalData || !draftData) return false;
+        if (pendingFinishes.length > 0) return true;
         return JSON.stringify(originalData) !== JSON.stringify(draftData);
-    }, [originalData, draftData]);
+    }, [originalData, draftData, pendingFinishes]);
 
     const changeCount = useMemo(() => {
         if (!originalData || !draftData) return 0;
@@ -340,6 +412,7 @@ export default function AdminPage() {
     };
 
     const toggleFinish = (catId, subId, prodId, finish) => {
+        const isPending = pendingFinishes.some((f) => f.name === finish.name);
         setDraftData((prev) =>
             prev.map((cat) => {
                 if (cat.id !== catId) return cat;
@@ -358,8 +431,8 @@ export default function AdminPage() {
                                         (f) => f.name !== finish.name
                                     );
                                 } else {
-                                    // Si el acabado ya existe en otro producto, reusar su id
-                                    // Si no, generar uno nuevo
+                                    // Reusar id del acabado si ya existe en otro producto
+                                    // o si está en pendientes
                                     const existingId = findFinishId(finish.name);
                                     newFinishes = [
                                         ...(p.finishes || []),
@@ -377,6 +450,14 @@ export default function AdminPage() {
                 };
             })
         );
+        // Si era un acabado pendiente, al primer toggle lo confirmamos
+        // (sigue existiendo como columna porque ahora está en draftData)
+        if (isPending) {
+            // No removemos de pendingFinishes porque al volver a renderizar
+            // allFinishes lo encuentra en draftData y ya no es necesario.
+            // Pero por seguridad y para no acumular, lo quitamos:
+            setPendingFinishes((prev) => prev.filter((f) => f.name !== finish.name));
+        }
         setStatus({ type: "info", message: "Cambio sin guardar (marca los demás y luego guarda todo junto)." });
     };
 
@@ -389,17 +470,73 @@ export default function AdminPage() {
                 }
             }
         }
+        // Buscar también en pendientes
+        const pending = pendingFinishes.find((f) => f.name === finishName);
+        if (pending) return pending.id;
         return null;
     };
 
+    const handleAddFinish = () => {
+        const name = newFinishName.trim();
+        if (!name) {
+            setStatus({ type: "error", message: "Escribe un nombre para el acabado." });
+            return;
+        }
+        // Verificar que no exista ya (en productos O en pendientes)
+        if (allFinishes.some((f) => f.name.toLowerCase() === name.toLowerCase())) {
+            setStatus({
+                type: "error",
+                message: `El acabado "${name}" ya existe en el sistema.`,
+            });
+            return;
+        }
+        // Agregar a pendientes (no a productos). Aparece como columna
+        // con todos los checkboxes desmarcados. Al marcar el primero,
+        // se quita de pendientes y se asigna al producto.
+        const newId = `F-NEW-${Date.now()}`;
+        setPendingFinishes((prev) => [
+            ...prev,
+            { id: newId, name, image: "/placeholder-image.jpg" },
+        ]);
+        setNewFinishName("");
+        setStatus({
+            type: "info",
+            message: `Acabado "${name}" agregado. Marca los productos que lo llevan y guarda.`,
+        });
+    };
+
+    const updateMinPurchase = (catId, subId, prodId, newMin) => {
+        const value = parseInt(newMin, 10);
+        if (isNaN(value) || value < 0) return; // no permitir inválidos
+        setDraftData((prev) =>
+            prev.map((cat) => {
+                if (cat.id !== catId) return cat;
+                return {
+                    ...cat,
+                    subcategories: (cat.subcategories || []).map((sub) => {
+                        if (sub.id !== subId) return sub;
+                        return {
+                            ...sub,
+                            products: (sub.products || []).map((p) => {
+                                if (p.id !== prodId) return p;
+                                return { ...p, minPurchaseQuantity: value };
+                            }),
+                        };
+                    }),
+                };
+            })
+        );
+    };
+
     const handleSave = async () => {
-        if (!isDirty) return;
+        if (!isDirty && pendingFinishes.length === 0) return;
         setIsSaving(true);
         setStatus({ type: null, message: "" });
         try {
             const result = await saveProductsData(draftData);
             if (result.success) {
                 setOriginalData(JSON.parse(JSON.stringify(draftData)));
+                setPendingFinishes([]);
                 setStatus({ type: "success", message: result.message });
             } else {
                 setStatus({ type: "error", message: result.error });
@@ -414,6 +551,8 @@ export default function AdminPage() {
     const handleReset = () => {
         if (!originalData) return;
         setDraftData(JSON.parse(JSON.stringify(originalData)));
+        setPendingFinishes([]);
+        setNewFinishName("");
         setStatus({ type: "info", message: "Cambios descartados." });
     };
 
@@ -505,6 +644,29 @@ export default function AdminPage() {
                         </option>
                     ))}
                 </FilterSelect>
+                <NewFinishWrapper>
+                    <NewFinishInput
+                        type="text"
+                        placeholder="Nombre del nuevo acabado..."
+                        value={newFinishName}
+                        onChange={(e) => setNewFinishName(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") handleAddFinish();
+                        }}
+                    />
+                    <AddFinishButton
+                        onClick={handleAddFinish}
+                        disabled={!newFinishName.trim() || isSaving}
+                        whileHover={
+                            newFinishName.trim() && !isSaving ? { y: -2 } : undefined
+                        }
+                        whileTap={
+                            newFinishName.trim() && !isSaving ? { y: 1 } : undefined
+                        }
+                    >
+                        + Acabado
+                    </AddFinishButton>
+                </NewFinishWrapper>
                 <ResetButton
                     onClick={handleReset}
                     disabled={!isDirty || isSaving}
@@ -570,7 +732,26 @@ export default function AdminPage() {
                                                     <tr key={p.id}>
                                                         <td>
                                                             {p.name}
-                                                            <MinBadge>min: {p.minPurchaseQuantity}</MinBadge>
+                                                            <MinInput
+                                                                key={`${p.id}-${p.minPurchaseQuantity}`}
+                                                                type="number"
+                                                                min="0"
+                                                                defaultValue={p.minPurchaseQuantity}
+                                                                title="Mínimo de compra (pz)"
+                                                                onBlur={(e) =>
+                                                                    updateMinPurchase(
+                                                                        cat.id,
+                                                                        sub.id,
+                                                                        p.id,
+                                                                        e.target.value
+                                                                    )
+                                                                }
+                                                                onKeyDown={(e) => {
+                                                                    if (e.key === "Enter") {
+                                                                        e.target.blur();
+                                                                    }
+                                                                }}
+                                                            />
                                                         </td>
                                                         {allFinishes.map((finish) => (
                                                             <td key={finish.name}>
