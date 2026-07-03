@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getProductsData, saveProductsData } from "./actions";
 
 /* =========================================================================
- * Estilos
+ * Estilos globales del panel
  * ========================================================================= */
 const PageWrapper = styled(motion.div)`
     min-height: 100vh;
@@ -17,7 +17,7 @@ const PageWrapper = styled(motion.div)`
 `;
 
 const Header = styled.header`
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto 2rem;
     padding: 0 1rem;
     text-align: center;
@@ -42,10 +42,11 @@ const Subtitle = styled.p`
 const Toolbar = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.8rem;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
     padding: 0 1rem;
 `;
 
@@ -82,6 +83,24 @@ const FilterSelect = styled.select`
     }
 `;
 
+const ToolButton = styled(motion.button)`
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+`;
+
 const SaveButton = styled(motion.button)`
     background: var(--accent-color);
     color: #050811;
@@ -99,38 +118,8 @@ const SaveButton = styled(motion.button)`
     }
 `;
 
-const ResetButton = styled(motion.button)`
-    background: transparent;
-    color: var(--foreground);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 0.7rem 1.5rem;
-    font-weight: bold;
-    font-size: 0.95rem;
-    cursor: pointer;
-    font-family: inherit;
-`;
-
-const RenameButton = styled(motion.button)`
-    background: transparent;
-    color: var(--foreground);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 0.7rem 1.5rem;
-    font-weight: 500;
-    font-size: 0.95rem;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
-
-    &:disabled {
-        opacity: 0.4;
-        cursor: not-allowed;
-    }
-`;
-
 const StatusBar = styled(motion.div)`
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto 1.5rem;
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
@@ -154,109 +143,110 @@ const StatusBar = styled(motion.div)`
     }
 `;
 
-const TableContainer = styled.div`
-    max-width: 1400px;
-    margin: 0 auto;
+const Stats = styled.div`
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 0 1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+`;
+
+/* =========================================================================
+ * Agrupación por categoría / subcategoría
+ * ========================================================================= */
+const CategorySection = styled.section`
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+    padding: 0 1rem;
+`;
+
+const CategoryHeader = styled.h2`
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.5rem;
+`;
+
+const SubcategoryHeader = styled.h3`
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 1.2rem 0 0.7rem;
+    padding-left: 0.3rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0 0.4rem 0.8rem;
+`;
+
+const ProductsGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+`;
+
+/* =========================================================================
+ * Tarjeta de producto
+ * ========================================================================= */
+const ProductCardContainer = styled(motion.article)`
     background: var(--card-background);
     border: 1px solid var(--card-border);
     border-radius: 12px;
-    overflow: hidden;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: border-color 0.2s;
+
+    &:hover {
+        border-color: rgba(212, 163, 23, 0.4);
+    }
+
+    &.dirty {
+        border-color: var(--accent-color);
+    }
 `;
 
-const ScrollWrapper = styled.div`
-    overflow-x: auto;
-    overflow-y: visible;
-    max-height: 75vh;
-    position: relative;
+const ProductCardHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
 `;
 
-const Table = styled.table`
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-    font-size: 0.85rem;
+const ProductName = styled.h4`
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.3;
+`;
 
-    th,
-    td {
-        border-bottom: 1px solid var(--card-border);
-        border-right: 1px solid var(--card-border);
-        padding: 0.5rem 0.6rem;
-        text-align: center;
+const MinControl = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+
+    label {
         white-space: nowrap;
-        vertical-align: middle;
     }
-
-    thead th {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: var(--card-background);
-        font-weight: 600;
-        color: var(--foreground);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    th:first-child,
-    td:first-child {
-        position: sticky;
-        left: 0;
-        z-index: 5;
-        background: var(--card-background);
-        text-align: left;
-        min-width: 240px;
-        max-width: 280px;
-        white-space: normal;
-        font-weight: 500;
-    }
-
-    thead th:first-child {
-        z-index: 15;
-    }
-
-    tbody tr:hover td {
-        background: rgba(212, 163, 23, 0.04);
-    }
-`;
-
-const CategoryHeader = styled.tr`
-    td {
-        background: rgba(212, 163, 23, 0.08);
-        font-weight: bold;
-        text-align: left;
-        color: var(--accent-color);
-        font-size: 0.95rem;
-        padding: 0.8rem 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-`;
-
-const SubcategoryHeader = styled.tr`
-    td {
-        background: rgba(255, 255, 255, 0.02);
-        font-weight: 600;
-        text-align: left;
-        font-size: 0.9rem;
-        padding: 0.6rem 0.8rem;
-        color: rgba(255, 255, 255, 0.7);
-    }
-`;
-
-const Checkbox = styled.input`
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    accent-color: var(--accent-color);
 `;
 
 const MinInput = styled.input`
-    display: inline-block;
     width: 70px;
-    margin-left: 0.5rem;
-    padding: 0.2rem 0.4rem;
     background: var(--input-background);
     border: 1px solid var(--card-border);
     border-radius: 4px;
+    padding: 0.2rem 0.4rem;
     color: #d4a317;
     font-size: 0.78rem;
     font-weight: 500;
@@ -268,7 +258,6 @@ const MinInput = styled.input`
         border-color: var(--accent-color);
     }
 
-    /* Hide spinner arrows */
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -277,29 +266,69 @@ const MinInput = styled.input`
     -moz-appearance: textfield;
 `;
 
-const NewFinishWrapper = styled.div`
+const FinishesList = styled.ul`
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 0.4rem;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-height: 40px;
 `;
 
-const NewFinishInput = styled.input`
-    width: 200px;
+const FinishChip = styled(motion.li)`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    font-size: 0.88rem;
+`;
+
+const RemoveChipButton = styled(motion.button)`
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0 0.3rem;
+    font-size: 1rem;
+    line-height: 1;
+
+    &:hover {
+        color: #f87171;
+    }
+`;
+
+const EmptyState = styled.div`
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.85rem;
+    font-style: italic;
+    padding: 0.5rem 0;
+`;
+
+const AddFinishRow = styled.div`
+    position: relative;
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+`;
+
+const AddFinishInput = styled.input`
+    flex: 1;
     background: var(--input-background);
     border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
     color: var(--foreground);
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-family: inherit;
 
     &:focus {
         outline: none;
         border-color: var(--accent-color);
-    }
-
-    &::placeholder {
-        color: rgba(255, 255, 255, 0.4);
     }
 `;
 
@@ -307,10 +336,10 @@ const AddFinishButton = styled(motion.button)`
     background: transparent;
     color: var(--accent-color);
     border: 1px solid var(--accent-color);
-    border-radius: 8px;
-    padding: 0.6rem 1.1rem;
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    font-size: 0.9rem;
     cursor: pointer;
     font-family: inherit;
     white-space: nowrap;
@@ -321,27 +350,68 @@ const AddFinishButton = styled(motion.button)`
     }
 `;
 
-const FinishHeader = styled.th`
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    min-width: 50px;
-    max-width: 50px;
-    height: 180px;
-    padding: 0.4rem;
-    font-weight: 500;
-    font-size: 0.78rem;
+const AutocompleteDropdown = styled(motion.ul)`
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.3rem;
+    background: var(--card-background);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    list-style: none;
+    padding: 0.3rem 0;
+    z-index: 50;
+    max-height: 240px;
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 `;
 
-const Stats = styled.div`
-    max-width: 1400px;
-    margin: 1rem auto 0;
-    padding: 0 1rem;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
+const AutocompleteItem = styled.li`
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+        background: rgba(212, 163, 23, 0.12);
+    }
 `;
 
-/* ---- Modal para renombrar acabados ---- */
+const AutocompleteHint = styled.span`
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.75rem;
+    font-style: italic;
+`;
+
+const ProductCardActions = styled.div`
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+`;
+
+const CopyButton = styled(motion.button)`
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+
+    &:hover {
+        border-color: var(--accent-color);
+    }
+`;
+
+/* =========================================================================
+ * Modal de copiar acabados
+ * ========================================================================= */
 const ModalOverlay = styled(motion.div)`
     position: fixed;
     inset: 0;
@@ -359,7 +429,7 @@ const ModalCard = styled(motion.div)`
     border: 1px solid var(--card-border);
     border-radius: 14px;
     width: 100%;
-    max-width: 560px;
+    max-width: 480px;
     max-height: 80vh;
     display: flex;
     flex-direction: column;
@@ -374,7 +444,7 @@ const ModalHeader = styled.div`
     border-bottom: 1px solid var(--card-border);
 
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-weight: 500;
         margin: 0;
     }
@@ -412,57 +482,46 @@ const ModalFooter = styled.div`
     color: rgba(255, 255, 255, 0.6);
 `;
 
-const FinishRow = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-
-    &:last-child {
-        border-bottom: none;
-    }
-`;
-
-const FinishRowIndex = styled.span`
-    min-width: 30px;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.8rem;
-    text-align: right;
-`;
-
-const DeleteCheckbox = styled.input`
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    accent-color: #f87171;
-
-    &:checked {
-        filter: drop-shadow(0 0 4px rgba(248, 113, 113, 0.4));
-    }
-`;
-
-const FinishRowInput = styled.input`
-    flex: 1;
-    background: var(--input-background);
+const ProductOption = styled(motion.button)`
+    width: 100%;
+    text-align: left;
+    background: transparent;
     border: 1px solid var(--card-border);
-    border-radius: 6px;
-    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.5rem;
     color: var(--foreground);
-    font-size: 0.9rem;
+    cursor: pointer;
     font-family: inherit;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
 
-    &:focus {
-        outline: none;
+    &:hover {
+        background: rgba(212, 163, 23, 0.08);
         border-color: var(--accent-color);
     }
+
+    .ctx {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+    }
 `;
 
-const FinishRowCount = styled.span`
-    min-width: 60px;
-    text-align: right;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.8rem;
+const SourceFinishList = styled.div`
+    margin-top: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+`;
+
+const SourceFinishBadge = styled.span`
+    font-size: 0.7rem;
+    background: rgba(212, 163, 23, 0.15);
+    color: #d4a317;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
 `;
 
 const ApplyButton = styled(motion.button)`
@@ -495,6 +554,277 @@ const CancelButton = styled(motion.button)`
 `;
 
 /* =========================================================================
+ * Modal de renombrar / eliminar (reusado de la versión anterior)
+ * ========================================================================= */
+const RenameModal = styled(ModalCard)`
+    max-width: 560px;
+`;
+
+const FinishRow = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child {
+        border-bottom: none;
+    }
+`;
+
+const FinishRowIndex = styled.span`
+    min-width: 24px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    text-align: right;
+`;
+
+const DeleteCheckbox = styled.input`
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #f87171;
+`;
+
+const FinishRowInput = styled.input`
+    flex: 1;
+    background: var(--input-background);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
+    color: var(--foreground);
+    font-size: 0.9rem;
+    font-family: inherit;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+`;
+
+/* =========================================================================
+ * Tarjeta de producto — subcomponente
+ * ========================================================================= */
+function ProductCard({
+    product,
+    catId,
+    subId,
+    allFinishesUniverse,
+    onUpdateMin,
+    onRemoveFinish,
+    onAddFinish,
+    onCopyFrom,
+    dirty,
+}) {
+    const [addInput, setAddInput] = useState("");
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [highlightedIdx, setHighlightedIdx] = useState(0);
+    const inputRef = useRef(null);
+
+    const finishes = product.finishes || [];
+
+    // Autocomplete: filtrar acabados del universo que NO estén ya
+    // en este producto, que coincidan con el input
+    const suggestions = useMemo(() => {
+        const q = addInput.trim().toLowerCase();
+        if (!q) return [];
+        return allFinishesUniverse
+            .filter(
+                (f) =>
+                    f.name.toLowerCase().includes(q) &&
+                    !finishes.some((pf) => pf.name === f.name)
+            )
+            .slice(0, 6);
+    }, [addInput, allFinishesUniverse, finishes]);
+
+    // Si no hay sugerencias pero el texto es válido, permite crear uno nuevo
+    const isExactMatch = allFinishesUniverse.some(
+        (f) => f.name.toLowerCase() === addInput.trim().toLowerCase()
+    );
+    const canCreateNew =
+        addInput.trim().length > 0 && !isExactMatch && suggestions.length === 0;
+
+    const handleAdd = (name) => {
+        const finalName = (name ?? addInput).trim();
+        if (!finalName) return;
+        onAddFinish(catId, subId, product.id, finalName);
+        setAddInput("");
+        setShowSuggestions(false);
+        setHighlightedIdx(0);
+        inputRef.current?.focus();
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            if (highlightedIdx >= 0 && suggestions[highlightedIdx]) {
+                handleAdd(suggestions[highlightedIdx].name);
+            } else if (canCreateNew || addInput.trim()) {
+                handleAdd();
+            }
+        } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            setHighlightedIdx((i) => Math.min(i + 1, suggestions.length));
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            setHighlightedIdx((i) => Math.max(i - 1, 0));
+        } else if (e.key === "Escape") {
+            setShowSuggestions(false);
+        }
+    };
+
+    return (
+        <ProductCardContainer className={dirty ? "dirty" : ""}>
+            <ProductCardHeader>
+                <ProductName>{product.name}</ProductName>
+                <MinControl>
+                    <label>min:</label>
+                    <MinInput
+                        type="number"
+                        min="0"
+                        defaultValue={product.minPurchaseQuantity}
+                        key={`${product.id}-${product.minPurchaseQuantity}`}
+                        onBlur={(e) =>
+                            onUpdateMin(catId, subId, product.id, e.target.value)
+                        }
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") e.target.blur();
+                        }}
+                    />
+                </MinControl>
+            </ProductCardHeader>
+
+            {finishes.length > 0 ? (
+                <FinishesList>
+                    <AnimatePresence initial={false}>
+                        {finishes.map((f) => (
+                            <FinishChip
+                                key={f.id}
+                                layout
+                                initial={{ opacity: 0, x: -8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 8 }}
+                                transition={{ duration: 0.18 }}
+                            >
+                                <span>{f.name}</span>
+                                <RemoveChipButton
+                                    onClick={() =>
+                                        onRemoveFinish(
+                                            catId,
+                                            subId,
+                                            product.id,
+                                            f.name
+                                        )
+                                    }
+                                    whileHover={{ scale: 1.15 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    aria-label={`Quitar ${f.name}`}
+                                >
+                                    ×
+                                </RemoveChipButton>
+                            </FinishChip>
+                        ))}
+                    </AnimatePresence>
+                </FinishesList>
+            ) : (
+                <EmptyState>Sin acabados asignados</EmptyState>
+            )}
+
+            <AddFinishRow>
+                <AddFinishInput
+                    ref={inputRef}
+                    type="text"
+                    placeholder="Añadir acabado..."
+                    value={addInput}
+                    onChange={(e) => {
+                        setAddInput(e.target.value);
+                        setShowSuggestions(true);
+                        setHighlightedIdx(0);
+                    }}
+                    onFocus={() => setShowSuggestions(true)}
+                    onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+                    onKeyDown={handleKeyDown}
+                />
+                <AddFinishButton
+                    onClick={() => handleAdd()}
+                    disabled={!addInput.trim()}
+                    whileHover={addInput.trim() ? { y: -2 } : undefined}
+                    whileTap={addInput.trim() ? { y: 1 } : undefined}
+                >
+                    + Añadir
+                </AddFinishButton>
+                <AnimatePresence>
+                    {showSuggestions && (suggestions.length > 0 || canCreateNew) && (
+                        <AutocompleteDropdown
+                            initial={{ opacity: 0, y: -4 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -4 }}
+                            transition={{ duration: 0.15 }}
+                        >
+                            {suggestions.map((s, i) => (
+                                <AutocompleteItem
+                                    key={s.name}
+                                    onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        handleAdd(s.name);
+                                    }}
+                                    style={
+                                        highlightedIdx === i
+                                            ? {
+                                                  background:
+                                                      "rgba(212, 163, 23, 0.12)",
+                                              }
+                                            : undefined
+                                    }
+                                    onMouseEnter={() => setHighlightedIdx(i)}
+                                >
+                                    <span>{s.name}</span>
+                                </AutocompleteItem>
+                            ))}
+                            {canCreateNew && (
+                                <AutocompleteItem
+                                    onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        handleAdd();
+                                    }}
+                                    style={
+                                        highlightedIdx === suggestions.length
+                                            ? {
+                                                  background:
+                                                      "rgba(212, 163, 23, 0.12)",
+                                              }
+                                            : undefined
+                                    }
+                                    onMouseEnter={() =>
+                                        setHighlightedIdx(suggestions.length)
+                                    }
+                                >
+                                    <span>
+                                        Crear &ldquo;
+                                        {addInput.trim()}&rdquo;
+                                    </span>
+                                    <AutocompleteHint>nuevo</AutocompleteHint>
+                                </AutocompleteItem>
+                            )}
+                        </AutocompleteDropdown>
+                    )}
+                </AnimatePresence>
+            </AddFinishRow>
+
+            <ProductCardActions>
+                <CopyButton
+                    onClick={() => onCopyFrom({ catId, subId, product })}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 1 }}
+                >
+                    📋 Copiar acabados de...
+                </CopyButton>
+            </ProductCardActions>
+        </ProductCardContainer>
+    );
+}
+
+/* =========================================================================
  * Componente principal
  * ========================================================================= */
 export default function AdminPage() {
@@ -505,17 +835,10 @@ export default function AdminPage() {
     const [categoryFilter, setCategoryFilter] = useState("all");
     const [isLoading, setIsLoading] = useState(true);
     const [isSaving, setIsSaving] = useState(false);
-    const [newFinishName, setNewFinishName] = useState("");
-    // Acabados recién agregados (todavía no confirmados para ningún producto).
-    // Se renderizan como columna pero los checkboxes aparecen desmarcados.
-    const [pendingFinishes, setPendingFinishes] = useState([]);
-    // Modal de renombrar acabados
-    const [isRenameModalOpen, setIsRenameModalOpen] = useState(false);
-    const [pendingRenames, setPendingRenames] = useState({}); // { oldName: newName }
-    // Modal de renombrar también soporta eliminación
-    const [pendingDeletes, setPendingDeletes] = useState(new Set()); // Set<oldName>
+    // Modales
+    const [copyModal, setCopyModal] = useState(null); // { catId, subId, product }
+    const [renameModalOpen, setRenameModalOpen] = useState(false);
 
-    // Cargar al montar
     useEffect(() => {
         (async () => {
             try {
@@ -530,8 +853,8 @@ export default function AdminPage() {
         })();
     }, []);
 
-    /* ---- Universo de acabados (columnas) ---- */
-    const allFinishes = useMemo(() => {
+    /* ---- Universo de acabados (para autocomplete) ---- */
+    const allFinishesUniverse = useMemo(() => {
         if (!draftData) return [];
         const map = new Map();
         for (const cat of draftData) {
@@ -545,50 +868,34 @@ export default function AdminPage() {
                 }
             }
         }
-        // Sumar acabados pendientes (recién agregados, aún sin asignar)
-        for (const f of pendingFinishes) {
-            if (!map.has(f.name)) {
-                map.set(f.name, f);
-            }
-        }
-        return Array.from(map.values());
-    }, [draftData, pendingFinishes]);
+        return Array.from(map.values()).sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+    }, [draftData]);
 
     /* ---- Detección de cambios ---- */
     const isDirty = useMemo(() => {
         if (!originalData || !draftData) return false;
-        if (pendingFinishes.length > 0) return true;
         return JSON.stringify(originalData) !== JSON.stringify(draftData);
-    }, [originalData, draftData, pendingFinishes]);
+    }, [originalData, draftData]);
 
-    const changeCount = useMemo(() => {
-        if (!originalData || !draftData) return 0;
-        let count = 0;
-        for (const cat of draftData) {
-            const origCat = originalData.find((c) => c.id === cat.id);
-            if (!origCat) continue;
+    /* ---- Helpers ---- */
+    const findFinishPrototype = (finishName) => {
+        for (const cat of draftData || []) {
             for (const sub of cat.subcategories || []) {
-                const origSub = origCat.subcategories?.find((s) => s.id === sub.id);
-                if (!origSub) continue;
                 for (const p of sub.products || []) {
-                    const origProd = origSub.products?.find((op) => op.id === p.id);
-                    if (!origProd) continue;
-                    if (JSON.stringify(p.finishes) !== JSON.stringify(origProd.finishes)) {
-                        count++;
-                    }
+                    const f = (p.finishes || []).find((f) => f.name === finishName);
+                    if (f) return f; // devuelve el primer {id, name, image} que coincida
                 }
             }
         }
-        return count;
-    }, [originalData, draftData]);
-
-    /* ---- Helpers de mutación ---- */
-    const isFinishActive = (product, finishName) => {
-        return (product.finishes || []).some((f) => f.name === finishName);
+        return null;
     };
 
-    const toggleFinish = (catId, subId, prodId, finish) => {
-        const isPending = pendingFinishes.some((f) => f.name === finish.name);
+    const onAddFinish = (catId, subId, prodId, name) => {
+        const trimmed = name.trim();
+        if (!trimmed) return;
+        const existing = findFinishPrototype(trimmed);
         setDraftData((prev) =>
             prev.map((cat) => {
                 if (cat.id !== catId) return cat;
@@ -600,90 +907,59 @@ export default function AdminPage() {
                             ...sub,
                             products: (sub.products || []).map((p) => {
                                 if (p.id !== prodId) return p;
-                                const has = isFinishActive(p, finish.name);
-                                let newFinishes;
-                                if (has) {
-                                    newFinishes = p.finishes.filter(
-                                        (f) => f.name !== finish.name
-                                    );
-                                } else {
-                                    // Reusar id del acabado si ya existe en otro producto
-                                    // o si está en pendientes
-                                    const existingId = findFinishId(finish.name);
-                                    newFinishes = [
-                                        ...(p.finishes || []),
-                                        {
-                                            id: existingId || `F-${prodId}-${Date.now()}`,
-                                            name: finish.name,
-                                            image: "/placeholder-image.jpg",
-                                        },
-                                    ];
-                                }
-                                return { ...p, finishes: newFinishes };
+                                // Evitar duplicado
+                                if ((p.finishes || []).some((f) => f.name === trimmed))
+                                    return p;
+                                const newFinish = existing
+                                    ? { ...existing, id: existing.id }
+                                    : {
+                                          id: `F-NEW-${Date.now()}-${Math.floor(
+                                              Math.random() * 1000
+                                          )}`,
+                                          name: trimmed,
+                                          image: "/placeholder-image.jpg",
+                                      };
+                                return {
+                                    ...p,
+                                    finishes: [...(p.finishes || []), newFinish],
+                                };
                             }),
                         };
                     }),
                 };
             })
         );
-        // Si era un acabado pendiente, al primer toggle lo confirmamos
-        // (sigue existiendo como columna porque ahora está en draftData)
-        if (isPending) {
-            // No removemos de pendingFinishes porque al volver a renderizar
-            // allFinishes lo encuentra en draftData y ya no es necesario.
-            // Pero por seguridad y para no acumular, lo quitamos:
-            setPendingFinishes((prev) => prev.filter((f) => f.name !== finish.name));
-        }
-        setStatus({ type: "info", message: "Cambio sin guardar (marca los demás y luego guarda todo junto)." });
     };
 
-    const findFinishId = (finishName) => {
-        for (const cat of draftData || []) {
-            for (const sub of cat.subcategories || []) {
-                for (const p of sub.products || []) {
-                    const f = (p.finishes || []).find((f) => f.name === finishName);
-                    if (f) return f.id;
-                }
-            }
-        }
-        // Buscar también en pendientes
-        const pending = pendingFinishes.find((f) => f.name === finishName);
-        if (pending) return pending.id;
-        return null;
+    const onRemoveFinish = (catId, subId, prodId, finishName) => {
+        setDraftData((prev) =>
+            prev.map((cat) => {
+                if (cat.id !== catId) return cat;
+                return {
+                    ...cat,
+                    subcategories: (cat.subcategories || []).map((sub) => {
+                        if (sub.id !== subId) return sub;
+                        return {
+                            ...sub,
+                            products: (sub.products || []).map((p) => {
+                                if (p.id !== prodId) return p;
+                                return {
+                                    ...p,
+                                    finishes: (p.finishes || []).filter(
+                                        (f) => f.name !== finishName
+                                    ),
+                                };
+                            }),
+                        };
+                    }),
+                };
+            })
+        );
     };
 
-    const handleAddFinish = () => {
-        const name = newFinishName.trim();
-        if (!name) {
-            setStatus({ type: "error", message: "Escribe un nombre para el acabado." });
-            return;
-        }
-        // Verificar que no exista ya (en productos O en pendientes)
-        if (allFinishes.some((f) => f.name.toLowerCase() === name.toLowerCase())) {
-            setStatus({
-                type: "error",
-                message: `El acabado "${name}" ya existe en el sistema.`,
-            });
-            return;
-        }
-        // Agregar a pendientes (no a productos). Aparece como columna
-        // con todos los checkboxes desmarcados. Al marcar el primero,
-        // se quita de pendientes y se asigna al producto.
-        const newId = `F-NEW-${Date.now()}`;
-        setPendingFinishes((prev) => [
-            ...prev,
-            { id: newId, name, image: "/placeholder-image.jpg" },
-        ]);
-        setNewFinishName("");
-        setStatus({
-            type: "info",
-            message: `Acabado "${name}" agregado. Marca los productos que lo llevan y guarda.`,
-        });
-    };
-
-    const updateMinPurchase = (catId, subId, prodId, newMin) => {
+    const onUpdateMin = (catId, subId, prodId, newMin) => {
         const value = parseInt(newMin, 10);
-        if (isNaN(value) || value < 0) return; // no permitir inválidos
+        if (isNaN(value) || value < 0) return;
         setDraftData((prev) =>
             prev.map((cat) => {
                 if (cat.id !== catId) return cat;
@@ -704,155 +980,52 @@ export default function AdminPage() {
         );
     };
 
-    /* ---- Renombrar acabados (modal) ---- */
-    const openRenameModal = () => {
-        // Inicializar pendingRenames con la identidad (oldName -> oldName)
-        const init = {};
-        for (const f of allFinishes) {
-            init[f.name] = f.name;
-        }
-        setPendingRenames(init);
-        setPendingDeletes(new Set());
-        setIsRenameModalOpen(true);
+    const onCopyFrom = ({ catId, subId, product }) => {
+        setCopyModal({ catId, subId, product });
     };
 
-    const closeRenameModal = () => {
-        setIsRenameModalOpen(false);
-        setPendingRenames({});
-        setPendingDeletes(new Set());
-        setStatus({ type: null, message: "" });
-    };
-
-    const updatePendingRename = (oldName, newName) => {
-        setPendingRenames((prev) => ({ ...prev, [oldName]: newName }));
-    };
-
-    const togglePendingDelete = (oldName) => {
-        setPendingDeletes((prev) => {
-            const next = new Set(prev);
-            if (next.has(oldName)) {
-                next.delete(oldName);
-            } else {
-                next.add(oldName);
-            }
-            return next;
-        });
-    };
-
-    const applyChanges = () => {
-        // 1. Detectar renombres
-        const renames = Object.entries(pendingRenames).filter(
-            ([oldName, newName]) =>
-                oldName !== newName && newName.trim() !== ""
-        );
-        // 2. Detectar eliminaciones
-        const deletes = Array.from(pendingDeletes);
-        // Si no hay nada que hacer
-        if (renames.length === 0 && deletes.length === 0) {
-            setStatus({ type: "info", message: "No hubo cambios." });
-            closeRenameModal();
-            return;
-        }
-        // 3. Validar renombres (no vacíos, no duplicados)
-        if (renames.length > 0) {
-            const newNames = renames.map(([, n]) => n.trim());
-            const seen = new Set();
-            for (const n of newNames) {
-                if (!n) {
-                    setStatus({ type: "error", message: "No puedes dejar nombres vacíos." });
-                    return;
-                }
-                if (seen.has(n.toLowerCase())) {
-                    setStatus({
-                        type: "error",
-                        message: `Nombre duplicado: "${n}". Cada acabado debe tener un nombre único.`,
-                    });
-                    return;
-                }
-                seen.add(n.toLowerCase());
-            }
-        }
-        // 4. Validar que un rename no choque con una eliminación
-        //    (no debería, pero por seguridad)
-        for (const [oldName, newName] of renames) {
-            if (deletes.includes(oldName)) {
-                setStatus({
-                    type: "error",
-                    message: `"${oldName}" está marcado para eliminar y renombrar. Decide una sola acción.`,
-                });
-                return;
-            }
-        }
-        // 5. Confirmar si hay eliminaciones (acción destructiva)
-        if (deletes.length > 0) {
-            const ok = window.confirm(
-                `¿Eliminar ${deletes.length} acabado(s)?\n\n` +
-                    `Esto quitará los acabados de TODOS los productos que los tengan:\n` +
-                    deletes.map((n) => `  • ${n}`).join("\n") +
-                    `\n\nEsta acción se puede revertir con "Descartar" antes de "Guardar".`
-            );
-            if (!ok) return;
-        }
-        // 6. Construir mapa de renombres
-        const renameMap = new Map(renames);
-        // 7. Set de eliminaciones
-        const deleteSet = new Set(deletes);
-        // 8. Aplicar cambios en draftData
+    const applyCopy = (sourceProduct) => {
+        if (!copyModal || !sourceProduct) return;
+        const { catId, subId, product: targetProduct } = copyModal;
+        // Construir los finishes a aplicar: nombre + (id, image) de source
+        const newFinishes = (sourceProduct.finishes || []).map((sf) => ({
+            id: sf.id,
+            name: sf.name,
+            image: sf.image || "/placeholder-image.jpg",
+        }));
         setDraftData((prev) =>
-            prev.map((cat) => ({
-                ...cat,
-                subcategories: (cat.subcategories || []).map((sub) => ({
-                    ...sub,
-                    products: (sub.products || []).map((p) => ({
-                        ...p,
-                        finishes: (p.finishes || [])
-                            .filter((f) => !deleteSet.has(f.name)) // eliminar
-                            .map((f) => {
-                                // renombrar
-                                if (renameMap.has(f.name)) {
-                                    return { ...f, name: renameMap.get(f.name) };
-                                }
-                                return f;
+            prev.map((cat) => {
+                if (cat.id !== catId) return cat;
+                return {
+                    ...cat,
+                    subcategories: (cat.subcategories || []).map((sub) => {
+                        if (sub.id !== subId) return sub;
+                        return {
+                            ...sub,
+                            products: (sub.products || []).map((p) => {
+                                if (p.id !== targetProduct.id) return p;
+                                return { ...p, finishes: newFinishes };
                             }),
-                    })),
-                })),
-            }))
+                        };
+                    }),
+                };
+            })
         );
-        // 9. Aplicar también en pendingFinishes
-        setPendingFinishes((prev) =>
-            prev
-                .filter((f) => !deleteSet.has(f.name))
-                .map((f) => {
-                    if (renameMap.has(f.name)) {
-                        return { ...f, name: renameMap.get(f.name) };
-                    }
-                    return f;
-                })
-        );
-        // 10. Limpiar y reportar
-        const summary = [];
-        if (renames.length > 0) summary.push(`${renames.length} renombrado(s)`);
-        if (deletes.length > 0) summary.push(`${deletes.length} eliminado(s)`);
-        setIsRenameModalOpen(false);
-        setPendingRenames({});
-        setPendingDeletes(new Set());
         setStatus({
             type: "info",
-            message: `${summary.join(", ")}. Revisa la tabla y guarda.`,
+            message: `Acabados copiados de "${sourceProduct.name}" a "${targetProduct.name}". Revisa y guarda.`,
         });
+        setCopyModal(null);
     };
 
-    const applyRenames = applyChanges; // alias para no romper compatibilidad si se usa
-
     const handleSave = async () => {
-        if (!isDirty && pendingFinishes.length === 0) return;
+        if (!isDirty) return;
         setIsSaving(true);
         setStatus({ type: null, message: "" });
         try {
             const result = await saveProductsData(draftData);
             if (result.success) {
                 setOriginalData(JSON.parse(JSON.stringify(draftData)));
-                setPendingFinishes([]);
                 setStatus({ type: "success", message: result.message });
             } else {
                 setStatus({ type: "error", message: result.error });
@@ -867,11 +1040,6 @@ export default function AdminPage() {
     const handleReset = () => {
         if (!originalData) return;
         setDraftData(JSON.parse(JSON.stringify(originalData)));
-        setPendingFinishes([]);
-        setNewFinishName("");
-        setPendingRenames({});
-        setPendingDeletes(new Set());
-        setIsRenameModalOpen(false);
         setStatus({ type: "info", message: "Cambios descartados." });
     };
 
@@ -901,15 +1069,31 @@ export default function AdminPage() {
                 .filter(
                     (cat) =>
                         cat.name.toLowerCase().includes(q) ||
-                        cat.subcategories.some(
-                            (sub) => sub.products.length > 0
-                        )
+                        cat.subcategories.some((sub) => sub.products.length > 0)
                 );
         }
         return data;
     }, [draftData, categoryFilter, searchQuery]);
 
-    /* ---- Render ---- */
+    /* ---- Catálogo de productos para el modal de copiar ---- */
+    const allProductsList = useMemo(() => {
+        if (!draftData) return [];
+        const list = [];
+        for (const cat of draftData) {
+            for (const sub of cat.subcategories || []) {
+                for (const p of sub.products || []) {
+                    list.push({
+                        catId: cat.id,
+                        subId: sub.id,
+                        product: p,
+                        ctx: `${cat.name} › ${sub.name}`,
+                    });
+                }
+            }
+        }
+        return list;
+    }, [draftData]);
+
     if (isLoading) {
         return (
             <PageWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -919,13 +1103,14 @@ export default function AdminPage() {
             </PageWrapper>
         );
     }
-
     if (!draftData) {
         return (
             <PageWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <Header>
                     <Title>Error</Title>
-                    <Subtitle>{status.message || "No se pudo cargar el catálogo."}</Subtitle>
+                    <Subtitle>
+                        {status.message || "No se pudo cargar el catálogo."}
+                    </Subtitle>
                 </Header>
             </PageWrapper>
         );
@@ -940,8 +1125,8 @@ export default function AdminPage() {
             <Header>
                 <Title>Panel de Acabados</Title>
                 <Subtitle>
-                    Edita qué acabados tiene cada producto del catálogo. Los cambios se
-                    guardan en <code>app/data/products-data.json</code>.
+                    Edita los acabados por producto. Escribe para ver
+                    sugerencias, o copia los acabados de otro producto.
                 </Subtitle>
             </Header>
 
@@ -963,52 +1148,28 @@ export default function AdminPage() {
                         </option>
                     ))}
                 </FilterSelect>
-                <NewFinishWrapper>
-                    <NewFinishInput
-                        type="text"
-                        placeholder="Nombre del nuevo acabado..."
-                        value={newFinishName}
-                        onChange={(e) => setNewFinishName(e.target.value)}
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter") handleAddFinish();
-                        }}
-                    />
-                    <AddFinishButton
-                        onClick={handleAddFinish}
-                        disabled={!newFinishName.trim() || isSaving}
-                        whileHover={
-                            newFinishName.trim() && !isSaving ? { y: -2 } : undefined
-                        }
-                        whileTap={
-                            newFinishName.trim() && !isSaving ? { y: 1 } : undefined
-                        }
-                    >
-                        + Acabado
-                    </AddFinishButton>
-                </NewFinishWrapper>
-                <RenameButton
-                    onClick={openRenameModal}
-                    disabled={isSaving}
-                    whileHover={!isSaving ? { y: -2 } : undefined}
-                    whileTap={!isSaving ? { y: 1 } : undefined}
+                <ToolButton
+                    onClick={() => setRenameModalOpen(true)}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 1 }}
                 >
-                    ✏️ Editar acabados
-                </RenameButton>
-                <ResetButton
+                    ✏️ Renombrar / eliminar
+                </ToolButton>
+                <ToolButton
                     onClick={handleReset}
                     disabled={!isDirty || isSaving}
                     whileHover={isDirty ? { y: -2 } : undefined}
                     whileTap={isDirty ? { y: 1 } : undefined}
                 >
                     Descartar
-                </ResetButton>
+                </ToolButton>
                 <SaveButton
                     onClick={handleSave}
                     disabled={!isDirty || isSaving}
                     whileHover={isDirty ? { y: -2 } : undefined}
                     whileTap={isDirty ? { y: 1 } : undefined}
                 >
-                    {isSaving ? "Guardando..." : `Guardar ${changeCount > 0 ? `(${changeCount})` : ""}`}
+                    {isSaving ? "Guardando..." : "Guardar cambios"}
                 </SaveButton>
             </Toolbar>
 
@@ -1026,90 +1187,50 @@ export default function AdminPage() {
                 )}
             </AnimatePresence>
 
-            <TableContainer>
-                <ScrollWrapper>
-                    <Table>
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                {allFinishes.map((finish) => (
-                                    <FinishHeader key={finish.name} title={finish.name}>
-                                        {finish.name}
-                                    </FinishHeader>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredData.map((cat) => (
-                                <React.Fragment key={cat.id}>
-                                    <CategoryHeader>
-                                        <td colSpan={1 + allFinishes.length}>
-                                            {cat.name}
-                                        </td>
-                                    </CategoryHeader>
-                                    {(cat.subcategories || []).map((sub) =>
-                                        (sub.products || []).length > 0 ? (
-                                            <React.Fragment key={sub.id}>
-                                                <SubcategoryHeader>
-                                                    <td colSpan={1 + allFinishes.length}>
-                                                        {sub.name}
-                                                    </td>
-                                                </SubcategoryHeader>
-                                                {(sub.products || []).map((p) => (
-                                                    <tr key={p.id}>
-                                                        <td>
-                                                            {p.name}
-                                                            <MinInput
-                                                                key={`${p.id}-${p.minPurchaseQuantity}`}
-                                                                type="number"
-                                                                min="0"
-                                                                defaultValue={p.minPurchaseQuantity}
-                                                                title="Mínimo de compra (pz)"
-                                                                onBlur={(e) =>
-                                                                    updateMinPurchase(
-                                                                        cat.id,
-                                                                        sub.id,
-                                                                        p.id,
-                                                                        e.target.value
-                                                                    )
-                                                                }
-                                                                onKeyDown={(e) => {
-                                                                    if (e.key === "Enter") {
-                                                                        e.target.blur();
-                                                                    }
-                                                                }}
-                                                            />
-                                                        </td>
-                                                        {allFinishes.map((finish) => (
-                                                            <td key={finish.name}>
-                                                                <Checkbox
-                                                                    type="checkbox"
-                                                                    checked={isFinishActive(
-                                                                        p,
-                                                                        finish.name
-                                                                    )}
-                                                                    onChange={() =>
-                                                                        toggleFinish(
-                                                                            cat.id,
-                                                                            sub.id,
-                                                                            p.id,
-                                                                            finish
-                                                                        )
-                                                                    }
-                                                                />
-                                                            </td>
-                                                        ))}
-                                                    </tr>
-                                                ))}
-                                            </React.Fragment>
-                                        ) : null
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </tbody>
-                    </Table>
-                </ScrollWrapper>
-            </TableContainer>
+            {filteredData.map((cat) => (
+                <CategorySection key={cat.id}>
+                    <CategoryHeader>{cat.name}</CategoryHeader>
+                    {(cat.subcategories || []).map((sub) =>
+                        (sub.products || []).length > 0 ? (
+                            <div key={sub.id}>
+                                <SubcategoryHeader>{sub.name}</SubcategoryHeader>
+                                <ProductsGrid>
+                                    {(sub.products || []).map((p) => {
+                                        // Detectar si el producto tiene cambios
+                                        // respecto a original
+                                        const origP = originalData
+                                            ?.find((c) => c.id === cat.id)
+                                            ?.subcategories?.find((s) => s.id === sub.id)
+                                            ?.products?.find((op) => op.id === p.id);
+                                        const productDirty = origP
+                                            ? JSON.stringify(origP.finishes) !==
+                                              JSON.stringify(p.finishes) ||
+                                              origP.minPurchaseQuantity !==
+                                                  p.minPurchaseQuantity
+                                            : false;
+                                        return (
+                                            <ProductCard
+                                                key={p.id}
+                                                product={p}
+                                                catId={cat.id}
+                                                subId={sub.id}
+                                                allFinishesUniverse={
+                                                    allFinishesUniverse
+                                                }
+                                                onUpdateMin={onUpdateMin}
+                                                onAddFinish={onAddFinish}
+                                                onRemoveFinish={onRemoveFinish}
+                                                onCopyFrom={onCopyFrom}
+                                                dirty={productDirty}
+                                            />
+                                        );
+                                    })}
+                                </ProductsGrid>
+                            </div>
+                        ) : null
+                    )}
+                </CategorySection>
+            ))}
 
             <Stats>
                 {draftData.length} categorías ·{" "}
@@ -1122,17 +1243,18 @@ export default function AdminPage() {
                         ),
                     0
                 )}{" "}
-                productos · {allFinishes.length} acabados únicos en el sistema
+                productos · {allFinishesUniverse.length} acabados únicos
             </Stats>
 
+            {/* Modal: copiar acabados */}
             <AnimatePresence>
-                {isRenameModalOpen && (
+                {copyModal && (
                     <ModalOverlay
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        onClick={closeRenameModal}
+                        onClick={() => setCopyModal(null)}
                     >
                         <ModalCard
                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -1142,86 +1264,283 @@ export default function AdminPage() {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <ModalHeader>
-                                <h2>Renombrar acabados</h2>
+                                <h2>
+                                    Copiar acabados a &ldquo;
+                                    {copyModal.product.name}&rdquo;
+                                </h2>
                                 <ModalCloseButton
-                                    onClick={closeRenameModal}
+                                    onClick={() => setCopyModal(null)}
                                     aria-label="Cerrar"
                                 >
                                     ×
                                 </ModalCloseButton>
                             </ModalHeader>
                             <ModalBody>
-                                {allFinishes.map((finish, idx) => (
-                                    <FinishRow key={finish.name}>
-                                        <DeleteCheckbox
-                                            type="checkbox"
-                                            checked={pendingDeletes.has(finish.name)}
-                                            onChange={() => togglePendingDelete(finish.name)}
-                                            title="Marcar para eliminar"
-                                            aria-label={`Marcar "${finish.name}" para eliminar`}
-                                        />
-                                        <FinishRowIndex>{idx + 1}</FinishRowIndex>
-                                        <FinishRowInput
-                                            type="text"
-                                            value={pendingRenames[finish.name] ?? finish.name}
-                                            onChange={(e) =>
-                                                updatePendingRename(
-                                                    finish.name,
-                                                    e.target.value
-                                                )
-                                            }
-                                            onKeyDown={(e) => {
-                                                if (e.key === "Enter") {
-                                                    e.target.blur();
-                                                }
-                                            }}
-                                        />
-                                    </FinishRow>
-                                ))}
+                                {allProductsList
+                                    .filter(
+                                        (entry) =>
+                                            entry.product.id !==
+                                            copyModal.product.id
+                                    )
+                                    .map((entry) => (
+                                        <ProductOption
+                                            key={entry.product.id}
+                                            onClick={() => applyCopy(entry.product)}
+                                            whileHover={{ y: -2 }}
+                                            whileTap={{ y: 1 }}
+                                        >
+                                            <strong>{entry.product.name}</strong>
+                                            <span className="ctx">{entry.ctx}</span>
+                                            <SourceFinishList>
+                                                {(entry.product.finishes || []).map(
+                                                    (f) => (
+                                                        <SourceFinishBadge
+                                                            key={f.id}
+                                                        >
+                                                            {f.name}
+                                                        </SourceFinishBadge>
+                                                    )
+                                                )}
+                                            </SourceFinishList>
+                                        </ProductOption>
+                                    ))}
                             </ModalBody>
                             <ModalFooter>
                                 <span>
-                                    {pendingDeletes.size > 0 ? (
-                                        <>
-                                            <strong style={{ color: "#f87171" }}>
-                                                {pendingDeletes.size} marcado(s) para
-                                                eliminar.
-                                            </strong>{" "}
-                                            Se quitarán de todos los productos al
-                                            aplicar.
-                                        </>
-                                    ) : (
-                                        <>
-                                            Edita los nombres. Al hacer clic en
-                                            &ldquo;Aplicar&rdquo; los cambios se
-                                            reflejan en la tabla (aún sin guardar en
-                                            disco).
-                                        </>
-                                    )}
+                                    Selecciona un producto. Sus acabados
+                                    reemplazarán los actuales de &ldquo;
+                                    {copyModal.product.name}&rdquo;.
                                 </span>
-                                <div style={{ display: "flex", gap: "0.6rem" }}>
-                                    <CancelButton
-                                        onClick={closeRenameModal}
-                                        whileHover={{ y: -2 }}
-                                        whileTap={{ y: 1 }}
-                                    >
-                                        Cancelar
-                                    </CancelButton>
-                                    <ApplyButton
-                                        onClick={applyChanges}
-                                        whileHover={{ y: -2 }}
-                                        whileTap={{ y: 1 }}
-                                    >
-                                        {pendingDeletes.size > 0
-                                            ? `Eliminar (${pendingDeletes.size})`
-                                            : "Aplicar cambios"}
-                                    </ApplyButton>
-                                </div>
                             </ModalFooter>
                         </ModalCard>
                     </ModalOverlay>
                 )}
             </AnimatePresence>
+
+            {/* Modal: renombrar / eliminar acabados */}
+            <RenameModalWrapper
+                open={renameModalOpen}
+                onClose={() => setRenameModalOpen(false)}
+                draftData={draftData}
+                allFinishes={allFinishesUniverse}
+                onApply={(changes) => {
+                    setDraftData(changes);
+                    setRenameModalOpen(false);
+                    setStatus({
+                        type: "info",
+                        message: "Cambios aplicados. Revisa la tabla y guarda.",
+                    });
+                }}
+                setStatus={setStatus}
+            />
         </PageWrapper>
+    );
+}
+
+/* =========================================================================
+ * Modal de renombrar/eliminar — extraído para mantener AdminPage legible
+ * ========================================================================= */
+function RenameModalWrapper({
+    open,
+    onClose,
+    draftData,
+    allFinishes,
+    onApply,
+    setStatus,
+}) {
+    const [pendingRenames, setPendingRenames] = useState({});
+    const [pendingDeletes, setPendingDeletes] = useState(new Set());
+
+    const updatePendingRename = (oldName, newName) => {
+        setPendingRenames((prev) => ({ ...prev, [oldName]: newName }));
+    };
+    const togglePendingDelete = (oldName) => {
+        setPendingDeletes((prev) => {
+            const next = new Set(prev);
+            if (next.has(oldName)) next.delete(oldName);
+            else next.add(oldName);
+            return next;
+        });
+    };
+
+    // Initialize pendingRenames when the modal opens. Done in render
+    // (React 19 idiom) so we don't trigger setState-in-effect lint.
+    if (open && Object.keys(pendingRenames).length === 0 && allFinishes.length > 0) {
+        const init = {};
+        for (const f of allFinishes) init[f.name] = f.name;
+        setPendingRenames(init);
+        setPendingDeletes(new Set());
+    }
+
+    const applyChanges = () => {
+        const renames = Object.entries(pendingRenames).filter(
+            ([o, n]) => o !== n && n.trim() !== ""
+        );
+        const deletes = Array.from(pendingDeletes);
+        if (renames.length === 0 && deletes.length === 0) {
+            setStatus({ type: "info", message: "No hubo cambios." });
+            onClose();
+            return;
+        }
+        if (renames.length > 0) {
+            const newNames = renames.map(([, n]) => n.trim());
+            const seen = new Set();
+            for (const n of newNames) {
+                if (!n) {
+                    setStatus({
+                        type: "error",
+                        message: "No puedes dejar nombres vacíos.",
+                    });
+                    return;
+                }
+                if (seen.has(n.toLowerCase())) {
+                    setStatus({
+                        type: "error",
+                        message: `Nombre duplicado: "${n}".`,
+                    });
+                    return;
+                }
+                seen.add(n.toLowerCase());
+            }
+        }
+        for (const [oldName] of renames) {
+            if (deletes.includes(oldName)) {
+                setStatus({
+                    type: "error",
+                    message: `"${oldName}" está marcado para eliminar y renombrar.`,
+                });
+                return;
+            }
+        }
+        if (deletes.length > 0) {
+            const ok = window.confirm(
+                `¿Eliminar ${deletes.length} acabado(s)?\n\n` +
+                    deletes.map((n) => `  • ${n}`).join("\n") +
+                    `\n\nSe quitarán de TODOS los productos.`
+            );
+            if (!ok) return;
+        }
+        const renameMap = new Map(renames);
+        const deleteSet = new Set(deletes);
+        const updated = draftData.map((cat) => ({
+            ...cat,
+            subcategories: (cat.subcategories || []).map((sub) => ({
+                ...sub,
+                products: (sub.products || []).map((p) => ({
+                    ...p,
+                    finishes: (p.finishes || [])
+                        .filter((f) => !deleteSet.has(f.name))
+                        .map((f) =>
+                            renameMap.has(f.name)
+                                ? { ...f, name: renameMap.get(f.name) }
+                                : f
+                        ),
+                })),
+            })),
+        }));
+        const summary = [];
+        if (renames.length > 0) summary.push(`${renames.length} renombrado(s)`);
+        if (deletes.length > 0) summary.push(`${deletes.length} eliminado(s)`);
+        setStatus({
+            type: "info",
+            message: `${summary.join(", ")}. Revisa la tabla y guarda.`,
+        });
+        onApply(updated);
+    };
+
+    return (
+        <AnimatePresence>
+            {open && (
+                <ModalOverlay
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={onClose}
+                >
+                    <RenameModal
+                        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <ModalHeader>
+                            <h2>Renombrar / eliminar acabados</h2>
+                            <ModalCloseButton
+                                onClick={onClose}
+                                aria-label="Cerrar"
+                            >
+                                ×
+                            </ModalCloseButton>
+                        </ModalHeader>
+                        <ModalBody>
+                            {allFinishes.map((finish, idx) => (
+                                <FinishRow key={finish.name}>
+                                    <DeleteCheckbox
+                                        type="checkbox"
+                                        checked={pendingDeletes.has(finish.name)}
+                                        onChange={() =>
+                                            togglePendingDelete(finish.name)
+                                        }
+                                        title="Marcar para eliminar"
+                                    />
+                                    <FinishRowIndex>{idx + 1}</FinishRowIndex>
+                                    <FinishRowInput
+                                        type="text"
+                                        value={
+                                            pendingRenames[finish.name] ??
+                                            finish.name
+                                        }
+                                        onChange={(e) =>
+                                            updatePendingRename(
+                                                finish.name,
+                                                e.target.value
+                                            )
+                                        }
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter")
+                                                e.target.blur();
+                                        }}
+                                    />
+                                </FinishRow>
+                            ))}
+                        </ModalBody>
+                        <ModalFooter>
+                            <span>
+                                {pendingDeletes.size > 0 ? (
+                                    <>
+                                        <strong style={{ color: "#f87171" }}>
+                                            {pendingDeletes.size} marcado(s).
+                                        </strong>{" "}
+                                        Se eliminarán de todos los productos.
+                                    </>
+                                ) : (
+                                    <>Edita nombres o marca para eliminar.</>
+                                )}
+                            </span>
+                            <div style={{ display: "flex", gap: "0.6rem" }}>
+                                <CancelButton
+                                    onClick={onClose}
+                                    whileHover={{ y: -2 }}
+                                    whileTap={{ y: 1 }}
+                                >
+                                    Cancelar
+                                </CancelButton>
+                                <ApplyButton
+                                    onClick={applyChanges}
+                                    whileHover={{ y: -2 }}
+                                    whileTap={{ y: 1 }}
+                                >
+                                    {pendingDeletes.size > 0
+                                        ? `Eliminar (${pendingDeletes.size})`
+                                        : "Aplicar"}
+                                </ApplyButton>
+                            </div>
+                        </ModalFooter>
+                    </RenameModal>
+                </ModalOverlay>
+            )}
+        </AnimatePresence>
     );
 }
