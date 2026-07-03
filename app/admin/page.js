@@ -229,6 +229,32 @@ const ProductName = styled.h4`
     line-height: 1.3;
 `;
 
+const ProductDescription = styled.textarea`
+    width: 100%;
+    background: var(--input-background);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 0.5rem 0.7rem;
+    color: var(--foreground);
+    font-size: 0.82rem;
+    font-family: inherit;
+    line-height: 1.4;
+    resize: vertical;
+    min-height: 60px;
+    max-height: 200px;
+    transition: border-color 0.2s;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+        font-style: italic;
+    }
+`;
+
 const MinControl = styled.div`
     display: flex;
     align-items: center;
@@ -611,6 +637,7 @@ function ProductCard({
     subId,
     allFinishesUniverse,
     onUpdateMin,
+    onUpdateDescription,
     onRemoveFinish,
     onAddFinish,
     onCopyFrom,
@@ -693,6 +720,18 @@ function ProductCard({
                     />
                 </MinControl>
             </ProductCardHeader>
+
+            <ProductDescription
+                placeholder="Descripción del producto..."
+                defaultValue={product.description || ""}
+                key={`${product.id}-desc`}
+                onBlur={(e) => {
+                    const next = e.target.value;
+                    if (next !== (product.description || "")) {
+                        onUpdateDescription(catId, subId, product.id, next);
+                    }
+                }}
+            />
 
             {finishes.length > 0 ? (
                 <FinishesList>
@@ -980,6 +1019,27 @@ export default function AdminPage() {
         );
     };
 
+    const onUpdateDescription = (catId, subId, prodId, newDescription) => {
+        setDraftData((prev) =>
+            prev.map((cat) => {
+                if (cat.id !== catId) return cat;
+                return {
+                    ...cat,
+                    subcategories: (cat.subcategories || []).map((sub) => {
+                        if (sub.id !== subId) return sub;
+                        return {
+                            ...sub,
+                            products: (sub.products || []).map((p) => {
+                                if (p.id !== prodId) return p;
+                                return { ...p, description: newDescription };
+                            }),
+                        };
+                    }),
+                };
+            })
+        );
+    };
+
     const onCopyFrom = ({ catId, subId, product }) => {
         setCopyModal({ catId, subId, product });
     };
@@ -1206,7 +1266,9 @@ export default function AdminPage() {
                                             ? JSON.stringify(origP.finishes) !==
                                               JSON.stringify(p.finishes) ||
                                               origP.minPurchaseQuantity !==
-                                                  p.minPurchaseQuantity
+                                                  p.minPurchaseQuantity ||
+                                              (origP.description || "") !==
+                                                  (p.description || "")
                                             : false;
                                         return (
                                             <ProductCard
@@ -1218,6 +1280,9 @@ export default function AdminPage() {
                                                     allFinishesUniverse
                                                 }
                                                 onUpdateMin={onUpdateMin}
+                                                onUpdateDescription={
+                                                    onUpdateDescription
+                                                }
                                                 onAddFinish={onAddFinish}
                                                 onRemoveFinish={onRemoveFinish}
                                                 onCopyFrom={onCopyFrom}
