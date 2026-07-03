@@ -111,6 +111,24 @@ const ResetButton = styled(motion.button)`
     font-family: inherit;
 `;
 
+const RenameButton = styled(motion.button)`
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+`;
+
 const StatusBar = styled(motion.div)`
     max-width: 1400px;
     margin: 0 auto 1.5rem;
@@ -323,6 +341,148 @@ const Stats = styled.div`
     font-size: 0.9rem;
 `;
 
+/* ---- Modal para renombrar acabados ---- */
+const ModalOverlay = styled(motion.div)`
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+`;
+
+const ModalCard = styled(motion.div)`
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+`;
+
+const ModalHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.4rem;
+    border-bottom: 1px solid var(--card-border);
+
+    h2 {
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin: 0;
+    }
+`;
+
+const ModalCloseButton = styled.button`
+    background: transparent;
+    border: none;
+    color: var(--foreground);
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+`;
+
+const ModalBody = styled.div`
+    padding: 1rem 1.4rem;
+    overflow-y: auto;
+    flex: 1;
+`;
+
+const ModalFooter = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.4rem;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+`;
+
+const FinishRow = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child {
+        border-bottom: none;
+    }
+`;
+
+const FinishRowIndex = styled.span`
+    min-width: 30px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    text-align: right;
+`;
+
+const FinishRowInput = styled.input`
+    flex: 1;
+    background: var(--input-background);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
+    color: var(--foreground);
+    font-size: 0.9rem;
+    font-family: inherit;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+`;
+
+const FinishRowCount = styled.span`
+    min-width: 60px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+`;
+
+const ApplyButton = styled(motion.button)`
+    background: var(--accent-color);
+    color: #050811;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: inherit;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+`;
+
+const CancelButton = styled(motion.button)`
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: inherit;
+`;
+
 /* =========================================================================
  * Componente principal
  * ========================================================================= */
@@ -338,6 +498,9 @@ export default function AdminPage() {
     // Acabados recién agregados (todavía no confirmados para ningún producto).
     // Se renderizan como columna pero los checkboxes aparecen desmarcados.
     const [pendingFinishes, setPendingFinishes] = useState([]);
+    // Modal de renombrar acabados
+    const [isRenameModalOpen, setIsRenameModalOpen] = useState(false);
+    const [pendingRenames, setPendingRenames] = useState({}); // { oldName: newName }
 
     // Cargar al montar
     useEffect(() => {
@@ -528,6 +691,101 @@ export default function AdminPage() {
         );
     };
 
+    /* ---- Renombrar acabados (modal) ---- */
+    const openRenameModal = () => {
+        // Inicializar pendingRenames con la identidad (oldName -> oldName)
+        const init = {};
+        for (const f of allFinishes) {
+            init[f.name] = f.name;
+        }
+        setPendingRenames(init);
+        setIsRenameModalOpen(true);
+    };
+
+    const closeRenameModal = () => {
+        setIsRenameModalOpen(false);
+        setPendingRenames({});
+        setStatus({ type: null, message: "" });
+    };
+
+    const updatePendingRename = (oldName, newName) => {
+        setPendingRenames((prev) => ({ ...prev, [oldName]: newName }));
+    };
+
+    const applyRenames = () => {
+        // 1. Detectar cuáles realmente cambiaron
+        const renames = Object.entries(pendingRenames).filter(
+            ([oldName, newName]) =>
+                oldName !== newName && newName.trim() !== ""
+        );
+        if (renames.length === 0) {
+            setStatus({ type: "info", message: "No hubo cambios de nombre." });
+            closeRenameModal();
+            return;
+        }
+        // 2. Validar: no vacíos, no duplicados
+        const newNames = renames.map(([, n]) => n.trim());
+        const seen = new Set();
+        for (const n of newNames) {
+            if (!n) {
+                setStatus({ type: "error", message: "No puedes dejar nombres vacíos." });
+                return;
+            }
+            if (seen.has(n.toLowerCase())) {
+                setStatus({
+                    type: "error",
+                    message: `Nombre duplicado: "${n}". Cada acabado debe tener un nombre único.`,
+                });
+                return;
+            }
+            seen.add(n.toLowerCase());
+        }
+        // 3. Validar: el nuevo nombre no debe chocar con un acabado que NO
+        //    estamos renombrando
+        const finalNames = new Set([
+            ...Object.entries(pendingRenames)
+                .filter(([oldName, newName]) => oldName === newName || newName === "")
+                .map(([oldName]) => oldName),
+            ...newNames,
+        ]);
+        // (La unicidad ya se validó arriba con seen.)
+        // 4. Aplicar renombres en draftData
+        const renameMap = new Map(renames); // oldName -> newName
+        setDraftData((prev) =>
+            prev.map((cat) => ({
+                ...cat,
+                subcategories: (cat.subcategories || []).map((sub) => ({
+                    ...sub,
+                    products: (sub.products || []).map((p) => ({
+                        ...p,
+                        finishes: (p.finishes || []).map((f) => {
+                            if (renameMap.has(f.name)) {
+                                return { ...f, name: renameMap.get(f.name) };
+                            }
+                            return f;
+                        }),
+                    })),
+                })),
+            }))
+        );
+        // 5. Renombrar también en pendingFinishes (por si el user renombra
+        //    un acabado que aún no ha sido asignado)
+        setPendingFinishes((prev) =>
+            prev.map((f) => {
+                if (renameMap.has(f.name)) {
+                    return { ...f, name: renameMap.get(f.name) };
+                }
+                return f;
+            })
+        );
+        setIsRenameModalOpen(false);
+        setPendingRenames({});
+        setStatus({
+            type: "info",
+            message: `${renames.length} acabado(s) renombrado(s). Revisa la tabla y guarda.`,
+        });
+    };
+
     const handleSave = async () => {
         if (!isDirty && pendingFinishes.length === 0) return;
         setIsSaving(true);
@@ -553,6 +811,8 @@ export default function AdminPage() {
         setDraftData(JSON.parse(JSON.stringify(originalData)));
         setPendingFinishes([]);
         setNewFinishName("");
+        setPendingRenames({});
+        setIsRenameModalOpen(false);
         setStatus({ type: "info", message: "Cambios descartados." });
     };
 
@@ -667,6 +927,14 @@ export default function AdminPage() {
                         + Acabado
                     </AddFinishButton>
                 </NewFinishWrapper>
+                <RenameButton
+                    onClick={openRenameModal}
+                    disabled={isSaving}
+                    whileHover={!isSaving ? { y: -2 } : undefined}
+                    whileTap={!isSaving ? { y: 1 } : undefined}
+                >
+                    ✏️ Editar acabados
+                </RenameButton>
                 <ResetButton
                     onClick={handleReset}
                     disabled={!isDirty || isSaving}
@@ -797,6 +1065,81 @@ export default function AdminPage() {
                 )}{" "}
                 productos · {allFinishes.length} acabados únicos en el sistema
             </Stats>
+
+            <AnimatePresence>
+                {isRenameModalOpen && (
+                    <ModalOverlay
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        onClick={closeRenameModal}
+                    >
+                        <ModalCard
+                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <ModalHeader>
+                                <h2>Renombrar acabados</h2>
+                                <ModalCloseButton
+                                    onClick={closeRenameModal}
+                                    aria-label="Cerrar"
+                                >
+                                    ×
+                                </ModalCloseButton>
+                            </ModalHeader>
+                            <ModalBody>
+                                {allFinishes.map((finish, idx) => (
+                                    <FinishRow key={finish.name}>
+                                        <FinishRowIndex>{idx + 1}</FinishRowIndex>
+                                        <FinishRowInput
+                                            type="text"
+                                            value={pendingRenames[finish.name] ?? finish.name}
+                                            onChange={(e) =>
+                                                updatePendingRename(
+                                                    finish.name,
+                                                    e.target.value
+                                                )
+                                            }
+                                            onKeyDown={(e) => {
+                                                if (e.key === "Enter") {
+                                                    e.target.blur();
+                                                }
+                                            }}
+                                        />
+                                    </FinishRow>
+                                ))}
+                            </ModalBody>
+                            <ModalFooter>
+                                <span>
+                                    Edita los nombres. Al hacer clic en &ldquo;Aplicar&rdquo; los
+                                    cambios se reflejan en la tabla (aún sin guardar en
+                                    disco).
+                                </span>
+                                <div style={{ display: "flex", gap: "0.6rem" }}>
+                                    <CancelButton
+                                        onClick={closeRenameModal}
+                                        whileHover={{ y: -2 }}
+                                        whileTap={{ y: 1 }}
+                                    >
+                                        Cancelar
+                                    </CancelButton>
+                                    <ApplyButton
+                                        onClick={applyRenames}
+                                        whileHover={{ y: -2 }}
+                                        whileTap={{ y: 1 }}
+                                    >
+                                        Aplicar cambios
+                                    </ApplyButton>
+                                </div>
+                            </ModalFooter>
+                        </ModalCard>
+                    </ModalOverlay>
+                )}
+            </AnimatePresence>
         </PageWrapper>
     );
 }
