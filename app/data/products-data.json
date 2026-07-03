@@ -193,13 +193,7 @@
                         "minPurchaseQuantity": 1000,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-AUT",
-                                "name": "Autocopiativo (duplicado)",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": "PROD-BLOC",
@@ -209,18 +203,7 @@
                         "minPurchaseQuantity": 1000,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-COMP",
-                                "name": "Compaginado",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernado",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": "PROD-ETIQ",
@@ -230,13 +213,7 @@
                         "minPurchaseQuantity": 1000,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-HOL",
-                                "name": "Holograma de seguridad",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": "PROD-FLYE",
@@ -246,18 +223,7 @@
                         "minPurchaseQuantity": 1000,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-DIP",
-                                "name": "Díptico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-TRI",
-                                "name": "Tríptico",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": "PROD-SELL",
@@ -267,18 +233,7 @@
                         "minPurchaseQuantity": 1,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-AUT",
-                                "name": "Autoentintable",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-LAS",
-                                "name": "Grabado láser",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     }
                 ]
             }
