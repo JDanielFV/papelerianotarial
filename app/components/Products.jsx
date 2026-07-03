@@ -497,9 +497,18 @@ function Products({
                                     <CategoryDesc>{product.description}</CategoryDesc>
                                     
                                     <TagList>
-                                        {product.subcategories?.slice(0, 4).map((sub, sIdx) => (
-                                            <Tag key={sIdx}>{sub.name}</Tag>
-                                        ))}
+                                        {(() => {
+                                            // Categoría plana: mostrar nombres de productos
+                                            if (Array.isArray(product.products)) {
+                                                return product.products.slice(0, 5).map((p, sIdx) => (
+                                                    <Tag key={`p-${sIdx}`}>{p.name}</Tag>
+                                                ));
+                                            }
+                                            // Categoría con subcategorías: mostrar nombres de subcategorías
+                                            return (product.subcategories || []).slice(0, 5).map((sub, sIdx) => (
+                                                <Tag key={`s-${sIdx}`}>{sub.name}</Tag>
+                                            ));
+                                        })()}
                                     </TagList>
 
                                     <div style={{ color: "var(--accent-color)", fontSize: "0.9rem", fontWeight: "600", marginTop: "1.2rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
@@ -554,9 +563,17 @@ function Products({
                                             <CategoryDesc $isExpanded={true}>{products[activeIndex].description}</CategoryDesc>
                                             
                                             <TagList $isExpanded={true}>
-                                                {products[activeIndex].subcategories?.slice(0, 4).map((sub, sIdx) => (
-                                                    <Tag key={sIdx} $isExpanded={true}>{sub.name}</Tag>
-                                                ))}
+                                                {(() => {
+                                                    const expandedProduct = products[activeIndex];
+                                                    if (Array.isArray(expandedProduct.products)) {
+                                                        return expandedProduct.products.slice(0, 5).map((p, sIdx) => (
+                                                            <Tag key={`p-${sIdx}`} $isExpanded={true}>{p.name}</Tag>
+                                                        ));
+                                                    }
+                                                    return (expandedProduct.subcategories || []).slice(0, 5).map((sub, sIdx) => (
+                                                        <Tag key={`s-${sIdx}`} $isExpanded={true}>{sub.name}</Tag>
+                                                    ));
+                                                })()}
                                             </TagList>
 
                                             <ButtonGroup

@@ -4,346 +4,565 @@
     "name": "Articulos de Papelería",
     "description": "Elegancia y durabilidad en un diseño atemporal.",
     "image": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=800&auto=format&fit=crop",
-    "subcategories": [
+    "products": [
       {
-        "id": 101,
-        "name": "Hojas",
-        "products": [
+        "id": "PROD-101-01",
+        "name": "Testimonio",
+        "description": "Hojas para testimonios notariales.",
+        "catchyDescription": "La base de todo documento legal.",
+        "minPurchaseQuantity": 100,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10101,
-            "name": "Hojas",
-            "description": "Hojas para testimonios notariales.",
-            "catchyDescription": "La base de todo documento legal.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-101-01",
-                "name": "Testimonio",
-                "description": "Hojas para testimonios notariales.",
-                "catchyDescription": "La base de todo documento legal.",
-                "minPurchaseQuantity": 100,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-101-02",
-                "name": "Membreteada",
-                "description": "Hojas con membrete personalizado.",
-                "catchyDescription": "Proyecta profesionalismo en cada comunicación.",
-                "minPurchaseQuantity": 100,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas membretadas.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-101-03",
-                "name": "Folio",
-                "description": "Hojas foliadas para documentos oficiales.",
-                "catchyDescription": "Organización y seguridad para tus archivos.",
-                "minPurchaseQuantity": 100,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas foliadas.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-101-04",
-                "name": "Póliza",
-                "description": "Hojas para pólizas.",
-                "catchyDescription": "Formalidad y confianza en cada póliza.",
-                "minPurchaseQuantity": 100,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para póliza.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-101-05",
-                "name": "Certificados",
-                "description": "Hojas para certificados.",
-                "catchyDescription": "Validez y elegancia en cada certificado.",
-                "minPurchaseQuantity": 50,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificados.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-101-06",
-                "name": "Reconocimientos",
-                "description": "Hojas para reconocimientos.",
-                "catchyDescription": "Honra y distingue con la mejor calidad.",
-                "minPurchaseQuantity": 50,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para reconocimientos.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-101-07",
-                "name": "Certificaciones",
-                "description": "Hojas para certificaciones.",
-                "catchyDescription": "La firma de la autenticidad.",
-                "minPurchaseQuantity": 50,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificaciones.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-101-01-01",
+            "name": "Sin acabado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-01-02",
+            "name": "Membrete personalizado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-01-03",
+            "name": "Hot stamping",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-01-04",
+            "name": "Holograma de seguridad",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 102,
-        "name": "Folders",
-        "products": [
+        "id": "PROD-101-02",
+        "name": "Membreteada",
+        "description": "Hojas con membrete personalizado.",
+        "catchyDescription": "Proyecta profesionalismo en cada comunicación.",
+        "minPurchaseQuantity": 100,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas membretadas.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10201,
-            "name": "Folders",
-            "description": "Folders para la entrega de testimonios.",
-            "catchyDescription": "La presentación perfecta para tus documentos.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-102-01",
-                "name": "Para entrega de testimonio",
-                "description": "Folders para la entrega de testimonios.",
-                "catchyDescription": "La presentación perfecta para tus documentos.",
-                "minPurchaseQuantity": 50,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-102-02",
-                "name": "Para copia certificada",
-                "description": "Folders para copias certificadas.",
-                "catchyDescription": "Protección y estilo para tus copias.",
-                "minPurchaseQuantity": 50,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para copia certificada.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-101-02-01",
+            "name": "Sin acabado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-02-02",
+            "name": "Membrete personalizado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-02-03",
+            "name": "Hot stamping",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-02-04",
+            "name": "Holograma de seguridad",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 103,
-        "name": "Tarjetas",
-        "products": [
+        "id": "PROD-101-03",
+        "name": "Folio",
+        "description": "Hojas foliadas para documentos oficiales.",
+        "catchyDescription": "Organización y seguridad para tus archivos.",
+        "minPurchaseQuantity": 100,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas foliadas.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10301,
-            "name": "Tarjetas",
-            "description": "Tarjetas de presentación personalizadas.",
-            "catchyDescription": "Tu primera impresión, impecable.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-103-01",
-                "name": "De presentación",
-                "description": "Tarjetas de presentación personalizadas.",
-                "catchyDescription": "Tu primera impresión, impecable.",
-                "minPurchaseQuantity": 100,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-103-02",
-                "name": "De agradecimiento",
-                "description": "Tarjetas de agradecimiento.",
-                "catchyDescription": "Un detalle que marca la diferencia.",
-                "minPurchaseQuantity": 100,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de agradecimiento.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-103-03",
-                "name": "Near Field Comunications (NFC)",
-                "description": "Tarjetas con tecnología NFC.",
-                "catchyDescription": "Conecta con tus clientes al instante.",
-                "minPurchaseQuantity": 50,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas NFC.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-101-03-01",
+            "name": "Sin acabado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-03-02",
+            "name": "Membrete personalizado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-03-03",
+            "name": "Hot stamping",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-03-04",
+            "name": "Holograma de seguridad",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 104,
-        "name": "Sobres",
-        "products": [
+        "id": "PROD-101-04",
+        "name": "Póliza",
+        "description": "Hojas para pólizas.",
+        "catchyDescription": "Formalidad y confianza en cada póliza.",
+        "minPurchaseQuantity": 100,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para póliza.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10401,
-            "name": "Sobres",
-            "description": "Sobres para entrega de documentos.",
-            "catchyDescription": "Seguridad y elegancia en cada envío.",
-            "minPurchaseQuantity": 200,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-104-01",
-                "name": "Para entrega",
-                "description": "Sobres para entrega de documentos.",
-                "catchyDescription": "Seguridad y elegancia en cada envío.",
-                "minPurchaseQuantity": 200,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-104-02",
-                "name": "Administrativo / UIF",
-                "description": "Sobres para uso administrativo y UIF.",
-                "catchyDescription": "Confidencialidad y cumplimiento normativo.",
-                "minPurchaseQuantity": 200,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres administrativos.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-101-04-01",
+            "name": "Sin acabado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-04-02",
+            "name": "Membrete personalizado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-04-03",
+            "name": "Hot stamping",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-04-04",
+            "name": "Holograma de seguridad",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 105,
-        "name": "Recibos",
-        "products": [
+        "id": "PROD-101-05",
+        "name": "Certificados",
+        "description": "Hojas para certificados.",
+        "catchyDescription": "Validez y elegancia en cada certificado.",
+        "minPurchaseQuantity": 50,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificados.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10501,
-            "name": "Recibos",
-            "description": "Recibos de ingreso y egreso.",
-            "catchyDescription": "Control y claridad en tus finanzas.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-105-01",
-                "name": "Ingreso / Egreso",
-                "description": "Recibos de ingreso y egreso.",
-                "catchyDescription": "Control y claridad en tus finanzas.",
-                "minPurchaseQuantity": 100,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-101-05-01",
+            "name": "Sin acabado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-05-02",
+            "name": "Membrete personalizado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-05-03",
+            "name": "Hot stamping",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-05-04",
+            "name": "Holograma de seguridad",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 106,
-        "name": "Blocks",
-        "products": [
+        "id": "PROD-101-06",
+        "name": "Reconocimientos",
+        "description": "Hojas para reconocimientos.",
+        "catchyDescription": "Honra y distingue con la mejor calidad.",
+        "minPurchaseQuantity": 50,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para reconocimientos.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10601,
-            "name": "Blocks",
-            "description": "Blocks de notas personalizados.",
-            "catchyDescription": "Tus ideas, siempre a la mano.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-106-01",
-                "name": "Notas",
-                "description": "Blocks de notas personalizados.",
-                "catchyDescription": "Tus ideas, siempre a la mano.",
-                "minPurchaseQuantity": 50,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-101-06-01",
+            "name": "Sin acabado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-06-02",
+            "name": "Membrete personalizado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-06-03",
+            "name": "Hot stamping",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-06-04",
+            "name": "Holograma de seguridad",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 107,
-        "name": "Etiquetas",
-        "products": [
+        "id": "PROD-101-07",
+        "name": "Certificaciones",
+        "description": "Hojas para certificaciones.",
+        "catchyDescription": "La firma de la autenticidad.",
+        "minPurchaseQuantity": 50,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificaciones.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10701,
-            "name": "Etiquetas",
-            "description": "Etiquetas holográficas de seguridad.",
-            "catchyDescription": "La marca de la autenticidad.",
-            "minPurchaseQuantity": 1000,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-107-01",
-                "name": "Tipo holográficas",
-                "description": "Etiquetas holográficas de seguridad.",
-                "catchyDescription": "La marca de la autenticidad.",
-                "minPurchaseQuantity": 1000,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-107-02",
-                "name": "Personalizadas",
-                "description": "Etiquetas personalizadas.",
-                "catchyDescription": "Identifica y organiza con estilo.",
-                "minPurchaseQuantity": 200,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas personalizadas.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-101-07-01",
+            "name": "Sin acabado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-07-02",
+            "name": "Membrete personalizado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-07-03",
+            "name": "Hot stamping",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-101-07-04",
+            "name": "Holograma de seguridad",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 108,
-        "name": "Flyers",
-        "products": [
+        "id": "PROD-102-01",
+        "name": "Para entrega de testimonio",
+        "description": "Folders para la entrega de testimonios.",
+        "catchyDescription": "La presentación perfecta para tus documentos.",
+        "minPurchaseQuantity": 50,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10801,
-            "name": "Flyers",
-            "description": "Flyers informativos (trípticos o dípticos).",
-            "catchyDescription": "Comunica tus servicios de forma efectiva.",
-            "minPurchaseQuantity": 300,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-108-01",
-                "name": "Tríptico / Díptico",
-                "description": "Flyers informativos (trípticos o dípticos).",
-                "catchyDescription": "Comunica tus servicios de forma efectiva.",
-                "minPurchaseQuantity": 300,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-102-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-102-01-02",
+            "name": "Laminado mate",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-102-01-03",
+            "name": "Laminado brillante",
+            "image": "/placeholder-image.jpg"
           }
         ]
       },
       {
-        "id": 109,
-        "name": "Sellos",
-        "products": [
+        "id": "PROD-102-02",
+        "name": "Para copia certificada",
+        "description": "Folders para copias certificadas.",
+        "catchyDescription": "Protección y estilo para tus copias.",
+        "minPurchaseQuantity": 50,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para copia certificada.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
           {
-            "id": 10901,
-            "name": "Sellos",
-            "description": "Sellos notariales oficiales.",
-            "catchyDescription": "La firma de la legalidad.",
-            "minPurchaseQuantity": 1,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-109-01",
-                "name": "Sellos oficiales",
-                "description": "Sellos notariales oficiales.",
-                "catchyDescription": "La firma de la legalidad.",
-                "minPurchaseQuantity": 1,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-109-02",
-                "name": "Sellos corporativos",
-                "description": "Sellos con logo corporativo.",
-                "catchyDescription": "Tu marca en cada documento.",
-                "minPurchaseQuantity": 1,
-                "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos corporativos.",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
+            "id": "F-PROD-102-02-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-102-02-02",
+            "name": "Laminado mate",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-102-02-03",
+            "name": "Laminado brillante",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-103-01",
+        "name": "De presentación",
+        "description": "Tarjetas de presentación personalizadas.",
+        "catchyDescription": "Tu primera impresión, impecable.",
+        "minPurchaseQuantity": 100,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-103-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-103-01-02",
+            "name": "Con NFC integrado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-103-01-03",
+            "name": "Laminado brillante",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-103-02",
+        "name": "De agradecimiento",
+        "description": "Tarjetas de agradecimiento.",
+        "catchyDescription": "Un detalle que marca la diferencia.",
+        "minPurchaseQuantity": 100,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de agradecimiento.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-103-02-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-103-02-02",
+            "name": "Con NFC integrado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-103-02-03",
+            "name": "Laminado brillante",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-103-03",
+        "name": "Near Field Comunications (NFC)",
+        "description": "Tarjetas con tecnología NFC.",
+        "catchyDescription": "Conecta con tus clientes al instante.",
+        "minPurchaseQuantity": 50,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas NFC.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-103-03-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-103-03-02",
+            "name": "Con NFC integrado",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-103-03-03",
+            "name": "Laminado brillante",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-104-01",
+        "name": "Para entrega",
+        "description": "Sobres para entrega de documentos.",
+        "catchyDescription": "Seguridad y elegancia en cada envío.",
+        "minPurchaseQuantity": 200,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-104-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-104-01-02",
+            "name": "Ventana transparente",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-104-01-03",
+            "name": "Cierre de seguridad",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-104-02",
+        "name": "Administrativo / UIF",
+        "description": "Sobres para uso administrativo y UIF.",
+        "catchyDescription": "Confidencialidad y cumplimiento normativo.",
+        "minPurchaseQuantity": 200,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres administrativos.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-104-02-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-104-02-02",
+            "name": "Ventana transparente",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-104-02-03",
+            "name": "Cierre de seguridad",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-105-01",
+        "name": "Ingreso / Egreso",
+        "description": "Recibos de ingreso y egreso.",
+        "catchyDescription": "Control y claridad en tus finanzas.",
+        "minPurchaseQuantity": 100,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-105-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-105-01-02",
+            "name": "Autocopiativo (duplicado)",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-106-01",
+        "name": "Notas",
+        "description": "Blocks de notas personalizados.",
+        "catchyDescription": "Tus ideas, siempre a la mano.",
+        "minPurchaseQuantity": 50,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-106-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-106-01-02",
+            "name": "Encuadernado",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-107-01",
+        "name": "Tipo holográficas",
+        "description": "Etiquetas holográficas de seguridad.",
+        "catchyDescription": "La marca de la autenticidad.",
+        "minPurchaseQuantity": 1000,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-107-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-107-01-02",
+            "name": "Holográfica",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-107-02",
+        "name": "Personalizadas",
+        "description": "Etiquetas personalizadas.",
+        "catchyDescription": "Identifica y organiza con estilo.",
+        "minPurchaseQuantity": 200,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas personalizadas.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-107-02-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-107-02-02",
+            "name": "Holográfica",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-108-01",
+        "name": "Tríptico / Díptico",
+        "description": "Flyers informativos (trípticos o dípticos).",
+        "catchyDescription": "Comunica tus servicios de forma efectiva.",
+        "minPurchaseQuantity": 300,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-108-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-108-01-02",
+            "name": "Díptico",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-108-01-03",
+            "name": "Tríptico",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-109-01",
+        "name": "Sellos oficiales",
+        "description": "Sellos notariales oficiales.",
+        "catchyDescription": "La firma de la legalidad.",
+        "minPurchaseQuantity": 1,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-109-01-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-109-01-02",
+            "name": "Autoentintable",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-109-01-03",
+            "name": "Grabado láser",
+            "image": "/placeholder-image.jpg"
+          }
+        ]
+      },
+      {
+        "id": "PROD-109-02",
+        "name": "Sellos corporativos",
+        "description": "Sellos con logo corporativo.",
+        "catchyDescription": "Tu marca en cada documento.",
+        "minPurchaseQuantity": 1,
+        "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos corporativos.",
+        "image": "/placeholder-image.jpg",
+        "finishes": [
+          {
+            "id": "F-PROD-109-02-01",
+            "name": "Estándar",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-109-02-02",
+            "name": "Autoentintable",
+            "image": "/placeholder-image.jpg"
+          },
+          {
+            "id": "F-PROD-109-02-03",
+            "name": "Grabado láser",
+            "image": "/placeholder-image.jpg"
           }
         ]
       }
@@ -369,22 +588,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20101-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20101-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20101-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20101-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -400,22 +619,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20102-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20102-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20102-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20102-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -431,22 +650,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20103-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20103-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20103-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20103-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -462,22 +681,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20104-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20104-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20104-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20104-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -493,22 +712,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20105-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20105-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20105-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20105-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -524,22 +743,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20106-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20106-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20106-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20106-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -555,22 +774,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20107-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20107-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20107-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20107-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -586,22 +805,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-20108-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-CUI",
+                "id": "F-20108-02",
                 "name": "Cuero sintético",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-ENC",
+                "id": "F-20108-03",
                 "name": "Encuadernación reforzada",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-20108-04",
                 "name": "Grabado láser del logo",
                 "image": "/placeholder-image.jpg"
               }
@@ -631,17 +850,17 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-30101-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-30101-02",
                 "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-SER",
+                "id": "F-30101-03",
                 "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               }
@@ -657,17 +876,17 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-30102-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-30102-02",
                 "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-SER",
+                "id": "F-30102-03",
                 "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               }
@@ -683,17 +902,17 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-30103-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-30103-02",
                 "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-SER",
+                "id": "F-30103-03",
                 "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               }
@@ -709,17 +928,17 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-30104-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-30104-02",
                 "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-SER",
+                "id": "F-30104-03",
                 "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               }
@@ -735,17 +954,17 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-30105-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-30105-02",
                 "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-SER",
+                "id": "F-30105-03",
                 "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               }
@@ -761,17 +980,17 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-30106-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-30106-02",
                 "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-SER",
+                "id": "F-30106-03",
                 "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               }
@@ -787,17 +1006,17 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-30107-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-30107-02",
                 "name": "Grabado láser",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-SER",
+                "id": "F-30107-03",
                 "name": "Serigrafía a color",
                 "image": "/placeholder-image.jpg"
               }
@@ -827,22 +1046,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-40101-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-40101-02",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BOR",
+                "id": "F-40101-03",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-REL",
+                "id": "F-40101-04",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -858,22 +1077,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-40102-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-40102-02",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BOR",
+                "id": "F-40102-03",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-REL",
+                "id": "F-40102-04",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -889,22 +1108,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-40103-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-40103-02",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BOR",
+                "id": "F-40103-03",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-REL",
+                "id": "F-40103-04",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -920,22 +1139,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-40104-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-40104-02",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BOR",
+                "id": "F-40104-03",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-REL",
+                "id": "F-40104-04",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -951,22 +1170,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-40105-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-40105-02",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BOR",
+                "id": "F-40105-03",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-REL",
+                "id": "F-40105-04",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -982,22 +1201,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-40106-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-40106-02",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BOR",
+                "id": "F-40106-03",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-REL",
+                "id": "F-40106-04",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
@@ -1013,22 +1232,22 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
+                "id": "F-40107-01",
                 "name": "Estándar",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAS",
+                "id": "F-40107-02",
                 "name": "Grabado láser premium",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-BOR",
+                "id": "F-40107-03",
                 "name": "Bordado",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-REL",
+                "id": "F-40107-04",
                 "name": "Relieve / hot stamping",
                 "image": "/placeholder-image.jpg"
               }
