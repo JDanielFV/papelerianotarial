@@ -431,6 +431,17 @@ const FinishRowIndex = styled.span`
     text-align: right;
 `;
 
+const DeleteCheckbox = styled.input`
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #f87171;
+
+    &:checked {
+        filter: drop-shadow(0 0 4px rgba(248, 113, 113, 0.4));
+    }
+`;
+
 const FinishRowInput = styled.input`
     flex: 1;
     background: var(--input-background);
@@ -501,6 +512,8 @@ export default function AdminPage() {
     // Modal de renombrar acabados
     const [isRenameModalOpen, setIsRenameModalOpen] = useState(false);
     const [pendingRenames, setPendingRenames] = useState({}); // { oldName: newName }
+    // Modal de renombrar también soporta eliminación
+    const [pendingDeletes, setPendingDeletes] = useState(new Set()); // Set<oldName>
 
     // Cargar al montar
     useEffect(() => {
@@ -699,12 +712,14 @@ export default function AdminPage() {
             init[f.name] = f.name;
         }
         setPendingRenames(init);
+        setPendingDeletes(new Set());
         setIsRenameModalOpen(true);
     };
 
     const closeRenameModal = () => {
         setIsRenameModalOpen(false);
         setPendingRenames({});
+        setPendingDeletes(new Set());
         setStatus({ type: null, message: "" });
     };
 
@@ -712,45 +727,77 @@ export default function AdminPage() {
         setPendingRenames((prev) => ({ ...prev, [oldName]: newName }));
     };
 
-    const applyRenames = () => {
-        // 1. Detectar cuáles realmente cambiaron
+    const togglePendingDelete = (oldName) => {
+        setPendingDeletes((prev) => {
+            const next = new Set(prev);
+            if (next.has(oldName)) {
+                next.delete(oldName);
+            } else {
+                next.add(oldName);
+            }
+            return next;
+        });
+    };
+
+    const applyChanges = () => {
+        // 1. Detectar renombres
         const renames = Object.entries(pendingRenames).filter(
             ([oldName, newName]) =>
                 oldName !== newName && newName.trim() !== ""
         );
-        if (renames.length === 0) {
-            setStatus({ type: "info", message: "No hubo cambios de nombre." });
+        // 2. Detectar eliminaciones
+        const deletes = Array.from(pendingDeletes);
+        // Si no hay nada que hacer
+        if (renames.length === 0 && deletes.length === 0) {
+            setStatus({ type: "info", message: "No hubo cambios." });
             closeRenameModal();
             return;
         }
-        // 2. Validar: no vacíos, no duplicados
-        const newNames = renames.map(([, n]) => n.trim());
-        const seen = new Set();
-        for (const n of newNames) {
-            if (!n) {
-                setStatus({ type: "error", message: "No puedes dejar nombres vacíos." });
-                return;
+        // 3. Validar renombres (no vacíos, no duplicados)
+        if (renames.length > 0) {
+            const newNames = renames.map(([, n]) => n.trim());
+            const seen = new Set();
+            for (const n of newNames) {
+                if (!n) {
+                    setStatus({ type: "error", message: "No puedes dejar nombres vacíos." });
+                    return;
+                }
+                if (seen.has(n.toLowerCase())) {
+                    setStatus({
+                        type: "error",
+                        message: `Nombre duplicado: "${n}". Cada acabado debe tener un nombre único.`,
+                    });
+                    return;
+                }
+                seen.add(n.toLowerCase());
             }
-            if (seen.has(n.toLowerCase())) {
+        }
+        // 4. Validar que un rename no choque con una eliminación
+        //    (no debería, pero por seguridad)
+        for (const [oldName, newName] of renames) {
+            if (deletes.includes(oldName)) {
                 setStatus({
                     type: "error",
-                    message: `Nombre duplicado: "${n}". Cada acabado debe tener un nombre único.`,
+                    message: `"${oldName}" está marcado para eliminar y renombrar. Decide una sola acción.`,
                 });
                 return;
             }
-            seen.add(n.toLowerCase());
         }
-        // 3. Validar: el nuevo nombre no debe chocar con un acabado que NO
-        //    estamos renombrando
-        const finalNames = new Set([
-            ...Object.entries(pendingRenames)
-                .filter(([oldName, newName]) => oldName === newName || newName === "")
-                .map(([oldName]) => oldName),
-            ...newNames,
-        ]);
-        // (La unicidad ya se validó arriba con seen.)
-        // 4. Aplicar renombres en draftData
-        const renameMap = new Map(renames); // oldName -> newName
+        // 5. Confirmar si hay eliminaciones (acción destructiva)
+        if (deletes.length > 0) {
+            const ok = window.confirm(
+                `¿Eliminar ${deletes.length} acabado(s)?\n\n` +
+                    `Esto quitará los acabados de TODOS los productos que los tengan:\n` +
+                    deletes.map((n) => `  • ${n}`).join("\n") +
+                    `\n\nEsta acción se puede revertir con "Descartar" antes de "Guardar".`
+            );
+            if (!ok) return;
+        }
+        // 6. Construir mapa de renombres
+        const renameMap = new Map(renames);
+        // 7. Set de eliminaciones
+        const deleteSet = new Set(deletes);
+        // 8. Aplicar cambios en draftData
         setDraftData((prev) =>
             prev.map((cat) => ({
                 ...cat,
@@ -758,33 +805,44 @@ export default function AdminPage() {
                     ...sub,
                     products: (sub.products || []).map((p) => ({
                         ...p,
-                        finishes: (p.finishes || []).map((f) => {
-                            if (renameMap.has(f.name)) {
-                                return { ...f, name: renameMap.get(f.name) };
-                            }
-                            return f;
-                        }),
+                        finishes: (p.finishes || [])
+                            .filter((f) => !deleteSet.has(f.name)) // eliminar
+                            .map((f) => {
+                                // renombrar
+                                if (renameMap.has(f.name)) {
+                                    return { ...f, name: renameMap.get(f.name) };
+                                }
+                                return f;
+                            }),
                     })),
                 })),
             }))
         );
-        // 5. Renombrar también en pendingFinishes (por si el user renombra
-        //    un acabado que aún no ha sido asignado)
+        // 9. Aplicar también en pendingFinishes
         setPendingFinishes((prev) =>
-            prev.map((f) => {
-                if (renameMap.has(f.name)) {
-                    return { ...f, name: renameMap.get(f.name) };
-                }
-                return f;
-            })
+            prev
+                .filter((f) => !deleteSet.has(f.name))
+                .map((f) => {
+                    if (renameMap.has(f.name)) {
+                        return { ...f, name: renameMap.get(f.name) };
+                    }
+                    return f;
+                })
         );
+        // 10. Limpiar y reportar
+        const summary = [];
+        if (renames.length > 0) summary.push(`${renames.length} renombrado(s)`);
+        if (deletes.length > 0) summary.push(`${deletes.length} eliminado(s)`);
         setIsRenameModalOpen(false);
         setPendingRenames({});
+        setPendingDeletes(new Set());
         setStatus({
             type: "info",
-            message: `${renames.length} acabado(s) renombrado(s). Revisa la tabla y guarda.`,
+            message: `${summary.join(", ")}. Revisa la tabla y guarda.`,
         });
     };
+
+    const applyRenames = applyChanges; // alias para no romper compatibilidad si se usa
 
     const handleSave = async () => {
         if (!isDirty && pendingFinishes.length === 0) return;
@@ -812,6 +870,7 @@ export default function AdminPage() {
         setPendingFinishes([]);
         setNewFinishName("");
         setPendingRenames({});
+        setPendingDeletes(new Set());
         setIsRenameModalOpen(false);
         setStatus({ type: "info", message: "Cambios descartados." });
     };
@@ -1094,6 +1153,13 @@ export default function AdminPage() {
                             <ModalBody>
                                 {allFinishes.map((finish, idx) => (
                                     <FinishRow key={finish.name}>
+                                        <DeleteCheckbox
+                                            type="checkbox"
+                                            checked={pendingDeletes.has(finish.name)}
+                                            onChange={() => togglePendingDelete(finish.name)}
+                                            title="Marcar para eliminar"
+                                            aria-label={`Marcar "${finish.name}" para eliminar`}
+                                        />
                                         <FinishRowIndex>{idx + 1}</FinishRowIndex>
                                         <FinishRowInput
                                             type="text"
@@ -1115,9 +1181,23 @@ export default function AdminPage() {
                             </ModalBody>
                             <ModalFooter>
                                 <span>
-                                    Edita los nombres. Al hacer clic en &ldquo;Aplicar&rdquo; los
-                                    cambios se reflejan en la tabla (aún sin guardar en
-                                    disco).
+                                    {pendingDeletes.size > 0 ? (
+                                        <>
+                                            <strong style={{ color: "#f87171" }}>
+                                                {pendingDeletes.size} marcado(s) para
+                                                eliminar.
+                                            </strong>{" "}
+                                            Se quitarán de todos los productos al
+                                            aplicar.
+                                        </>
+                                    ) : (
+                                        <>
+                                            Edita los nombres. Al hacer clic en
+                                            &ldquo;Aplicar&rdquo; los cambios se
+                                            reflejan en la tabla (aún sin guardar en
+                                            disco).
+                                        </>
+                                    )}
                                 </span>
                                 <div style={{ display: "flex", gap: "0.6rem" }}>
                                     <CancelButton
@@ -1128,11 +1208,13 @@ export default function AdminPage() {
                                         Cancelar
                                     </CancelButton>
                                     <ApplyButton
-                                        onClick={applyRenames}
+                                        onClick={applyChanges}
                                         whileHover={{ y: -2 }}
                                         whileTap={{ y: 1 }}
                                     >
-                                        Aplicar cambios
+                                        {pendingDeletes.size > 0
+                                            ? `Eliminar (${pendingDeletes.size})`
+                                            : "Aplicar cambios"}
                                     </ApplyButton>
                                 </div>
                             </ModalFooter>
