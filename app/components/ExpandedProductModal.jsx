@@ -488,8 +488,9 @@ function QuoteForm({ product, finish, onBack }) {
 
                 <SubModalSendButton
                     type="submit"
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    whileHover={{ y: -4 }}
+                    whileTap={{ y: 1 }}
+                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 >
                     <WhatsAppIcon size={18} />
                     Enviar Cotización
@@ -608,28 +609,21 @@ function ModalInner({ selectedProduct, onClose }) {
                                     const isActive = finish.id === selectedFinishId;
                                     return (
                                         <FinishRow
-                                            key={finish.id}
+                                            key={finish.id || idx}
                                             type="button"
                                             $selected={isActive}
                                             onClick={() => setSelectedFinishId(finish.id)}
-                                            variants={{
-                                                hidden: { opacity: 0, x: 12 },
-                                                visible: {
-                                                    opacity: 1,
-                                                    x: 0,
-                                                    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
-                                                },
-                                            }}
+                                            whileHover={!isActive ? { y: -2 } : undefined}
                                             /* Pulse sutil al activarse: scale 1.03 → 1
                                                cuando isActive cambia de false a true.
                                                No se re-anima si ya estaba activo. */
-                                            animate={isActive ? { scale: [1, 1.03, 1] } : { scale: 1 }}
+                                            animate={isActive ? { scale: [1, 1.03, 1], y: 0 } : { scale: 1, y: 0 }}
                                             transition={
                                                 isActive
                                                     ? { duration: 0.35, ease: [0.16, 1, 0.3, 1] }
-                                                    : { duration: 0.2 }
+                                                    : { duration: 0.55, ease: [0.16, 1, 0.3, 1] }
                                             }
-                                            whileTap={{ scale: 0.98 }}
+                                            whileTap={!isActive ? { y: 1 } : undefined}
                                             aria-pressed={isActive}
                                         >
                                             <FinishNumber $selected={isActive}>
@@ -650,8 +644,9 @@ function ModalInner({ selectedProduct, onClose }) {
                             type="button"
                             onClick={() => setShowQuoteForm(true)}
                             disabled={!canQuote}
-                            whileHover={canQuote ? { scale: 1.01 } : {}}
-                            whileTap={canQuote ? { scale: 0.99 } : {}}
+                            whileHover={canQuote ? { y: -4 } : {}}
+                            whileTap={canQuote ? { y: 1 } : {}}
+                            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                         >
                             <WhatsAppIcon size={18} />
                             {finishes.length > 0 && !selectedFinishId

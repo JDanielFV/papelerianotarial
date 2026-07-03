@@ -85,7 +85,6 @@ const SocialIcon = styled(motion.a)`
         background: rgba(212, 163, 23, 0.05);
         border-color: rgba(212, 163, 23, 0.4);
         color: #d4a317;
-        transform: translateY(-3px);
     }
 `;
 
@@ -152,7 +151,9 @@ export default function Footer() {
                         <SocialIcon
                             href={getSocialUrl('facebook')}
                             target="_blank"
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ y: -2 }}
+                            whileTap={{ y: 1 }}
+                            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                             title="Facebook"
                         >
                             <FacebookIcon size={20} />
@@ -160,7 +161,9 @@ export default function Footer() {
                         <SocialIcon
                             href={getSocialUrl('instagram')}
                             target="_blank"
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ y: -2 }}
+                            whileTap={{ y: 1 }}
+                            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                             title="Instagram"
                         >
                             <InstagramIcon size={20} />
@@ -168,7 +171,9 @@ export default function Footer() {
                         <SocialIcon
                             href={getSocialUrl('website')}
                             target="_blank"
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ y: -2 }}
+                            whileTap={{ y: 1 }}
+                            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                             title="Sitio Web"
                         >
                             <GlobeIcon size={20} />

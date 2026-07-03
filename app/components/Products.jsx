@@ -76,7 +76,6 @@ const ContactButton = styled(motion.a)`
         background-color: #d4a317;
         color: #0a0a0a;
         border-color: #d4a317;
-        transform: scale(1.05);
         box-shadow: 0 10px 30px rgba(212, 163, 23, 0.4);
     }
 `;
@@ -310,6 +309,7 @@ function Products({
                                     ease: [0.16, 1, 0.3, 1],
                                 }}
                                 whileHover={!isTransitioning ? { y: -4 } : undefined}
+                                whileTap={!isTransitioning ? { y: 1 } : undefined}
                             >
                                 <CardBgImage style={{ backgroundImage: `url(${product.image || '/placeholder-image.jpg'})` }} />
                                 <BentoOverlay />
@@ -363,6 +363,9 @@ function Products({
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={itemVariants}
+                    whileHover={{ y: -4 }}
+                    whileTap={{ y: 1 }}
+                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 >
                     <WhatsAppIcon size={24} />
                     <span>{whatsappText}</span>

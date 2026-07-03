@@ -487,8 +487,9 @@ function ServiceModalInner({ service, onClose }) {
 
                             <WhatsappButton
                                 type="submit"
-                                whileHover={{ scale: 1.01 }}
-                                whileTap={{ scale: 0.99 }}
+                                whileHover={{ y: -4 }}
+                                whileTap={{ y: 1 }}
+                                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 <WhatsAppIcon size={20} />
                                 Enviar Cotización

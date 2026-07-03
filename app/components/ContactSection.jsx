@@ -103,8 +103,8 @@ const ContactSection = ({
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ y: -4 }}
+            whileTap={{ y: 1 }}
           >
             {buttonText}
           </ContactButton>

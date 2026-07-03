@@ -27,12 +27,11 @@ const ScrollButton = styled(motion.button)`
         background: var(--card-background-hover);
         border-color: var(--card-border-hover);
         color: var(--foreground);
-        transform: translateY(-3px);
         box-shadow: var(--shadow);
     }
-    
+
     &:active {
-        transform: translateY(-1px);
+        transform: translateY(1px);
     }
 `;
 
@@ -68,8 +67,9 @@ export default function ScrollToTop() {
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.5 }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ y: 1 }}
+                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 >
                     ↑
                 </ScrollButton>
