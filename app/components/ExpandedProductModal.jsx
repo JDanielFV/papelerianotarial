@@ -589,7 +589,7 @@ function ModalInner({ selectedProduct, onClose }) {
                     </LeftPanel>
 
                     <RightPanel>
-                        <SectionTitle>Acabados</SectionTitle>
+                        {finishes.length > 0 && <SectionTitle>Acabados</SectionTitle>}
 
                         {finishes.length > 0 ? (
                             <FinishesList
