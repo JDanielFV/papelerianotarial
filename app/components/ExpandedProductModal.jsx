@@ -443,10 +443,10 @@ function QuoteForm({ product, finish, onBack }) {
 
     return (
         <SubModalCard
-            initial={{ opacity: 0, y: 10, scale: 0.97 }}
+            initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.97 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, y: 12, scale: 0.97 }}
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
         >
             <SubModalTitle>Cotizar Artículo</SubModalTitle>
@@ -555,12 +555,15 @@ function ModalInner({ selectedProduct, onClose }) {
                 <ExpandedCard
                     layoutId={isPresent ? `card-${selectedProduct.id}` : undefined}
                     onClick={(e) => e.stopPropagation()}
+                    initial={{ opacity: 0, scale: 0.96, y: 24 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{
                         opacity: 0,
-                        y: 40,
-                        scale: 0.95,
-                        transition: { duration: 0.2, ease: "easeIn" },
+                        scale: 0.96,
+                        y: 16,
+                        transition: { duration: 0.22, ease: [0.16, 1, 0.3, 1] },
                     }}
+                    transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
                 >
                     <LeftPanel>
                         <ProductName>{selectedProduct.name}</ProductName>
@@ -594,7 +597,19 @@ function ModalInner({ selectedProduct, onClose }) {
                         <SectionTitle>Acabados</SectionTitle>
 
                         {finishes.length > 0 ? (
-                            <FinishesList>
+                            <FinishesList
+                                initial="hidden"
+                                animate="visible"
+                                variants={{
+                                    hidden: {},
+                                    visible: {
+                                        transition: {
+                                            staggerChildren: 0.04,
+                                            delayChildren: 0.18,
+                                        },
+                                    },
+                                }}
+                            >
                                 {finishes.map((finish, idx) => {
                                     const isActive = finish.id === selectedFinishId;
                                     return (
@@ -603,6 +618,23 @@ function ModalInner({ selectedProduct, onClose }) {
                                             type="button"
                                             $selected={isActive}
                                             onClick={() => setSelectedFinishId(finish.id)}
+                                            variants={{
+                                                hidden: { opacity: 0, x: 12 },
+                                                visible: {
+                                                    opacity: 1,
+                                                    x: 0,
+                                                    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                                                },
+                                            }}
+                                            /* Pulse sutil al activarse: scale 1.03 → 1
+                                               cuando isActive cambia de false a true.
+                                               No se re-anima si ya estaba activo. */
+                                            animate={isActive ? { scale: [1, 1.03, 1] } : { scale: 1 }}
+                                            transition={
+                                                isActive
+                                                    ? { duration: 0.35, ease: [0.16, 1, 0.3, 1] }
+                                                    : { duration: 0.2 }
+                                            }
                                             whileTap={{ scale: 0.98 }}
                                             aria-pressed={isActive}
                                         >
@@ -641,7 +673,7 @@ function ModalInner({ selectedProduct, onClose }) {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.2 }}
+                                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
                                 onClick={() => setShowQuoteForm(false)}
                             >
                                 <QuoteForm
