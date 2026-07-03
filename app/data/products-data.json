@@ -1,1111 +1,1111 @@
 [
-  {
-    "id": 1,
-    "name": "Articulos de Papelería",
-    "description": "Elegancia y durabilidad en un diseño atemporal.",
-    "image": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=800&auto=format&fit=crop",
-    "subcategories": [
-      {
-        "id": 101,
-        "name": "Papelería",
-        "description": "",
-        "image": "",
-        "products": [
-          {
-            "id": "PROD-HOJA",
-            "name": "Hojas",
-            "description": "Hojas para testimonios notariales.",
-            "catchyDescription": "La base de todo documento legal.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-TROQUEL",
-                "name": "Troquel",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot Stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SERI",
-                "name": "Serigrafía",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-COMP",
-                "name": "Compaginado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-FOLD",
-            "name": "Folders",
-            "description": "Folders para la entrega de testimonios.",
-            "catchyDescription": "La presentación perfecta para tus documentos.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM",
-                "name": "Laminado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot Stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SUAJE",
-                "name": "Suaje",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BARNIZ",
-                "name": "Barniz UV",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-RED",
-                "name": "Esquinas redondeadas",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-TARJ",
-            "name": "Tarjetas",
-            "description": "Tarjetas de presentación personalizadas.",
-            "catchyDescription": "Tu primera impresión, impecable.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM",
-                "name": "Laminado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot Stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SERI",
-                "name": "Serigrafía",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BARNIZ",
-                "name": "Barniz UV",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-RED",
-                "name": "Esquinas redondeadas",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-NFC",
-                "name": "NFC integrado",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-SOBR",
-            "name": "Sobres",
-            "description": "Sobres para entrega de documentos.",
-            "catchyDescription": "Seguridad y elegancia en cada envío.",
-            "minPurchaseQuantity": 200,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BARNIZ",
-                "name": "Barniz UV",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot Stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SUAJE",
-                "name": "Suaje",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM",
-                "name": "Laminado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-VEN",
-                "name": "Ventana transparente",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SEG",
-                "name": "Cierre de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-RECI",
-            "name": "Recibos",
-            "description": "Recibos de ingreso y egreso.",
-            "catchyDescription": "Control y claridad en tus finanzas.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-AUT",
-                "name": "Autocopiativo (duplicado)",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-BLOC",
-            "name": "Blocks",
-            "description": "Blocks de notas personalizados.",
-            "catchyDescription": "Tus ideas, siempre a la mano.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-COMP",
-                "name": "Compaginado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernado",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-ETIQ",
-            "name": "Etiquetas",
-            "description": "Etiquetas holográficas de seguridad.",
-            "catchyDescription": "La marca de la autenticidad.",
-            "minPurchaseQuantity": 1000,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-FLYE",
-            "name": "Flyers",
-            "description": "Flyers informativos (trípticos o dípticos).",
-            "catchyDescription": "Comunica tus servicios de forma efectiva.",
-            "minPurchaseQuantity": 300,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-DIP",
-                "name": "Díptico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-TRI",
-                "name": "Tríptico",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": "PROD-SELL",
-            "name": "Sellos",
-            "description": "Sellos notariales oficiales.",
-            "catchyDescription": "La firma de la legalidad.",
-            "minPurchaseQuantity": 1,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-AUT",
-                "name": "Autoentintable",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          }
+    {
+        "id": 1,
+        "name": "Articulos de Papelería",
+        "description": "Elegancia y durabilidad en un diseño atemporal.",
+        "image": "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=800&auto=format&fit=crop",
+        "subcategories": [
+            {
+                "id": 101,
+                "name": "Papelería",
+                "description": "",
+                "image": "",
+                "products": [
+                    {
+                        "id": "PROD-HOJA",
+                        "name": "Hojas",
+                        "description": "Hojas para testimonios notariales.",
+                        "catchyDescription": "La base de todo documento legal.",
+                        "minPurchaseQuantity": 2000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-TROQUEL",
+                                "name": "Troquel",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOT",
+                                "name": "Hot Stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SERI",
+                                "name": "Serigrafía",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-COMP",
+                                "name": "Compaginado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-MEM",
+                                "name": "Membrete personalizado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOL",
+                                "name": "Holograma de seguridad",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-FOLD",
+                        "name": "Folders",
+                        "description": "Folders para la entrega de testimonios.",
+                        "catchyDescription": "La presentación perfecta para tus documentos.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAM",
+                                "name": "Laminado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOT",
+                                "name": "Hot Stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SUAJE",
+                                "name": "Suaje",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BARNIZ",
+                                "name": "Barniz UV",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-RED",
+                                "name": "Esquinas redondeadas",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-TARJ",
+                        "name": "Tarjetas",
+                        "description": "Tarjetas de presentación personalizadas.",
+                        "catchyDescription": "Tu primera impresión, impecable.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAM",
+                                "name": "Laminado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOT",
+                                "name": "Hot Stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SERI",
+                                "name": "Serigrafía",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BARNIZ",
+                                "name": "Barniz UV",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-RED",
+                                "name": "Esquinas redondeadas",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NFC",
+                                "name": "NFC integrado",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-SOBR",
+                        "name": "Sobres",
+                        "description": "Sobres para entrega de documentos.",
+                        "catchyDescription": "Seguridad y elegancia en cada envío.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BARNIZ",
+                                "name": "Barniz UV",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOT",
+                                "name": "Hot Stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SUAJE",
+                                "name": "Suaje",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAM",
+                                "name": "Laminado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-VEN",
+                                "name": "Ventana transparente",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SEG",
+                                "name": "Cierre de seguridad",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-RECI",
+                        "name": "Recibos",
+                        "description": "Recibos de ingreso y egreso.",
+                        "catchyDescription": "Control y claridad en tus finanzas.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-AUT",
+                                "name": "Autocopiativo (duplicado)",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-BLOC",
+                        "name": "Blocks",
+                        "description": "Blocks de notas personalizados.",
+                        "catchyDescription": "Tus ideas, siempre a la mano.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-COMP",
+                                "name": "Compaginado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernado",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-ETIQ",
+                        "name": "Etiquetas",
+                        "description": "Etiquetas holográficas de seguridad.",
+                        "catchyDescription": "La marca de la autenticidad.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOL",
+                                "name": "Holograma de seguridad",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-FLYE",
+                        "name": "Flyers",
+                        "description": "Flyers informativos (trípticos o dípticos).",
+                        "catchyDescription": "Comunica tus servicios de forma efectiva.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-DIP",
+                                "name": "Díptico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-TRI",
+                                "name": "Tríptico",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "PROD-SELL",
+                        "name": "Sellos",
+                        "description": "Sellos notariales oficiales.",
+                        "catchyDescription": "La firma de la legalidad.",
+                        "minPurchaseQuantity": 1,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-AUT",
+                                "name": "Autoentintable",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Carpetas",
-    "description": "Máxima seguridad y presentación para tus documentos.",
-    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop",
-    "subcategories": [
-      {
-        "id": 201,
-        "name": "Organización y Resguardo",
-        "products": [
-          {
-            "id": 20101,
-            "name": "Carpeta de firma",
-            "description": "Carpeta elegante para recolección de firmas.",
-            "catchyDescription": "Elegancia para el momento más importante.",
-            "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre la Carpeta de firma.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 20102,
-            "name": "Protocolo",
-            "description": "Carpetas para protocolo notarial.",
-            "catchyDescription": "Seguridad y formalidad para tus protocolos.",
-            "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Protocolo.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 20103,
-            "name": "Apendice",
-            "description": "Carpetas para apéndices y anexos.",
-            "catchyDescription": "Organización perfecta para anexos.",
-            "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Apendice.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 20104,
-            "name": "Libro de registro",
-            "description": "Libros de registro encuadernados.",
-            "catchyDescription": "Control detallado y duradero.",
-            "minPurchaseQuantity": 5,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de registro.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 20105,
-            "name": "Libro de índice / Guía",
-            "description": "Libros de índice para fácil referencia.",
-            "catchyDescription": "Acceso rápido y ordenado a tu información.",
-            "minPurchaseQuantity": 5,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de índice.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 20106,
-            "name": "Libro corporativo",
-            "description": "Libros corporativos de alta calidad.",
-            "catchyDescription": "La historia de tu empresa, bien resguardada.",
-            "minPurchaseQuantity": 5,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro corporativo.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 20107,
-            "name": "Cajas para resguardo",
-            "description": "Cajas resistentes para archivo.",
-            "catchyDescription": "Protección robusta para archivos físicos.",
-            "minPurchaseQuantity": 20,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las Cajas para resguardo.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 20108,
-            "name": "Sobre VIP",
-            "description": "Sobres de alta gama para entregas especiales.",
-            "catchyDescription": "Distinción en cada entrega importante.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre el Sobre VIP.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-CUI",
-                "name": "Cuero sintético",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernación reforzada",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          }
+    },
+    {
+        "id": 2,
+        "name": "Carpetas",
+        "description": "Máxima seguridad y presentación para tus documentos.",
+        "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop",
+        "subcategories": [
+            {
+                "id": 201,
+                "name": "Organización y Resguardo",
+                "products": [
+                    {
+                        "id": 20101,
+                        "name": "Carpeta de firma",
+                        "description": "Carpeta elegante para recolección de firmas.",
+                        "catchyDescription": "Elegancia para el momento más importante.",
+                        "minPurchaseQuantity": 3,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre la Carpeta de firma.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20102,
+                        "name": "Protocolo",
+                        "description": "Carpetas para protocolo notarial.",
+                        "catchyDescription": "Seguridad y formalidad para tus protocolos.",
+                        "minPurchaseQuantity": 10,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Protocolo.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20103,
+                        "name": "Apendice",
+                        "description": "Carpetas para apéndices y anexos.",
+                        "catchyDescription": "Organización perfecta para anexos.",
+                        "minPurchaseQuantity": 20,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Apendice.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20104,
+                        "name": "Libro de registro",
+                        "description": "Libros de registro encuadernados.",
+                        "catchyDescription": "Control detallado y duradero.",
+                        "minPurchaseQuantity": 3,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de registro.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20105,
+                        "name": "Libro de índice / Guía",
+                        "description": "Libros de índice para fácil referencia.",
+                        "catchyDescription": "Acceso rápido y ordenado a tu información.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de índice.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20106,
+                        "name": "Libro corporativo",
+                        "description": "Libros corporativos de alta calidad.",
+                        "catchyDescription": "La historia de tu empresa, bien resguardada.",
+                        "minPurchaseQuantity": 3,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro corporativo.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20107,
+                        "name": "Cajas para resguardo",
+                        "description": "Cajas resistentes para archivo.",
+                        "catchyDescription": "Protección robusta para archivos físicos.",
+                        "minPurchaseQuantity": 1,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las Cajas para resguardo.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20108,
+                        "name": "Sobre VIP",
+                        "description": "Sobres de alta gama para entregas especiales.",
+                        "catchyDescription": "Distinción en cada entrega importante.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre el Sobre VIP.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-CUI",
+                                "name": "Cuero sintético",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-ENC",
+                                "name": "Encuadernación reforzada",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Articulos Promocionales",
-    "description": "Impulsa tu marca con productos de calidad.",
-    "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
-    "subcategories": [
-      {
-        "id": 301,
-        "name": "Promocionales",
-        "products": [
-          {
-            "id": 30101,
-            "name": "Termos",
-            "description": "Termos personalizados con tu logo.",
-            "catchyDescription": "Mantén tu marca presente en cada sorbo.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Termos promocionales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 30102,
-            "name": "Servilletas",
-            "description": "Servilletas impresas para eventos.",
-            "catchyDescription": "Detalles que marcan la diferencia en tus eventos.",
-            "minPurchaseQuantity": 500,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas promocionales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 30103,
-            "name": "Boligrafos",
-            "description": "Bolígrafos promocionales.",
-            "catchyDescription": "Escritura fluida con tu identidad corporativa.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Boligrafos promocionales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 30104,
-            "name": "Portavasos",
-            "description": "Portavasos personalizados.",
-            "catchyDescription": "Protección y branding en tu mesa de reuniones.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos promocionales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 30105,
-            "name": "Collarines",
-            "description": "Collarines para gafetes.",
-            "catchyDescription": "Identificación profesional para tu equipo.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Collarines promocionales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 30106,
-            "name": "Calendarios",
-            "description": "Calendarios de pared o escritorio.",
-            "catchyDescription": "Tu marca, presente los 365 días del año.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Calendarios promocionales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 30107,
-            "name": "Agendas",
-            "description": "Agendas corporativas.",
-            "catchyDescription": "Organización diaria con el sello de tu notaría.",
-            "minPurchaseQuantity": 20,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas promocionales.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          }
+    },
+    {
+        "id": 3,
+        "name": "Articulos Promocionales",
+        "description": "Impulsa tu marca con productos de calidad.",
+        "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop",
+        "subcategories": [
+            {
+                "id": 301,
+                "name": "Promocionales",
+                "products": [
+                    {
+                        "id": 30101,
+                        "name": "Termos",
+                        "description": "Termos personalizados con tu logo.",
+                        "catchyDescription": "Mantén tu marca presente en cada sorbo.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Termos promocionales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30102,
+                        "name": "Servilletas",
+                        "description": "Servilletas impresas para eventos.",
+                        "catchyDescription": "Detalles que marcan la diferencia en tus eventos.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas promocionales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30103,
+                        "name": "Boligrafos",
+                        "description": "Bolígrafos promocionales.",
+                        "catchyDescription": "Escritura fluida con tu identidad corporativa.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Boligrafos promocionales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30104,
+                        "name": "Portavasos",
+                        "description": "Portavasos personalizados.",
+                        "catchyDescription": "Protección y branding en tu mesa de reuniones.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos promocionales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30105,
+                        "name": "Collarines",
+                        "description": "Collarines para gafetes.",
+                        "catchyDescription": "Identificación profesional para tu equipo.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Collarines promocionales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30106,
+                        "name": "Calendarios",
+                        "description": "Calendarios de pared o escritorio.",
+                        "catchyDescription": "Tu marca, presente los 365 días del año.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Calendarios promocionales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30107,
+                        "name": "Agendas",
+                        "description": "Agendas corporativas.",
+                        "catchyDescription": "Organización diaria con el sello de tu notaría.",
+                        "minPurchaseQuantity": 5,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas promocionales.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Articulos Personalizados",
-    "description": "Diseño exclusivo y personalización a medida.",
-    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
-    "subcategories": [
-      {
-        "id": 401,
-        "name": "Personalizados",
-        "products": [
-          {
-            "id": 40101,
-            "name": "Termos",
-            "description": "Termos con grabado láser personalizado.",
-            "catchyDescription": "Un regalo único y funcional.",
-            "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Termos personalizados.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser premium",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 40102,
-            "name": "Servilletas",
-            "description": "Servilletas de tela bordadas o impresas.",
-            "catchyDescription": "Elegancia en cada detalle.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas personalizadas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser premium",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 40103,
-            "name": "Boligrafos",
-            "description": "Bolígrafos de alta gama grabados.",
-            "catchyDescription": "La distinción en tu escritura.",
-            "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Boligrafos personalizados.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser premium",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 40104,
-            "name": "Portavasos",
-            "description": "Portavasos de materiales premium.",
-            "catchyDescription": "Estilo y protección para tu escritorio.",
-            "minPurchaseQuantity": 20,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos personalizados.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser premium",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 40105,
-            "name": "Collarines",
-            "description": "Collarines con diseño exclusivo.",
-            "catchyDescription": "Imagen corporativa unificada.",
-            "minPurchaseQuantity": 20,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Collarines personalizados.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser premium",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 40106,
-            "name": "Calendarios",
-            "description": "Calendarios personalizados con fotos o arte.",
-            "catchyDescription": "Inspiración para cada mes.",
-            "minPurchaseQuantity": 20,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los Calendarios personalizados.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser premium",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 40107,
-            "name": "Agendas",
-            "description": "Agendas con nombre grabado y acabados de lujo.",
-            "catchyDescription": "Planifica tu éxito con exclusividad.",
-            "minPurchaseQuantity": 10,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas personalizadas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Económico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser premium",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SER",
-                "name": "Serigrafía a color",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-BOR",
-                "name": "Bordado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-REL",
-                "name": "Relieve / hot stamping",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          }
+    },
+    {
+        "id": 4,
+        "name": "Articulos Personalizados",
+        "description": "Diseño exclusivo y personalización a medida.",
+        "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
+        "subcategories": [
+            {
+                "id": 401,
+                "name": "Personalizados",
+                "products": [
+                    {
+                        "id": 40101,
+                        "name": "Termos",
+                        "description": "Termos con grabado láser personalizado.",
+                        "catchyDescription": "Un regalo único y funcional.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Termos personalizados.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 40102,
+                        "name": "Servilletas",
+                        "description": "Servilletas de tela bordadas o impresas.",
+                        "catchyDescription": "Elegancia en cada detalle.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas personalizadas.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 40103,
+                        "name": "Boligrafos",
+                        "description": "Bolígrafos de alta gama grabados.",
+                        "catchyDescription": "La distinción en tu escritura.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Boligrafos personalizados.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 40104,
+                        "name": "Portavasos",
+                        "description": "Portavasos de materiales premium.",
+                        "catchyDescription": "Estilo y protección para tu escritorio.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos personalizados.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 40105,
+                        "name": "Collarines",
+                        "description": "Collarines con diseño exclusivo.",
+                        "catchyDescription": "Imagen corporativa unificada.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Collarines personalizados.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 40106,
+                        "name": "Calendarios",
+                        "description": "Calendarios personalizados con fotos o arte.",
+                        "catchyDescription": "Inspiración para cada mes.",
+                        "minPurchaseQuantity": 1000,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre los Calendarios personalizados.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 40107,
+                        "name": "Agendas",
+                        "description": "Agendas con nombre grabado y acabados de lujo.",
+                        "catchyDescription": "Planifica tu éxito con exclusividad.",
+                        "minPurchaseQuantity": 5,
+                        "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas personalizadas.",
+                        "image": "/placeholder-image.jpg",
+                        "finishes": [
+                            {
+                                "id": "F-STD",
+                                "name": "Económico",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SER",
+                                "name": "Serigrafía a color",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-BOR",
+                                "name": "Bordado",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-REL",
+                                "name": "Relieve / hot stamping",
+                                "image": "/placeholder-image.jpg"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 ]
