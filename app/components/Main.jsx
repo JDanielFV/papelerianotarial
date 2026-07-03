@@ -139,7 +139,7 @@ const ButtonContainer = styled(motion.div)`
     }
 `;
 
-const HeroButton = styled(motion(Link))`
+const HeroButton = styled(motion.create(Link))`
     padding: 0.75rem 1.75rem;
     border-radius: 50px;
     font-size: 0.9rem;
