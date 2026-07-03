@@ -21,16 +21,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-TROQUEL",
-                                "name": "Troquel",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-HOT",
                                 "name": "Hot Stamping",
                                 "image": "/placeholder-image.jpg"
@@ -41,23 +31,13 @@
                                 "image": "/placeholder-image.jpg"
                             },
                             {
-                                "id": "F-COMP",
-                                "name": "Compaginado",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-MEM",
-                                "name": "Membrete personalizado",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-HOL",
                                 "name": "Holograma de seguridad",
                                 "image": "/placeholder-image.jpg"
                             },
                             {
-                                "id": "F-LAS",
-                                "name": "Grabado láser premium",
+                                "id": "F-NEW-1783114365495-170",
+                                "name": "Tinta Seguridad",
                                 "image": "/placeholder-image.jpg"
                             }
                         ]
@@ -87,11 +67,6 @@
                                 "image": "/placeholder-image.jpg"
                             },
                             {
-                                "id": "F-SUAJE",
-                                "name": "Suaje",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-BARNIZ",
                                 "name": "Barniz UV",
                                 "image": "/placeholder-image.jpg"
@@ -99,6 +74,26 @@
                             {
                                 "id": "F-RED",
                                 "name": "Esquinas redondeadas",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114465542-695",
+                                "name": "Otros",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114514961-285",
+                                "name": "Plastificado Mate",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114519423-758",
+                                "name": "Plastificado Brillante",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114494080-654",
+                                "name": "Soft Touch",
                                 "image": "/placeholder-image.jpg"
                             }
                         ]
@@ -118,11 +113,6 @@
                                 "image": "/placeholder-image.jpg"
                             },
                             {
-                                "id": "F-LAM",
-                                "name": "Laminado",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-HOT",
                                 "name": "Hot Stamping",
                                 "image": "/placeholder-image.jpg"
@@ -138,13 +128,8 @@
                                 "image": "/placeholder-image.jpg"
                             },
                             {
-                                "id": "F-RED",
-                                "name": "Esquinas redondeadas",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-NFC",
-                                "name": "NFC integrado",
+                                "id": "F-NEW-1783114494080-654",
+                                "name": "Soft Touch",
                                 "image": "/placeholder-image.jpg"
                             }
                         ]
@@ -191,6 +176,11 @@
                             {
                                 "id": "F-SEG",
                                 "name": "Cierre de seguridad",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114764427-196",
+                                "name": "Administrativo",
                                 "image": "/placeholder-image.jpg"
                             }
                         ]
@@ -314,18 +304,48 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
+                                "id": "F-NEW-1783114815767-306",
+                                "name": "Costura",
                                 "image": "/placeholder-image.jpg"
                             },
                             {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
+                                "id": "F-NEW-1783114817906-339",
+                                "name": "Piel",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114825139-882",
+                                "name": "Imitación Piel",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SERI",
+                                "name": "Serigrafía",
                                 "image": "/placeholder-image.jpg"
                             },
                             {
                                 "id": "F-LAS",
                                 "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOT",
+                                "name": "Hot Stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114890679-282",
+                                "name": "Broche",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114898613-952",
+                                "name": "Cierre",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114935541-611",
+                                "name": "Interiores",
                                 "image": "/placeholder-image.jpg"
                             }
                         ]
@@ -335,52 +355,20 @@
                         "name": "Protocolo",
                         "description": "Carpetas para protocolo notarial.",
                         "catchyDescription": "Seguridad y formalidad para tus protocolos.",
-                        "minPurchaseQuantity": 10,
+                        "minPurchaseQuantity": 5,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Protocolo.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-LAS",
-                                "name": "Grabado láser",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": 20103,
                         "name": "Apendice",
                         "description": "Carpetas para apéndices y anexos.",
                         "catchyDescription": "Organización perfecta para anexos.",
-                        "minPurchaseQuantity": 20,
+                        "minPurchaseQuantity": 10,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Apendice.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-LAS",
-                                "name": "Grabado láser",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": 20104,
@@ -390,49 +378,17 @@
                         "minPurchaseQuantity": 3,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de registro.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-LAS",
-                                "name": "Grabado láser",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": 20105,
                         "name": "Libro de índice / Guía",
                         "description": "Libros de índice para fácil referencia.",
                         "catchyDescription": "Acceso rápido y ordenado a tu información.",
-                        "minPurchaseQuantity": 1000,
+                        "minPurchaseQuantity": 3,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de índice.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-LAS",
-                                "name": "Grabado láser",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": 20106,
@@ -442,23 +398,7 @@
                         "minPurchaseQuantity": 3,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro corporativo.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-LAS",
-                                "name": "Grabado láser",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": 20107,
@@ -468,46 +408,40 @@
                         "minPurchaseQuantity": 1,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las Cajas para resguardo.",
                         "image": "/placeholder-image.jpg",
-                        "finishes": [
-                            {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-LAS",
-                                "name": "Grabado láser",
-                                "image": "/placeholder-image.jpg"
-                            }
-                        ]
+                        "finishes": []
                     },
                     {
                         "id": 20108,
                         "name": "Sobre VIP",
                         "description": "Sobres de alta gama para entregas especiales.",
                         "catchyDescription": "Distinción en cada entrega importante.",
-                        "minPurchaseQuantity": 1000,
+                        "minPurchaseQuantity": 5,
                         "whatsappInquiry": "Hola, me gustaría saber más sobre el Sobre VIP.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-CUI",
-                                "name": "Cuero sintético",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
-                                "id": "F-ENC",
-                                "name": "Encuadernación reforzada",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-LAS",
                                 "name": "Grabado láser",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114817906-339",
+                                "name": "Piel",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-NEW-1783114825139-882",
+                                "name": "Imitación Piel",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-HOT",
+                                "name": "Hot Stamping",
+                                "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-SERI",
+                                "name": "Serigrafía",
                                 "image": "/placeholder-image.jpg"
                             }
                         ]
