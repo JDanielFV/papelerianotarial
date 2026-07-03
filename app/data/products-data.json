@@ -22,7 +22,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Sin acabado",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -53,7 +53,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -79,7 +79,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -105,7 +105,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -131,7 +131,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -152,7 +152,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -173,7 +173,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -194,7 +194,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -220,7 +220,7 @@
             "finishes": [
               {
                 "id": "F-STD",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -260,7 +260,7 @@
             "finishes": [
               {
                 "id": "F-20101-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -291,7 +291,7 @@
             "finishes": [
               {
                 "id": "F-20102-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -322,7 +322,7 @@
             "finishes": [
               {
                 "id": "F-20103-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -353,7 +353,7 @@
             "finishes": [
               {
                 "id": "F-20104-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -384,7 +384,7 @@
             "finishes": [
               {
                 "id": "F-20105-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -415,7 +415,7 @@
             "finishes": [
               {
                 "id": "F-20106-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -446,7 +446,7 @@
             "finishes": [
               {
                 "id": "F-20107-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -477,7 +477,7 @@
             "finishes": [
               {
                 "id": "F-20108-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -522,7 +522,7 @@
             "finishes": [
               {
                 "id": "F-30101-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -548,7 +548,7 @@
             "finishes": [
               {
                 "id": "F-30102-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -574,7 +574,7 @@
             "finishes": [
               {
                 "id": "F-30103-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -600,7 +600,7 @@
             "finishes": [
               {
                 "id": "F-30104-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -626,7 +626,7 @@
             "finishes": [
               {
                 "id": "F-30105-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -652,7 +652,7 @@
             "finishes": [
               {
                 "id": "F-30106-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -678,7 +678,7 @@
             "finishes": [
               {
                 "id": "F-30107-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -718,7 +718,7 @@
             "finishes": [
               {
                 "id": "F-40101-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -749,7 +749,7 @@
             "finishes": [
               {
                 "id": "F-40102-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -780,7 +780,7 @@
             "finishes": [
               {
                 "id": "F-40103-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -811,7 +811,7 @@
             "finishes": [
               {
                 "id": "F-40104-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -842,7 +842,7 @@
             "finishes": [
               {
                 "id": "F-40105-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -873,7 +873,7 @@
             "finishes": [
               {
                 "id": "F-40106-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
@@ -904,7 +904,7 @@
             "finishes": [
               {
                 "id": "F-40107-01",
-                "name": "Estándar",
+                "name": "Económico",
                 "image": "/placeholder-image.jpg"
               },
               {
