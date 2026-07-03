@@ -134,13 +134,6 @@ const HeroImage = styled(motion.div)`
     background-size: cover;
     background-position: center;
     z-index: 0;
-
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: var(--modal-overlay-gradient);
-    }
 `;
 
 // --- Right panel: finish list + quote button ---
