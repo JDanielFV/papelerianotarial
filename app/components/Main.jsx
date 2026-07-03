@@ -11,11 +11,12 @@ import { getWhatsAppUrl } from "../lib/contact";
 const MainContainer = styled.main`
     position: relative;
     height: 100vh;
+    height: 100dvh; /* dynamic viewport height for mobile browsers */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 6rem 1.5rem 2rem; /* espacio reservado para navbar arriba */
     overflow: hidden;
 `;
 
@@ -43,50 +44,55 @@ const FloatingCard = styled(motion.div)`
     background: var(--card-background);
     border: 1px solid var(--card-border);
     backdrop-filter: blur(15px);
-    padding: 3rem 2rem;
-    border-radius: 28px;
-    max-width: 650px;
+    /* Padding más compacto: menos aire interno, más presencia del contenido */
+    padding: 2rem 1.75rem;
+    border-radius: 24px;
+    max-width: 480px;     /* reducido de 650px → 480px */
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;            /* reducido de 1.5rem → 1rem */
     z-index: 1;
     box-shadow: var(--shadow);
     text-align: center;
-    
+
     @media (min-width: 768px) {
-        padding: 4rem 3rem;
+        padding: 2.5rem 2.25rem;
+        max-width: 540px;
     }
 `;
 
 const MotionLogo = styled(motion.create(Image))`
-    width: 18rem;
+    /* Logo más compacto: 14rem mobile, 18rem desktop (antes 18/26) */
+    width: 14rem;
     height: auto;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     filter: var(--logo-filter);
 
     @media (min-width: 768px) {
-        width: 26rem;
+        width: 18rem;
     }
 `;
 
 const GoldLabel = styled(motion.span)`
     color: var(--accent-color);
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     display: inline-block;
+    margin-top: -0.25rem; /* pega al logo */
 `;
 
 const Title = styled(motion.h1)`
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 300;
-    line-height: 1.25;
+    line-height: 1.2;
     color: var(--text-light);
     margin: 0;
-    height: 5rem;
+    /* Altura fija más compacta: 4rem mobile, 5.5rem desktop (antes 5/7) */
+    height: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,19 +103,18 @@ const Title = styled(motion.h1)`
     }
 
     @media (min-width: 768px) {
-        font-size: 2.2rem;
-        height: 7rem;
+        font-size: 2rem;
+        height: 5.5rem;
     }
 `;
 
-
-
 const SubTitle = styled(motion.p)`
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.85rem;
+    line-height: 1.55;
     color: var(--text-muted);
     font-weight: 300;
     margin: 0;
+    max-width: 90%;
 
     strong {
         color: var(--text-light);
@@ -117,16 +122,16 @@ const SubTitle = styled(motion.p)`
     }
 
     @media (min-width: 768px) {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
 `;
 
 const ButtonContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0.25rem;
 
     @media (min-width: 480px) {
         flex-direction: row;
@@ -135,15 +140,15 @@ const ButtonContainer = styled(motion.div)`
 `;
 
 const HeroButton = styled(motion(Link))`
-    padding: 0.9rem 2.2rem;
+    padding: 0.75rem 1.75rem;
     border-radius: 50px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     ${({ $primary }) => $primary ? `
         background-color: var(--accent-color);
         color: var(--background-dark);
@@ -167,12 +172,12 @@ const HeroButton = styled(motion(Link))`
 `;
 
 const ScrollText = styled(motion.div)`
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #888888;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     letter-spacing: 1px;
     text-transform: uppercase;
 `;
