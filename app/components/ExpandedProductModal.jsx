@@ -405,7 +405,9 @@ function QuoteForm({ product, finish, onBack }) {
     const [cantidad, setCantidad] = useState("");
     const [error, setError] = useState("");
 
-    const minQty = product?.minPurchaseQuantity || 100;
+    // Preferir minPurchaseQuantity del acabado seleccionado (modelo consolidado);
+    // fallback al del producto genérico.
+    const minQty = finish?.minPurchaseQuantity ?? product?.minPurchaseQuantity ?? 100;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -420,6 +422,10 @@ function QuoteForm({ product, finish, onBack }) {
         }
         setError("");
 
+        // Si el acabado tiene su propio whatsappInquiry, prefiero ese sobre el genérico.
+        const baseInquiry =
+            finish?.whatsappInquiry || product?.whatsappInquiry || "";
+
         const finishLine = finish ? `• Acabado: ${finish.name}\n` : "";
 
         const message =
@@ -428,7 +434,8 @@ function QuoteForm({ product, finish, onBack }) {
             `• Categoría: ${product.subCategoryName || "Catálogo"}\n` +
             finishLine +
             `• Cantidad: ${parsed} unidades\n` +
-            `• Solicitado por: ${nombre}`;
+            `• Solicitado por: ${nombre}\n` +
+            (baseInquiry ? `\n${baseInquiry}` : "");
 
         const waUrl = getWhatsAppUrl(message);
         window.open(waUrl, "_blank", "noopener,noreferrer");

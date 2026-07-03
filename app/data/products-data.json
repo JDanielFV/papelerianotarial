@@ -11,7 +11,7 @@
         "products": [
           {
             "id": 10101,
-            "name": "Testimonio",
+            "name": "Hojas",
             "description": "Hojas para testimonios notariales.",
             "catchyDescription": "La base de todo documento legal.",
             "minPurchaseQuantity": 100,
@@ -19,209 +19,66 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-TEST-01",
-                "name": "Sin acabado",
+                "id": "F-101-01",
+                "name": "Testimonio",
+                "description": "Hojas para testimonios notariales.",
+                "catchyDescription": "La base de todo documento legal.",
+                "minPurchaseQuantity": 100,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para testimonio.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-TEST-02",
-                "name": "Membrete dorado",
+                "id": "F-101-02",
+                "name": "Membreteada",
+                "description": "Hojas con membrete personalizado.",
+                "catchyDescription": "Proyecta profesionalismo en cada comunicación.",
+                "minPurchaseQuantity": 100,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas membretadas.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-TEST-03",
-                "name": "Hot stamping",
+                "id": "F-101-03",
+                "name": "Folio",
+                "description": "Hojas foliadas para documentos oficiales.",
+                "catchyDescription": "Organización y seguridad para tus archivos.",
+                "minPurchaseQuantity": 100,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas foliadas.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-TEST-04",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10102,
-            "name": "Membreteada",
-            "description": "Hojas con membrete personalizado.",
-            "catchyDescription": "Proyecta profesionalismo en cada comunicación.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas membretadas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Sin acabado",
+                "id": "F-101-04",
+                "name": "Póliza",
+                "description": "Hojas para pólizas.",
+                "catchyDescription": "Formalidad y confianza en cada póliza.",
+                "minPurchaseQuantity": 100,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para póliza.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
+                "id": "F-101-05",
+                "name": "Certificados",
+                "description": "Hojas para certificados.",
+                "catchyDescription": "Validez y elegancia en cada certificado.",
+                "minPurchaseQuantity": 50,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificados.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-HOT",
-                "name": "Hot stamping",
+                "id": "F-101-06",
+                "name": "Reconocimientos",
+                "description": "Hojas para reconocimientos.",
+                "catchyDescription": "Honra y distingue con la mejor calidad.",
+                "minPurchaseQuantity": 50,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para reconocimientos.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10103,
-            "name": "Folio",
-            "description": "Hojas foliadas para documentos oficiales.",
-            "catchyDescription": "Organización y seguridad para tus archivos.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas foliadas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Sin acabado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10104,
-            "name": "Póliza",
-            "description": "Hojas para pólizas.",
-            "catchyDescription": "Formalidad y confianza en cada póliza.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para póliza.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Sin acabado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10105,
-            "name": "Certificados",
-            "description": "Hojas para certificados.",
-            "catchyDescription": "Validez y elegancia en cada certificado.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificados.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Sin acabado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10106,
-            "name": "Reconocimientos",
-            "description": "Hojas para reconocimientos.",
-            "catchyDescription": "Honra y distingue con la mejor calidad.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para reconocimientos.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Sin acabado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10107,
-            "name": "Certificaciones",
-            "description": "Hojas para certificaciones.",
-            "catchyDescription": "La firma de la autenticidad.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificaciones.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Sin acabado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-MEM",
-                "name": "Membrete personalizado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOT",
-                "name": "Hot stamping",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holograma de seguridad",
+                "id": "F-101-07",
+                "name": "Certificaciones",
+                "description": "Hojas para certificaciones.",
+                "catchyDescription": "La firma de la autenticidad.",
+                "minPurchaseQuantity": 50,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las hojas para certificaciones.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -234,7 +91,7 @@
         "products": [
           {
             "id": 10201,
-            "name": "Para entrega de testimonio",
+            "name": "Folders",
             "description": "Folders para la entrega de testimonios.",
             "catchyDescription": "La presentación perfecta para tus documentos.",
             "minPurchaseQuantity": 50,
@@ -242,44 +99,21 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
+                "id": "F-102-01",
+                "name": "Para entrega de testimonio",
+                "description": "Folders para la entrega de testimonios.",
+                "catchyDescription": "La presentación perfecta para tus documentos.",
+                "minPurchaseQuantity": 50,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para testimonio.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAM",
-                "name": "Laminado mate",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM-BR",
-                "name": "Laminado brillante",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10202,
-            "name": "Para copia certificada",
-            "description": "Folders para copias certificadas.",
-            "catchyDescription": "Protección y estilo para tus copias.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para copia certificada.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM",
-                "name": "Laminado mate",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM-BR",
-                "name": "Laminado brillante",
+                "id": "F-102-02",
+                "name": "Para copia certificada",
+                "description": "Folders para copias certificadas.",
+                "catchyDescription": "Protección y estilo para tus copias.",
+                "minPurchaseQuantity": 50,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los folders para copia certificada.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -292,7 +126,7 @@
         "products": [
           {
             "id": 10301,
-            "name": "De presentación",
+            "name": "Tarjetas",
             "description": "Tarjetas de presentación personalizadas.",
             "catchyDescription": "Tu primera impresión, impecable.",
             "minPurchaseQuantity": 100,
@@ -300,70 +134,30 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
+                "id": "F-103-01",
+                "name": "De presentación",
+                "description": "Tarjetas de presentación personalizadas.",
+                "catchyDescription": "Tu primera impresión, impecable.",
+                "minPurchaseQuantity": 100,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de presentación.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-NFC",
-                "name": "Con NFC integrado",
+                "id": "F-103-02",
+                "name": "De agradecimiento",
+                "description": "Tarjetas de agradecimiento.",
+                "catchyDescription": "Un detalle que marca la diferencia.",
+                "minPurchaseQuantity": 100,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de agradecimiento.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-LAM",
-                "name": "Laminado brillante",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10302,
-            "name": "De agradecimiento",
-            "description": "Tarjetas de agradecimiento.",
-            "catchyDescription": "Un detalle que marca la diferencia.",
-            "minPurchaseQuantity": 100,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas de agradecimiento.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-NFC",
-                "name": "Con NFC integrado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM",
-                "name": "Laminado brillante",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10303,
-            "name": "Near Field Comunications (NFC)",
-            "description": "Tarjetas con tecnología NFC.",
-            "catchyDescription": "Conecta con tus clientes al instante.",
-            "minPurchaseQuantity": 50,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas NFC.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-NFC",
-                "name": "Con NFC integrado",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAM",
-                "name": "Laminado brillante",
+                "id": "F-103-03",
+                "name": "Near Field Comunications (NFC)",
+                "description": "Tarjetas con tecnología NFC.",
+                "catchyDescription": "Conecta con tus clientes al instante.",
+                "minPurchaseQuantity": 50,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las tarjetas NFC.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -376,7 +170,7 @@
         "products": [
           {
             "id": 10401,
-            "name": "Para entrega",
+            "name": "Sobres",
             "description": "Sobres para entrega de documentos.",
             "catchyDescription": "Seguridad y elegancia en cada envío.",
             "minPurchaseQuantity": 200,
@@ -384,44 +178,21 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
+                "id": "F-104-01",
+                "name": "Para entrega",
+                "description": "Sobres para entrega de documentos.",
+                "catchyDescription": "Seguridad y elegancia en cada envío.",
+                "minPurchaseQuantity": 200,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres para entrega.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-VEN",
-                "name": "Ventana transparente",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SEG",
-                "name": "Cierre de seguridad",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10402,
-            "name": "Administrativo / UIF",
-            "description": "Sobres para uso administrativo y UIF.",
-            "catchyDescription": "Confidencialidad y cumplimiento normativo.",
-            "minPurchaseQuantity": 200,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres administrativos.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-VEN",
-                "name": "Ventana transparente",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-SEG",
-                "name": "Cierre de seguridad",
+                "id": "F-104-02",
+                "name": "Administrativo / UIF",
+                "description": "Sobres para uso administrativo y UIF.",
+                "catchyDescription": "Confidencialidad y cumplimiento normativo.",
+                "minPurchaseQuantity": 200,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los sobres administrativos.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -434,7 +205,7 @@
         "products": [
           {
             "id": 10501,
-            "name": "Ingreso / Egreso",
+            "name": "Recibos",
             "description": "Recibos de ingreso y egreso.",
             "catchyDescription": "Control y claridad en tus finanzas.",
             "minPurchaseQuantity": 100,
@@ -442,13 +213,12 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-AUT",
-                "name": "Autocopiativo (duplicado)",
+                "id": "F-105-01",
+                "name": "Ingreso / Egreso",
+                "description": "Recibos de ingreso y egreso.",
+                "catchyDescription": "Control y claridad en tus finanzas.",
+                "minPurchaseQuantity": 100,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los recibos.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -461,7 +231,7 @@
         "products": [
           {
             "id": 10601,
-            "name": "Notas",
+            "name": "Blocks",
             "description": "Blocks de notas personalizados.",
             "catchyDescription": "Tus ideas, siempre a la mano.",
             "minPurchaseQuantity": 50,
@@ -469,13 +239,12 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-ENC",
-                "name": "Encuadernado",
+                "id": "F-106-01",
+                "name": "Notas",
+                "description": "Blocks de notas personalizados.",
+                "catchyDescription": "Tus ideas, siempre a la mano.",
+                "minPurchaseQuantity": 50,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -488,7 +257,7 @@
         "products": [
           {
             "id": 10701,
-            "name": "Tipo holográficas",
+            "name": "Etiquetas",
             "description": "Etiquetas holográficas de seguridad.",
             "catchyDescription": "La marca de la autenticidad.",
             "minPurchaseQuantity": 1000,
@@ -496,34 +265,21 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
+                "id": "F-107-01",
+                "name": "Tipo holográficas",
+                "description": "Etiquetas holográficas de seguridad.",
+                "catchyDescription": "La marca de la autenticidad.",
+                "minPurchaseQuantity": 1000,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas holográficas.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-HOL",
-                "name": "Holográfica",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10702,
-            "name": "Personalizadas",
-            "description": "Etiquetas personalizadas.",
-            "catchyDescription": "Identifica y organiza con estilo.",
-            "minPurchaseQuantity": 200,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas personalizadas.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-HOL",
-                "name": "Holográfica",
+                "id": "F-107-02",
+                "name": "Personalizadas",
+                "description": "Etiquetas personalizadas.",
+                "catchyDescription": "Identifica y organiza con estilo.",
+                "minPurchaseQuantity": 200,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre las etiquetas personalizadas.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -536,7 +292,7 @@
         "products": [
           {
             "id": 10801,
-            "name": "Tríptico / Díptico",
+            "name": "Flyers",
             "description": "Flyers informativos (trípticos o dípticos).",
             "catchyDescription": "Comunica tus servicios de forma efectiva.",
             "minPurchaseQuantity": 300,
@@ -544,18 +300,12 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-DOB",
-                "name": "Díptico",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-TRI",
-                "name": "Tríptico",
+                "id": "F-108-01",
+                "name": "Tríptico / Díptico",
+                "description": "Flyers informativos (trípticos o dípticos).",
+                "catchyDescription": "Comunica tus servicios de forma efectiva.",
+                "minPurchaseQuantity": 300,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
                 "image": "/placeholder-image.jpg"
               }
             ]
@@ -568,7 +318,7 @@
         "products": [
           {
             "id": 10901,
-            "name": "Sellos oficiales",
+            "name": "Sellos",
             "description": "Sellos notariales oficiales.",
             "catchyDescription": "La firma de la legalidad.",
             "minPurchaseQuantity": 1,
@@ -576,44 +326,21 @@
             "image": "/placeholder-image.jpg",
             "finishes": [
               {
-                "id": "F-STD",
-                "name": "Estándar",
+                "id": "F-109-01",
+                "name": "Sellos oficiales",
+                "description": "Sellos notariales oficiales.",
+                "catchyDescription": "La firma de la legalidad.",
+                "minPurchaseQuantity": 1,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
                 "image": "/placeholder-image.jpg"
               },
               {
-                "id": "F-AUT",
-                "name": "Autoentintable",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
-                "image": "/placeholder-image.jpg"
-              }
-            ]
-          },
-          {
-            "id": 10902,
-            "name": "Sellos corporativos",
-            "description": "Sellos con logo corporativo.",
-            "catchyDescription": "Tu marca en cada documento.",
-            "minPurchaseQuantity": 1,
-            "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos corporativos.",
-            "image": "/placeholder-image.jpg",
-            "finishes": [
-              {
-                "id": "F-STD",
-                "name": "Estándar",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-AUT",
-                "name": "Autoentintable",
-                "image": "/placeholder-image.jpg"
-              },
-              {
-                "id": "F-LAS",
-                "name": "Grabado láser",
+                "id": "F-109-02",
+                "name": "Sellos corporativos",
+                "description": "Sellos con logo corporativo.",
+                "catchyDescription": "Tu marca en cada documento.",
+                "minPurchaseQuantity": 1,
+                "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos corporativos.",
                 "image": "/placeholder-image.jpg"
               }
             ]
