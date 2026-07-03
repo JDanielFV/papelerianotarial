@@ -173,11 +173,22 @@ const CategoryName = styled(motion.h3)`
     color: white;
     font-weight: 300;
     margin-bottom: 0.8rem;
-    line-height: 1.2;
+    /* Altura fija reservada para 2 líneas: line-height * font-size * 2 + gap.
+       Garantiza que todas las cards tengan el mismo alto en el bloque del título,
+       sin importar si el texto wrappea en 1 o 2 líneas. */
+    line-height: 1.15;
     font-size: 1.6rem;
+    /* 1.15 * 1.6rem * 2 = 3.68rem + un pequeño margen visual */
+    min-height: calc(1.15em * 2);
 
     @media (min-width: 768px) {
         font-size: 1.9rem;
+        /* En desktop escalamos: 1.15 * 1.9rem * 2 = 4.37rem */
+        min-height: calc(1.15em * 2);
+    }
+
+    @media (min-width: 1024px) {
+        font-size: 2.1rem;
     }
 `;
 
