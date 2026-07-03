@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled, { css } from "styled-components";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/navigation';
 import { WhatsAppIcon } from "./Icons";
 import { CONTACT } from "../lib/contact";
@@ -239,9 +239,18 @@ function Products({
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.1 });
 
-    // Click en card → navega directo al detalle de productos de la categoría
+    // Estado para coordinar la hero animation: la card clickeada se "expande"
+    // y las otras cards hacen fade-out. Después de la animación, navegamos.
+    const [transitioningId, setTransitioningId] = useState(null);
+
     const handleCardClick = (categoryId) => {
-        router.push(`/catalogo/productos?categoryId=${categoryId}`);
+        if (transitioningId !== null) return; // evitar doble click
+        setTransitioningId(categoryId);
+        // Tiempo de la animación de salida (stagger de fade + scale de la card activa)
+        // antes de navegar a la página de detalle
+        setTimeout(() => {
+            router.push(`/catalogo/productos?categoryId=${categoryId}`);
+        }, 550);
     };
 
     // Layout del bento grid: 1 card grande (2x3) + 3 cards de apoyo
@@ -270,13 +279,26 @@ function Products({
                 <BentoGrid variants={itemVariants}>
                     {products.map((product, idx) => {
                         const { gridColumn, gridRow } = getCardLayout(idx);
+                        const isTransitioning = transitioningId !== null;
+                        const isActive = transitioningId === product.id;
 
                         return (
                             <BentoCard
                                 key={product.id}
                                 style={{ gridColumn, gridRow }}
                                 onClick={() => handleCardClick(product.id)}
-                                whileHover={{ y: -4 }}
+                                animate={
+                                    isActive
+                                        ? { scale: 1.04, y: -8 }
+                                        : isTransitioning
+                                        ? { opacity: 0, scale: 0.92, y: 10 }
+                                        : { scale: 1, y: 0 }
+                                }
+                                transition={{
+                                    duration: 0.55,
+                                    ease: [0.16, 1, 0.3, 1],
+                                }}
+                                whileHover={!isTransitioning ? { y: -4 } : undefined}
                             >
                                 <CardBgImage style={{ backgroundImage: `url(${product.image || '/placeholder-image.jpg'})` }} />
                                 <BentoOverlay />
@@ -300,9 +322,17 @@ function Products({
                                         })()}
                                     </TagList>
 
-                                    <div style={{ color: "var(--accent-color)", fontSize: "0.9rem", fontWeight: "600", marginTop: "1.2rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                                    <motion.div
+                                        style={{ color: "var(--accent-color)", fontSize: "0.9rem", fontWeight: "600", marginTop: "1.2rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
+                                        animate={
+                                            isTransitioning
+                                                ? { opacity: 0, x: -10 }
+                                                : { opacity: 1, x: 0 }
+                                        }
+                                        transition={{ duration: 0.3 }}
+                                    >
                                         Explorar Colección <span>➔</span>
-                                    </div>
+                                    </motion.div>
                                 </CardContent>
                             </BentoCard>
                         );

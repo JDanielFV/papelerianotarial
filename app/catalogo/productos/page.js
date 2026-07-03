@@ -24,7 +24,7 @@ const ExpandedProductModal = dynamicImport(
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-const CatalogContainer = styled.div`
+const CatalogContainer = styled(motion.div)`
     padding: 8rem 5% 5%;
     background-color: var(--background);
     color: var(--foreground);
@@ -51,11 +51,11 @@ const BackButton = styled(Link)`
     }
 `;
 
-const CategorySection = styled.section`
+const CategorySection = styled(motion.section)`
     margin-bottom: 4rem;
 `;
 
-const CategoryTitle = styled.h1`
+const CategoryTitle = styled(motion.h1)`
     font-size: 3rem;
     font-weight: lighter;
     margin-bottom: 2rem;
@@ -67,7 +67,7 @@ const CategoryTitle = styled.h1`
     }
 `;
 
-const ProductGrid = styled.div`
+const ProductGrid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -83,7 +83,7 @@ const ProductGrid = styled.div`
     }
 `;
 
-const SubCategoryTitle = styled.h2`
+const SubCategoryTitle = styled(motion.h2)`
     font-size: 1.8rem;
     color: var(--text-light);
     margin-top: 2rem;
@@ -182,11 +182,15 @@ function CatalogContent() {
     );
 
     return (
-        <CatalogContainer>
+        <CatalogContainer
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
             <BackButton href="/catalogo">
                 ← Volver al Catálogo
             </BackButton>
-            {filteredCategories.map(category => {
+            {filteredCategories.map((category, catIdx) => {
                 // Si la categoría tiene productos planos, render directo.
                 if (Array.isArray(category.products)) {
                     let productsToShow = category.products;
@@ -197,10 +201,43 @@ function CatalogContent() {
                         );
                     }
                     return (
-                        <CategorySection key={category.id}>
-                            <CategoryTitle>{category.name}</CategoryTitle>
-                            <ProductGrid>
-                                {productsToShow.map(p => renderProductCard(p, `flat-${p.id}`))}
+                        <CategorySection
+                            key={category.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <CategoryTitle
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                            >
+                                {category.name}
+                            </CategoryTitle>
+                            <ProductGrid
+                                initial="hidden"
+                                animate="visible"
+                                variants={{
+                                    hidden: {},
+                                    visible: {
+                                        transition: {
+                                            staggerChildren: 0.06,
+                                            delayChildren: 0.25,
+                                        },
+                                    },
+                                }}
+                            >
+                                {productsToShow.map(p => (
+                                    <motion.div
+                                        key={p.id}
+                                        variants={{
+                                            hidden: { opacity: 0, y: 18 },
+                                            visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+                                        }}
+                                    >
+                                        {renderProductCard(p, `flat-${p.id}`)}
+                                    </motion.div>
+                                ))}
                             </ProductGrid>
                         </CategorySection>
                     );
@@ -209,16 +246,53 @@ function CatalogContent() {
                 // Forma con subcategorías (legacy).
                 if (Array.isArray(category.subcategories)) {
                     return (
-                        <CategorySection key={category.id}>
-                            <CategoryTitle>{category.name}</CategoryTitle>
+                        <CategorySection
+                            key={category.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <CategoryTitle
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                            >
+                                {category.name}
+                            </CategoryTitle>
                             {category.subcategories
                                 .filter(sub => !subcategoryId || String(sub.id) === String(subcategoryId))
-                                .map(subCategory => (
+                                .map((subCategory, subIdx) => (
                                 <div key={subCategory.id}>
-                                    <SubCategoryTitle>{subCategory.name}</SubCategoryTitle>
-                                    <ProductGrid>
+                                    <SubCategoryTitle
+                                        initial={{ opacity: 0, y: 8 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.4, delay: 0.2 + subIdx * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        {subCategory.name}
+                                    </SubCategoryTitle>
+                                    <ProductGrid
+                                        initial="hidden"
+                                        animate="visible"
+                                        variants={{
+                                            hidden: {},
+                                            visible: {
+                                                transition: {
+                                                    staggerChildren: 0.06,
+                                                    delayChildren: 0.3 + subIdx * 0.05,
+                                                },
+                                            },
+                                        }}
+                                    >
                                         {subCategory.products.map(product => (
-                                            renderProductCard(product, `sub-${subCategory.id}-${product.id}`)
+                                            <motion.div
+                                                key={product.id}
+                                                variants={{
+                                                    hidden: { opacity: 0, y: 18 },
+                                                    visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+                                                }}
+                                            >
+                                                {renderProductCard(product, `sub-${subCategory.id}-${product.id}`)}
+                                            </motion.div>
                                         ))}
                                     </ProductGrid>
                                 </div>
