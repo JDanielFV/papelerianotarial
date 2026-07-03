@@ -99,6 +99,61 @@ const LeftPanel = styled.div`
         height: 100%;
         flex: 0 0 65%;
     }
+
+    /* Full-bleed: cuando no hay RightPanel, la imagen ocupa todo el modal */
+    ${(props) =>
+        props.$fullBleed &&
+        `
+        @media (min-width: 768px) {
+            width: 100%;
+            flex: 1 1 100%;
+        }
+    `}
+`;
+
+// Gradient overlay al fondo de la imagen para legibilidad del botón flotante
+const ImageOverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.55) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+`;
+
+// Botón flotante full-bleed sobre la imagen (solo cuando no hay acabados)
+const FloatingQuoteButton = styled(motion.button)`
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--background);
+    background-color: #f4c542;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+
+    @media (min-width: 768px) {
+        bottom: 2rem;
+        padding: 1rem 2rem;
+        font-size: 1.05rem;
+    }
 `;
 
 const ProductName = styled.h2`
@@ -560,7 +615,7 @@ function ModalInner({ selectedProduct, onClose }) {
                     }}
                     transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <LeftPanel>
+                    <LeftPanel $fullBleed={finishes.length === 0}>
                         <ProductName>{selectedProduct.name}</ProductName>
                         <HeroStack>
                             {/* Base layer: product image. Never unmounts during session
@@ -588,10 +643,10 @@ function ModalInner({ selectedProduct, onClose }) {
                         </HeroStack>
                     </LeftPanel>
 
-                    <RightPanel>
-                        {finishes.length > 0 && <SectionTitle>Acabados</SectionTitle>}
+                    {finishes.length > 0 && (
+                        <RightPanel>
+                            <SectionTitle>Acabados</SectionTitle>
 
-                        {finishes.length > 0 ? (
                             <FinishesList
                                 initial="hidden"
                                 animate="visible"
@@ -634,26 +689,39 @@ function ModalInner({ selectedProduct, onClose }) {
                                     );
                                 })}
                             </FinishesList>
-                        ) : (
-                            <EmptyState>
-                                Este artículo no tiene acabados configurados.
-                            </EmptyState>
-                        )}
 
-                        <QuoteButton
-                            type="button"
-                            onClick={() => setShowQuoteForm(true)}
-                            disabled={!canQuote}
-                            whileHover={canQuote ? { y: -4 } : {}}
-                            whileTap={canQuote ? { y: 1 } : {}}
-                            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <WhatsAppIcon size={18} />
-                            {finishes.length > 0 && !selectedFinishId
-                                ? "Selecciona un acabado"
-                                : "Cotizar por WhatsApp"}
-                        </QuoteButton>
-                    </RightPanel>
+                            <QuoteButton
+                                type="button"
+                                onClick={() => setShowQuoteForm(true)}
+                                disabled={!canQuote}
+                                whileHover={canQuote ? { y: -4 } : {}}
+                                whileTap={canQuote ? { y: 1 } : {}}
+                                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                            >
+                                <WhatsAppIcon size={18} />
+                                {!selectedFinishId
+                                    ? "Selecciona un acabado"
+                                    : "Cotizar por WhatsApp"}
+                            </QuoteButton>
+                        </RightPanel>
+                    )}
+
+                    {/* Floating quote button when no finishes: image goes full-bleed */}
+                    {finishes.length === 0 && (
+                        <>
+                            <ImageOverlay />
+                            <FloatingQuoteButton
+                                type="button"
+                                onClick={() => setShowQuoteForm(true)}
+                                whileHover={{ y: -4 }}
+                                whileTap={{ y: 1 }}
+                                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                            >
+                                <WhatsAppIcon size={18} />
+                                Cotizar por WhatsApp
+                            </FloatingQuoteButton>
+                        </>
+                    )}
 
                     <AnimatePresence>
                         {showQuoteForm && (
