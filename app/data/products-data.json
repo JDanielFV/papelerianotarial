@@ -54,6 +54,11 @@
                                 "id": "F-HOL",
                                 "name": "Holograma de seguridad",
                                 "image": "/placeholder-image.jpg"
+                            },
+                            {
+                                "id": "F-LAS",
+                                "name": "Grabado láser premium",
+                                "image": "/placeholder-image.jpg"
                             }
                         ]
                     },
@@ -200,11 +205,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-AUT",
                                 "name": "Autocopiativo (duplicado)",
                                 "image": "/placeholder-image.jpg"
@@ -220,11 +220,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los blocks de notas.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-COMP",
                                 "name": "Compaginado",
@@ -247,11 +242,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-HOL",
                                 "name": "Holograma de seguridad",
                                 "image": "/placeholder-image.jpg"
@@ -267,11 +257,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los flyers.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-DIP",
                                 "name": "Díptico",
@@ -293,11 +278,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los sellos oficiales.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-AUT",
                                 "name": "Autoentintable",
@@ -334,11 +314,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
                                 "image": "/placeholder-image.jpg"
@@ -364,11 +339,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las carpetas de Protocolo.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
@@ -396,11 +366,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
                                 "image": "/placeholder-image.jpg"
@@ -426,11 +391,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro de registro.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
@@ -458,11 +418,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
                                 "image": "/placeholder-image.jpg"
@@ -488,11 +443,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre el Libro corporativo.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
@@ -520,11 +470,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
                                 "image": "/placeholder-image.jpg"
@@ -550,11 +495,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre el Sobre VIP.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-CUI",
                                 "name": "Cuero sintético",
@@ -596,11 +536,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-SER",
                                 "name": "Serigrafía a color",
                                 "image": "/placeholder-image.jpg"
@@ -631,11 +566,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas promocionales.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-SER",
                                 "name": "Serigrafía a color",
@@ -668,11 +598,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-SER",
                                 "name": "Serigrafía a color",
                                 "image": "/placeholder-image.jpg"
@@ -703,11 +628,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos promocionales.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-SER",
                                 "name": "Serigrafía a color",
@@ -740,11 +660,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-SER",
                                 "name": "Serigrafía a color",
                                 "image": "/placeholder-image.jpg"
@@ -776,11 +691,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-SER",
                                 "name": "Serigrafía a color",
                                 "image": "/placeholder-image.jpg"
@@ -811,11 +721,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas promocionales.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-SER",
                                 "name": "Serigrafía a color",
@@ -862,11 +767,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-LAS",
                                 "name": "Grabado láser premium",
                                 "image": "/placeholder-image.jpg"
@@ -897,11 +797,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las Servilletas personalizadas.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-LAS",
                                 "name": "Grabado láser premium",
@@ -934,11 +829,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-LAS",
                                 "name": "Grabado láser premium",
                                 "image": "/placeholder-image.jpg"
@@ -969,11 +859,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre los Portavasos personalizados.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-LAS",
                                 "name": "Grabado láser premium",
@@ -1006,11 +891,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-LAS",
                                 "name": "Grabado láser premium",
                                 "image": "/placeholder-image.jpg"
@@ -1042,11 +922,6 @@
                         "image": "/placeholder-image.jpg",
                         "finishes": [
                             {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
-                            {
                                 "id": "F-LAS",
                                 "name": "Grabado láser premium",
                                 "image": "/placeholder-image.jpg"
@@ -1077,11 +952,6 @@
                         "whatsappInquiry": "Hola, me gustaría saber más sobre las Agendas personalizadas.",
                         "image": "/placeholder-image.jpg",
                         "finishes": [
-                            {
-                                "id": "F-STD",
-                                "name": "Económico",
-                                "image": "/placeholder-image.jpg"
-                            },
                             {
                                 "id": "F-LAS",
                                 "name": "Grabado láser premium",
