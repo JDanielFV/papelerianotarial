@@ -555,12 +555,13 @@ function ModalInner({ selectedProduct, onClose }) {
                 <ExpandedCard
                     layoutId={isPresent ? `card-${selectedProduct.id}` : undefined}
                     onClick={(e) => e.stopPropagation()}
-                    initial={{ opacity: 0, scale: 0.96, y: 24 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    /* Sin scale: la foto dentro se queda visualmente quieta
+                       mientras la card se asienta. Solo fade + slide-up sutil. */
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
                     exit={{
                         opacity: 0,
-                        scale: 0.96,
-                        y: 16,
+                        y: 12,
                         transition: { duration: 0.22, ease: [0.16, 1, 0.3, 1] },
                     }}
                     transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
