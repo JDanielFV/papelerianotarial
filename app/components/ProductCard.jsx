@@ -18,6 +18,10 @@ export const MotionProductCard = styled(motion.div)`
     text-align: left;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: #0a0a0a; // Fallback
+    /* Accesibilidad: semántica de botón para screen readers */
+    &[role="button"] {
+        cursor: pointer;
+    }
 
     @media (min-width: 768px) {
         height: 420px;

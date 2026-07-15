@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { getWhatsAppUrl } from "../lib/contact";
 
 // Styled Components
@@ -198,6 +199,12 @@ function NavBar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const controls = useAnimation();
     const lastYPos = useRef(0);
+    const pathname = usePathname();
+
+    const isActive = (href) => {
+        if (href === "/") return pathname === "/";
+        return pathname.startsWith(href);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -250,16 +257,17 @@ function NavBar() {
                     </Link>
                     
                     <DesktopLinks>
-                        <NavLink href="/">Inicio</NavLink>
-                        <NavLink href="/catalogo">Catálogo</NavLink>
-                        <NavLink href="/servicios">Servicios</NavLink>
-                        <NavLink href="/contacto">Contacto</NavLink>
+                        <NavLink href="/" aria-current={isActive("/") ? "page" : undefined}>Inicio</NavLink>
+                        <NavLink href="/catalogo" aria-current={isActive("/catalogo") ? "page" : undefined}>Catálogo</NavLink>
+                        <NavLink href="/servicios" aria-current={isActive("/servicios") ? "page" : undefined}>Servicios</NavLink>
+                        <NavLink href="/contacto" aria-current={isActive("/contacto") ? "page" : undefined}>Contacto</NavLink>
                     </DesktopLinks>
 
                     <CTAButton 
                         href={getWhatsAppUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Cotizar por WhatsApp"
                     >
                         Cotizar ahora
                     </CTAButton>
@@ -280,10 +288,10 @@ function NavBar() {
             </MotionNavContainer>
             
             <MenuContainer isOpen={isMenuOpen}>
-                <MenuLink href="/" onClick={() => setMenuOpen(false)}>Inicio</MenuLink>
-                <MenuLink href="/catalogo" onClick={() => setMenuOpen(false)}>Catálogo</MenuLink>
-                <MenuLink href="/servicios" onClick={() => setMenuOpen(false)}>Servicios</MenuLink>
-                <MenuLink href="/contacto" onClick={() => setMenuOpen(false)}>Contacto</MenuLink>
+                <MenuLink href="/" onClick={() => setMenuOpen(false)} aria-current={isActive("/") ? "page" : undefined}>Inicio</MenuLink>
+                <MenuLink href="/catalogo" onClick={() => setMenuOpen(false)} aria-current={isActive("/catalogo") ? "page" : undefined}>Catálogo</MenuLink>
+                <MenuLink href="/servicios" onClick={() => setMenuOpen(false)} aria-current={isActive("/servicios") ? "page" : undefined}>Servicios</MenuLink>
+                <MenuLink href="/contacto" onClick={() => setMenuOpen(false)} aria-current={isActive("/contacto") ? "page" : undefined}>Contacto</MenuLink>
             </MenuContainer>
         </>
     );

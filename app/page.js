@@ -39,12 +39,14 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Main {...homeData.main} />
-      <Processes {...homeData.processes} />
-      <Products {...homeData.products} products={productData} />
-      <Quality {...homeData.quality} />
-      <Beliefs />
-      <AboutUs {...homeData.aboutUs} />
-      <ContactSection {...homeData.contactSection} />
+      <main id="main-content">
+        <Processes {...homeData.processes} />
+        <Products {...homeData.products} products={productData} />
+        <Quality {...homeData.quality} />
+        <Beliefs />
+        <AboutUs {...homeData.aboutUs} />
+        <ContactSection {...homeData.contactSection} />
+      </main>
     </>
   );
 }

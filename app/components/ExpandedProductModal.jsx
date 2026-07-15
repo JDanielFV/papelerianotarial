@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { motion, AnimatePresence, usePresence } from "framer-motion";
 import { WhatsAppIcon } from "./Icons";
 import { getWhatsAppUrl } from "../lib/contact";
+import useFocusTrap from "../hooks/useFocusTrap";
 
 const ExpandedViewContainer = styled(motion.div)`
     position: fixed;
@@ -564,6 +565,7 @@ function ModalInner({ selectedProduct, onClose }) {
     const [selectedFinishId, setSelectedFinishId] = useState(null);
     const [showQuoteForm, setShowQuoteForm] = useState(false);
     const [prevProductId, setPrevProductId] = useState(selectedProduct?.id);
+    const focusTrapRef = useFocusTrap(!!selectedProduct);
 
     // Adjust state during render when the product changes (React 19 idiom).
     if (selectedProduct?.id !== prevProductId) {
@@ -602,6 +604,7 @@ function ModalInner({ selectedProduct, onClose }) {
             />
             <ExpandedCardWrapper key="card-wrapper" onClick={onClose}>
                 <ExpandedCard
+                    ref={focusTrapRef}
                     layoutId={isPresent ? `card-${selectedProduct.id}` : undefined}
                     onClick={(e) => e.stopPropagation()}
                     /* Sin scale: la foto dentro se queda visualmente quieta

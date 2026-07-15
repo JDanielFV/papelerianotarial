@@ -155,6 +155,7 @@ export default function Footer() {
                             whileTap={{ y: 1 }}
                             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                             title="Facebook"
+                            aria-label="Facebook"
                         >
                             <FacebookIcon size={20} />
                         </SocialIcon>
@@ -165,6 +166,7 @@ export default function Footer() {
                             whileTap={{ y: 1 }}
                             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                             title="Instagram"
+                            aria-label="Instagram"
                         >
                             <InstagramIcon size={20} />
                         </SocialIcon>
@@ -175,6 +177,7 @@ export default function Footer() {
                             whileTap={{ y: 1 }}
                             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                             title="Sitio Web"
+                            aria-label="Sitio Web"
                         >
                             <GlobeIcon size={20} />
                         </SocialIcon>

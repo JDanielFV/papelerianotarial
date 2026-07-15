@@ -290,13 +290,14 @@ export default function Main({
     return (
         <MainContainer ref={containerRef}>
             <Overlay />
-            <FondoVideo 
+            <FondoVideo
                 ref={videoRef}
-                muted 
-                loop 
-                playsInline 
+                muted
+                loop
+                playsInline
                 preload="metadata"
                 poster="/hero-poster.jpg"
+                aria-hidden="true"
             >
                 {/* Modern optimized sources - much smaller than original 8MB m4v */}
                 <source src="/fondo.webm" type="video/webm" />

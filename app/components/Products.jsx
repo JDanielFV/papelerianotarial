@@ -295,6 +295,8 @@ function Products({
                         return (
                             <BentoCard
                                 key={product.id}
+                                role="button"
+                                tabIndex={0}
                                 style={{ gridColumn, gridRow }}
                                 onClick={() => handleCardClick(product.id)}
                                 animate={

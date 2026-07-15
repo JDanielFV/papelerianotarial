@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import StyledComponentsRegistry from "./lib/StyledComponentsRegistry";
 import PageTransition from "./components/PageTransition";
+import SkipLink from "./components/SkipLink";
+import { MotionConfig } from "framer-motion";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -35,10 +37,13 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={raleway.className}>
         <StyledComponentsRegistry>
-          <NavBar />
-          <PageTransition>{children}</PageTransition>
-          <Footer />
-          <ScrollToTop />
+          <MotionConfig reducedMotion="user">
+            <SkipLink />
+            <NavBar />
+            <PageTransition>{children}</PageTransition>
+            <Footer />
+            <ScrollToTop />
+          </MotionConfig>
         </StyledComponentsRegistry>
       </body>
     </html>

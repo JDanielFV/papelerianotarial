@@ -168,6 +168,8 @@ function CatalogContent() {
     const renderProductCard = (product, key) => (
         <MotionProductCard
             key={key}
+            role="button"
+            tabIndex={0}
             layoutId={`card-${product.id}`}
             onClick={() => handleCardClick(product.id)}
         >
