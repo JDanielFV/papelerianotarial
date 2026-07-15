@@ -59,8 +59,8 @@ const CloseButton = styled.button`
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -453,6 +453,7 @@ function QuoteForm({ product, finish, onBack }) {
     const [nombre, setNombre] = useState("");
     const [cantidad, setCantidad] = useState("");
     const [error, setError] = useState("");
+    const [sent, setSent] = useState(false);
 
     // Preferir minPurchaseQuantity del acabado seleccionado (modelo consolidado);
     // fallback al del producto genérico.
@@ -488,6 +489,7 @@ function QuoteForm({ product, finish, onBack }) {
 
         const waUrl = getWhatsAppUrl(message);
         window.open(waUrl, "_blank", "noopener,noreferrer");
+        setSent(true);
     };
 
     return (
@@ -516,6 +518,8 @@ function QuoteForm({ product, finish, onBack }) {
                             setNombre(e.target.value);
                             if (error) setError("");
                         }}
+                        aria-invalid={error ? "true" : undefined}
+                        aria-describedby={error ? "quote-error" : undefined}
                     />
                 </SubModalFormGroup>
 
@@ -540,8 +544,19 @@ function QuoteForm({ product, finish, onBack }) {
                     />
                 </SubModalFormGroup>
 
-                {error && <SubModalError>{error}</SubModalError>}
+                {error && <SubModalError role="alert" id="quote-error">{error}</SubModalError>}
 
+                {sent ? (
+                    <SubModalSendButton
+                        type="button"
+                        whileHover={{ y: -4 }}
+                        whileTap={{ y: 1 }}
+                        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                        onClick={onBack}
+                    >
+                        ✓ Cotización enviada — Volver
+                    </SubModalSendButton>
+                ) : (
                 <SubModalSendButton
                     type="submit"
                     whileHover={{ y: -4 }}
@@ -551,6 +566,7 @@ function QuoteForm({ product, finish, onBack }) {
                     <WhatsAppIcon size={18} />
                     Enviar Cotización
                 </SubModalSendButton>
+                )}
 
                 <SubModalBackButton type="button" onClick={onBack}>
                     ← Volver a acabados

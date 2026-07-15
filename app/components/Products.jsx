@@ -98,7 +98,7 @@ const BentoGrid = styled(motion.div)`
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(6, 90px);
         gap: 2rem;
-        height: 640px;
+        min-height: 640px;
     }
 `;
 

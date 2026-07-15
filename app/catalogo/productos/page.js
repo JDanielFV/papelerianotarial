@@ -194,6 +194,8 @@ function CatalogContent() {
 
     return (
         <CatalogContainer
+            role="main"
+            id="main-content"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}

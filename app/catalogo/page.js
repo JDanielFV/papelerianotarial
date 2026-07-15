@@ -4,6 +4,8 @@ import productData from "../data/products-data.json";
 
 export default function ProductsPage() {
   return (
-    <Products {...homeData.products} products={productData} />
+    <main id="main-content">
+      <Products {...homeData.products} products={productData} />
+    </main>
   );
 }
