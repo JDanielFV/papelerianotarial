@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/navigation';
@@ -123,6 +123,32 @@ const BentoCard = styled(motion.div)`
 
     @media (min-width: 1024px) {
         height: 100%;
+    }
+
+    /* --- Bento grid positions per breakpoint --- */
+
+    /* Mobile (< 768px): 1 column, auto-placement — no explicit positions needed */
+
+    /* Tablet (768px - 1023px): 2 columns, auto-placement — no explicit positions needed */
+
+    /* Desktop (>= 1024px): 3 columns, explicit bento layout */
+    @media (min-width: 1024px) {
+        &:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 4;
+        }
+        &:nth-child(2) {
+            grid-column: 3 / 4;
+            grid-row: 1 / 4;
+        }
+        &:nth-child(3) {
+            grid-column: 1 / 2;
+            grid-row: 4 / 7;
+        }
+        &:nth-child(4) {
+            grid-column: 2 / 4;
+            grid-row: 4 / 7;
+        }
     }
 `;
 
@@ -248,18 +274,6 @@ function Products({
     const router = useRouter();
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.1 });
-    const [isDesktop, setIsDesktop] = useState(() => {
-        if (typeof window === "undefined") return false;
-        return window.matchMedia("(min-width: 1024px)").matches;
-    });
-
-    // Detectar viewport para layout del bento grid
-    useEffect(() => {
-        const mq = window.matchMedia("(min-width: 1024px)");
-        const handler = (e) => setIsDesktop(e.matches);
-        mq.addEventListener("change", handler);
-        return () => mq.removeEventListener("change", handler);
-    }, []);
 
     // Estado para coordinar la hero animation: la card clickeada se "expande"
     // y las otras cards hacen fade-out. Después de la animación, navegamos.
@@ -275,16 +289,9 @@ function Products({
         }, 550);
     };
 
-    // Layout del bento grid: solo aplica posiciones explícitas en desktop (>= 1024px).
-    // En mobile y tablet, el auto-placement maneja el orden natural.
-    const getCardLayout = (idx) => {
-        if (!isDesktop) return {};
-        if (idx === 0) return { gridColumn: "1 / 3", gridRow: "1 / 4" };
-        if (idx === 1) return { gridColumn: "3 / 4", gridRow: "1 / 4" };
-        if (idx === 2) return { gridColumn: "1 / 2", gridRow: "4 / 7" };
-        if (idx === 3) return { gridColumn: "2 / 4", gridRow: "4 / 7" };
-        return {};
-    };
+    // Las posiciones del bento grid se manejan vía CSS (:nth-child en media queries).
+    // Esta función retorna vacío para que CSS Grid use auto-placement siempre.
+    const getCardLayout = () => ({});
 
     return (
         <MotionProductsContainer
