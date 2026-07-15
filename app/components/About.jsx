@@ -299,10 +299,11 @@ export default function About({
     const inView = useInView(ref, { once: true, amount: 0.2 });
     const [activeIndex, setActiveIndex] = useState(0);
     const [bgImageIndex, setBgImageIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
 
-    // Auto-cycle effect
+    // Auto-cycle effect with pause support
     useEffect(() => {
-        if (!categories || categories.length === 0) return;
+        if (!categories || categories.length === 0 || isPaused) return;
         
         const interval = setInterval(() => {
             setBgImageIndex((prev) => {
@@ -316,7 +317,7 @@ export default function About({
         }, 4000);
 
         return () => clearInterval(interval);
-    }, [categories, activeIndex, bgImageIndex]);
+    }, [categories, activeIndex, bgImageIndex, isPaused]);
 
     const handleHover = (index) => {
         if (activeIndex !== index) {
@@ -359,7 +360,10 @@ export default function About({
                 <BackgroundOverlay />
             </BackgroundWrapper>
 
-            <ContentWrapper>
+            <ContentWrapper
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+            >
                 <HeaderGroup>
                     {title && (
                         <HighlightText 
