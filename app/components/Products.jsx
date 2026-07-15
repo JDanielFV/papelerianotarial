@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRouter } from 'next/navigation';
@@ -248,6 +248,18 @@ function Products({
     const router = useRouter();
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, amount: 0.1 });
+    const [isDesktop, setIsDesktop] = useState(() => {
+        if (typeof window === "undefined") return false;
+        return window.matchMedia("(min-width: 1024px)").matches;
+    });
+
+    // Detectar viewport para layout del bento grid
+    useEffect(() => {
+        const mq = window.matchMedia("(min-width: 1024px)");
+        const handler = (e) => setIsDesktop(e.matches);
+        mq.addEventListener("change", handler);
+        return () => mq.removeEventListener("change", handler);
+    }, []);
 
     // Estado para coordinar la hero animation: la card clickeada se "expande"
     // y las otras cards hacen fade-out. Después de la animación, navegamos.
@@ -263,8 +275,10 @@ function Products({
         }, 550);
     };
 
-    // Layout del bento grid: 1 card grande (2x3) + 3 cards de apoyo
+    // Layout del bento grid: solo aplica posiciones explícitas en desktop (>= 1024px).
+    // En mobile y tablet, el auto-placement maneja el orden natural.
     const getCardLayout = (idx) => {
+        if (!isDesktop) return {};
         if (idx === 0) return { gridColumn: "1 / 3", gridRow: "1 / 4" };
         if (idx === 1) return { gridColumn: "3 / 4", gridRow: "1 / 4" };
         if (idx === 2) return { gridColumn: "1 / 2", gridRow: "4 / 7" };
