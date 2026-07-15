@@ -329,7 +329,7 @@ export default function Main({
                 
                 {goldLabel && <GoldLabel>{goldLabel}</GoldLabel>}
                 
-                <Title>
+                <Title aria-live="polite" aria-atomic="true">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentPhraseIndex}

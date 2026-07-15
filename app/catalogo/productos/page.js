@@ -7,6 +7,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import dynamicImport from 'next/dynamic';
 import productData from '../../data/products-data.json';
+import Breadcrumbs from '../../components/Breadcrumbs';
 
 import {
     MotionProductCard,
@@ -88,6 +89,14 @@ const SubCategoryTitle = styled(motion.h2)`
     color: var(--text-light);
     margin-top: 2rem;
     margin-bottom: 1rem;
+`;
+
+const EmptyStateMessage = styled.p`
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    padding: 3rem 1rem;
+    grid-column: 1 / -1;
 `;
 
 /**
@@ -192,6 +201,25 @@ function CatalogContent() {
             <BackButton href="/catalogo">
                 ← Volver al Catálogo
             </BackButton>
+            {(() => {
+                // Construir breadcrumbs basados en los search params
+                const crumbs = [{ label: "Catálogo", href: "/catalogo" }];
+                if (categoryId) {
+                    const cat = productData.find(c => String(c.id) === String(categoryId));
+                    if (cat) {
+                        crumbs.push({ label: cat.name, href: `/catalogo/productos?categoryId=${categoryId}` });
+                        if (subcategoryId) {
+                            for (const sub of (cat.subcategories || [])) {
+                                if (String(sub.id) === String(subcategoryId)) {
+                                    crumbs.push({ label: sub.name });
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                return <Breadcrumbs items={crumbs} />;
+            })()}
             {filteredCategories.map((category, catIdx) => {
                 // Si la categoría tiene productos planos, render directo.
                 if (Array.isArray(category.products)) {
@@ -216,6 +244,11 @@ function CatalogContent() {
                             >
                                 {category.name}
                             </CategoryTitle>
+                            {productsToShow.length === 0 ? (
+                                <EmptyStateMessage>
+                                    No hay productos disponibles en esta categoría.
+                                </EmptyStateMessage>
+                            ) : (
                             <ProductGrid
                                 initial="hidden"
                                 animate="visible"
@@ -241,6 +274,7 @@ function CatalogContent() {
                                     </motion.div>
                                 ))}
                             </ProductGrid>
+                            )}
                         </CategorySection>
                     );
                 }
