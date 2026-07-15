@@ -280,6 +280,11 @@ function Products({
     const [transitioningId, setTransitioningId] = useState(null);
 
     const handleCardClick = (categoryId) => {
+        // Articulos Personalizados (id=4) redirige al formulario de contacto
+        if (String(categoryId) === "4") {
+            router.push("/contacto");
+            return;
+        }
         if (transitioningId !== null) return; // evitar doble click
         setTransitioningId(categoryId);
         // Tiempo de la animación de salida (stagger de fade + scale de la card activa)
